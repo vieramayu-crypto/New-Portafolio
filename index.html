@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAYU — Fotografías de Bodas & Luxury Hotels</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: '#fbfaf6',
+              'cream-light': '#ffffff',
+              'cream-dark': '#eeebe3',
+              charcoal: '#1a1918',
+              'charcoal-muted': '#5a5854',
+            },
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
+              display: ['"Playfair Display"', '"Cormorant Garamond"', 'serif'],
+              sans: ['"Plus Jakarta Sans"', 'Helvetica', 'Arial', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body class="bg-[#fbfaf6] text-[#1a1918] font-sans antialiased selection:bg-[#1a1918] selection:text-[#fbfaf6]">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

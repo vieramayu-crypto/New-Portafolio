@@ -1,0 +1,6 @@
+{
+  "name": "Marcus — Bennet",
+  "description": "Editorial portfolio homepage for Marcus Bennet",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

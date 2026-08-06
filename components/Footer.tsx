@@ -1,0 +1,74 @@
+import React from 'react';
+import { Page } from '../types';
+
+interface FooterProps {
+  onNavigate: (page: Page) => void;
+  onOpenAvailability: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }) => {
+  return (
+    <footer className="bg-[#1a1918] text-[#f5f3ed] pt-16 pb-12 px-6 md:px-16 font-sans border-t border-[#f5f3ed]/10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#f5f3ed]/15">
+        {/* Brand */}
+        <div className="md:col-span-4 space-y-4">
+          <span className="font-serif text-2xl tracking-[0.2em] font-medium block">
+            MAYU
+          </span>
+          <p className="text-xs text-[#f5f3ed]/60 max-w-xs leading-relaxed font-sans">
+            Fotografía editorial de bodas y hoteles de lujo en Italia y destinos internacionales.
+          </p>
+        </div>
+
+        {/* Links */}
+        <div className="md:col-span-4 space-y-3">
+          <span className="text-[10px] font-sans tracking-[0.25em] uppercase text-[#f5f3ed]/40 block mb-2">
+            Navegación
+          </span>
+          <div className="flex flex-col space-y-2 text-xs font-sans tracking-wider uppercase text-[#f5f3ed]/80">
+            <button onClick={() => onNavigate('home')} className="text-left hover:text-[#f5f3ed]">
+              Inicio / Hoteles
+            </button>
+            <button onClick={() => onNavigate('portfolio')} className="text-left hover:text-[#f5f3ed]">
+              Portafolio
+            </button>
+            <button onClick={() => onNavigate('about')} className="text-left hover:text-[#f5f3ed]">
+              Acerca de
+            </button>
+            <button onClick={() => onNavigate('contact')} className="text-left hover:text-[#f5f3ed]">
+              Contacto
+            </button>
+          </div>
+        </div>
+
+        {/* Contact & Social */}
+        <div className="md:col-span-4 space-y-3">
+          <span className="text-[10px] font-sans tracking-[0.25em] uppercase text-[#f5f3ed]/40 block mb-2">
+            Contacto & Social
+          </span>
+          <p className="text-xs text-[#f5f3ed]/80">info@adovasio.it</p>
+          <div className="flex space-x-6 text-xs uppercase tracking-widest text-[#f5f3ed]/70 pt-2">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-[#f5f3ed]">
+              Instagram
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noreferrer" className="hover:text-[#f5f3ed]">
+              Pinterest
+            </a>
+          </div>
+          <button
+            onClick={onOpenAvailability}
+            className="mt-4 inline-block text-xs font-sans tracking-[0.2em] uppercase border border-[#f5f3ed]/30 px-4 py-2 hover:bg-[#f5f3ed] hover:text-[#1a1918] transition-colors"
+          >
+            Comprobar Disponibilidad &rarr;
+          </button>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] font-sans text-[#f5f3ed]/50 tracking-wider">
+        <span>&copy; {new Date().getFullYear()} MAYU. Todos los derechos reservados.</span>
+        <span className="mt-2 sm:mt-0">Fotografía Editorial &bull; Hoteles de Lujo</span>
+      </div>
+    </footer>
+  );
+};
