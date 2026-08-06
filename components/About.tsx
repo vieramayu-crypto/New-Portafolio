@@ -1,16 +1,26 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import heroPortraitBW from '../src/assets/images/hero_portrait_bw_1786010923167.jpg';
+import { ProductionScope } from './ProductionScope';
+import { Testimonials } from './Testimonials';
+import { DigitalReach } from './DigitalReach';
 
 interface AboutProps {
   onOpenAvailability: () => void;
 }
 
+const WHY_COLLABORATE = [
+  'Dirección creativa alineada con tu propiedad',
+  'Coherencia visual: arquitectura, lifestyle y atmósfera',
+  'Proceso de producción organizado y entrega cuidada',
+  'Imágenes pensadas para durar y funcionar bien en digital',
+];
+
 export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
   return (
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] pt-28 pb-24 px-6 md:px-12 max-w-6xl mx-auto font-sans">
-      {/* Hero Header */}
+      {/* Bio Header */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-        {/* Left Editorial Portrait Image */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -19,86 +29,91 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         >
           <div className="relative aspect-[3/4] overflow-hidden border border-[#1a1918]/15 shadow-md">
             <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85"
-              alt="Fotógrafo Adovasio"
-              className="w-full h-full object-cover grayscale contrast-110"
+              src={heroPortraitBW}
+              alt="Mayurlin Viera, Directora Creativa"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-[50%_20%] grayscale contrast-110"
             />
-          </div>
-          <div className="absolute -bottom-4 -right-4 bg-[#1a1918] text-[#f5f3ed] p-4 font-serif italic text-xs tracking-widest uppercase">
-            Milán &bull; Amalfi &bull; Lago di Como
           </div>
         </motion.div>
 
-        {/* Right Artist Bio */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:col-span-7 space-y-6"
         >
-          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">
-            Acerca de / Sobre Mí
-          </span>
+          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">Sobre mí</span>
           <h1 className="font-serif text-3xl md:text-5xl text-[#1a1918] leading-tight">
-            «Capturando el romance atemporal en las villas y hoteles más emblemáticos del mundo.»
+            Mayurlin Viera <span className="text-[#5a5854] text-2xl md:text-3xl">— Directora Creativa</span>
           </h1>
           <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">
-            Con más de una década documentando bodas exclusivas en el Lago di Como, la Costa Amalfitana, Venecia y la Toscana, la fotografía de Adovasio combina el enfoque editorial de la alta costura con la espontaneidad del periodismo visual intimista.
+            Creo fotografía y contenido cinematográfico para hoteles y propiedades de lujo.
           </p>
           <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">
-            Cada imagen es concebida con devoción por la luz natural, las texturas de arquitectura clásica y la elegancia serena que caracteriza a los mejores hoteles de lujo de Italia.
+            Mi trabajo parte de una dirección visual cuidada, sensibilidad arquitectónica y coherencia con la
+            identidad de cada marca. Cada proyecto se desarrolla con claridad y precisión, asegurando una imagen
+            consistente en todas las plataformas digitales.
+          </p>
+          <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">
+            Colaboro con propiedades que combinan lujo y responsabilidad con el entorno.
           </p>
 
-          <div className="pt-4 flex items-center space-x-6">
+          <div className="pt-4">
             <button
               onClick={onOpenAvailability}
               className="bg-[#1a1918] text-[#f5f3ed] px-6 py-3 text-xs font-sans tracking-[0.2em] uppercase font-medium hover:bg-[#5a5854] transition-colors"
             >
-              Comprobar disponibilidad
+              Iniciar una colaboración
             </button>
           </div>
         </motion.div>
       </div>
 
-      {/* Featured Publications */}
-      <div className="border-t border-b border-[#1a1918]/15 py-12 mb-24 text-center space-y-6">
-        <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">
-          Publicado & Reconocido En
-        </span>
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 font-serif italic text-2xl md:text-3xl text-[#1a1918]/80">
-          <span>Vogue Weddings</span>
-          <span>Harper’s Bazaar</span>
-          <span>Over The Moon</span>
-          <span>Style Me Pretty</span>
-          <span>Elle Sposa</span>
+      {/* Why collaborate */}
+      <div className="mb-24">
+        <div className="text-center mb-10">
+          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">Por qué colaborar</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          {WHY_COLLABORATE.map((item) => (
+            <div key={item} className="flex items-start gap-3 border border-[#1a1918]/10 bg-white/40 p-5">
+              <span className="font-serif text-lg text-[#1a1918]/40 mt-0.5">&mdash;</span>
+              <p className="text-sm text-[#1a1918] leading-relaxed">{item}</p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Philosophy Three Pillars */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="space-y-3 p-6 border border-[#1a1918]/10 bg-white/40">
-          <span className="font-serif text-3xl text-[#1a1918]">01</span>
-          <h3 className="font-serif text-xl text-[#1a1918]">Visión Editorial</h3>
-          <p className="text-xs text-[#5a5854] leading-relaxed font-sans">
-            Composición refinada inspirada en la fotografía analógica cinematográfica y en las editoriales de moda europea.
-          </p>
+      {/* Production scope */}
+      <div className="mb-24">
+        <div className="text-center mb-12">
+          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-2">
+            Alcance de producción
+          </span>
+          <h2 className="font-serif text-2xl md:text-3xl text-[#1a1918]">Todo lo incluido en el acuerdo de colaboración</h2>
         </div>
+        <ProductionScope />
+      </div>
 
-        <div className="space-y-3 p-6 border border-[#1a1918]/10 bg-white/40">
-          <span className="font-serif text-3xl text-[#1a1918]">02</span>
-          <h3 className="font-serif text-xl text-[#1a1918]">Arquitectura & Hotel</h3>
-          <p className="text-xs text-[#5a5854] leading-relaxed font-sans">
-            Integración armoniosa entre los novios y el paisaje histórico de grand hoteles, palazzos y villas mediterráneas.
-          </p>
+      {/* Testimonials */}
+      <div className="mb-24">
+        <div className="text-center mb-10">
+          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">
+            Colaboraciones y testimonios
+          </span>
         </div>
+        <Testimonials />
+      </div>
 
-        <div className="space-y-3 p-6 border border-[#1a1918]/10 bg-white/40">
-          <span className="font-serif text-3xl text-[#1a1918]">03</span>
-          <h3 className="font-serif text-xl text-[#1a1918]">Espontaneidad Serena</h3>
-          <p className="text-xs text-[#5a5854] leading-relaxed font-sans">
-            Capturar emociones auténticas sin posados rígidos, respetando el ritmo íntimo de la celebración.
-          </p>
+      {/* Digital reach */}
+      <div>
+        <div className="text-center mb-10">
+          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">
+            Alcance digital internacional
+          </span>
         </div>
+        <DigitalReach />
       </div>
     </div>
   );

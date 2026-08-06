@@ -6,14 +6,9 @@ interface NavbarProps {
   currentPage: Page;
   onNavigate: (page: Page) => void;
   onOpenAvailability: () => void;
-  activeHotelName?: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({
-  currentPage,
-  onNavigate,
-  onOpenAvailability,
-}) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenAvailability }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLinkClick = (page: Page) => {
@@ -36,8 +31,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Right: Minimal Two-Line Menu Icon */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Abrir menú"
-          className="pointer-events-auto flex flex-col justify-center items-end gap-1.5 p-2 focus:outline-none group cursor-pointer"
+          aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={isMenuOpen}
+          className="pointer-events-auto flex flex-col justify-center items-end gap-1.5 p-3 -m-1 focus:outline-none group cursor-pointer"
         >
           <span
             className={`h-[1.5px] bg-[#1a1918] transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
@@ -73,53 +69,46 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               <button
                 onClick={() => setIsMenuOpen(false)}
+                aria-label="Cerrar menú"
                 className="text-xs font-sans tracking-[0.2em] uppercase text-[#1a1918] hover:opacity-60 transition-opacity p-2"
               >
                 [ CERRAR ]
               </button>
             </div>
 
-            {/* Main Page Links (Serif Style matching Image 1) */}
+            {/* Main Page Links */}
             <div className="my-auto py-12 flex flex-col items-center justify-center text-center space-y-8 md:space-y-10">
               <button
                 onClick={() => handleLinkClick('home')}
                 className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                  currentPage === 'home'
-                    ? 'underline underline-offset-8 decoration-1'
-                    : 'hover:italic hover:opacity-70'
+                  currentPage === 'home' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
                 }`}
               >
-                Inicio / Hoteles
+                Inicio
               </button>
 
               <button
                 onClick={() => handleLinkClick('portfolio')}
                 className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                  currentPage === 'portfolio'
-                    ? 'underline underline-offset-8 decoration-1'
-                    : 'hover:italic hover:opacity-70'
+                  currentPage === 'portfolio' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
                 }`}
               >
-                Portafolio
+                Colaboraciones
               </button>
 
               <button
                 onClick={() => handleLinkClick('about')}
                 className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                  currentPage === 'about'
-                    ? 'underline underline-offset-8 decoration-1'
-                    : 'hover:italic hover:opacity-70'
+                  currentPage === 'about' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
                 }`}
               >
-                acerca de / sobre mí
+                Sobre mí
               </button>
 
               <button
                 onClick={() => handleLinkClick('contact')}
                 className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                  currentPage === 'contact'
-                    ? 'underline underline-offset-8 decoration-1'
-                    : 'hover:italic hover:opacity-70'
+                  currentPage === 'contact' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
                 }`}
               >
                 Contacto
@@ -128,27 +117,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Bottom Menu Info */}
             <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#1a1918]/10 text-xs font-sans tracking-[0.15em] text-[#5a5854] gap-4">
-              <div className="flex items-center space-x-6 uppercase">
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[#1a1918] transition-colors"
-                >
-                  INSTAGRAM
-                </a>
-                <a
-                  href="https://pinterest.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[#1a1918] transition-colors"
-                >
-                  PINTEREST
-                </a>
-              </div>
+              <a
+                href="https://instagram.com/mayurlintravel"
+                target="_blank"
+                rel="noreferrer"
+                className="uppercase hover:text-[#1a1918] transition-colors"
+              >
+                Instagram &bull; @mayurlintravel
+              </a>
 
               <div className="text-center">
-                <span>MILÁN &bull; LAGO DI COMO &bull; COSTA AMALFITANA</span>
+                <span>ESPAÑA &bull; ARGENTINA &bull; ESTADOS UNIDOS &bull; MÉXICO</span>
               </div>
 
               <button
@@ -158,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className="flex items-center space-x-2 text-[#1a1918] hover:opacity-70 transition-opacity uppercase font-medium"
               >
-                <span>Comprobar disponibilidad</span>
+                <span>Iniciar una colaboración</span>
                 <span className="w-5 h-5 rounded-full bg-[#1a1918] text-[#f5f3ed] flex items-center justify-center text-[10px]">
                   &rarr;
                 </span>
