@@ -1,6 +1,5 @@
 {
-  "name": "Marcus — Bennet",
-  "description": "Editorial portfolio homepage for Marcus Bennet",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "name": "Mayurlin Viera — Mayu Travel",
+  "description": "Portafolio de producción visual (fotografía y dirección cinematográfica) para hoteles de lujo",
+  "requestFramePermissions": []
 }

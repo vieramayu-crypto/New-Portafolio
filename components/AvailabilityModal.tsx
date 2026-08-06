@@ -9,8 +9,8 @@ interface AvailabilityModalProps {
 export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, onClose }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [hotel, setHotel] = useState('Grand Hotel Tremezzo');
-  const [date, setDate] = useState('');
+  const [propertyName, setPropertyName] = useState('');
+  const [availabilityDate, setAvailabilityDate] = useState('');
   const [sent, setSent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -22,7 +22,8 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
     setSent(false);
     setName('');
     setEmail('');
-    setDate('');
+    setPropertyName('');
+    setAvailabilityDate('');
     onClose();
   };
 
@@ -30,7 +31,6 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -39,17 +39,16 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
             className="absolute inset-0 bg-[#1a1918]/60 backdrop-blur-sm"
           />
 
-          {/* Modal Container */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             className="relative bg-[#f5f3ed] border border-[#1a1918]/20 max-w-lg w-full p-8 md:p-10 shadow-2xl z-10 font-sans"
           >
-            {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-xs font-sans tracking-widest uppercase text-[#5a5854] hover:text-[#1a1918]"
+              aria-label="Cerrar"
+              className="absolute top-4 right-4 text-xs font-sans tracking-widest uppercase text-[#5a5854] hover:text-[#1a1918] p-2 -m-2"
             >
               [ ✕ ]
             </button>
@@ -59,9 +58,10 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
                 <div className="w-12 h-12 bg-[#1a1918] text-[#f5f3ed] rounded-full mx-auto flex items-center justify-center font-serif">
                   ✓
                 </div>
-                <h3 className="font-serif text-2xl text-[#1a1918]">Fecha en Revisión</h3>
+                <h3 className="font-serif text-2xl text-[#1a1918]">Solicitud en revisión</h3>
                 <p className="text-xs text-[#5a5854] leading-relaxed">
-                  Gracias {name}. Verificaremos la disponibilidad para el {date || 'evento'} en {hotel} y nos comunicaremos a {email} a la brevedad.
+                  Gracias {name}. Revisaré la disponibilidad para {propertyName || 'tu propiedad'}
+                  {availabilityDate ? ` en ${availabilityDate}` : ''} y te escribo a {email} a la brevedad.
                 </p>
                 <button
                   onClick={handleReset}
@@ -74,11 +74,9 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
               <div className="space-y-6">
                 <div>
                   <span className="text-[10px] font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-1">
-                    Atención Rápida
+                    Atención rápida
                   </span>
-                  <h3 className="font-serif text-2xl text-[#1a1918]">
-                    Comprobar Disponibilidad
-                  </h3>
+                  <h3 className="font-serif text-2xl text-[#1a1918]">Iniciar una colaboración</h3>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -91,8 +89,8 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="Su nombre"
-                      className="w-full bg-white border border-[#1a1918]/20 p-2.5 text-xs focus:outline-none focus:border-[#1a1918]"
+                      placeholder="Tu nombre"
+                      className="w-full bg-white border border-[#1a1918]/20 p-2.5 text-base focus:outline-none focus:border-[#1a1918]"
                     />
                   </div>
 
@@ -106,38 +104,35 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="correo@ejemplo.com"
-                      className="w-full bg-white border border-[#1a1918]/20 p-2.5 text-xs focus:outline-none focus:border-[#1a1918]"
+                      className="w-full bg-white border border-[#1a1918]/20 p-2.5 text-base focus:outline-none focus:border-[#1a1918]"
                     />
                   </div>
 
                   <div className="space-y-1">
                     <label className="text-[10px] font-sans tracking-widest uppercase text-[#5a5854] block">
-                      Hotel / Villa
+                      Propiedad / Marca
                     </label>
-                    <select
-                      value={hotel}
-                      onChange={(e) => setHotel(e.target.value)}
-                      className="w-full bg-white border border-[#1a1918]/20 p-2.5 text-xs focus:outline-none focus:border-[#1a1918]"
-                    >
-                      <option value="Grand Hotel Tremezzo">Grand Hotel Tremezzo</option>
-                      <option value="Villa Cimbrone">Villa Cimbrone</option>
-                      <option value="Belmond Hotel Caruso">Belmond Hotel Caruso</option>
-                      <option value="Borgo Egnazia">Borgo Egnazia</option>
-                      <option value="Hotel Danieli">Hotel Danieli</option>
-                      <option value="Villa d'Este">Villa d'Este</option>
-                    </select>
+                    <input
+                      type="text"
+                      required
+                      value={propertyName}
+                      onChange={(e) => setPropertyName(e.target.value)}
+                      placeholder="Nombre del hotel o marca"
+                      className="w-full bg-white border border-[#1a1918]/20 p-2.5 text-base focus:outline-none focus:border-[#1a1918]"
+                    />
                   </div>
 
                   <div className="space-y-1">
                     <label className="text-[10px] font-sans tracking-widest uppercase text-[#5a5854] block">
-                      Fecha del Evento
+                      Fechas de disponibilidad
                     </label>
                     <input
-                      type="date"
+                      type="text"
                       required
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                      className="w-full bg-white border border-[#1a1918]/20 p-2.5 text-xs focus:outline-none focus:border-[#1a1918]"
+                      value={availabilityDate}
+                      onChange={(e) => setAvailabilityDate(e.target.value)}
+                      placeholder="ej. semana del 12 de marzo"
+                      className="w-full bg-white border border-[#1a1918]/20 p-2.5 text-base focus:outline-none focus:border-[#1a1918]"
                     />
                   </div>
 
@@ -145,7 +140,7 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
                     type="submit"
                     className="w-full bg-[#1a1918] text-[#f5f3ed] py-3 text-xs font-sans tracking-[0.2em] uppercase font-medium hover:bg-[#5a5854] transition-colors mt-2"
                   >
-                    Consultar Fecha
+                    Consultar fechas
                   </button>
                 </form>
               </div>
