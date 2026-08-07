@@ -42,8 +42,8 @@ export const Contact: React.FC = () => {
           <h2 className="font-serif text-3xl text-[#1a1918]">Solicitud recibida</h2>
           <p className="text-sm text-[#5a5854] max-w-md mx-auto leading-relaxed">
             Gracias por escribir, <span className="font-semibold text-[#1a1918]">{formData.name}</span>. Te
-            responderé a <span className="font-semibold text-[#1a1918]">{formData.email}</span> para revisar la
-            colaboración con{' '}
+            responderé a <span className="font-semibold text-[#1a1918]">{formData.email}</span> para revisar el
+            proyecto con{' '}
             <span className="font-semibold text-[#1a1918]">{formData.propertyName || 'tu propiedad'}</span>.
           </p>
           <button
@@ -113,7 +113,7 @@ export const Contact: React.FC = () => {
 
             <div className="space-y-2">
               <label className="text-xs font-sans tracking-widest uppercase text-[#5a5854] block">
-                Tipo de colaboración
+                Tipo de servicio
               </label>
               <select
                 value={formData.collaborationType}
