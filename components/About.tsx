@@ -16,7 +16,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] font-sans">
       {/* Flip-words opening statement — full viewport, brutalist scale */}
       <section className="min-h-[100dvh] w-full flex flex-col items-center justify-center text-center px-6">
-        <h1 className="font-serif font-medium text-[17vw] sm:text-[13vw] md:text-[10vw] leading-[0.9] text-[#1a1918]">
+        <h1 className="font-serif font-medium text-[18vw] sm:text-[14vw] md:text-[11vw] leading-[1.15] text-[#1a1918]">
           Fotografía con
           <br />
           <FlipWords words={['Alma', 'Amor', 'Autenticidad']} />
@@ -92,7 +92,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         </div>
 
         {/* Yerfran profile */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-32">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -125,15 +125,15 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         </div>
 
         {/* Together */}
-        <div className="py-24 md:py-32 max-w-3xl mx-auto text-center">
-          <p className="font-serif text-xl sm:text-2xl md:text-3xl text-[#1a1918] leading-relaxed">
+        <div className="min-h-[70vh] md:min-h-[85vh] flex flex-col items-center justify-center text-center px-2 py-20 mb-32 md:mb-40">
+          <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1a1918] leading-relaxed max-w-3xl">
             Con los años, eso se volvió esto. Combinamos lo que cada uno hace mejor para darle a cada hotel lo
             mismo: una mirada honesta, con el tiempo y el cuidado de dos personas que ya saben trabajar juntas.
           </p>
-          <div className="pt-14">
+          <div className="pt-16">
             <button
               onClick={onOpenAvailability}
-              className="bg-[#1a1918] text-[#f5f3ed] px-10 py-5 text-sm md:text-base font-sans tracking-[0.25em] uppercase font-semibold hover:bg-[#5a5854] transition-colors"
+              className="bg-[#1a1918] text-[#f5f3ed] px-12 py-6 text-base md:text-lg font-sans tracking-[0.25em] uppercase font-semibold hover:bg-[#5a5854] transition-colors"
             >
               Iniciar un proyecto
             </button>
