@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import heroPortraitBW from '../src/assets/images/hero_portrait_bw_1786010923167.jpg';
 import { FlipWords } from './FlipWords';
 import { ProductionScope } from './ProductionScope';
 
 const COUPLE_DEMO_PHOTO =
   'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2400&q=80';
+
+const MAYU_PORTRAIT = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/P1002251.RW22-scaled.webp';
+const YERFRAN_PORTRAIT = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/P1001995.RW2_-scaled.webp';
 
 interface AboutProps {
   onOpenAvailability: () => void;
@@ -67,7 +69,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
           >
             <div className="relative aspect-[3/4] overflow-hidden border border-[#1a1918]/15 shadow-md">
               <img
-                src={heroPortraitBW}
+                src={MAYU_PORTRAIT}
                 alt="Mayurlin Viera"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-[50%_20%] grayscale contrast-110"
@@ -100,11 +102,13 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 order-1 lg:order-2"
           >
-            <div className="relative aspect-[3/4] overflow-hidden border border-[#1a1918]/15 bg-[radial-gradient(circle_at_30%_20%,#f5f3ed,#e8e5dc)] flex flex-col items-center justify-center gap-3">
-              <span className="font-serif text-3xl text-[#1a1918]/25">Y</span>
-              <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#5a5854]">
-                Foto próximamente
-              </span>
+            <div className="relative aspect-[3/4] overflow-hidden border border-[#1a1918]/15 shadow-md">
+              <img
+                src={YERFRAN_PORTRAIT}
+                alt="Yerfran"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover object-[50%_20%] grayscale contrast-110"
+              />
             </div>
           </motion.div>
 
