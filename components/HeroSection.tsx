@@ -1,13 +1,7 @@
 import React from 'react';
-import { Page } from '../types';
 import heroPortraitBW from '../src/assets/images/hero_portrait_bw_1786010923167.jpg';
 
-interface HeroSectionProps {
-  onNavigate: (page: Page) => void;
-  onOpenAvailability: () => void;
-}
-
-export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenAvailability }) => {
+export const HeroSection: React.FC = () => {
   const scrollToContent = () => {
     const target = document.getElementById('hotel-section');
     if (target) {
@@ -80,46 +74,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenAvai
         {/* Soft gradient overlay at bottom and top to ensure high readability of header and footer text */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#fbfaf6]/40 via-transparent to-[#fbfaf6]/60 pointer-events-none" />
       </div>
-
-      {/* Header Navigation Links */}
-      <header className="absolute inset-x-0 top-0 z-30 flex items-start justify-between px-6 pt-6 sm:px-10 sm:pt-8 pointer-events-auto">
-        {/* Brand Link */}
-        <button
-          onClick={() => onNavigate('home')}
-          className="border border-[#1a1918]/20 bg-[#fbfaf6]/80 backdrop-blur-sm px-4 py-1.5 text-sm md:text-base font-serif tracking-[0.25em] font-medium text-[#1a1918] hover:bg-[#1a1918] hover:text-[#fbfaf6] transition-all duration-300 shadow-sm"
-        >
-          MAYU
-        </button>
-
-        {/* Desktop Links */}
-        <div className="hidden sm:flex items-start gap-12 lg:gap-16 text-sm font-sans">
-          <span className="text-[#5a5854] font-mono">2025</span>
-          <button
-            onClick={() => onNavigate('portfolio')}
-            className="text-[#1a1918] hover:opacity-60 transition-opacity"
-          >
-            Portafolio
-          </button>
-          <button
-            onClick={() => onNavigate('about')}
-            className="text-[#1a1918] hover:opacity-60 transition-opacity"
-          >
-            Acerca de
-          </button>
-          <button
-            onClick={() => onNavigate('contact')}
-            className="text-[#1a1918] hover:opacity-60 transition-opacity"
-          >
-            Contacto
-          </button>
-          <button
-            onClick={onOpenAvailability}
-            className="bg-[#1a1918] text-[#fbfaf6] px-4 py-1 text-xs font-medium tracking-wider uppercase hover:opacity-90 transition-opacity"
-          >
-            Disponibilidad
-          </button>
-        </div>
-      </header>
     </section>
   );
 };
