@@ -298,18 +298,14 @@ export const HomeMain: React.FC<HomeMainProps> = ({
               />
             ))}
 
-            {/* Bottom Floating Pill Button: "Bodas destacadas ²⁶ ▲" */}
+            {/* Bottom Floating Button: matches the MAYU logo button style */}
             <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
               <button
                 onClick={() => setIsHotelSelectorOpen(!isHotelSelectorOpen)}
-                className="bg-white/95 backdrop-blur-md border border-[#1a1918]/15 px-5 py-2.5 rounded-full shadow-xl flex items-center space-x-3 text-xs md:text-sm font-sans tracking-wider text-[#1a1918] hover:bg-[#1a1918] hover:text-[#fbfaf6] transition-all duration-300"
+                className="pointer-events-auto border border-[#1a1918] bg-[#f5f3ed]/90 backdrop-blur-sm px-4 py-1.5 flex items-center gap-3 text-sm md:text-base font-serif tracking-[0.25em] font-medium text-[#1a1918] hover:bg-[#1a1918] hover:text-[#f5f3ed] transition-all duration-300 shadow-sm"
               >
-                <span className="font-medium">
-                  Bodas destacadas <sup className="text-[10px] text-[#5a5854]">26</sup>
-                </span>
-                <span className="w-5 h-5 rounded-full bg-[#1a1918] text-white flex items-center justify-center text-[10px] transition-transform">
-                  {isHotelSelectorOpen ? '▼' : '▲'}
-                </span>
+                <span>Colaboraciones ({HOTEL_STORIES.length})</span>
+                <span className="text-xs">{isHotelSelectorOpen ? '▼' : '▲'}</span>
               </button>
 
               {/* Selector Popup Menu to Jump to Any Hotel Section */}
