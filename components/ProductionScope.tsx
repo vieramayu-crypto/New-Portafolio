@@ -46,7 +46,7 @@ export const ProductionScope: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="relative w-full max-w-3xl min-h-[220px] md:min-h-[260px] text-center">
+      <div className="relative w-full max-w-4xl min-h-[320px] md:min-h-[380px] text-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={pillar.title}
@@ -54,17 +54,12 @@ export const ProductionScope: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="space-y-5"
+            className="space-y-8"
           >
-            <div className="flex items-baseline justify-center gap-4">
-              <span className="font-serif text-3xl md:text-4xl text-[#1a1918]/30">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <h3 className="font-serif text-3xl md:text-4xl text-[#1a1918]">{pillar.title}</h3>
-            </div>
-            <ul className="space-y-2">
+            <h3 className="font-serif text-4xl md:text-6xl text-[#1a1918]">{pillar.title}</h3>
+            <ul className="space-y-3">
               {pillar.items.map((item) => (
-                <li key={item} className="text-base md:text-lg text-[#5a5854] leading-relaxed">
+                <li key={item} className="text-lg md:text-2xl text-[#5a5854] leading-relaxed">
                   {item}
                 </li>
               ))}
@@ -73,7 +68,7 @@ export const ProductionScope: React.FC = () => {
         </AnimatePresence>
       </div>
 
-      <div className="flex items-center gap-3 pt-12">
+      <div className="flex items-center gap-3 pt-16">
         {PILLARS.map((p, i) => (
           <button
             key={p.title}
