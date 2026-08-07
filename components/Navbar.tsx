@@ -9,8 +9,15 @@ interface NavbarProps {
   onOpenAvailability: () => void;
 }
 
+const PAGE_LABELS: Partial<Record<Page, string>> = {
+  portfolio: 'Trabajo',
+  about: 'Sobre nosotros',
+  contact: 'Contacto',
+};
+
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenAvailability }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pageLabel = PAGE_LABELS[currentPage];
 
   const handleLinkClick = (page: Page) => {
     onNavigate(page);
@@ -29,24 +36,31 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
           MAYU
         </button>
 
-        {/* Right: Minimal Two-Line Menu Icon */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={isMenuOpen}
-          className="pointer-events-auto flex flex-col justify-center items-end gap-1.5 p-3 -m-1 focus:outline-none group cursor-pointer"
-        >
-          <span
-            className={`h-[1.5px] bg-[#1a1918] transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
-              isMenuOpen ? 'w-7 rotate-45 translate-y-[4px]' : 'w-8 group-hover:w-6'
-            }`}
-          />
-          <span
-            className={`h-[1.5px] bg-[#1a1918] transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
-              isMenuOpen ? 'w-7 -rotate-45 -translate-y-[3.5px]' : 'w-5 group-hover:w-8'
-            }`}
-          />
-        </button>
+        {/* Right: Page indicator + Minimal Two-Line Menu Icon */}
+        <div className="flex items-center gap-4 md:gap-6">
+          {pageLabel && !isMenuOpen && (
+            <span className="text-[10px] md:text-[11px] font-sans tracking-[0.25em] uppercase text-[#5a5854] pointer-events-none">
+              {pageLabel}
+            </span>
+          )}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={isMenuOpen}
+            className="pointer-events-auto flex flex-col justify-center items-end gap-1.5 p-3 -m-1 focus:outline-none group cursor-pointer"
+          >
+            <span
+              className={`h-[1.5px] bg-[#1a1918] transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+                isMenuOpen ? 'w-7 rotate-45 translate-y-[4px]' : 'w-8 group-hover:w-6'
+              }`}
+            />
+            <span
+              className={`h-[1.5px] bg-[#1a1918] transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+                isMenuOpen ? 'w-7 -rotate-45 -translate-y-[3.5px]' : 'w-5 group-hover:w-8'
+              }`}
+            />
+          </button>
+        </div>
       </header>
 
       {/* Fullscreen Overlay Menu */}

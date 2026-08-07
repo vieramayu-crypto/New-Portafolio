@@ -15,11 +15,8 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
   return (
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] font-sans">
       {/* Flip-words opening statement — full viewport, brutalist scale */}
-      <section className="min-h-[100dvh] w-full flex flex-col items-center justify-center text-center px-6 pt-20">
-        <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-8">
-          Sobre nosotros
-        </span>
-        <h1 className="font-serif text-[15vw] sm:text-[12vw] md:text-[9vw] leading-[0.92] text-[#1a1918]">
+      <section className="min-h-[100dvh] w-full flex flex-col items-center justify-center text-center px-6">
+        <h1 className="font-serif font-medium text-[17vw] sm:text-[13vw] md:text-[10vw] leading-[0.9] text-[#1a1918]">
           Fotografía con
           <br />
           <FlipWords words={['Alma', 'Amor', 'Autenticidad']} />
@@ -32,9 +29,9 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.7 }}
-        className="min-h-[100dvh] w-full flex items-center justify-center px-6"
+        className="min-h-[100dvh] w-full flex items-center justify-center px-6 py-24"
       >
-        <p className="font-serif text-3xl sm:text-4xl md:text-6xl text-[#1a1918] leading-[1.25] max-w-5xl text-center">
+        <p className="font-serif text-4xl sm:text-5xl md:text-7xl text-[#1a1918] leading-[1.2] max-w-6xl text-center">
           Mayu Travel es un estudio de producción visual para hoteles de lujo, hecho por dos personas que se
           conocen desde hace años. No trabajamos con fórmulas ni plantillas: cada proyecto nace de mirar de
           cerca, con tiempo, lo que hace único a cada lugar.
@@ -128,15 +125,15 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         </div>
 
         {/* Together */}
-        <div className="mb-24 max-w-2xl mx-auto text-center">
-          <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">
+        <div className="py-24 md:py-32 max-w-3xl mx-auto text-center">
+          <p className="font-serif text-xl sm:text-2xl md:text-3xl text-[#1a1918] leading-relaxed">
             Con los años, eso se volvió esto. Combinamos lo que cada uno hace mejor para darle a cada hotel lo
             mismo: una mirada honesta, con el tiempo y el cuidado de dos personas que ya saben trabajar juntas.
           </p>
-          <div className="pt-8">
+          <div className="pt-14">
             <button
               onClick={onOpenAvailability}
-              className="bg-[#1a1918] text-[#f5f3ed] px-6 py-3 text-xs font-sans tracking-[0.2em] uppercase font-medium hover:bg-[#5a5854] transition-colors"
+              className="bg-[#1a1918] text-[#f5f3ed] px-10 py-5 text-sm md:text-base font-sans tracking-[0.25em] uppercase font-semibold hover:bg-[#5a5854] transition-colors"
             >
               Iniciar un proyecto
             </button>
