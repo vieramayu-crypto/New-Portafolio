@@ -11,7 +11,7 @@ interface NavbarProps {
 
 const PAGE_LABELS: Partial<Record<Page, string>> = {
   portfolio: 'Trabajo',
-  about: 'Sobre nosotros',
+  about: 'Acerca de',
   contact: 'Contacto',
 };
 
@@ -98,29 +98,38 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
               <div className="lg:col-span-4 flex flex-col items-center justify-center text-center space-y-8 md:space-y-10">
                 <button
                   onClick={() => handleLinkClick('portfolio')}
-                  className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                    currentPage === 'portfolio' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
-                  }`}
+                  className="group relative inline-block font-serif text-3xl md:text-5xl tracking-wide text-[#1a1918]"
                 >
                   Trabajo
+                  <span
+                    className={`pointer-events-none absolute left-0 -bottom-1 h-px w-full origin-left bg-[#1a1918] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+                      currentPage === 'portfolio' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`}
+                  />
                 </button>
 
                 <button
                   onClick={() => handleLinkClick('about')}
-                  className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                    currentPage === 'about' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
-                  }`}
+                  className="group relative inline-block font-serif text-3xl md:text-5xl tracking-wide text-[#1a1918]"
                 >
-                  Sobre mí
+                  Acerca de
+                  <span
+                    className={`pointer-events-none absolute left-0 -bottom-1 h-px w-full origin-left bg-[#1a1918] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+                      currentPage === 'about' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`}
+                  />
                 </button>
 
                 <button
                   onClick={() => handleLinkClick('contact')}
-                  className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                    currentPage === 'contact' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
-                  }`}
+                  className="group relative inline-block font-serif text-3xl md:text-5xl tracking-wide text-[#1a1918]"
                 >
                   Contacto
+                  <span
+                    className={`pointer-events-none absolute left-0 -bottom-1 h-px w-full origin-left bg-[#1a1918] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+                      currentPage === 'contact' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`}
+                  />
                 </button>
               </div>
 
