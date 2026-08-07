@@ -76,7 +76,7 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
                   <span className="text-[10px] font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-1">
                     Atención rápida
                   </span>
-                  <h3 className="font-serif text-2xl text-[#1a1918]">Iniciar una colaboración</h3>
+                  <h3 className="font-serif text-2xl text-[#1a1918]">Iniciar un proyecto</h3>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">

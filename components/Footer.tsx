@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }
               Inicio
             </button>
             <button onClick={() => onNavigate('portfolio')} className="text-left hover:text-[#f5f3ed]">
-              Colaboraciones
+              Trabajo
             </button>
             <button onClick={() => onNavigate('about')} className="text-left hover:text-[#f5f3ed]">
               Sobre mí
@@ -64,7 +64,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }
             onClick={onOpenAvailability}
             className="mt-4 inline-block text-xs font-sans tracking-[0.2em] uppercase border border-[#f5f3ed]/30 px-4 py-2 hover:bg-[#f5f3ed] hover:text-[#1a1918] transition-colors"
           >
-            Iniciar una colaboración &rarr;
+            Iniciar un proyecto &rarr;
           </button>
         </div>
       </div>

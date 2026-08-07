@@ -304,7 +304,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
                 onClick={() => setIsHotelSelectorOpen(!isHotelSelectorOpen)}
                 className="pointer-events-auto border border-[#1a1918] bg-[#f5f3ed]/90 backdrop-blur-sm px-4 py-1.5 flex items-center gap-3 text-sm md:text-base font-serif tracking-[0.25em] font-medium text-[#1a1918] hover:bg-[#1a1918] hover:text-[#f5f3ed] transition-all duration-300 shadow-sm"
               >
-                <span>Colaboraciones ({HOTEL_STORIES.length})</span>
+                <span>Ver trabajo ({HOTEL_STORIES.length})</span>
                 <span className="text-xs">{isHotelSelectorOpen ? '▼' : '▲'}</span>
               </button>
 
@@ -318,7 +318,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
                     className="absolute bottom-16 bg-white border border-[#1a1918]/15 rounded-2xl p-3 shadow-2xl w-80 md:w-96 text-left max-h-80 overflow-y-auto z-50 space-y-1"
                   >
                     <div className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#5a5854] px-3 py-1.5 border-b border-[#1a1918]/10 mb-1">
-                      Ir a Hotel / Boda Destacada ({HOTEL_STORIES.length})
+                      Ir a Hotel / Cliente ({HOTEL_STORIES.length})
                     </div>
                     {HOTEL_STORIES.map((hotel, idx) => (
                       <button

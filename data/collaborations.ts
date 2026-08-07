@@ -1,6 +1,6 @@
 import { CollaborationCase, Testimonial } from '../types';
 
-// Colaboraciones confirmadas en el media kit. Sin fotografía propia todavía
+// Trabajos confirmados en el media kit. Sin fotografía propia todavía
 // (hasMedia: false) -- se muestran como casos reservados en vez de usar
 // imágenes de archivo que no son un trabajo real.
 export const COLLABORATIONS: CollaborationCase[] = [
@@ -16,7 +16,7 @@ export const COLLABORATIONS: CollaborationCase[] = [
     brandName: 'InterContinental Lisboa',
     category: 'Grandes Resorts de Lujo',
     location: 'Lisboa',
-    summary: 'Colaboración reciente con el grupo IHG Hotels & Resorts.',
+    summary: 'Proyecto reciente con el grupo IHG Hotels & Resorts.',
     hasMedia: false,
   },
   {

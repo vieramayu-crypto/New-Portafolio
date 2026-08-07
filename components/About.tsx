@@ -64,7 +64,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
               onClick={onOpenAvailability}
               className="bg-[#1a1918] text-[#f5f3ed] px-6 py-3 text-xs font-sans tracking-[0.2em] uppercase font-medium hover:bg-[#5a5854] transition-colors"
             >
-              Iniciar una colaboración
+              Iniciar un proyecto
             </button>
           </div>
         </motion.div>
@@ -73,7 +73,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
       {/* Why collaborate */}
       <div className="mb-24">
         <div className="text-center mb-10">
-          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">Por qué colaborar</span>
+          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">Por qué trabajar conmigo</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {WHY_COLLABORATE.map((item) => (
@@ -91,7 +91,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
           <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-2">
             Alcance de producción
           </span>
-          <h2 className="font-serif text-2xl md:text-3xl text-[#1a1918]">Todo lo incluido en el acuerdo de colaboración</h2>
+          <h2 className="font-serif text-2xl md:text-3xl text-[#1a1918]">Todo lo incluido en el servicio</h2>
         </div>
         <ProductionScope />
       </div>
@@ -100,7 +100,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
       <div className="mb-24">
         <div className="text-center mb-10">
           <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">
-            Colaboraciones y testimonios
+            Marcas y testimonios
           </span>
         </div>
         <Testimonials />

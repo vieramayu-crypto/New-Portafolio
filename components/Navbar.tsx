@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                   currentPage === 'portfolio' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
                 }`}
               >
-                Colaboraciones
+                Trabajo
               </button>
 
               <button
@@ -137,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                 }}
                 className="flex items-center space-x-2 text-[#1a1918] hover:opacity-70 transition-opacity uppercase font-medium"
               >
-                <span>Iniciar una colaboración</span>
+                <span>Iniciar un proyecto</span>
                 <span className="w-5 h-5 rounded-full bg-[#1a1918] text-[#f5f3ed] flex items-center justify-center text-[10px]">
                   &rarr;
                 </span>

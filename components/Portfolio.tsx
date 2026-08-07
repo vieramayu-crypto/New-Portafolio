@@ -28,9 +28,9 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenAvailability }) => {
         <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">
           Historias visuales para hoteles de lujo
         </span>
-        <h1 className="font-serif text-4xl md:text-6xl text-[#1a1918] tracking-wide">Colaboraciones</h1>
+        <h1 className="font-serif text-4xl md:text-6xl text-[#1a1918] tracking-wide">Trabajo</h1>
         <p className="max-w-xl mx-auto text-sm text-[#5a5854] font-sans leading-relaxed">
-          Marcas y destinos con conciencia sostenible. La fotografía y el video de cada colaboración se irán
+          Marcas y destinos con conciencia sostenible. La fotografía y el video de cada proyecto se irán
           publicando aquí a medida que estén listos.
         </p>
       </div>
@@ -69,7 +69,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenAvailability }) => {
           onClick={onOpenAvailability}
           className="bg-[#1a1918] text-[#f5f3ed] px-8 py-3 text-xs font-sans tracking-[0.2em] uppercase font-medium hover:bg-[#5a5854] transition-colors"
         >
-          Iniciar una colaboración
+          Iniciar un proyecto
         </button>
       </div>
     </div>
