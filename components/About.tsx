@@ -9,13 +9,6 @@ interface AboutProps {
   onOpenAvailability: () => void;
 }
 
-const WHY_COLLABORATE = [
-  'Dirección creativa alineada con tu propiedad',
-  'Coherencia visual: arquitectura, lifestyle y atmósfera',
-  'Proceso de producción organizado y entrega cuidada',
-  'Imágenes pensadas para durar y funcionar bien en digital',
-];
-
 export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
   return (
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] pt-28 pb-24 px-6 md:px-12 max-w-6xl mx-auto font-sans">
@@ -30,7 +23,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
           <div className="relative aspect-[3/4] overflow-hidden border border-[#1a1918]/15 shadow-md">
             <img
               src={heroPortraitBW}
-              alt="Mayurlin Viera, Directora Creativa"
+              alt="Mayurlin Viera"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover object-[50%_20%] grayscale contrast-110"
             />
@@ -43,20 +36,22 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:col-span-7 space-y-6"
         >
-          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">Sobre mí</span>
+          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">Sobre nosotros</span>
           <h1 className="font-serif text-3xl md:text-5xl text-[#1a1918] leading-tight">
-            Mayurlin Viera <span className="text-[#5a5854] text-2xl md:text-3xl">— Directora Creativa</span>
+            Detrás de Mayu Travel hay dos personas, no una fórmula.
           </h1>
+          <p className="text-xs font-sans tracking-[0.2em] uppercase text-[#5a5854]">Mayurlin Viera &amp; Yerfran</p>
           <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">
-            Creo fotografía y contenido cinematográfico para hoteles y propiedades de lujo.
+            Crear contenido fue el sueño de Mayu antes de tener con qué hacerlo. Trabajar con los mejores hoteles
+            del mundo, su objetivo número uno desde siempre.
           </p>
           <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">
-            Mi trabajo parte de una dirección visual cuidada, sensibilidad arquitectónica y coherencia con la
-            identidad de cada marca. Cada proyecto se desarrolla con claridad y precisión, asegurando una imagen
-            consistente en todas las plataformas digitales.
+            Yerfran llegó por otro camino: la fotografía con alma. Capturar lo que alguien siente en un lugar, no
+            solo cómo se ve.
           </p>
           <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">
-            Colaboro con propiedades que combinan lujo y responsabilidad con el entorno.
+            Con los años, eso se volvió esto. Combinamos lo que cada uno hace mejor para darle a cada hotel lo
+            mismo: una mirada honesta, con el tiempo y el cuidado de dos personas que ya saben trabajar juntas.
           </p>
 
           <div className="pt-4">
@@ -70,19 +65,12 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         </motion.div>
       </div>
 
-      {/* Why collaborate */}
-      <div className="mb-24">
-        <div className="text-center mb-10">
-          <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">Por qué trabajar conmigo</span>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          {WHY_COLLABORATE.map((item) => (
-            <div key={item} className="flex items-start gap-3 border border-[#1a1918]/10 bg-white/40 p-5">
-              <span className="font-serif text-lg text-[#1a1918]/40 mt-0.5">&mdash;</span>
-              <p className="text-sm text-[#1a1918] leading-relaxed">{item}</p>
-            </div>
-          ))}
-        </div>
+      {/* Statement */}
+      <div className="mb-24 max-w-2xl mx-auto text-center">
+        <p className="font-serif text-2xl md:text-4xl text-[#1a1918] leading-snug">
+          &ldquo;No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse
+          como se siente vivirlo.&rdquo;
+        </p>
       </div>
 
       {/* Production scope */}
