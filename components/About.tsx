@@ -3,11 +3,10 @@ import { motion } from 'motion/react';
 import { FlipWords } from './FlipWords';
 import { ProductionScope } from './ProductionScope';
 
-const COUPLE_DEMO_PHOTO =
-  'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2400&q=80';
+const COUPLE_PHOTO = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/Fondo-scaled.webp';
 
-const MAYU_PORTRAIT = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/P1002251.RW22-scaled.webp';
-const YERFRAN_PORTRAIT = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/P1001995.RW2_-scaled.webp';
+const MAYU_PORTRAIT = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/P1002251.RW22-scaled.webp?v=2';
+const YERFRAN_PORTRAIT = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/P1001995.RW2_-scaled.webp?v=2';
 
 interface AboutProps {
   onOpenAvailability: () => void;
@@ -43,12 +42,13 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
       {/* Legacy statement — full-width photo background, text overlaid */}
       <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen min-h-[90vh] md:min-h-[100dvh] mb-24 md:mb-32 overflow-hidden">
         <img
-          src={COUPLE_DEMO_PHOTO}
-          alt=""
+          src={COUPLE_PHOTO}
+          alt="Mayurlin y Yerfran"
           referrerPolicy="no-referrer"
-          className="absolute inset-0 w-full h-full object-cover grayscale contrast-[1.05]"
+          className="absolute inset-0 w-full h-full object-cover grayscale contrast-110"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/25" />
         <div className="relative min-h-[90vh] md:min-h-[100dvh] flex items-center justify-center px-6 md:px-16">
           <p className="font-serif text-white text-3xl sm:text-4xl md:text-6xl leading-[1.2] max-w-5xl text-center">
             &ldquo;No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse
