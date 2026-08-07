@@ -141,12 +141,12 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         </div>
 
         {/* Production scope */}
-        <div>
-          <div className="text-center mb-12">
-            <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-2">
+        <div className="min-h-[70vh] md:min-h-[85vh] flex flex-col items-center justify-center text-center py-20">
+          <div className="mb-16">
+            <span className="text-sm font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-3">
               Alcance de producción
             </span>
-            <h2 className="font-serif text-2xl md:text-3xl text-[#1a1918]">Todo lo incluido en el servicio</h2>
+            <h2 className="font-serif text-3xl md:text-5xl text-[#1a1918]">Todo lo incluido en el servicio</h2>
           </div>
           <ProductionScope />
         </div>
