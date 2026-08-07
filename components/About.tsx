@@ -3,8 +3,9 @@ import { motion } from 'motion/react';
 import heroPortraitBW from '../src/assets/images/hero_portrait_bw_1786010923167.jpg';
 import { FlipWords } from './FlipWords';
 import { ProductionScope } from './ProductionScope';
-import { Testimonials } from './Testimonials';
-import { DigitalReach } from './DigitalReach';
+
+const COUPLE_DEMO_PHOTO =
+  'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2400&q=80';
 
 interface AboutProps {
   onOpenAvailability: () => void;
@@ -12,44 +13,52 @@ interface AboutProps {
 
 export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
   return (
-    <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] pt-28 pb-24 px-6 md:px-12 font-sans">
-      {/* Flip-words opening statement */}
-      <div className="max-w-4xl mx-auto text-center mb-20">
-        <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-6">
+    <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] font-sans">
+      {/* Flip-words opening statement — full viewport, brutalist scale */}
+      <section className="min-h-[100dvh] w-full flex flex-col items-center justify-center text-center px-6 pt-20">
+        <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-8">
           Sobre nosotros
         </span>
-        <h1 className="font-serif text-4xl md:text-7xl text-[#1a1918] leading-[1.1]">
+        <h1 className="font-serif text-[15vw] sm:text-[12vw] md:text-[9vw] leading-[0.92] text-[#1a1918]">
           Fotografía con
           <br />
           <FlipWords words={['Alma', 'Amor', 'Autenticidad']} />
         </h1>
-      </div>
+      </section>
 
-      <div className="max-w-6xl mx-auto">
-        {/* Intro paragraph */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7 }}
-          className="max-w-3xl mx-auto text-center mb-24"
-        >
-          <p className="font-serif text-xl md:text-2xl text-[#1a1918] leading-relaxed">
-            Mayu Travel es un estudio de producción visual para hoteles de lujo, hecho por dos personas que se
-            conocen desde hace años. No trabajamos con fórmulas ni plantillas: cada proyecto nace de mirar de
-            cerca, con tiempo, lo que hace único a cada lugar. Ese cuidado — más que cualquier equipo o técnica —
-            es lo que ponemos en cada entrega.
-          </p>
-        </motion.div>
+      {/* Intro paragraph — its own full-screen section, generous breathing room */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.7 }}
+        className="min-h-[100dvh] w-full flex items-center justify-center px-6"
+      >
+        <p className="font-serif text-3xl sm:text-4xl md:text-6xl text-[#1a1918] leading-[1.25] max-w-5xl text-center">
+          Mayu Travel es un estudio de producción visual para hoteles de lujo, hecho por dos personas que se
+          conocen desde hace años. No trabajamos con fórmulas ni plantillas: cada proyecto nace de mirar de
+          cerca, con tiempo, lo que hace único a cada lugar.
+        </p>
+      </motion.section>
 
-        {/* Legacy statement */}
-        <div className="mb-24 max-w-2xl mx-auto text-center">
-          <p className="font-serif text-2xl md:text-4xl text-[#1a1918] leading-snug">
+      {/* Legacy statement — full-width photo background, text overlaid */}
+      <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen min-h-[90vh] md:min-h-[100dvh] mb-24 md:mb-32 overflow-hidden">
+        <img
+          src={COUPLE_DEMO_PHOTO}
+          alt=""
+          referrerPolicy="no-referrer"
+          className="absolute inset-0 w-full h-full object-cover grayscale contrast-[1.05]"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative min-h-[90vh] md:min-h-[100dvh] flex items-center justify-center px-6 md:px-16">
+          <p className="font-serif text-white text-3xl sm:text-4xl md:text-6xl leading-[1.2] max-w-5xl text-center">
             &ldquo;No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse
             como se siente vivirlo.&rdquo;
           </p>
         </div>
+      </div>
 
+      <div className="max-w-6xl mx-auto px-6 md:px-12 pb-24">
         {/* Mayu profile */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
           <motion.div
@@ -135,7 +144,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         </div>
 
         {/* Production scope */}
-        <div className="mb-24">
+        <div>
           <div className="text-center mb-12">
             <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-2">
               Alcance de producción
@@ -143,26 +152,6 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
             <h2 className="font-serif text-2xl md:text-3xl text-[#1a1918]">Todo lo incluido en el servicio</h2>
           </div>
           <ProductionScope />
-        </div>
-
-        {/* Testimonials */}
-        <div className="mb-24">
-          <div className="text-center mb-10">
-            <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">
-              Marcas y testimonios
-            </span>
-          </div>
-          <Testimonials />
-        </div>
-
-        {/* Digital reach */}
-        <div>
-          <div className="text-center mb-10">
-            <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">
-              Alcance digital internacional
-            </span>
-          </div>
-          <DigitalReach />
         </div>
       </div>
     </div>
