@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Page } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
+import heroPortraitBW from '../src/assets/images/hero_portrait_bw_1786010923167.jpg';
 
 interface NavbarProps {
   currentPage: Page;
@@ -56,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-50 bg-[#f5f3ed] flex flex-col justify-between px-6 py-8 md:px-16 md:py-12 overflow-y-auto"
+            className="fixed inset-0 z-[60] bg-[#f5f3ed] flex flex-col justify-between px-6 py-8 md:px-16 md:py-12 overflow-y-auto"
           >
             {/* Top Row inside menu */}
             <div className="flex items-center justify-between">
@@ -76,59 +77,63 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
               </button>
             </div>
 
-            {/* Main Page Links */}
-            <div className="my-auto py-12 flex flex-col items-center justify-center text-center space-y-8 md:space-y-10">
-              <button
-                onClick={() => handleLinkClick('home')}
-                className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                  currentPage === 'home' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
-                }`}
-              >
-                Inicio
-              </button>
+            {/* Main Page Links + Photo */}
+            <div className="my-auto py-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-6xl mx-auto w-full">
+              <div className="lg:col-span-4 hidden lg:block" />
 
-              <button
-                onClick={() => handleLinkClick('portfolio')}
-                className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                  currentPage === 'portfolio' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
-                }`}
-              >
-                Trabajo
-              </button>
+              <div className="lg:col-span-4 flex flex-col items-center justify-center text-center space-y-8 md:space-y-10">
+                <button
+                  onClick={() => handleLinkClick('portfolio')}
+                  className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
+                    currentPage === 'portfolio' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
+                  }`}
+                >
+                  Trabajo
+                </button>
 
-              <button
-                onClick={() => handleLinkClick('about')}
-                className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                  currentPage === 'about' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
-                }`}
-              >
-                Sobre mí
-              </button>
+                <button
+                  onClick={() => handleLinkClick('about')}
+                  className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
+                    currentPage === 'about' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
+                  }`}
+                >
+                  Sobre mí
+                </button>
 
-              <button
-                onClick={() => handleLinkClick('contact')}
-                className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
-                  currentPage === 'contact' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
-                }`}
-              >
-                Contacto
-              </button>
+                <button
+                  onClick={() => handleLinkClick('contact')}
+                  className={`font-serif text-3xl md:text-5xl tracking-wide transition-all duration-300 ${
+                    currentPage === 'contact' ? 'underline underline-offset-8 decoration-1' : 'hover:italic hover:opacity-70'
+                  }`}
+                >
+                  Contacto
+                </button>
+              </div>
+
+              {/* Single portrait, animated on hover */}
+              <div className="lg:col-span-4 flex justify-center lg:justify-end">
+                <div className="relative w-full max-w-[300px] aspect-[4/5] overflow-hidden shadow-sm border border-[#1a1918]/10 group cursor-pointer">
+                  <img
+                    src={heroPortraitBW}
+                    alt="Mayurlin Viera"
+                    referrerPolicy="no-referrer"
+                    className="absolute inset-0 w-full h-full object-cover object-[50%_20%] grayscale contrast-[1.12] brightness-[0.98] scale-105 transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 group-hover:scale-100"
+                  />
+                  <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-700" />
+                </div>
+              </div>
             </div>
 
             {/* Bottom Menu Info */}
-            <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#1a1918]/10 text-xs font-sans tracking-[0.15em] text-[#5a5854] gap-4">
+            <div className="flex items-center justify-between pt-8 border-t border-[#1a1918]/10 text-xs font-sans tracking-[0.15em] text-[#5a5854] gap-4">
               <a
                 href="https://instagram.com/mayurlintravel"
                 target="_blank"
                 rel="noreferrer"
                 className="uppercase hover:text-[#1a1918] transition-colors"
               >
-                Instagram &bull; @mayurlintravel
+                Instagram
               </a>
-
-              <div className="text-center">
-                <span>ESPAÑA &bull; ARGENTINA &bull; ESTADOS UNIDOS &bull; MÉXICO</span>
-              </div>
 
               <button
                 onClick={() => {
