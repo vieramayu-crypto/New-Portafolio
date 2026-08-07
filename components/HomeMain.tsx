@@ -105,7 +105,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
   return (
     <div className="relative min-h-screen bg-[#fbfaf6] text-[#1a1918] select-none font-sans overflow-x-hidden">
       {/* Hero Section */}
-      <HeroSection onNavigate={onNavigate} onOpenAvailability={onOpenAvailability} />
+      <HeroSection />
 
       {/* Target for smooth scroll from Hero */}
       <div id="hotel-section" className="relative pt-6">
