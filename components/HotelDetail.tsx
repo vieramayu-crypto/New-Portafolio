@@ -13,12 +13,15 @@ interface GalleryPhotoProps {
   aspectClass: string;
   widthClass: string;
   offsetClass?: string;
+  bleed?: boolean;
 }
 
-const GalleryPhoto: React.FC<GalleryPhotoProps> = ({ photo, y, aspectClass, widthClass, offsetClass }) => (
+const GalleryPhoto: React.FC<GalleryPhotoProps> = ({ photo, y, aspectClass, widthClass, offsetClass, bleed }) => (
   <motion.div
     style={{ y }}
-    className={`relative ${widthClass} ${aspectClass} ${offsetClass || ''} shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200`}
+    className={`relative ${widthClass} ${aspectClass} ${offsetClass || ''} ${
+      bleed ? '' : 'shadow-2xl border border-[#1a1918]/10'
+    } group overflow-hidden bg-stone-200`}
   >
     <img
       src={photo.url}
@@ -182,8 +185,14 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
         )}
 
         {photos[3] && (
-          <div className="w-full">
-            <GalleryPhoto photo={photos[3]} y={yTransforms[3]} aspectClass="aspect-[16/9]" widthClass="w-full" />
+          <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
+            <GalleryPhoto
+              photo={photos[3]}
+              y={yTransforms[3]}
+              aspectClass="aspect-[16/9]"
+              widthClass="w-full"
+              bleed
+            />
           </div>
         )}
 
