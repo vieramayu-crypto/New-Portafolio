@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 const ELEGANT = 'font-serif italic tracking-wide text-2xl md:text-3xl';
 
@@ -24,16 +24,49 @@ const BrandLogo: React.FC<{ brand: (typeof BRANDS)[number] }> = ({ brand }) => (
 );
 
 export const BrandsMarquee: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const drag = useRef({ startX: 0, startScrollLeft: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setIsDragging(true);
+    drag.current = { startX: e.clientX, startScrollLeft: el.scrollLeft };
+    el.setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el || !isDragging) return;
+    el.scrollLeft = drag.current.startScrollLeft - (e.clientX - drag.current.startX);
+  };
+
+  const stopDragging = (e: React.PointerEvent<HTMLDivElement>) => {
+    setIsDragging(false);
+    scrollRef.current?.releasePointerCapture(e.pointerId);
+  };
+
   return (
     <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-white py-20 md:py-28 overflow-hidden">
-      <div className="animate-marquee-slow whitespace-nowrap">
-        {[0, 1].map((copy) => (
-          <div key={copy} className="flex items-center">
-            {BRANDS.map((brand) => (
-              <BrandLogo key={`${copy}-${brand.name}`} brand={brand} />
-            ))}
-          </div>
-        ))}
+      <div
+        ref={scrollRef}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={stopDragging}
+        onPointerLeave={stopDragging}
+        className={`no-scrollbar select-none overflow-x-auto ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+        style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
+      >
+        <div className="animate-marquee-slow whitespace-nowrap">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex items-center">
+              {BRANDS.map((brand) => (
+                <BrandLogo key={`${copy}-${brand.name}`} brand={brand} />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
