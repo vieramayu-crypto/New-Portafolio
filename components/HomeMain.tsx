@@ -8,7 +8,7 @@ import { HotelSectionBlock } from './HotelSectionBlock';
 interface HomeMainProps {
   onNavigate: (page: Page) => void;
   onOpenAvailability: () => void;
-  onSelectStory?: (story: HotelStory) => void;
+  onSelectStory?: (story: HotelStory, originRect: DOMRect) => void;
 }
 
 function renderTwoLineHotelName(name: string) {

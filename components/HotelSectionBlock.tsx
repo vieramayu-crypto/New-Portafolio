@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { HotelStory } from '../types';
 
 interface HotelSectionBlockProps {
   story: HotelStory;
   index: number;
-  onSelectStory?: (story: HotelStory) => void;
+  onSelectStory?: (story: HotelStory, originRect: DOMRect) => void;
 }
 
 /**
@@ -53,6 +53,37 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
   const yPhoto2 = useTransform(smoothProgress, [0, 1], ['120px', '-120px']);
   const yPhoto3 = useTransform(smoothProgress, [0, 1], ['50px', '-50px']);
 
+  // Entry transition: on click, the other photos converge into the clicked one, which
+  // then hands off (via App's PhotoZoomTransition) into a full-screen zoom.
+  const photoRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
+  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+  const [convergeOffsets, setConvergeOffsets] = useState<{ dx: number; dy: number }[]>([
+    { dx: 0, dy: 0 },
+    { dx: 0, dy: 0 },
+    { dx: 0, dy: 0 },
+  ]);
+
+  const handlePhotoClick = (photoIndex: number) => {
+    if (clickedIndex !== null || !onSelectStory) return;
+    const clickedEl = photoRefs[photoIndex].current;
+    if (!clickedEl) return;
+    const clickedRect = clickedEl.getBoundingClientRect();
+
+    const offsets = photoRefs.map((ref) => {
+      const el = ref.current;
+      if (!el) return { dx: 0, dy: 0 };
+      const r = el.getBoundingClientRect();
+      return {
+        dx: clickedRect.left + clickedRect.width / 2 - (r.left + r.width / 2),
+        dy: clickedRect.top + clickedRect.height / 2 - (r.top + r.height / 2),
+      };
+    });
+
+    setConvergeOffsets(offsets);
+    setClickedIndex(photoIndex);
+    window.setTimeout(() => onSelectStory(story, clickedRect), 380);
+  };
+
   return (
     <div
       ref={sectionRef}
@@ -84,8 +115,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 1: Giant Hero VERTICAL */}
             {photos[0] && (
               <motion.div
-                style={{ y: yPhoto1, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[0]}
+                style={{ y: clickedIndex === null ? yPhoto1 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 0
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[2%] w-full md:w-[68%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -101,8 +141,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 2: Top-Right Floating Portrait */}
             {photos[1] && (
               <motion.div
-                style={{ y: yPhoto2, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[1]}
+                style={{ y: clickedIndex === null ? yPhoto2 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 1
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[34%] aspect-[3/4] shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -118,8 +167,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 3: Bottom-Right Landscape (Subtle overlap under 5%) */}
             {photos[2] && (
               <motion.div
-                style={{ y: yPhoto3, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[2]}
+                style={{ y: clickedIndex === null ? yPhoto3 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 2
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute right-0 md:right-[2%] top-0 md:top-[58%] w-full md:w-[48%] aspect-[4/3] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
                 <img
@@ -140,8 +198,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 1: Top-Left Floating Detail */}
             {photos[0] && (
               <motion.div
-                style={{ y: yPhoto1, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[0]}
+                style={{ y: clickedIndex === null ? yPhoto1 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 0
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[2%] w-full md:w-[36%] aspect-[4/3] shadow-lg border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -157,8 +224,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 2: Giant Hero SQUARE (~68% width) */}
             {photos[1] && (
               <motion.div
-                style={{ y: yPhoto2, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[1]}
+                style={{ y: clickedIndex === null ? yPhoto2 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 1
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[68%] aspect-square shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -174,8 +250,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 3: Bottom-Left Overlap (~46% width) */}
             {photos[2] && (
               <motion.div
-                style={{ y: yPhoto3, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[2]}
+                style={{ y: clickedIndex === null ? yPhoto3 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 2
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute left-0 md:left-[4%] top-0 md:top-[48%] w-full md:w-[46%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
                 <img
@@ -196,8 +281,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 1: Giant Hero VERTICAL */}
             {photos[0] && (
               <motion.div
-                style={{ y: yPhoto1, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[0]}
+                style={{ y: clickedIndex === null ? yPhoto1 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 0
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[2%] w-full md:w-[68%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -213,8 +307,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 2: Top-Right Landscape */}
             {photos[1] && (
               <motion.div
-                style={{ y: yPhoto2, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[1]}
+                style={{ y: clickedIndex === null ? yPhoto2 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 1
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[38%] aspect-[4/3] shadow-lg border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -230,8 +333,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 3: Bottom-Right Portrait Overlap */}
             {photos[2] && (
               <motion.div
-                style={{ y: yPhoto3, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[2]}
+                style={{ y: clickedIndex === null ? yPhoto3 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 2
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute right-0 md:right-[2%] top-0 md:top-[58%] w-full md:w-[42%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
                 <img
@@ -252,8 +364,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 1: Left Top Floating Portrait */}
             {photos[0] && (
               <motion.div
-                style={{ y: yPhoto1, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[0]}
+                style={{ y: clickedIndex === null ? yPhoto1 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 0
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[4%] w-full md:w-[32%] aspect-[3/4] shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -269,8 +390,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 2: Giant Hero SQUARE (~68% width) */}
             {photos[1] && (
               <motion.div
-                style={{ y: yPhoto2, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[1]}
+                style={{ y: clickedIndex === null ? yPhoto2 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 1
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute left-0 md:left-[22%] top-0 md:top-[2%] w-full md:w-[68%] aspect-square shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -286,8 +416,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 3: Right Bottom Landscape Overlap */}
             {photos[2] && (
               <motion.div
-                style={{ y: yPhoto3, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[2]}
+                style={{ y: clickedIndex === null ? yPhoto3 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 2
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[52%] w-full md:w-[44%] aspect-[4/3] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
                 <img
@@ -308,8 +447,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 1: Top Floating Landscape */}
             {photos[0] && (
               <motion.div
-                style={{ y: yPhoto1, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[0]}
+                style={{ y: clickedIndex === null ? yPhoto1 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 0
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[10%] top-0 md:top-[2%] w-full md:w-[52%] aspect-[16/9] shadow-xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -325,8 +473,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 2: Giant Hero VERTICAL (~66% width) */}
             {photos[1] && (
               <motion.div
-                style={{ y: yPhoto2, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[1]}
+                style={{ y: clickedIndex === null ? yPhoto2 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 1
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[32%] w-full md:w-[66%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-20"
               >
                 <img
@@ -342,8 +499,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 3: Bottom Right Floating Portrait */}
             {photos[2] && (
               <motion.div
-                style={{ y: yPhoto3, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[2]}
+                style={{ y: clickedIndex === null ? yPhoto3 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 2
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[48%] w-full md:w-[38%] aspect-[3/4] shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-10"
               >
                 <img
@@ -364,8 +530,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 1: Top-Left Floating Detail */}
             {photos[0] && (
               <motion.div
-                style={{ y: yPhoto1, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[0]}
+                style={{ y: clickedIndex === null ? yPhoto1 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 0
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[4%] w-full md:w-[32%] aspect-square shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -381,8 +556,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 2: Giant Hero VERTICAL (~58% width, 50%+ larger footprint) */}
             {photos[1] && (
               <motion.div
-                style={{ y: yPhoto2, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[1]}
+                style={{ y: clickedIndex === null ? yPhoto2 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 1
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[58%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -398,8 +582,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 3: Bottom-Left Landscape Overlap (~48% width) */}
             {photos[2] && (
               <motion.div
-                style={{ y: yPhoto3, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[2]}
+                style={{ y: clickedIndex === null ? yPhoto3 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 2
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute left-0 md:left-[2%] top-0 md:top-[48%] w-full md:w-[48%] aspect-[4/3] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
                 <img
@@ -420,8 +613,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 1: Giant Hero VERTICAL (~68% width) */}
             {photos[0] && (
               <motion.div
-                style={{ y: yPhoto1, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[0]}
+                style={{ y: clickedIndex === null ? yPhoto1 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 0
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[2%] w-full md:w-[68%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -437,8 +639,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 2: Right Top Floating Portrait */}
             {photos[1] && (
               <motion.div
-                style={{ y: yPhoto2, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[1]}
+                style={{ y: clickedIndex === null ? yPhoto2 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 1
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[36%] aspect-[3/4] shadow-lg border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -454,8 +665,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 3: Bottom Center Portrait Overlap */}
             {photos[2] && (
               <motion.div
-                style={{ y: yPhoto3, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[2]}
+                style={{ y: clickedIndex === null ? yPhoto3 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 2
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute left-0 md:left-[30%] top-0 md:top-[56%] w-full md:w-[42%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
                 <img
@@ -476,8 +696,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 1: Top Left Floating Detail */}
             {photos[0] && (
               <motion.div
-                style={{ y: yPhoto1, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[0]}
+                style={{ y: clickedIndex === null ? yPhoto1 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 0
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[2%] w-full md:w-[32%] aspect-square shadow-lg border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -493,8 +722,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 2: Giant Hero SQUARE (~68% width) */}
             {photos[1] && (
               <motion.div
-                style={{ y: yPhoto2, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[1]}
+                style={{ y: clickedIndex === null ? yPhoto2 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 1
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[68%] aspect-square shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
@@ -510,8 +748,17 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
             {/* Photo 3: Bottom Left Landscape Overlap (~48% width) */}
             {photos[2] && (
               <motion.div
-                style={{ y: yPhoto3, cursor: onSelectStory ? 'pointer' : undefined }}
-                onClick={() => onSelectStory?.(story)}
+                ref={photoRefs[2]}
+                style={{ y: clickedIndex === null ? yPhoto3 : undefined, cursor: onSelectStory ? 'pointer' : undefined }}
+                animate={
+                  clickedIndex === null
+                    ? undefined
+                    : clickedIndex === 2
+                    ? { scale: 1.04, opacity: 1 }
+                    : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.2, opacity: 0 }
+                }
+                transition={{ duration: 0.38, ease: 'easeIn' }}
+                onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[56%] w-full md:w-[48%] aspect-[4/3] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
                 <img
