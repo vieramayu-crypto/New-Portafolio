@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Page } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
-import heroPortraitBW from '../src/assets/images/hero_portrait_bw_1786010923167.jpg';
+import { COUPLE_PHOTO, MAYU_PORTRAIT, PORTFOLIO_MENU_PHOTO } from '../data/media';
 
 interface NavbarProps {
   currentPage: Page;
@@ -10,14 +10,24 @@ interface NavbarProps {
 }
 
 const PAGE_LABELS: Partial<Record<Page, string>> = {
-  portfolio: 'Trabajo',
+  portfolio: 'Portafolio',
   about: 'Acerca de',
   contact: 'Contacto',
 };
 
+const MENU_PHOTOS: Partial<Record<Page, string>> = {
+  portfolio: PORTFOLIO_MENU_PHOTO,
+  about: COUPLE_PHOTO,
+  contact: MAYU_PORTRAIT,
+};
+
+const DEFAULT_MENU_PHOTO = MAYU_PORTRAIT;
+
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenAvailability }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<Page | null>(null);
   const pageLabel = PAGE_LABELS[currentPage];
+  const activeMenuPhoto = (hoveredLink && MENU_PHOTOS[hoveredLink]) || DEFAULT_MENU_PHOTO;
 
   const handleLinkClick = (page: Page) => {
     onNavigate(page);
@@ -98,9 +108,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
               <div className="lg:col-span-4 flex flex-col items-center justify-center text-center space-y-8 md:space-y-10">
                 <button
                   onClick={() => handleLinkClick('portfolio')}
+                  onMouseEnter={() => setHoveredLink('portfolio')}
+                  onMouseLeave={() => setHoveredLink(null)}
                   className="group relative inline-block font-serif text-3xl md:text-5xl tracking-wide text-[#1a1918]"
                 >
-                  Trabajo
+                  Portafolio
                   <span
                     className={`pointer-events-none absolute left-0 -bottom-1 h-px w-full origin-left bg-[#1a1918] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
                       currentPage === 'portfolio' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
@@ -110,6 +122,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
 
                 <button
                   onClick={() => handleLinkClick('about')}
+                  onMouseEnter={() => setHoveredLink('about')}
+                  onMouseLeave={() => setHoveredLink(null)}
                   className="group relative inline-block font-serif text-3xl md:text-5xl tracking-wide text-[#1a1918]"
                 >
                   Acerca de
@@ -122,6 +136,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
 
                 <button
                   onClick={() => handleLinkClick('contact')}
+                  onMouseEnter={() => setHoveredLink('contact')}
+                  onMouseLeave={() => setHoveredLink(null)}
                   className="group relative inline-block font-serif text-3xl md:text-5xl tracking-wide text-[#1a1918]"
                 >
                   Contacto
@@ -133,16 +149,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                 </button>
               </div>
 
-              {/* Single portrait, animated on hover */}
+              {/* Portrait that swaps with the hovered link */}
               <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                <div className="relative w-full max-w-[300px] aspect-[4/5] overflow-hidden shadow-sm border border-[#1a1918]/10 group cursor-pointer">
-                  <img
-                    src={heroPortraitBW}
-                    alt="Mayurlin Viera"
-                    referrerPolicy="no-referrer"
-                    className="absolute inset-0 w-full h-full object-cover object-[50%_20%] grayscale contrast-[1.12] brightness-[0.98] scale-105 transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 group-hover:scale-100"
-                  />
-                  <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-700" />
+                <div className="relative w-full max-w-[300px] aspect-[4/5] overflow-hidden shadow-sm border border-[#1a1918]/10">
+                  <AnimatePresence mode="sync">
+                    <motion.img
+                      key={activeMenuPhoto}
+                      src={activeMenuPhoto}
+                      alt=""
+                      referrerPolicy="no-referrer"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.6, ease: 'easeInOut' }}
+                      className="absolute inset-0 w-full h-full object-cover object-[50%_20%] grayscale contrast-[1.12] brightness-[0.98]"
+                    />
+                  </AnimatePresence>
                 </div>
               </div>
             </div>

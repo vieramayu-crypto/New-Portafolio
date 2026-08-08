@@ -29,10 +29,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }
               Inicio
             </button>
             <button onClick={() => onNavigate('portfolio')} className="text-left hover:text-[#f5f3ed]">
-              Trabajo
+              Portafolio
             </button>
             <button onClick={() => onNavigate('about')} className="text-left hover:text-[#f5f3ed]">
-              Sobre mí
+              Acerca de
             </button>
             <button onClick={() => onNavigate('contact')} className="text-left hover:text-[#f5f3ed]">
               Contacto
