@@ -16,6 +16,12 @@ interface GalleryPhotoProps {
   bleed?: boolean;
 }
 
+function toTitleCase(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/(^|\s)\S/g, (letter) => letter.toUpperCase());
+}
+
 const GalleryPhoto: React.FC<GalleryPhotoProps> = ({ photo, y, aspectClass, widthClass, offsetClass, bleed }) => (
   <motion.div
     style={{ y }}
@@ -35,6 +41,7 @@ const GalleryPhoto: React.FC<GalleryPhotoProps> = ({ photo, y, aspectClass, widt
 
 export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
   const [creditsOpen, setCreditsOpen] = useState(false);
+  const [heroLoaded, setHeroLoaded] = useState(false);
 
   // STRICT CONSTRAINT: Maximum 10 photos in the gallery
   const photos = (story.photos || []).slice(0, 10);
@@ -70,9 +77,24 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
         <img
           src={story.coverImage}
           alt={story.hotelName}
+          onLoad={() => setHeroLoaded(true)}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1a1918]/35 via-transparent to-[#1a1918]/10" />
+
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={heroLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.2 }}
+          className="absolute inset-0 flex items-center justify-center px-6 text-center pointer-events-none"
+        >
+          <span
+            className="font-serif text-white leading-[0.95] tracking-tight text-[13vw] sm:text-7xl md:text-8xl lg:text-[7.5rem]"
+            style={{ textShadow: '0 2px 24px rgba(0,0,0,0.25)' }}
+          >
+            {toTitleCase(story.hotelName)}
+          </span>
+        </motion.h1>
 
         <button
           onClick={onBack}
