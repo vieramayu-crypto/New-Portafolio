@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Page } from './types';
+import { Page, HotelStory } from './types';
 import { Navbar } from './components/Navbar';
 import { HomeMain } from './components/HomeMain';
 import { Portfolio } from './components/Portfolio';
@@ -7,14 +7,27 @@ import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { AvailabilityModal } from './components/AvailabilityModal';
 import { Footer } from './components/Footer';
+import { HotelDetail } from './components/HotelDetail';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isAvailabilityOpen, setIsAvailabilityOpen] = useState<boolean>(false);
+  const [selectedStory, setSelectedStory] = useState<HotelStory | null>(null);
 
   const handleNavigate = (page: Page) => {
     setCurrentPage(page);
+    setSelectedStory(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectStory = (story: HotelStory) => {
+    setSelectedStory(story);
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
+  const handleCloseStory = () => {
+    setSelectedStory(null);
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   return (
@@ -28,26 +41,33 @@ export default function App() {
 
       {/* Main View Router */}
       <main>
-        {currentPage === 'home' && (
-          <HomeMain
-            onNavigate={handleNavigate}
-            onOpenAvailability={() => setIsAvailabilityOpen(true)}
-          />
-        )}
+        {selectedStory ? (
+          <HotelDetail story={selectedStory} onBack={handleCloseStory} />
+        ) : (
+          <>
+            {currentPage === 'home' && (
+              <HomeMain
+                onNavigate={handleNavigate}
+                onOpenAvailability={() => setIsAvailabilityOpen(true)}
+                onSelectStory={handleSelectStory}
+              />
+            )}
 
-        {currentPage === 'portfolio' && (
-          <Portfolio onOpenAvailability={() => setIsAvailabilityOpen(true)} />
-        )}
+            {currentPage === 'portfolio' && (
+              <Portfolio onOpenAvailability={() => setIsAvailabilityOpen(true)} />
+            )}
 
-        {currentPage === 'about' && (
-          <About onOpenAvailability={() => setIsAvailabilityOpen(true)} />
-        )}
+            {currentPage === 'about' && (
+              <About onOpenAvailability={() => setIsAvailabilityOpen(true)} />
+            )}
 
-        {currentPage === 'contact' && <Contact />}
+            {currentPage === 'contact' && <Contact />}
+          </>
+        )}
       </main>
 
       {/* Render Footer on pages other than full home scroll, or at bottom */}
-      {currentPage !== 'home' && (
+      {(currentPage !== 'home' || selectedStory) && (
         <Footer
           onNavigate={handleNavigate}
           onOpenAvailability={() => setIsAvailabilityOpen(true)}
