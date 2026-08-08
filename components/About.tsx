@@ -2,11 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { FlipWords } from './FlipWords';
 import { ProductionScope } from './ProductionScope';
-
-const COUPLE_PHOTO = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/Fondo-scaled.webp';
-
-const MAYU_PORTRAIT = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/P1002251.RW22-scaled.webp?v=2';
-const YERFRAN_PORTRAIT = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/P1001995.RW2_-scaled.webp?v=2';
+import { COUPLE_PHOTO, MAYU_PORTRAIT, YERFRAN_PORTRAIT } from '../data/media';
 
 interface AboutProps {
   onOpenAvailability: () => void;
@@ -17,11 +13,16 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] font-sans">
       {/* Flip-words opening statement — full viewport, brutalist scale */}
       <section className="min-h-[100dvh] w-full flex flex-col items-center justify-center text-center px-6">
-        <h1 className="font-serif font-medium text-[18vw] sm:text-[14vw] md:text-[11vw] leading-[1.15] text-[#1a1918]">
+        <motion.h1
+          initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
+          className="font-serif font-medium text-[18vw] sm:text-[14vw] md:text-[11vw] leading-[1.15] text-[#1a1918]"
+        >
           Fotografía con
           <br />
           <FlipWords words={['Alma', 'Amor', 'Autenticidad']} />
-        </h1>
+        </motion.h1>
       </section>
 
       {/* Intro paragraph — its own full-screen section, generous breathing room */}
@@ -47,8 +48,8 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
           referrerPolicy="no-referrer"
           className="absolute inset-0 w-full h-full object-cover grayscale contrast-110"
         />
-        <div className="absolute inset-0 bg-black/65" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/25" />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10" />
         <div className="relative min-h-[90vh] md:min-h-[100dvh] flex items-center justify-center px-6 md:px-16">
           <p className="font-serif text-white text-3xl sm:text-4xl md:text-6xl leading-[1.2] max-w-5xl text-center">
             &ldquo;No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse
