@@ -32,6 +32,7 @@ function renderTwoLineHotelName(name: string) {
 export const HomeMain: React.FC<HomeMainProps> = ({
   onNavigate,
   onOpenAvailability,
+  onSelectStory,
 }) => {
   const [activeStoryIndex, setActiveStoryIndex] = useState<number>(0);
   const [isHotelSelectorOpen, setIsHotelSelectorOpen] = useState<boolean>(false);
@@ -150,6 +151,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
               key={story.id}
               story={story}
               index={index}
+              onSelectStory={onSelectStory}
             />
           ))}
 

@@ -38,6 +38,62 @@ export const HOTEL_STORIES: HotelStory[] = [
         caption: 'Atardecer en la terraza del lago',
         aspectRatio: 'landscape',
         isBlackAndWhite: true
+      },
+      {
+        id: 'gt-4',
+        url: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=85',
+        alt: 'Paseo privado al amanecer junto al lago',
+        caption: 'Amanecer sobre el Lago di Como',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: true
+      },
+      {
+        id: 'gt-5',
+        url: 'https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=900&q=85',
+        alt: 'Detalle arquitectónico de la fachada belle époque',
+        caption: 'Fachada belle époque',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: true
+      },
+      {
+        id: 'gt-6',
+        url: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1000&q=85',
+        alt: 'Piscina infinita con reflejos dorados sobre el lago',
+        caption: 'Piscina infinita al atardecer',
+        aspectRatio: 'square',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'gt-7',
+        url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85',
+        alt: 'Mesa imperial iluminada por faroles junto al lago',
+        caption: 'Cena privada a la orilla del lago',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'gt-8',
+        url: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=900&q=85',
+        alt: 'Detalles de papelería y alta costura sobre mármol',
+        caption: 'Detalles artesanales de la ceremonia',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'gt-9',
+        url: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85',
+        alt: 'Vista panorámica de la villa italiana entre olivos',
+        caption: 'Vista panorámica sobre el jardín',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: true
+      },
+      {
+        id: 'gt-10',
+        url: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=900&q=85',
+        alt: 'Paseo romántico por los jardines renacentistas del lago',
+        caption: 'Últimos pasos de la celebración',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: true
       }
     ]
   },
