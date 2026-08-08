@@ -32,7 +32,7 @@ export const HeroSection: React.FC = () => {
 
       {/* Horizontal Rule */}
       <div
-        className="absolute inset-x-6 sm:inset-x-10 bottom-[6.5rem] sm:bottom-28 z-30 h-0.5 bg-[#1a1918]/20 anim-line"
+        className="absolute inset-x-6 sm:inset-x-10 bottom-[9.5rem] sm:bottom-28 z-30 h-0.5 bg-[#1a1918]/20 anim-line"
         style={{ animationDelay: '1200ms' }}
       />
 
