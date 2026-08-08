@@ -161,7 +161,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.3 }}
-                className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center"
+                className="fixed bottom-8 inset-x-0 z-50 flex flex-col items-center px-4"
               >
                 <button
                   onClick={() => setIsHotelSelectorOpen(!isHotelSelectorOpen)}
