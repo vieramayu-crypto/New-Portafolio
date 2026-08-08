@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { CollaborationInquiry } from '../types';
 import { motion } from 'motion/react';
+import { BrandsMarquee } from './BrandsMarquee';
+
+const fieldClass =
+  'w-full bg-white px-5 py-4 text-base text-[#1a1918] placeholder:text-[#5a5854] shadow-sm focus:outline-none focus:ring-1 focus:ring-[#1a1918]/40 transition-shadow';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState<CollaborationInquiry>({
@@ -54,113 +58,80 @@ export const Contact: React.FC = () => {
           </button>
         </motion.div>
       ) : (
-        <form onSubmit={handleSubmit} className="bg-white border border-[#1a1918]/15 p-8 md:p-12 shadow-sm space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-xs font-sans tracking-widest uppercase text-[#5a5854] block">
-                Nombre completo *
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="ej. Ana Martínez"
-                className="w-full bg-[#f5f3ed]/50 border border-[#1a1918]/20 p-3 text-base focus:outline-none focus:border-[#1a1918]"
-              />
-            </div>
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <input
+              type="text"
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              placeholder="Nombre completo*"
+              className={fieldClass}
+            />
 
-            <div className="space-y-2">
-              <label className="text-xs font-sans tracking-widest uppercase text-[#5a5854] block">
-                Correo electrónico *
-              </label>
-              <input
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="ej. ana@hotel.com"
-                className="w-full bg-[#f5f3ed]/50 border border-[#1a1918]/20 p-3 text-base focus:outline-none focus:border-[#1a1918]"
-              />
-            </div>
+            <input
+              type="email"
+              required
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              placeholder="Correo electrónico*"
+              className={fieldClass}
+            />
 
-            <div className="space-y-2">
-              <label className="text-xs font-sans tracking-widest uppercase text-[#5a5854] block">
-                Teléfono / WhatsApp
-              </label>
-              <input
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="+34 600 000 000"
-                className="w-full bg-[#f5f3ed]/50 border border-[#1a1918]/20 p-3 text-base focus:outline-none focus:border-[#1a1918]"
-              />
-            </div>
+            <input
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              placeholder="Teléfono / WhatsApp (opcional)"
+              className={fieldClass}
+            />
 
-            <div className="space-y-2">
-              <label className="text-xs font-sans tracking-widest uppercase text-[#5a5854] block">
-                Nombre de la propiedad *
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.propertyName}
-                onChange={(e) => setFormData({ ...formData, propertyName: e.target.value })}
-                placeholder="ej. Nombre del hotel"
-                className="w-full bg-[#f5f3ed]/50 border border-[#1a1918]/20 p-3 text-base focus:outline-none focus:border-[#1a1918]"
-              />
-            </div>
+            <input
+              type="text"
+              required
+              value={formData.propertyName}
+              onChange={(e) => setFormData({ ...formData, propertyName: e.target.value })}
+              placeholder="Nombre de la propiedad*"
+              className={fieldClass}
+            />
 
-            <div className="space-y-2">
-              <label className="text-xs font-sans tracking-widest uppercase text-[#5a5854] block">
-                Tipo de servicio
-              </label>
-              <select
-                value={formData.collaborationType}
-                onChange={(e) => setFormData({ ...formData, collaborationType: e.target.value })}
-                className="w-full bg-[#f5f3ed]/50 border border-[#1a1918]/20 p-3 text-base focus:outline-none focus:border-[#1a1918]"
-              >
-                <option value="Fotografía">Fotografía</option>
-                <option value="Dirección cinematográfica">Dirección cinematográfica</option>
-                <option value="Fotografía + Video">Fotografía + Video</option>
-                <option value="Otro">Otro</option>
-              </select>
-            </div>
+            <select
+              value={formData.collaborationType}
+              onChange={(e) => setFormData({ ...formData, collaborationType: e.target.value })}
+              className={`${fieldClass} appearance-none`}
+            >
+              <option value="Fotografía">Fotografía</option>
+              <option value="Dirección cinematográfica">Dirección cinematográfica</option>
+              <option value="Fotografía + Video">Fotografía + Video</option>
+              <option value="Otro">Otro</option>
+            </select>
 
-            <div className="space-y-2">
-              <label className="text-xs font-sans tracking-widest uppercase text-[#5a5854] block">
-                Fechas de disponibilidad *
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.availabilityDate}
-                onChange={(e) => setFormData({ ...formData, availabilityDate: e.target.value })}
-                placeholder="ej. semana del 12 de marzo"
-                className="w-full bg-[#f5f3ed]/50 border border-[#1a1918]/20 p-3 text-base focus:outline-none focus:border-[#1a1918]"
-              />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-xs font-sans tracking-widest uppercase text-[#5a5854] block">
-              Detalles del proyecto
-            </label>
-            <textarea
-              rows={4}
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              placeholder="Cuéntame sobre la propiedad, el objetivo del contenido o cualquier detalle relevante..."
-              className="w-full bg-[#f5f3ed]/50 border border-[#1a1918]/20 p-3 text-base focus:outline-none focus:border-[#1a1918]"
+            <input
+              type="text"
+              required
+              value={formData.availabilityDate}
+              onChange={(e) => setFormData({ ...formData, availabilityDate: e.target.value })}
+              placeholder="Fechas de disponibilidad*"
+              className={fieldClass}
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full bg-[#1a1918] text-[#f5f3ed] py-4 text-xs font-sans tracking-[0.25em] uppercase font-medium hover:bg-[#5a5854] transition-colors"
-          >
-            Enviar solicitud
-          </button>
+          <textarea
+            rows={6}
+            value={formData.message}
+            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            placeholder="Detalles del proyecto (opcional)"
+            className={`${fieldClass} resize-none`}
+          />
+
+          <div className="flex justify-center pt-4">
+            <button
+              type="submit"
+              className="bg-[#1a1918] text-[#f5f3ed] px-12 py-4 text-xs font-sans tracking-[0.25em] uppercase font-medium hover:bg-[#5a5854] transition-colors"
+            >
+              Enviar solicitud
+            </button>
+          </div>
         </form>
       )}
 
@@ -184,6 +155,8 @@ export const Contact: React.FC = () => {
           </a>
         </p>
       </div>
+
+      <BrandsMarquee />
     </div>
   );
 };
