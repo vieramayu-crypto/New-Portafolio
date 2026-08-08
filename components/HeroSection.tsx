@@ -38,9 +38,8 @@ export const HeroSection: React.FC = () => {
 
       {/* Footer Info — stacked & consolidated on mobile, original 3-column layout from sm up */}
       <footer className="absolute inset-x-0 bottom-0 z-30 flex flex-col items-center gap-3 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left px-6 pb-6 sm:px-10 sm:pb-8 text-xs sm:text-sm leading-relaxed font-sans text-[#1a1918] pointer-events-auto">
-        <div className="anim-fade-up order-2 sm:order-1" style={{ animationDelay: '1400ms' }}>
-          <div className="font-medium">Mayurlin Viera</div>
-          <div className="text-[#5a5854]">Directora Creativa</div>
+        <div className="anim-fade-up order-1" style={{ animationDelay: '1400ms' }}>
+          <div className="font-medium">Dirección Creativa</div>
           <div className="text-[#5a5854] hidden sm:block">Producción visual para hotelería de lujo</div>
           <div className="text-[#5a5854] sm:hidden">Fotografía &amp; Dirección Cinematográfica</div>
         </div>
@@ -48,7 +47,7 @@ export const HeroSection: React.FC = () => {
         {/* Scroll Down Hint Button */}
         <button
           onClick={scrollToContent}
-          className="anim-fade-up order-1 sm:order-2 flex flex-col items-center gap-1 group text-xs uppercase tracking-[0.2em] hover:opacity-80 transition-opacity"
+          className="anim-fade-up order-2 flex flex-col items-center gap-1 group text-xs uppercase tracking-[0.2em] hover:opacity-80 transition-opacity"
           style={{ animationDelay: '1450ms' }}
         >
           <span className="text-[10px] text-[#5a5854]">Desplazar</span>
