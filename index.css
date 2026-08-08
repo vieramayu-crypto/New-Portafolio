@@ -33,6 +33,12 @@ body {
   animation: marquee 24s linear infinite;
 }
 
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee 48s linear infinite;
+}
+
 .font-serif {
   font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
 }
