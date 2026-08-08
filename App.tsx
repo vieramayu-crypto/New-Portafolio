@@ -8,26 +8,37 @@ import { Contact } from './components/Contact';
 import { AvailabilityModal } from './components/AvailabilityModal';
 import { Footer } from './components/Footer';
 import { HotelDetail } from './components/HotelDetail';
+import { PhotoZoomTransition } from './components/PhotoZoomTransition';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isAvailabilityOpen, setIsAvailabilityOpen] = useState<boolean>(false);
   const [selectedStory, setSelectedStory] = useState<HotelStory | null>(null);
+  const [pendingTransition, setPendingTransition] = useState<{ story: HotelStory; rect: DOMRect } | null>(null);
 
   const handleNavigate = (page: Page) => {
     setCurrentPage(page);
     setSelectedStory(null);
+    setPendingTransition(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSelectStory = (story: HotelStory) => {
-    setSelectedStory(story);
-    window.scrollTo({ top: 0, behavior: 'auto' });
+  const handleSelectStory = (story: HotelStory, rect: DOMRect) => {
+    if (pendingTransition) return;
+    setPendingTransition({ story, rect });
+  };
+
+  const handleTransitionComplete = () => {
+    if (pendingTransition) {
+      setSelectedStory(pendingTransition.story);
+    }
+    setPendingTransition(null);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const handleCloseStory = () => {
     setSelectedStory(null);
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   return (
@@ -79,6 +90,15 @@ export default function App() {
         isOpen={isAvailabilityOpen}
         onClose={() => setIsAvailabilityOpen(false)}
       />
+
+      {/* Entry transition: clicked photo zooms full-screen into the story page */}
+      {pendingTransition && (
+        <PhotoZoomTransition
+          rect={pendingTransition.rect}
+          imageUrl={pendingTransition.story.coverImage}
+          onComplete={handleTransitionComplete}
+        />
+      )}
     </div>
   );
 }
