@@ -25,7 +25,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] pt-28 pb-24 px-6 md:px-12 max-w-4xl mx-auto font-sans">
+    <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] pt-28 px-6 md:px-12 max-w-4xl mx-auto font-sans">
       <div className="text-center space-y-4 mb-16">
         <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">Contacto directo</span>
         <h1 className="font-serif text-4xl md:text-6xl text-[#1a1918] tracking-wide">Trabajemos juntos</h1>
@@ -34,6 +34,7 @@ export const Contact: React.FC = () => {
         </p>
       </div>
 
+      <div className="pb-24">
       {submitted ? (
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -134,26 +135,6 @@ export const Contact: React.FC = () => {
           </div>
         </form>
       )}
-
-      {/* Direct Info */}
-      <div className="mt-16 text-center space-y-3 text-xs font-sans text-[#5a5854] tracking-wider uppercase">
-        <p>
-          Atención directa:{' '}
-          <a href="mailto:mayuviera@gmail.com" className="text-[#1a1918] underline">
-            mayuviera@gmail.com
-          </a>
-        </p>
-        <p>
-          Instagram:{' '}
-          <a
-            href="https://instagram.com/mayurlintravel"
-            target="_blank"
-            rel="noreferrer"
-            className="text-[#1a1918] underline"
-          >
-            @mayurlintravel
-          </a>
-        </p>
       </div>
 
       <BrandsMarquee />
