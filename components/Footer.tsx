@@ -1,5 +1,6 @@
 import React from 'react';
 import { Page } from '../types';
+import mayuLogoWhite from '../src/assets/images/mayu-logo-white.png';
 
 interface FooterProps {
   onNavigate: (page: Page) => void;
@@ -12,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#f5f3ed]/15">
         {/* Brand */}
         <div className="md:col-span-4 space-y-4">
-          <span className="font-serif text-2xl tracking-[0.2em] font-medium block">MAYU</span>
+          <img src={mayuLogoWhite} alt="MAYU" className="h-8 w-auto" />
           <p className="text-xs text-[#f5f3ed]/60 max-w-xs leading-relaxed font-sans">
             Producción visual — fotografía y dirección cinematográfica — para hoteles y propiedades de lujo, con
             enfoque en sostenibilidad.
