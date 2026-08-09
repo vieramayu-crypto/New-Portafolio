@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Page } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 import { COUPLE_PHOTO, MAYU_PORTRAIT, PORTFOLIO_MENU_PHOTO } from '../data/media';
+import mayuLogoBlack from '../src/assets/images/mayu-logo-black.png';
 
 interface NavbarProps {
   currentPage: Page;
@@ -36,14 +37,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
 
   return (
     <>
-      {/* Top Header Chrome */}
-      <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-5 md:px-12 md:py-8 pointer-events-none">
-        {/* Left: Framed Logo Box */}
-        <button
-          onClick={() => handleLinkClick('home')}
-          className="pointer-events-auto border border-[#1a1918] bg-[#f5f3ed]/90 backdrop-blur-sm px-4 py-1.5 text-sm md:text-base font-serif tracking-[0.25em] font-medium text-[#1a1918] hover:bg-[#1a1918] hover:text-[#f5f3ed] transition-all duration-300 shadow-sm"
-        >
-          MAYU
+      {/* Top Header Chrome — solid white strip on mobile, fully transparent on desktop */}
+      <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 md:px-12 md:py-8 bg-white md:bg-transparent pointer-events-none">
+        {/* Left: Plain logo, no box */}
+        <button onClick={() => handleLinkClick('home')} className="pointer-events-auto hover:opacity-70 transition-opacity">
+          <img src={mayuLogoBlack} alt="MAYU" className="h-7 md:h-8 w-auto" />
         </button>
 
         {/* Right: Page indicator + Minimal Two-Line Menu Icon */}
@@ -85,11 +83,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
           >
             {/* Top Row inside menu */}
             <div className="flex items-center justify-between">
-              <button
-                onClick={() => handleLinkClick('home')}
-                className="border border-[#1a1918] px-4 py-1.5 text-sm md:text-base font-serif tracking-[0.25em] font-medium text-[#1a1918]"
-              >
-                MAYU
+              <button onClick={() => handleLinkClick('home')} className="hover:opacity-70 transition-opacity">
+                <img src={mayuLogoBlack} alt="MAYU" className="h-7 md:h-8 w-auto" />
               </button>
 
               <button
