@@ -39,6 +39,49 @@ const GalleryPhoto: React.FC<GalleryPhotoProps> = ({ photo, y, aspectClass, widt
   </motion.div>
 );
 
+interface GalleryVideoProps {
+  video: { url: string; poster: string };
+  y: ReturnType<typeof useTransform<number, string>>;
+}
+
+const GalleryVideo: React.FC<GalleryVideoProps> = ({ video, y }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    videoRef.current?.play();
+    setIsPlaying(true);
+  };
+
+  return (
+    <motion.div style={{ y }} className="relative w-full aspect-[16/9] overflow-hidden bg-stone-200 group">
+      <video
+        ref={videoRef}
+        src={video.url}
+        poster={video.poster}
+        playsInline
+        controls={isPlaying}
+        onPause={() => setIsPlaying(false)}
+        onEnded={() => setIsPlaying(false)}
+        className="w-full h-full object-cover"
+      />
+      {!isPlaying && (
+        <button
+          onClick={handlePlay}
+          aria-label="Reproducir video"
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <span className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 shadow-lg flex items-center justify-center transition-transform group-hover:scale-105">
+            <svg viewBox="0 0 24 24" className="w-6 h-6 md:w-7 md:h-7 translate-x-[2px] text-[#1a1918]" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </button>
+      )}
+    </motion.div>
+  );
+};
+
 export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
   const [creditsOpen, setCreditsOpen] = useState(false);
   const [heroLoaded, setHeroLoaded] = useState(false);
@@ -206,16 +249,22 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
           </div>
         )}
 
-        {photos[3] && (
+        {story.galleryVideo ? (
           <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
-            <GalleryPhoto
-              photo={photos[3]}
-              y={yTransforms[3]}
-              aspectClass="aspect-[16/9]"
-              widthClass="w-full"
-              bleed
-            />
+            <GalleryVideo video={story.galleryVideo} y={yTransforms[3]} />
           </div>
+        ) : (
+          photos[3] && (
+            <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
+              <GalleryPhoto
+                photo={photos[3]}
+                y={yTransforms[3]}
+                aspectClass="aspect-[16/9]"
+                widthClass="w-full"
+                bleed
+              />
+            </div>
+          )
         )}
 
         {(photos[4] || photos[5]) && (

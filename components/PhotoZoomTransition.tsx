@@ -25,11 +25,11 @@ export const PhotoZoomTransition: React.FC<PhotoZoomTransitionProps> = ({ imageU
       }}
       animate={{ top: 0, left: 0, width: vw, height: vh, opacity: 1 }}
       transition={{
-        top: { duration: 0.68, ease: [0.22, 1, 0.36, 1] },
-        left: { duration: 0.68, ease: [0.22, 1, 0.36, 1] },
-        width: { duration: 0.68, ease: [0.22, 1, 0.36, 1] },
-        height: { duration: 0.68, ease: [0.22, 1, 0.36, 1] },
-        opacity: { duration: 0.28, ease: 'easeOut' },
+        top: { duration: 0.95, ease: [0.5, 0, 0.25, 1.1] },
+        left: { duration: 0.95, ease: [0.5, 0, 0.25, 1.1] },
+        width: { duration: 0.95, ease: [0.5, 0, 0.25, 1.1] },
+        height: { duration: 0.95, ease: [0.5, 0, 0.25, 1.1] },
+        opacity: { duration: 0.4, ease: 'easeOut' },
       }}
       onAnimationComplete={onComplete}
     >
@@ -39,7 +39,7 @@ export const PhotoZoomTransition: React.FC<PhotoZoomTransitionProps> = ({ imageU
         className="w-full h-full object-cover"
         initial={{ filter: 'blur(3px)', scale: 1.12 }}
         animate={{ filter: ['blur(3px)', 'blur(5px)', 'blur(0px)'], scale: [1.12, 1.15, 1] }}
-        transition={{ duration: 0.68, ease: 'easeInOut', times: [0, 0.45, 1] }}
+        transition={{ duration: 0.95, ease: 'easeInOut', times: [0, 0.45, 1] }}
       />
     </motion.div>
   );

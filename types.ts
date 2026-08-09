@@ -22,6 +22,11 @@ export interface HotelStory {
   coverImage: string;
   description: string;
   photos: PhotoItem[]; // 3 or 4 photos for the section composition
+  // Optional horizontal video for the story detail page gallery (position ~4, never first).
+  galleryVideo?: {
+    url: string;
+    poster: string;
+  };
   quote?: string;
   category: 'Hotel de Lujo' | 'Boda Destino' | 'Escapada Romántica' | 'Villa Histórica';
   layoutVariant?: number; // 0 to 7 unique layout variations
