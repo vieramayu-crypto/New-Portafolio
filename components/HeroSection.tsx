@@ -20,12 +20,12 @@ export const HeroSection: React.FC = () => {
       />
 
       {/* Static Editorial Headline (z-20) */}
-      <div className="absolute inset-x-0 top-[20vh] sm:top-[16vh] z-20 px-6 sm:px-10 pointer-events-none">
+      <div className="absolute inset-0 z-20 flex items-center justify-center px-6 sm:px-10 pointer-events-none">
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut', delay: 0.5 }}
-          className="max-w-4xl mx-auto text-center font-serif text-4xl sm:text-6xl md:text-7xl leading-[1.15] text-[#1a1918]/90"
+          className="max-w-4xl mx-auto text-center font-serif text-4xl sm:text-6xl md:text-7xl leading-[1.15] text-white"
         >
           Contamos lo que se siente, no solo lo que se ve.
         </motion.h1>
