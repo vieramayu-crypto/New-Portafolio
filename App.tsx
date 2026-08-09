@@ -9,6 +9,7 @@ import { AvailabilityModal } from './components/AvailabilityModal';
 import { Footer } from './components/Footer';
 import { HotelDetail } from './components/HotelDetail';
 import { PhotoZoomTransition } from './components/PhotoZoomTransition';
+import { IntroLoader } from './components/IntroLoader';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -57,11 +58,14 @@ export default function App() {
         ) : (
           <>
             {currentPage === 'home' && (
-              <HomeMain
-                onNavigate={handleNavigate}
-                onOpenAvailability={() => setIsAvailabilityOpen(true)}
-                onSelectStory={handleSelectStory}
-              />
+              <>
+                <HomeMain
+                  onNavigate={handleNavigate}
+                  onOpenAvailability={() => setIsAvailabilityOpen(true)}
+                  onSelectStory={handleSelectStory}
+                />
+                <IntroLoader />
+              </>
             )}
 
             {currentPage === 'portfolio' && (

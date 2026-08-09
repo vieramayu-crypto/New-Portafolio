@@ -41,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
       <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 md:px-12 md:py-8 bg-white md:bg-transparent pointer-events-none">
         {/* Left: Plain logo, no box */}
         <button onClick={() => handleLinkClick('home')} className="pointer-events-auto hover:opacity-70 transition-opacity">
-          <img src={mayuLogoBlack} alt="MAYU" className="h-[34px] md:h-[41px] w-auto" />
+          <img src={mayuLogoBlack} alt="MAYU" className="h-[31px] md:h-[37px] w-auto" />
         </button>
 
         {/* Right: Page indicator + Minimal Two-Line Menu Icon */}
@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
             {/* Top Row inside menu */}
             <div className="flex items-center justify-between">
               <button onClick={() => handleLinkClick('home')} className="hover:opacity-70 transition-opacity">
-                <img src={mayuLogoBlack} alt="MAYU" className="h-[34px] md:h-[41px] w-auto" />
+                <img src={mayuLogoBlack} alt="MAYU" className="h-[31px] md:h-[37px] w-auto" />
               </button>
 
               <button
