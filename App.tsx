@@ -14,7 +14,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isAvailabilityOpen, setIsAvailabilityOpen] = useState<boolean>(false);
   const [selectedStory, setSelectedStory] = useState<HotelStory | null>(null);
-  const [pendingTransition, setPendingTransition] = useState<{ story: HotelStory; rect: DOMRect } | null>(null);
+  const [pendingTransition, setPendingTransition] = useState<HotelStory | null>(null);
 
   const handleNavigate = (page: Page) => {
     setCurrentPage(page);
@@ -23,14 +23,14 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSelectStory = (story: HotelStory, rect: DOMRect) => {
+  const handleSelectStory = (story: HotelStory) => {
     if (pendingTransition) return;
-    setPendingTransition({ story, rect });
+    setPendingTransition(story);
   };
 
   const handleTransitionComplete = () => {
     if (pendingTransition) {
-      setSelectedStory(pendingTransition.story);
+      setSelectedStory(pendingTransition);
     }
     setPendingTransition(null);
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -93,11 +93,7 @@ export default function App() {
 
       {/* Entry transition: clicked photo zooms full-screen into the story page */}
       {pendingTransition && (
-        <PhotoZoomTransition
-          rect={pendingTransition.rect}
-          imageUrl={pendingTransition.story.coverImage}
-          onComplete={handleTransitionComplete}
-        />
+        <PhotoZoomTransition imageUrl={pendingTransition.coverImage} onComplete={handleTransitionComplete} />
       )}
     </div>
   );
