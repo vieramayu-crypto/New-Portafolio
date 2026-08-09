@@ -1,5 +1,6 @@
 import React from 'react';
-import heroPortraitBW from '../src/assets/images/hero_portrait_bw_1786010923167.jpg';
+import { motion } from 'motion/react';
+import heroEntrance from '../src/assets/images/hero-entrance.webp';
 
 export const HeroSection: React.FC = () => {
   const scrollToContent = () => {
@@ -18,16 +19,16 @@ export const HeroSection: React.FC = () => {
         className="absolute inset-0 h-full w-full object-cover mix-blend-multiply opacity-25 anim-fade-in"
       />
 
-      {/* Marquee Name (z-20) */}
-      <div className="absolute inset-x-0 top-[16vh] sm:top-[14vh] z-20 overflow-hidden pointer-events-none">
-        <div className="anim-fade-up" style={{ animationDelay: '500ms' }}>
-          <div className="animate-marquee whitespace-nowrap font-serif text-[16vh] sm:text-[26vh] leading-none text-[#1a1918]/80 tracking-tight">
-            <span className="pr-[6vw]">Mayu Travel &mdash;&nbsp;</span>
-            <span className="pr-[6vw]">Mayu Travel &mdash;&nbsp;</span>
-            <span className="pr-[6vw]">Mayu Travel &mdash;&nbsp;</span>
-            <span className="pr-[6vw]">Mayu Travel &mdash;&nbsp;</span>
-          </div>
-        </div>
+      {/* Static Editorial Headline (z-20) */}
+      <div className="absolute inset-x-0 top-[20vh] sm:top-[16vh] z-20 px-6 sm:px-10 pointer-events-none">
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.5 }}
+          className="max-w-3xl mx-auto text-center font-serif text-3xl sm:text-5xl md:text-6xl leading-[1.2] text-[#1a1918]/90"
+        >
+          Contamos lo que se siente, no solo lo que se ve.
+        </motion.h1>
       </div>
 
       {/* Horizontal Rule */}
@@ -65,11 +66,9 @@ export const HeroSection: React.FC = () => {
       {/* Main Hero Photo (Black & White Editorial Style) */}
       <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
         <img
-          src={heroPortraitBW}
+          src={heroEntrance}
           alt="Mayu Travel Editorial Hero Portrait"
-          referrerPolicy="no-referrer"
-          className="h-full w-full object-cover object-[50%_25%] sm:object-[50%_30%] md:object-[50%_35%] filter grayscale contrast-[1.12] brightness-[0.98] opacity-90 sm:opacity-85 anim-rise-in transition-all duration-700"
-          style={{ animationDelay: '200ms' }}
+          className="h-full w-full object-cover object-[50%_25%] sm:object-[50%_30%] md:object-[50%_35%] filter grayscale contrast-[1.12] brightness-[0.98] opacity-90 sm:opacity-85 transition-all duration-700"
         />
         {/* Soft gradient overlay at bottom and top to ensure high readability of header and footer text */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#fbfaf6]/40 via-transparent to-[#fbfaf6]/60 pointer-events-none" />
