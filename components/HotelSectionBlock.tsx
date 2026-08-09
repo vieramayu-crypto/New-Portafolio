@@ -83,7 +83,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
 
     setConvergeOffsets(offsets);
     setClickedIndex(photoIndex);
-    window.setTimeout(() => onSelectStory(story), 340);
+    window.setTimeout(() => onSelectStory(story), 480);
   };
 
   return (
@@ -124,7 +124,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[2%] w-full md:w-[68%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -148,7 +148,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[34%] aspect-[3/4] shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -172,7 +172,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute right-0 md:right-[2%] top-0 md:top-[58%] w-full md:w-[48%] aspect-[4/3] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
@@ -201,7 +201,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[2%] w-full md:w-[36%] aspect-[4/3] shadow-lg border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -225,7 +225,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[68%] aspect-square shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -249,7 +249,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute left-0 md:left-[4%] top-0 md:top-[48%] w-full md:w-[46%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
@@ -278,7 +278,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[2%] w-full md:w-[68%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -302,7 +302,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[38%] aspect-[4/3] shadow-lg border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -326,7 +326,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute right-0 md:right-[2%] top-0 md:top-[58%] w-full md:w-[42%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
@@ -355,7 +355,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[4%] w-full md:w-[32%] aspect-[3/4] shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -379,7 +379,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute left-0 md:left-[22%] top-0 md:top-[2%] w-full md:w-[68%] aspect-square shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -403,7 +403,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[52%] w-full md:w-[44%] aspect-[4/3] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
@@ -432,7 +432,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[10%] top-0 md:top-[2%] w-full md:w-[52%] aspect-[16/9] shadow-xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -456,7 +456,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[32%] w-full md:w-[66%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-20"
               >
@@ -480,7 +480,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[48%] w-full md:w-[38%] aspect-[3/4] shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-10"
               >
@@ -509,7 +509,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[4%] w-full md:w-[32%] aspect-square shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -533,7 +533,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[58%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -557,7 +557,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute left-0 md:left-[2%] top-0 md:top-[48%] w-full md:w-[48%] aspect-[4/3] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
@@ -586,7 +586,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[2%] w-full md:w-[68%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -610,7 +610,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[36%] aspect-[3/4] shadow-lg border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -634,7 +634,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute left-0 md:left-[30%] top-0 md:top-[56%] w-full md:w-[42%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >
@@ -663,7 +663,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[0].dx, y: convergeOffsets[0].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(0)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[2%] w-full md:w-[32%] aspect-square shadow-lg border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -687,7 +687,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[1].dx, y: convergeOffsets[1].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(1)}
                 className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[2%] w-full md:w-[68%] aspect-square shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
@@ -711,7 +711,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                     ? undefined
                     : { x: convergeOffsets[2].dx, y: convergeOffsets[2].dy, scale: 0.3, opacity: 0 }
                 }
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(2)}
                 className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[56%] w-full md:w-[48%] aspect-[4/3] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-20"
               >

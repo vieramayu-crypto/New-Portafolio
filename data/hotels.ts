@@ -12,6 +12,10 @@ export const HOTEL_STORIES: HotelStory[] = [
     category: 'Hotel de Lujo',
     layoutVariant: 0,
     coverImage: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85',
+    galleryVideo: {
+      url: 'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+      poster: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=85',
+    },
     description: 'Ubicado en las orillas cristalinas del Lago di Como, el Grand Hotel Tremezzo representa la cima del glamour italiano de la belle époque.',
     quote: 'Un romance envuelto en velos de encaje vintage y la brisa atemporal del lago.',
     photos: [
