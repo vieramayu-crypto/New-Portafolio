@@ -148,8 +148,8 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
         </button>
       </section>
 
-      {/* TEXT BLOCK — description + Venue / Location / Format + Credits */}
-      <section className="px-6 md:px-12 pt-20 md:pt-28 pb-20 md:pb-28 max-w-4xl mx-auto text-center">
+      {/* TEXT BLOCK — description + Venue / Location / Credits, its own section between hero and gallery */}
+      <section className="px-6 md:px-12 pt-28 md:pt-36 pb-24 md:pb-32 max-w-4xl mx-auto text-center">
         <p className="font-serif text-2xl sm:text-3xl md:text-[2.1rem] leading-[1.5] md:leading-[1.55] text-[#1a1918]">
           {story.description}
         </p>
@@ -173,47 +173,40 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
             </span>
           </div>
           <div>
-            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Format</span>
-            <span className="text-xs sm:text-sm md:text-base font-sans text-[#1a1918]">
-              {story.category}
-            </span>
+            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Credits</span>
+            <button
+              onClick={() => setCreditsOpen((v) => !v)}
+              aria-expanded={creditsOpen}
+              aria-label={creditsOpen ? 'Cerrar créditos' : 'Ver créditos'}
+              className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#1a1918] text-[#f5f3ed] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
+            >
+              <motion.span
+                animate={{ rotate: creditsOpen ? 45 : 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="text-lg leading-none"
+              >
+                +
+              </motion.span>
+            </button>
           </div>
         </div>
 
-        <div className="mt-16 md:mt-20">
-          <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-4">Credits</span>
-          <button
-            onClick={() => setCreditsOpen((v) => !v)}
-            aria-expanded={creditsOpen}
-            aria-label={creditsOpen ? 'Cerrar créditos' : 'Ver créditos'}
-            className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#1a1918] text-[#f5f3ed] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
-          >
-            <motion.span
-              animate={{ rotate: creditsOpen ? 45 : 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="text-lg leading-none"
+        <AnimatePresence>
+          {creditsOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.35, ease: 'easeInOut' }}
+              className="overflow-hidden"
             >
-              +
-            </motion.span>
-          </button>
-
-          <AnimatePresence>
-            {creditsOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.35, ease: 'easeInOut' }}
-                className="overflow-hidden"
-              >
-                <div className="pt-6 space-y-1.5 text-xs sm:text-sm text-[#5a5854] font-sans">
-                  <div>Fotografía &amp; Dirección Creativa &mdash; Mayurlin Viera</div>
-                  <div>Video &amp; Producción &mdash; Yerfran</div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+              <div className="pt-6 space-y-1.5 text-xs sm:text-sm text-[#5a5854] font-sans">
+                <div>Fotografía &amp; Dirección Creativa &mdash; Mayurlin Viera</div>
+                <div>Video &amp; Producción &mdash; Yerfran</div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
       {/* GALLERY — max 10 photos, masonry mix with shared parallax movement */}
