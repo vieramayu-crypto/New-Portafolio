@@ -25,7 +25,7 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut', delay: 0.5 }}
-          className="max-w-3xl mx-auto text-center font-serif text-3xl sm:text-5xl md:text-6xl leading-[1.2] text-[#1a1918]/90"
+          className="max-w-4xl mx-auto text-center font-serif text-4xl sm:text-6xl md:text-7xl leading-[1.15] text-[#1a1918]/90"
         >
           Contamos lo que se siente, no solo lo que se ve.
         </motion.h1>

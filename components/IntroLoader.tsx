@@ -1,46 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import introHorizontal from '../src/assets/videos/intro-horizontal.mp4';
-import introVertical from '../src/assets/videos/intro-vertical.mp4';
+import introHorizontalMp4 from '../src/assets/videos/intro-horizontal.mp4';
+import introHorizontalWebm from '../src/assets/videos/intro-horizontal.webm';
+import introVerticalMp4 from '../src/assets/videos/intro-vertical.mp4';
+import introVerticalWebm from '../src/assets/videos/intro-vertical.webm';
 
-const SESSION_KEY = 'mayu-intro-played';
 const FAILSAFE_MS = 6000;
-
-function hasPlayedThisSession(): boolean {
-  try {
-    return sessionStorage.getItem(SESSION_KEY) === '1';
-  } catch {
-    return false;
-  }
-}
 
 function isMobileViewport(): boolean {
   return typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
 }
 
 export const IntroLoader: React.FC = () => {
-  // Decided synchronously on first render so there is never a flash of the
-  // Hero underneath before the intro overlay paints.
-  const [phase, setPhase] = useState<'playing' | 'fading' | 'done'>(() =>
-    hasPlayedThisSession() ? 'done' : 'playing'
-  );
+  const [phase, setPhase] = useState<'playing' | 'fading' | 'done'>('playing');
   const [isVertical] = useState(isMobileViewport);
+  // Cache-busting so every mount forces a fresh network fetch instead of
+  // relying on the browser's disk cache, which can corrupt playback of
+  // large range-requested video on repeat loads.
+  const [cacheBust] = useState(() => Date.now());
 
   const finish = () => {
     setPhase((current) => (current === 'playing' ? 'fading' : current));
   };
 
   useEffect(() => {
-    if (phase !== 'playing') return;
-    try {
-      sessionStorage.setItem(SESSION_KEY, '1');
-    } catch {
-      // sessionStorage unavailable (private mode, etc.) -- intro just plays every time, harmless.
-    }
-
     // Never let a stalled or undelivered video block the site indefinitely.
     const failsafe = window.setTimeout(finish, FAILSAFE_MS);
     return () => window.clearTimeout(failsafe);
-  }, [phase]);
+  }, []);
 
   useEffect(() => {
     if (phase !== 'fading') return;
@@ -49,6 +35,9 @@ export const IntroLoader: React.FC = () => {
   }, [phase]);
 
   if (phase === 'done') return null;
+
+  const mp4Src = isVertical ? introVerticalMp4 : introHorizontalMp4;
+  const webmSrc = isVertical ? introVerticalWebm : introHorizontalWebm;
 
   return (
     <div
@@ -63,8 +52,10 @@ export const IntroLoader: React.FC = () => {
         onEnded={finish}
         onError={finish}
         className="h-full w-full object-cover"
-        src={isVertical ? introVertical : introHorizontal}
-      />
+      >
+        <source src={`${mp4Src}?v=${cacheBust}`} type="video/mp4" />
+        <source src={`${webmSrc}?v=${cacheBust}`} type="video/webm" />
+      </video>
     </div>
   );
 };
