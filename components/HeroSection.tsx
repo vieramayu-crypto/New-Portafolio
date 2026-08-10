@@ -74,6 +74,12 @@ export const HeroSection: React.FC = () => {
           className="h-full w-full object-cover object-[50%_25%] sm:object-[50%_30%] md:object-[50%_35%]"
         />
       </div>
+
+      {/* Localized scrims -- lighten just the top strip (behind the logo/menu) and
+          bottom strip (behind the footer info) so they stay legible regardless of
+          the photo's own brightness there. The center of the photo is untouched. */}
+      <div className="absolute inset-x-0 top-0 h-[22vh] sm:h-[18vh] z-[15] bg-gradient-to-b from-[#fbfaf6]/55 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-[20vh] sm:h-[16vh] z-[15] bg-gradient-to-t from-[#fbfaf6]/55 to-transparent pointer-events-none" />
     </section>
   );
 };
