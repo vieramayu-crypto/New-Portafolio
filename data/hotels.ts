@@ -1,4 +1,5 @@
 import { HotelStory } from '../types';
+import { publicImage } from '../src/lib/content';
 
 export const HOTEL_STORIES: HotelStory[] = [
   {
@@ -21,7 +22,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     photos: [
       {
         id: 'gt-1',
-        url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec1-foto1-v.jpg'),
         alt: 'Novios riendo juntos en abrazo emocional',
         caption: 'La risa espontánea tras el «sí, quiero»',
         aspectRatio: 'portrait',
@@ -29,7 +30,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'gt-2',
-        url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85',
+        url: publicImage('sec1-foto2-v.jpg'),
         alt: 'Lanzamiento de globos y brindis en la piscina',
         caption: 'Celebración frente al lago',
         aspectRatio: 'portrait',
@@ -37,7 +38,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'gt-3',
-        url: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec1-foto3-h.jpg'),
         alt: 'Beso romántico con luz de atardecer en las colinas',
         caption: 'Atardecer en la terraza del lago',
         aspectRatio: 'landscape',
@@ -117,7 +118,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     photos: [
       {
         id: 'vc-1',
-        url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec2-foto1-h.jpg'),
         alt: 'Novia en vestido editorial sobre balcón de arcos mirando al mar',
         caption: 'Arco gótico de la terraza',
         aspectRatio: 'landscape',
@@ -125,7 +126,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'vc-2',
-        url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=85',
+        url: publicImage('sec2-foto2-c.jpg'),
         alt: 'Pareja bajando por escalinata de piedra blanca',
         caption: 'Escalinata de las buganvillas',
         aspectRatio: 'portrait',
@@ -133,7 +134,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'vc-3',
-        url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec2-foto3-v.jpg'),
         alt: 'Abrazo elegante de los novios entre jardines románticos',
         caption: 'Jardines secretos de Ravello',
         aspectRatio: 'square',
@@ -157,7 +158,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     photos: [
       {
         id: 'hc-1',
-        url: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec3-foto1-v.jpg'),
         alt: 'Beso apasionado de los novios bajo arcos',
         caption: 'Paseo privado al amanecer',
         aspectRatio: 'portrait',
@@ -165,7 +166,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'hc-2',
-        url: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec3-foto2-h.jpg'),
         alt: 'Piscina infinita con reflejos dorados',
         caption: 'Piscina infinita sobre las nubes',
         aspectRatio: 'landscape',
@@ -173,7 +174,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'hc-3',
-        url: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=900&q=85',
+        url: publicImage('sec3-foto3-v.jpg'),
         alt: 'Detalles de papelería y alta costura',
         caption: 'Detalles bordados artesanalmente',
         aspectRatio: 'portrait',
@@ -197,7 +198,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     photos: [
       {
         id: 'be-1',
-        url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec4-foto1-v.jpg'),
         alt: 'Novios caminando por callejuela de piedra blanca',
         caption: 'La quietud de las callejuelas apulianas',
         aspectRatio: 'portrait',
@@ -205,7 +206,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'be-2',
-        url: 'https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=900&q=85',
+        url: publicImage('sec4-foto2-c.jpg'),
         alt: 'Patio de cal blanca y sol cenital',
         caption: 'Arquitectura de piedra caliza',
         aspectRatio: 'square',
@@ -213,7 +214,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'be-3',
-        url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec4-foto3-h.jpg'),
         alt: 'Mesa imperial iluminada por faroles artesanales',
         caption: 'Fiesta nocturna bajo las estrellas',
         aspectRatio: 'landscape',
@@ -237,7 +238,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     photos: [
       {
         id: 'hd-1',
-        url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec5-foto1-h.jpg'),
         alt: 'Brindis con champán en la terraza Terrazza Danieli',
         caption: 'Vista sobre la laguna veneciana',
         aspectRatio: 'landscape',
@@ -245,7 +246,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'hd-2',
-        url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec5-foto2-v.jpg'),
         alt: 'Pareja en góndola veneciana vestida de gala',
         caption: 'Navegando el Gran Canal',
         aspectRatio: 'portrait',
@@ -253,7 +254,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'hd-3',
-        url: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=800&q=85',
+        url: publicImage('sec5-foto3-v.jpg'),
         alt: 'Beso bajo los arcos de mármol del Palacio Ducal',
         caption: 'Arquitectura veneciana atemporal',
         aspectRatio: 'portrait',
@@ -277,7 +278,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     photos: [
       {
         id: 'vde-1',
-        url: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=900&q=85',
+        url: publicImage('sec6-foto1-c.jpg'),
         alt: 'Paseo romántico por los jardines renacentistas',
         caption: 'Jardines históricos de Villa d’Este',
         aspectRatio: 'square',
@@ -285,7 +286,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'vde-2',
-        url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85',
+        url: publicImage('sec6-foto2-v.jpg'),
         alt: 'Novia preparando su vestido junto al mirador',
         caption: 'Preparativos al amanecer',
         aspectRatio: 'portrait',
@@ -293,7 +294,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'vde-3',
-        url: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec6-foto3-h.jpg'),
         alt: 'Llegada en embarcación histórica Riva por el lago',
         caption: 'Navegación privada al atardecer',
         aspectRatio: 'landscape',
@@ -317,7 +318,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     photos: [
       {
         id: 'av-1',
-        url: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec7-foto1-v.jpg'),
         alt: 'Mirada compartida en el balcón del Palazzo Papadopoli',
         caption: 'Balcón privado sobre el Gran Canal',
         aspectRatio: 'landscape',
@@ -325,7 +326,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'av-2',
-        url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=85',
+        url: publicImage('sec7-foto2-v.jpg'),
         alt: 'Novia con capa de tul bajo techos frescos de Tiepolo',
         caption: 'Frescos históricos de Tiepolo',
         aspectRatio: 'portrait',
@@ -333,7 +334,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'av-3',
-        url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=85',
+        url: publicImage('sec7-foto3-v.jpg'),
         alt: 'Brindis íntimo en los jardines privados del hotel',
         caption: 'Jardines secretos del palacio',
         aspectRatio: 'portrait',
@@ -357,7 +358,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     photos: [
       {
         id: 'sdp-1',
-        url: 'https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=900&q=85',
+        url: publicImage('sec8-foto1-c.jpg'),
         alt: 'Claustro de piedra y patio de los limoneros',
         caption: 'Claustro dominico del siglo XIV',
         aspectRatio: 'square',
@@ -365,7 +366,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'sdp-2',
-        url: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=85',
+        url: publicImage('sec8-foto2-c.jpg'),
         alt: 'Novia contemplando la bahía de Taormina al atardecer',
         caption: 'Atardecer mediterráneo en Taormina',
         aspectRatio: 'portrait',
@@ -373,7 +374,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'sdp-3',
-        url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85',
+        url: publicImage('sec8-foto3-h.jpg'),
         alt: 'Cena romántica al aire libre entre olivos y bougainvillea',
         caption: 'Banquete en los jardines sicilianos',
         aspectRatio: 'landscape',

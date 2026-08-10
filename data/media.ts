@@ -1,10 +1,12 @@
-import heroEntrance from '../src/assets/images/hero-entrance.webp';
-import mayuAboutPortrait from '../src/assets/images/mayu-about-portrait.webp';
-import yerfranAboutPortrait from '../src/assets/images/yerfran-about-portrait.webp';
+import { publicImage } from '../src/lib/content';
 
-export const MAYU_PORTRAIT = mayuAboutPortrait;
-export const YERFRAN_PORTRAIT = yerfranAboutPortrait;
+export const HERO_PHOTO = publicImage('hero-portada.jpg');
+export const MAYU_PORTRAIT = publicImage('sobre-mi-mayurlin.jpg');
+export const YERFRAN_PORTRAIT = publicImage('sobre-mi-yerfran.jpg');
+
+// Already hosted on Mayurlin's own site (not bundled), so she can already
+// swap it herself without touching code -- left as-is.
 export const COUPLE_PHOTO = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/Fondo-scaled.webp';
 
 // Same photo as the Home hero background.
-export const PORTFOLIO_MENU_PHOTO = heroEntrance;
+export const PORTFOLIO_MENU_PHOTO = HERO_PHOTO;

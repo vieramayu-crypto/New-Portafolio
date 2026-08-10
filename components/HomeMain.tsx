@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { HOTEL_STORIES } from '../data/hotels';
 import { HotelStory, Page } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 import { HeroSection } from './HeroSection';
 import { HotelSectionBlock } from './HotelSectionBlock';
+import { useSiteContent } from '../src/lib/content';
 
 interface HomeMainProps {
   onNavigate: (page: Page) => void;
@@ -38,7 +39,23 @@ export const HomeMain: React.FC<HomeMainProps> = ({
   const [isHotelSelectorOpen, setIsHotelSelectorOpen] = useState<boolean>(false);
   const [showFixedLabels, setShowFixedLabels] = useState<boolean>(false);
 
-  const currentStory = HOTEL_STORIES[activeStoryIndex] || HOTEL_STORIES[0];
+  const { hotels: hotelContent } = useSiteContent();
+
+  // Structural data (photos, layout, ids, routing) stays in code; the
+  // editable text fields are overlaid from content.json at runtime.
+  const hotelStories = useMemo(
+    () =>
+      HOTEL_STORIES.map((story, i) => ({
+        ...story,
+        hotelName: hotelContent[i]?.hotelName ?? story.hotelName,
+        coupleName: hotelContent[i]?.coupleName ?? story.coupleName,
+        description: hotelContent[i]?.description ?? story.description,
+        quote: hotelContent[i]?.quote ?? story.quote,
+      })),
+    [hotelContent]
+  );
+
+  const currentStory = hotelStories[activeStoryIndex] || hotelStories[0];
 
   // Observe which hotel section is currently in the middle of the viewport
   useEffect(() => {
@@ -146,7 +163,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
           </AnimatePresence>
 
           {/* Seamless Stack of all 8 Hotel Sections (NO DIVIDING LINES) */}
-          {HOTEL_STORIES.map((story, index) => (
+          {hotelStories.map((story, index) => (
             <HotelSectionBlock
               key={story.id}
               story={story}
@@ -169,7 +186,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
                   onClick={() => setIsHotelSelectorOpen(!isHotelSelectorOpen)}
                   className="pointer-events-auto border border-[#1a1918] bg-[#f5f3ed]/90 backdrop-blur-sm px-4 py-1.5 flex items-center gap-3 text-sm md:text-base font-serif tracking-[0.25em] font-medium text-[#1a1918] hover:bg-[#1a1918] hover:text-[#f5f3ed] transition-all duration-300 shadow-sm"
                 >
-                  <span>Ver trabajo ({HOTEL_STORIES.length})</span>
+                  <span>Ver trabajo ({hotelStories.length})</span>
                   <span className="text-xs">{isHotelSelectorOpen ? '▼' : '▲'}</span>
                 </button>
 
@@ -183,9 +200,9 @@ export const HomeMain: React.FC<HomeMainProps> = ({
                       className="absolute bottom-16 bg-white border border-[#1a1918]/15 rounded-2xl p-3 shadow-2xl w-80 md:w-96 text-left max-h-80 overflow-y-auto z-50 space-y-1"
                     >
                       <div className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#5a5854] px-3 py-1.5 border-b border-[#1a1918]/10 mb-1">
-                        Ir a Hotel / Cliente ({HOTEL_STORIES.length})
+                        Ir a Hotel / Cliente ({hotelStories.length})
                       </div>
-                      {HOTEL_STORIES.map((hotel, idx) => (
+                      {hotelStories.map((hotel, idx) => (
                         <button
                           key={hotel.id}
                           onClick={() => scrollToHotel(hotel.id)}

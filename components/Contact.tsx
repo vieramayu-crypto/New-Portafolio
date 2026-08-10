@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { CollaborationInquiry } from '../types';
 import { motion } from 'motion/react';
 import { BrandsMarquee } from './BrandsMarquee';
+import { useSiteContent } from '../src/lib/content';
 
 const fieldClass =
   'w-full bg-white px-5 py-4 text-base text-[#1a1918] placeholder:text-[#5a5854] shadow-sm focus:outline-none focus:ring-1 focus:ring-[#1a1918]/40 transition-shadow';
 
 export const Contact: React.FC = () => {
+  const content = useSiteContent();
   const [formData, setFormData] = useState<CollaborationInquiry>({
     name: '',
     email: '',
@@ -27,10 +29,10 @@ export const Contact: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] pt-28 px-6 md:px-12 max-w-4xl mx-auto font-sans">
       <div className="text-center space-y-4 mb-16">
-        <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">Contacto directo</span>
-        <h1 className="font-serif text-4xl md:text-6xl text-[#1a1918] tracking-wide">Trabajemos juntos</h1>
+        <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">{content.contact.eyebrow}</span>
+        <h1 className="font-serif text-4xl md:text-6xl text-[#1a1918] tracking-wide">{content.contact.heading}</h1>
         <p className="max-w-lg mx-auto text-sm text-[#5a5854] font-sans leading-relaxed">
-          Si esto encaja con lo que necesitas ahora, podemos compartir fechas y detalles de entregables.
+          {content.contact.subheading}
         </p>
       </div>
 

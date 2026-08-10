@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import heroEntrance from '../src/assets/images/hero-entrance.webp';
+import { HERO_PHOTO } from '../data/media';
+import { useSiteContent } from '../src/lib/content';
 
 export const HeroSection: React.FC = () => {
+  const content = useSiteContent();
+
   const scrollToContent = () => {
     const target = document.getElementById('hotel-section');
     if (target) {
@@ -27,7 +30,7 @@ export const HeroSection: React.FC = () => {
           transition={{ duration: 0.9, ease: 'easeOut', delay: 0.5 }}
           className="max-w-4xl mx-auto text-center font-serif text-4xl sm:text-6xl md:text-7xl leading-[1.15] text-white"
         >
-          Contamos lo que se siente, no solo lo que se ve.
+          {content.hero.headline}
         </motion.h1>
       </div>
 
@@ -66,7 +69,7 @@ export const HeroSection: React.FC = () => {
       {/* Main Hero Photo */}
       <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
         <img
-          src={heroEntrance}
+          src={HERO_PHOTO}
           alt="Mayu Travel Editorial Hero Portrait"
           className="h-full w-full object-cover object-[50%_25%] sm:object-[50%_30%] md:object-[50%_35%]"
         />

@@ -3,12 +3,15 @@ import { motion } from 'motion/react';
 import { FlipWords } from './FlipWords';
 import { ProductionScope } from './ProductionScope';
 import { COUPLE_PHOTO, MAYU_PORTRAIT, YERFRAN_PORTRAIT } from '../data/media';
+import { useSiteContent } from '../src/lib/content';
 
 interface AboutProps {
   onOpenAvailability: () => void;
 }
 
 export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
+  const content = useSiteContent();
+
   return (
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] font-sans">
       {/* Flip-words opening statement — full viewport, brutalist scale */}
@@ -21,7 +24,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         >
           Fotografía con
           <br />
-          <FlipWords words={['Alma', 'Amor', 'Autenticidad']} />
+          <FlipWords words={content.about.flipWords} />
         </motion.h1>
       </section>
 
@@ -34,9 +37,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         className="min-h-[100dvh] w-full flex items-center justify-center px-6 py-24"
       >
         <p className="font-serif text-4xl sm:text-5xl md:text-7xl text-[#1a1918] leading-[1.2] max-w-6xl text-center">
-          Mayu Travel es un estudio de producción visual para hoteles de lujo, hecho por dos personas que se
-          conocen desde hace años. No trabajamos con fórmulas ni plantillas: cada proyecto nace de mirar de
-          cerca, con tiempo, lo que hace único a cada lugar.
+          {content.about.introStatement}
         </p>
       </motion.section>
 
@@ -52,8 +53,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10" />
         <div className="relative min-h-[90vh] md:min-h-[100dvh] flex items-center justify-center px-6 md:px-16">
           <p className="font-serif text-white text-3xl sm:text-4xl md:text-6xl leading-[1.2] max-w-5xl text-center">
-            &ldquo;No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse
-            como se siente vivirlo.&rdquo;
+            &ldquo;{content.about.legacyQuote}&rdquo;
           </p>
         </div>
       </div>
@@ -85,12 +85,8 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="lg:col-span-7 space-y-4"
           >
-            <h2 className="font-serif text-3xl md:text-4xl text-[#1a1918]">Mayurlin Viera</h2>
-            <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">
-              Crear contenido fue el sueño de Mayu antes de tener con qué hacerlo. Trabajar con los mejores
-              hoteles del mundo fue, desde siempre, su objetivo número uno. Esa idea no se le fue nunca — solo
-              esperó el momento y las manos correctas para hacerla real.
-            </p>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#1a1918]">{content.about.mayurlin.name}</h2>
+            <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">{content.about.mayurlin.bio}</p>
           </motion.div>
         </div>
 
@@ -120,20 +116,15 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="lg:col-span-7 space-y-4 order-2 lg:order-1"
           >
-            <h2 className="font-serif text-3xl md:text-4xl text-[#1a1918]">Yerfran</h2>
-            <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">
-              Yerfran llegó a la fotografía por otro camino: el de capturar lo que una persona siente en un
-              lugar, no solo cómo se ve. Años de mirar con atención se convirtieron en un estilo propio — fotos
-              con alma, hechas desde el cuidado y no desde la fórmula.
-            </p>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#1a1918]">{content.about.yerfran.name}</h2>
+            <p className="text-sm md:text-base text-[#5a5854] leading-relaxed">{content.about.yerfran.bio}</p>
           </motion.div>
         </div>
 
         {/* Together */}
         <div className="min-h-[70vh] md:min-h-[85vh] flex flex-col items-center justify-center text-center px-2 py-20 mb-32 md:mb-40">
           <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1a1918] leading-relaxed max-w-3xl">
-            Con los años, eso se volvió esto. Combinamos lo que cada uno hace mejor para darle a cada hotel lo
-            mismo: una mirada honesta, con el tiempo y el cuidado de dos personas que ya saben trabajar juntas.
+            {content.about.closingStatement}
           </p>
           <div className="pt-16">
             <button
