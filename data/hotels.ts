@@ -3,13 +3,13 @@ import { publicImage } from '../src/lib/content';
 
 export const HOTEL_STORIES: HotelStory[] = [
   {
-    id: 'grand-hotel-tremezzo',
-    hotelName: 'GRAND HOTEL TREMEZZO',
+    id: 'ritz-carlton-abama',
+    hotelName: 'THE RITZ-CARLTON TENERIFE, ABAMA',
     leftTag: 'HOTEL',
-    coupleName: 'EMY & OLY',
-    location: 'Lago di Como',
-    country: 'Italia',
-    year: '2025',
+    coupleName: 'Fotografía & Video',
+    location: 'Guía de Isora, Tenerife',
+    country: 'España',
+    year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 0,
     coverImage: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85',
@@ -23,26 +23,26 @@ export const HOTEL_STORIES: HotelStory[] = [
       {
         id: 'gt-1',
         url: publicImage('sec1-foto1-v.jpg'),
-        alt: 'Novios riendo juntos en abrazo emocional',
-        caption: 'La risa espontánea tras el «sí, quiero»',
+        alt: 'Mujer descendiendo la escalinata terracota junto al estanque de Abama',
+        caption: 'La icónica escalinata de la Citadel',
         aspectRatio: 'portrait',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       },
       {
         id: 'gt-2',
         url: publicImage('sec1-foto2-v.jpg'),
-        alt: 'Lanzamiento de globos y brindis en la piscina',
-        caption: 'Celebración frente al lago',
+        alt: 'Vista aérea del resort Abama entre plataneras y el campo de golf',
+        caption: 'El resort visto desde el aire',
         aspectRatio: 'portrait',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       },
       {
         id: 'gt-3',
         url: publicImage('sec1-foto3-h.jpg'),
-        alt: 'Beso romántico con luz de atardecer en las colinas',
-        caption: 'Atardecer en la terraza del lago',
+        alt: 'Choza de bambú con clase de yoga entre palmeras',
+        caption: 'Yoga bajo la choza junto al campo de golf',
         aspectRatio: 'landscape',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       },
       {
         id: 'gt-4',
