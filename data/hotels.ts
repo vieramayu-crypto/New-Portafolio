@@ -23,16 +23,16 @@ export const HOTEL_STORIES: HotelStory[] = [
       {
         id: 'gt-1',
         url: publicImage('sec1-foto1-v.jpg'),
-        alt: 'Mujer descendiendo la escalinata terracota junto al estanque de Abama',
-        caption: 'La icónica escalinata de la Citadel',
+        alt: 'Vista aérea del resort Abama entre plataneras y el campo de golf',
+        caption: 'El resort visto desde el aire',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       },
       {
         id: 'gt-2',
         url: publicImage('sec1-foto2-v.jpg'),
-        alt: 'Vista aérea del resort Abama entre plataneras y el campo de golf',
-        caption: 'El resort visto desde el aire',
+        alt: 'Mujer descendiendo la escalinata terracota junto al estanque de Abama',
+        caption: 'La icónica escalinata de la Citadel',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       },
