@@ -63,15 +63,13 @@ export const HeroSection: React.FC = () => {
         </div>
       </footer>
 
-      {/* Main Hero Photo (Black & White Editorial Style) */}
+      {/* Main Hero Photo */}
       <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
         <img
           src={heroEntrance}
           alt="Mayu Travel Editorial Hero Portrait"
-          className="h-full w-full object-cover object-[50%_25%] sm:object-[50%_30%] md:object-[50%_35%] filter grayscale contrast-[1.12] brightness-[0.98] opacity-90 sm:opacity-85 transition-all duration-700"
+          className="h-full w-full object-cover object-[50%_25%] sm:object-[50%_30%] md:object-[50%_35%]"
         />
-        {/* Soft gradient overlay at bottom and top to ensure high readability of header and footer text */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#fbfaf6]/40 via-transparent to-[#fbfaf6]/60 pointer-events-none" />
       </div>
     </section>
   );
