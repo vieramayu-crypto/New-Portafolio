@@ -9,6 +9,7 @@ import { Footer } from './components/Footer';
 import { HotelDetail } from './components/HotelDetail';
 import { PhotoZoomTransition } from './components/PhotoZoomTransition';
 import { IntroLoader } from './components/IntroLoader';
+import { ContentProvider } from './src/lib/content';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -42,6 +43,7 @@ export default function App() {
   };
 
   return (
+    <ContentProvider>
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] font-sans antialiased selection:bg-[#1a1918] selection:text-[#f5f3ed]">
       {/* Top Header Navigation */}
       <Navbar
@@ -95,5 +97,6 @@ export default function App() {
         <PhotoZoomTransition imageUrl={pendingTransition.coverImage} onComplete={handleTransitionComplete} />
       )}
     </div>
+    </ContentProvider>
   );
 }
