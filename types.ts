@@ -1,4 +1,4 @@
-export type Page = 'home' | 'portfolio' | 'about' | 'contact';
+export type Page = 'home' | 'about' | 'contact';
 
 // Home page hero/scroll experience (original design) -- kept alongside the
 // newer CollaborationCase model used on the About/Portfolio/Contact pages.

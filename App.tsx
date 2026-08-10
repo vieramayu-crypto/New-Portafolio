@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Page, HotelStory } from './types';
 import { Navbar } from './components/Navbar';
 import { HomeMain } from './components/HomeMain';
-import { Portfolio } from './components/Portfolio';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { AvailabilityModal } from './components/AvailabilityModal';
@@ -66,10 +65,6 @@ export default function App() {
                 />
                 <IntroLoader />
               </>
-            )}
-
-            {currentPage === 'portfolio' && (
-              <Portfolio onOpenAvailability={() => setIsAvailabilityOpen(true)} />
             )}
 
             {currentPage === 'about' && (
