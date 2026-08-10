@@ -48,7 +48,7 @@ export const BrandsMarquee: React.FC = () => {
   };
 
   return (
-    <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-white pt-20 md:pt-28 pb-6 md:pb-8 overflow-hidden">
+    <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-white py-8 md:py-10 overflow-hidden">
       <div
         ref={scrollRef}
         onPointerDown={handlePointerDown}
