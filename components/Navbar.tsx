@@ -11,12 +11,15 @@ interface NavbarProps {
 }
 
 const PAGE_LABELS: Partial<Record<Page, string>> = {
-  portfolio: 'Portafolio',
   about: 'Acerca de',
   contact: 'Contacto',
 };
 
-const MENU_PHOTOS: Partial<Record<Page, string>> = {
+// The "Portafolio" link navigates to Home, so its hover-preview photo is
+// tracked separately from Page rather than being a Page value itself.
+type MenuLink = 'portfolio' | 'about' | 'contact';
+
+const MENU_PHOTOS: Record<MenuLink, string> = {
   portfolio: PORTFOLIO_MENU_PHOTO,
   about: COUPLE_PHOTO,
   contact: MAYU_PORTRAIT,
@@ -26,7 +29,7 @@ const DEFAULT_MENU_PHOTO = MAYU_PORTRAIT;
 
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenAvailability }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hoveredLink, setHoveredLink] = useState<Page | null>(null);
+  const [hoveredLink, setHoveredLink] = useState<MenuLink | null>(null);
   const pageLabel = PAGE_LABELS[currentPage];
   const activeMenuPhoto = (hoveredLink && MENU_PHOTOS[hoveredLink]) || DEFAULT_MENU_PHOTO;
 
@@ -102,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
 
               <div className="lg:col-span-4 flex flex-col items-center justify-center text-center space-y-8 md:space-y-10">
                 <button
-                  onClick={() => handleLinkClick('portfolio')}
+                  onClick={() => handleLinkClick('home')}
                   onMouseEnter={() => setHoveredLink('portfolio')}
                   onMouseLeave={() => setHoveredLink(null)}
                   className="group relative inline-block font-serif text-3xl md:text-5xl tracking-wide text-[#1a1918]"
@@ -110,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                   Portafolio
                   <span
                     className={`pointer-events-none absolute left-0 -bottom-1 h-px w-full origin-left bg-[#1a1918] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
-                      currentPage === 'portfolio' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                      currentPage === 'home' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                     }`}
                   />
                 </button>
