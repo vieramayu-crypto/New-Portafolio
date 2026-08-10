@@ -1,7 +1,9 @@
 import heroPortraitBW from '../src/assets/images/hero_portrait_bw_1786010923167.jpg';
+import mayuAboutPortrait from '../src/assets/images/mayu-about-portrait.webp';
+import yerfranAboutPortrait from '../src/assets/images/yerfran-about-portrait.webp';
 
-export const MAYU_PORTRAIT = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/P1002251.RW22-scaled.webp?v=2';
-export const YERFRAN_PORTRAIT = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/P1001995.RW2_-scaled.webp?v=2';
+export const MAYU_PORTRAIT = mayuAboutPortrait;
+export const YERFRAN_PORTRAIT = yerfranAboutPortrait;
 export const COUPLE_PHOTO = 'https://mayurlintravel.eu/wp-content/uploads/2026/08/Fondo-scaled.webp';
 
 // Placeholder until a dedicated Portafolio photo is provided.
