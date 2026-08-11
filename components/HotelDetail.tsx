@@ -82,6 +82,381 @@ const GalleryVideo: React.FC<GalleryVideoProps> = ({ video, y }) => {
   );
 };
 
+interface GalleryLayoutProps {
+  photos: PhotoItem[];
+  y: ReturnType<typeof useTransform<number, string>>[];
+  video?: { url: string; poster: string };
+}
+
+const Bleed: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">{children}</div>
+);
+
+// 8 distinct gallery arrangements -- one per hotel, picked via story.layoutVariant.
+// Each hotel already has its own single-digit layoutVariant (0-7) for its home
+// teaser block, so it's reused here to also pick a matching, unique gallery
+// rhythm: a different opening move, width split, offset direction and aspect
+// ratio mix, so no two hotel portfolios read as the same template reordered.
+// All blocks are conditional on the photo existing, same as before, so a
+// hotel with only 3 photos loaded still renders a complete-feeling page.
+const GALLERY_LAYOUTS: Array<React.FC<GalleryLayoutProps>> = [
+  // 0 -- THE RITZ-CARLTON TENERIFE, ABAMA (original reference layout)
+  ({ photos, y, video }) => (
+    <>
+      {photos[0] && (
+        <div className="w-full">
+          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-[16/9]" widthClass="w-full" />
+        </div>
+      )}
+      {(photos[1] || photos[2]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          {photos[1] && (
+            <GalleryPhoto photo={photos[1]} y={y[1]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[62%]" />
+          )}
+          {photos[2] && (
+            <GalleryPhoto
+              photo={photos[2]}
+              y={y[2]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[34%]"
+              offsetClass="md:mt-20"
+            />
+          )}
+        </div>
+      )}
+      {video ? (
+        <Bleed>
+          <GalleryVideo video={video} y={y[3]} />
+        </Bleed>
+      ) : (
+        photos[3] && (
+          <Bleed>
+            <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+          </Bleed>
+        )
+      )}
+      {(photos[4] || photos[5]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          {photos[4] && (
+            <GalleryPhoto
+              photo={photos[4]}
+              y={y[4]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[34%]"
+              offsetClass="md:mt-20"
+            />
+          )}
+          {photos[5] && (
+            <GalleryPhoto photo={photos[5]} y={y[5]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[62%]" />
+          )}
+        </div>
+      )}
+      {photos[6] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[6]} y={y[6]} aspectClass="aspect-[4/5]" widthClass="w-full md:w-[68%]" />
+        </div>
+      )}
+      {(photos[7] || photos[8]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+          {photos[7] && (
+            <GalleryPhoto photo={photos[7]} y={y[7]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
+          )}
+          {photos[8] && (
+            <GalleryPhoto photo={photos[8]} y={y[8]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
+          )}
+        </div>
+      )}
+      {photos[9] && (
+        <div className="w-full">
+          <GalleryPhoto photo={photos[9]} y={y[9]} aspectClass="aspect-[16/9]" widthClass="w-full" />
+        </div>
+      )}
+    </>
+  ),
+
+  // 1 -- VESTIGE BINIDUFÀ: wide cinematic bleed opens, then a floating pair offset left
+  ({ photos, y }) => (
+    <>
+      {photos[0] && (
+        <Bleed>
+          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-[21/9]" widthClass="w-full" bleed />
+        </Bleed>
+      )}
+      {(photos[1] || photos[2]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 justify-center">
+          {photos[1] && (
+            <GalleryPhoto
+              photo={photos[1]}
+              y={y[1]}
+              aspectClass="aspect-[4/5]"
+              widthClass="w-full md:w-[42%]"
+              offsetClass="md:mt-16"
+            />
+          )}
+          {photos[2] && (
+            <GalleryPhoto photo={photos[2]} y={y[2]} aspectClass="aspect-[4/5]" widthClass="w-full md:w-[42%]" />
+          )}
+        </div>
+      )}
+      {photos[3] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-square" widthClass="w-full md:w-[56%]" />
+        </div>
+      )}
+      {(photos[4] || photos[5]) && (
+        <div className="flex flex-col gap-6 md:gap-10">
+          {photos[4] && (
+            <GalleryPhoto photo={photos[4]} y={y[4]} aspectClass="aspect-[16/9]" widthClass="w-full" />
+          )}
+          {photos[5] && (
+            <GalleryPhoto photo={photos[5]} y={y[5]} aspectClass="aspect-[16/9]" widthClass="w-full" />
+          )}
+        </div>
+      )}
+    </>
+  ),
+
+  // 2 -- DELTAPARK VITALRESORT: calm stacked solos, no early pair
+  ({ photos, y }) => (
+    <>
+      {photos[0] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-[4/3]" widthClass="w-full md:w-[70%]" />
+        </div>
+      )}
+      {photos[1] && (
+        <Bleed>
+          <GalleryPhoto photo={photos[1]} y={y[1]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+        </Bleed>
+      )}
+      {photos[2] && (
+        <div className="w-full flex justify-end">
+          <GalleryPhoto photo={photos[2]} y={y[2]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[52%]" />
+        </div>
+      )}
+      {(photos[3] || photos[4]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+          {photos[3] && (
+            <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
+          )}
+          {photos[4] && (
+            <GalleryPhoto photo={photos[4]} y={y[4]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
+          )}
+        </div>
+      )}
+      {photos[5] && (
+        <Bleed>
+          <GalleryPhoto photo={photos[5]} y={y[5]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+        </Bleed>
+      )}
+    </>
+  ),
+
+  // 3 -- HONEYMOON PETRA VILLAS: square hero opens, then a narrow floating diptych
+  ({ photos, y }) => (
+    <>
+      {photos[0] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-square" widthClass="w-full md:w-[62%]" />
+        </div>
+      )}
+      {(photos[1] || photos[2]) && (
+        <div className="flex flex-col md:flex-row gap-10 md:gap-14 justify-center items-start">
+          {photos[1] && (
+            <GalleryPhoto photo={photos[1]} y={y[1]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[30%]" />
+          )}
+          {photos[2] && (
+            <GalleryPhoto
+              photo={photos[2]}
+              y={y[2]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[30%]"
+              offsetClass="md:mt-12"
+            />
+          )}
+        </div>
+      )}
+      {photos[3] && (
+        <Bleed>
+          <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+        </Bleed>
+      )}
+      {(photos[4] || photos[5] || photos[6]) && (
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+          {photos[4] && (
+            <GalleryPhoto photo={photos[4]} y={y[4]} aspectClass="aspect-square" widthClass="w-full md:w-1/3" />
+          )}
+          {photos[5] && (
+            <GalleryPhoto photo={photos[5]} y={y[5]} aspectClass="aspect-square" widthClass="w-full md:w-1/3" />
+          )}
+          {photos[6] && (
+            <GalleryPhoto photo={photos[6]} y={y[6]} aspectClass="aspect-square" widthClass="w-full md:w-1/3" />
+          )}
+        </div>
+      )}
+    </>
+  ),
+
+  // 4 -- GPRO VALPARAÍSO PALACE & SPA: pair opens (split reversed from #0), then a wide cinematic bleed
+  ({ photos, y }) => (
+    <>
+      {(photos[0] || photos[1]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          {photos[0] && (
+            <GalleryPhoto
+              photo={photos[0]}
+              y={y[0]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[34%]"
+              offsetClass="md:mt-20"
+            />
+          )}
+          {photos[1] && (
+            <GalleryPhoto photo={photos[1]} y={y[1]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[62%]" />
+          )}
+        </div>
+      )}
+      {photos[2] && (
+        <Bleed>
+          <GalleryPhoto photo={photos[2]} y={y[2]} aspectClass="aspect-[21/9]" widthClass="w-full" bleed />
+        </Bleed>
+      )}
+      {photos[3] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-[4/5]" widthClass="w-full md:w-[58%]" />
+        </div>
+      )}
+      {(photos[4] || photos[5]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+          {photos[4] && (
+            <GalleryPhoto photo={photos[4]} y={y[4]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
+          )}
+          {photos[5] && (
+            <GalleryPhoto photo={photos[5]} y={y[5]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
+          )}
+        </div>
+      )}
+    </>
+  ),
+
+  // 5 -- HOTEL ESPLÉNDIDO: triptych row opens, then a single wide bleed
+  ({ photos, y }) => (
+    <>
+      {(photos[0] || photos[1] || photos[2]) && (
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+          {photos[0] && (
+            <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-square" widthClass="w-full md:w-1/3" />
+          )}
+          {photos[1] && (
+            <GalleryPhoto
+              photo={photos[1]}
+              y={y[1]}
+              aspectClass="aspect-square"
+              widthClass="w-full md:w-1/3"
+              offsetClass="md:mt-10"
+            />
+          )}
+          {photos[2] && (
+            <GalleryPhoto photo={photos[2]} y={y[2]} aspectClass="aspect-square" widthClass="w-full md:w-1/3" />
+          )}
+        </div>
+      )}
+      {photos[3] && (
+        <Bleed>
+          <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+        </Bleed>
+      )}
+      {(photos[4] || photos[5]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          {photos[4] && (
+            <GalleryPhoto photo={photos[4]} y={y[4]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[62%]" />
+          )}
+          {photos[5] && (
+            <GalleryPhoto
+              photo={photos[5]}
+              y={y[5]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[34%]"
+              offsetClass="md:mt-20"
+            />
+          )}
+        </div>
+      )}
+    </>
+  ),
+
+  // 6 -- INTERCONTINENTAL LISBOA: vertical-forward -- solo portrait, then a clean aligned pair
+  ({ photos, y }) => (
+    <>
+      {photos[0] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[46%]" />
+        </div>
+      )}
+      {(photos[1] || photos[2]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+          {photos[1] && (
+            <GalleryPhoto photo={photos[1]} y={y[1]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-1/2" />
+          )}
+          {photos[2] && (
+            <GalleryPhoto photo={photos[2]} y={y[2]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-1/2" />
+          )}
+        </div>
+      )}
+      {photos[3] && (
+        <Bleed>
+          <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+        </Bleed>
+      )}
+      {photos[4] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[4]} y={y[4]} aspectClass="aspect-square" widthClass="w-full md:w-[50%]" />
+        </div>
+      )}
+    </>
+  ),
+
+  // 7 -- WELMOON VILLAS PAISAJE: square pair opens, wide bleed closes
+  ({ photos, y }) => (
+    <>
+      {(photos[0] || photos[1]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+          {photos[0] && (
+            <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
+          )}
+          {photos[1] && (
+            <GalleryPhoto
+              photo={photos[1]}
+              y={y[1]}
+              aspectClass="aspect-square"
+              widthClass="w-full md:w-1/2"
+              offsetClass="md:mt-12"
+            />
+          )}
+        </div>
+      )}
+      {photos[2] && (
+        <Bleed>
+          <GalleryPhoto photo={photos[2]} y={y[2]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+        </Bleed>
+      )}
+      {(photos[3] || photos[4] || photos[5]) && (
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+          {photos[3] && (
+            <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-1/3" />
+          )}
+          {photos[4] && (
+            <GalleryPhoto photo={photos[4]} y={y[4]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-1/3" />
+          )}
+          {photos[5] && (
+            <GalleryPhoto photo={photos[5]} y={y[5]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-1/3" />
+          )}
+        </div>
+      )}
+    </>
+  ),
+];
+
 export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
   const [creditsOpen, setCreditsOpen] = useState(false);
   const [heroLoaded, setHeroLoaded] = useState(false);
@@ -214,111 +589,10 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
         ref={galleryRef}
         className="px-4 md:px-10 lg:px-16 pb-24 md:pb-32 max-w-[1600px] mx-auto flex flex-col gap-6 md:gap-10"
       >
-        {photos[0] && (
-          <div className="w-full">
-            <GalleryPhoto photo={photos[0]} y={yTransforms[0]} aspectClass="aspect-[16/9]" widthClass="w-full" />
-          </div>
-        )}
-
-        {(photos[1] || photos[2]) && (
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-            {photos[1] && (
-              <GalleryPhoto
-                photo={photos[1]}
-                y={yTransforms[1]}
-                aspectClass="aspect-[3/4]"
-                widthClass="w-full md:w-[62%]"
-              />
-            )}
-            {photos[2] && (
-              <GalleryPhoto
-                photo={photos[2]}
-                y={yTransforms[2]}
-                aspectClass="aspect-[3/4]"
-                widthClass="w-full md:w-[34%]"
-                offsetClass="md:mt-20"
-              />
-            )}
-          </div>
-        )}
-
-        {story.galleryVideo ? (
-          <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
-            <GalleryVideo video={story.galleryVideo} y={yTransforms[3]} />
-          </div>
-        ) : (
-          photos[3] && (
-            <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
-              <GalleryPhoto
-                photo={photos[3]}
-                y={yTransforms[3]}
-                aspectClass="aspect-[16/9]"
-                widthClass="w-full"
-                bleed
-              />
-            </div>
-          )
-        )}
-
-        {(photos[4] || photos[5]) && (
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-            {photos[4] && (
-              <GalleryPhoto
-                photo={photos[4]}
-                y={yTransforms[4]}
-                aspectClass="aspect-[3/4]"
-                widthClass="w-full md:w-[34%]"
-                offsetClass="md:mt-20"
-              />
-            )}
-            {photos[5] && (
-              <GalleryPhoto
-                photo={photos[5]}
-                y={yTransforms[5]}
-                aspectClass="aspect-[3/4]"
-                widthClass="w-full md:w-[62%]"
-              />
-            )}
-          </div>
-        )}
-
-        {photos[6] && (
-          <div className="w-full flex justify-center">
-            <GalleryPhoto
-              photo={photos[6]}
-              y={yTransforms[6]}
-              aspectClass="aspect-[4/5]"
-              widthClass="w-full md:w-[68%]"
-            />
-          </div>
-        )}
-
-        {(photos[7] || photos[8]) && (
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-            {photos[7] && (
-              <GalleryPhoto
-                photo={photos[7]}
-                y={yTransforms[7]}
-                aspectClass="aspect-square"
-                widthClass="w-full md:w-1/2"
-              />
-            )}
-            {photos[8] && (
-              <GalleryPhoto
-                photo={photos[8]}
-                y={yTransforms[8]}
-                aspectClass="aspect-square"
-                widthClass="w-full md:w-1/2"
-              />
-            )}
-          </div>
-        )}
-
-        {photos[9] && (
-          <div className="w-full">
-            <GalleryPhoto photo={photos[9]} y={yTransforms[9]} aspectClass="aspect-[16/9]" widthClass="w-full" />
-          </div>
-        )}
+        {(() => {
+          const Layout = GALLERY_LAYOUTS[(story.layoutVariant ?? 0) % GALLERY_LAYOUTS.length];
+          return <Layout photos={photos} y={yTransforms} video={story.galleryVideo} />;
+        })()}
       </section>
     </div>
   );
