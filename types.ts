@@ -21,7 +21,11 @@ export interface HotelStory {
   year: string;
   coverImage: string;
   description: string;
-  photos: PhotoItem[]; // 3 or 4 photos for the section composition
+  photos: PhotoItem[]; // exactly 3 photos for the home page teaser block
+  // Optional dedicated, chronologically-ordered photo set for the portfolio detail
+  // page gallery (a guided "walk through the property" -- facade, room, amenities,
+  // dining, etc). Falls back to `photos` when a hotel doesn't have one yet.
+  galleryPhotos?: PhotoItem[];
   // Optional horizontal video for the story detail page gallery (position ~4, never first).
   galleryVideo?: {
     url: string;
