@@ -100,12 +100,13 @@ const Bleed: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 // All blocks are conditional on the photo existing, same as before, so a
 // hotel with only 3 photos loaded still renders a complete-feeling page.
 const GALLERY_LAYOUTS: Array<React.FC<GalleryLayoutProps>> = [
-  // 0 -- THE RITZ-CARLTON TENERIFE, ABAMA (original reference layout)
+  // 0 -- THE RITZ-CARLTON TENERIFE, ABAMA: a guided walk through the property --
+  // facade, grounds + room, private cove, architecture + pool, spa, dining.
   ({ photos, y, video }) => (
     <>
       {photos[0] && (
-        <div className="w-full">
-          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-[16/9]" widthClass="w-full" />
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[56%]" />
         </div>
       )}
       {(photos[1] || photos[2]) && (
@@ -156,14 +157,14 @@ const GALLERY_LAYOUTS: Array<React.FC<GalleryLayoutProps>> = [
           <GalleryPhoto photo={photos[6]} y={y[6]} aspectClass="aspect-[4/5]" widthClass="w-full md:w-[68%]" />
         </div>
       )}
-      {(photos[7] || photos[8]) && (
-        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-          {photos[7] && (
-            <GalleryPhoto photo={photos[7]} y={y[7]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
-          )}
-          {photos[8] && (
-            <GalleryPhoto photo={photos[8]} y={y[8]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
-          )}
+      {photos[7] && (
+        <Bleed>
+          <GalleryPhoto photo={photos[7]} y={y[7]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+        </Bleed>
+      )}
+      {photos[8] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[8]} y={y[8]} aspectClass="aspect-square" widthClass="w-full md:w-[50%]" />
         </div>
       )}
       {photos[9] && (
@@ -462,7 +463,7 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
   const [heroLoaded, setHeroLoaded] = useState(false);
 
   // STRICT CONSTRAINT: Maximum 10 photos in the gallery
-  const photos = (story.photos || []).slice(0, 10);
+  const photos = (story.galleryPhotos ?? story.photos ?? []).slice(0, 10);
 
   const galleryRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
