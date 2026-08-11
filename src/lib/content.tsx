@@ -75,7 +75,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     },
     {
       seccion: 2,
-      hotelName: 'VESTIGE BINIDUFÀ',
+      hotelName: 'VESTIGE COLLECTION, BINIDUFÀ',
       coupleName: 'Fotografía & Video',
       description:
         'En un valle del norte de Menorca, dentro de una finca privada de 800 hectáreas, Vestige Binidufà restaura una possessió agrícola del siglo XVIII — piedra, barro y materiales naturales que toman su tono directamente del paisaje que la rodea, con la herencia morisca aún presente en su nombre.',
