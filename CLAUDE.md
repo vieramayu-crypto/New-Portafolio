@@ -25,6 +25,25 @@ futura" abajo antes de tocar `vite.config.ts`.
   bloquear el progreso en detalles menores que se pueden decidir con criterio
   razonable (documentar la decisión al reportar, no pedir permiso para todo).
 - Reportar solo cuando esté **realmente verificado**, no antes.
+- **Nunca borrar fotos que Mayurlin ya mandó.** Se puede reorganizar,
+  recortar de otra forma o mover de sección libremente ("con buen criterio"),
+  pero cada foto que ella envía para un hotel debe terminar visible en algún
+  lugar de ese hotel — nunca simplemente desaparecer sin que ella lo pida.
+- **Máxima calidad de imagen siempre**, aunque eso penalice el peso/tiempo de
+  carga — pedido explícito de Mayurlin. Al recortar con PIL: `quality=97,
+  subsampling=0` como mínimo, nunca el default (~75) ni valores bajos como
+  90. Si el recorte necesario coincide exactamente con el tamaño ya recibido
+  (no hace falta cortar nada), copiar el archivo tal cual en vez de
+  re-codificarlo — cada re-encode JPEG pierde nitidez de forma acumulativa.
+- **Nombre completo de cada hotel**: si la propiedad pertenece a un grupo o
+  colección más grande, el nombre debe reflejar ambos — "GRUPO, PROPIEDAD"
+  (coma, igual que "THE RITZ-CARLTON TENERIFE, ABAMA" o "VESTIGE COLLECTION,
+  BINIDUFÀ") — nunca solo el nombre corto de la propiedad si existe una marca
+  matriz. Investigar esto al procesar cada hotel nuevo, no asumir. El nombre
+  vive en dos lugares que deben coincidir: `data/hotels.ts` (`hotelName`,
+  campo estructural) y `src/lib/content.tsx` + `content.json` (`hotels[].hotelName`,
+  el que realmente se muestra — pisa al estructural vía merge en
+  `HomeMain.tsx`). **Editar los dos siempre**, o el cambio no se verá.
 
 ## Pipeline de git / deploy (repetir en cada ronda)
 
@@ -146,10 +165,40 @@ ya son editables por ella sin tocar código:** la foto de pareja de "Acerca
 de" (`COUPLE_PHOTO` en `data/media.ts`) y la textura decorativa de fondo del
 Hero (URL de higgs.ai en `HeroSection.tsx`).
 
-Las 24 fotos de las 8 secciones (menos sec1, ya real) siguen siendo
-marcadores de posición generados (fondo gris + nombre + dimensiones
-impresas) — placeholders temporales hasta que Mayurlin mande sus fotos
-reales.
+Las 8 secciones ya tienen sus 3 fotos reales (`photos` en `data/hotels.ts`).
+
+### Página de portafolio de cada hotel (`HotelDetail.tsx`)
+
+Al hacer clic en una foto de una sección se abre la página de portafolio de
+ese hotel — una foto de portada a pantalla completa (`coverImage`) más una
+galería narrativa más larga, tipo recorrido por las instalaciones (fachada,
+habitación, amenidades, spa, restaurante...), **distinta e independiente**
+de las 3 fotos del teaser de Inicio.
+
+- **`coverImage`** (portada): cuando Mayurlin manda un lote de fotos y dice
+  que una es "la portada", esa va aquí, sin recortar — la foto original
+  completa, dejando que el CSS (`object-cover`) la recorte de forma
+  responsive según el viewport (portada vertical en móvil, ancha en
+  escritorio). Nunca forzar un aspect-ratio fijo en esta imagen.
+- **`galleryPhotos`** (array en `HotelStory`, opcional, cae a `photos` si no
+  existe): TODAS las fotos reales del hotel que no sean la portada — tanto
+  las del lote original de 3 (teaser) como cualquier lote posterior — en un
+  orden que cuente una historia coherente (ver regla de cronología abajo).
+  Nombre de archivo: `sec{N}-gal{NN}-{tema}-{h|v|c}.jpg` (NN con cero a la
+  izquierda si hay 10+, ej. `sec2-gal01-aerea-h.jpg`).
+- **Layout por hotel**: `HotelDetail.tsx` tiene un array `GALLERY_LAYOUTS`
+  con un esquema visual (tamaños, proporciones, bleed vs. contenido,
+  offsets) por cada `layoutVariant` (0-7, el mismo número que ya usa cada
+  hotel para su bloque de Inicio) — cada hotel debe verse claramente
+  distinto de los demás, nunca la misma plantilla reordenada. Al recibir
+  fotos nuevas para la galería de un hotel, ajustar su variante en
+  `GALLERY_LAYOUTS` a la cantidad real de fotos y sus orientaciones (no
+  forzar una foto vertical importante dentro de un recuadro horizontal
+  angosto solo por mantener el layout genérico).
+- **Orden cronológico obligatorio**: pedido explícito de Mayurlin — la
+  galería debe sentirse como pasear por las instalaciones. Ejemplo de su
+  propia secuencia: fachada → habitación → desayuno → spa → cena. Nunca
+  agrupar por casualidad (p. ej. spa justo después de la cena sin razón).
 
 ## Decisiones de diseño ya tomadas (no revertir sin que ella lo pida)
 

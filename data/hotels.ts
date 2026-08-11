@@ -110,7 +110,7 @@ export const HOTEL_STORIES: HotelStory[] = [
   },
   {
     id: 'villa-cimbrone-ravello',
-    hotelName: 'VESTIGE BINIDUFÀ',
+    hotelName: 'VESTIGE COLLECTION, BINIDUFÀ',
     leftTag: 'FINCA',
     coupleName: 'Fotografía & Video',
     location: 'Ferreries, Menorca',
@@ -151,55 +151,79 @@ export const HOTEL_STORIES: HotelStory[] = [
     galleryPhotos: [
       {
         id: 'vc-gal-1',
-        url: publicImage('sec2-gal1-facade-h.jpg'),
+        url: publicImage('sec2-gal01-aerea-h.jpg'),
+        alt: 'Vista aérea del conjunto de la finca entre campos de cultivo y colinas',
+        caption: 'La finca vista desde el aire',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vc-gal-2',
+        url: publicImage('sec2-gal02-facade-h.jpg'),
         alt: 'Fachada de piedra de la finca con tumbonas y sombrilla en la terraza',
         caption: 'La fachada de piedra, entre colinas',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       },
       {
-        id: 'vc-gal-2',
-        url: publicImage('sec2-gal2-salon-v.jpg'),
+        id: 'vc-gal-3',
+        url: publicImage('sec2-gal03-salon-v.jpg'),
         alt: 'Hombre caminando por el salón rústico de techos de madera',
         caption: 'Un paseo por los espacios comunes',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       },
       {
-        id: 'vc-gal-3',
-        url: publicImage('sec2-gal3-patio-v.jpg'),
+        id: 'vc-gal-4',
+        url: publicImage('sec2-gal04-urna-v.jpg'),
+        alt: 'Gran vasija de barro y planta en un rincón de paredes encaladas',
+        caption: 'Materiales que nacen del paisaje',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vc-gal-5',
+        url: publicImage('sec2-gal05-camino-h.jpg'),
+        alt: 'Mujer caminando por el camino de tierra hacia las casas de piedra de la finca',
+        caption: 'El camino hacia la possessió',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vc-gal-6',
+        url: publicImage('sec2-gal06-patio-v.jpg'),
         alt: 'Mujer leyendo en un sillón bajo un arco de piedra junto a la habitación',
         caption: 'Un momento de calma en el patio',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       },
       {
-        id: 'vc-gal-4',
-        url: publicImage('sec2-gal4-piscina-h.jpg'),
-        alt: 'Vista aérea de la piscina ovalada entre tumbonas y vegetación',
-        caption: 'La piscina, vista desde el aire',
-        aspectRatio: 'landscape',
-        isBlackAndWhite: false
-      },
-      {
-        id: 'vc-gal-5',
-        url: publicImage('sec2-gal5-gym-v.jpg'),
+        id: 'vc-gal-7',
+        url: publicImage('sec2-gal07-gym-v.jpg'),
         alt: 'Gimnasio abovedado con vistas al mar desde una ventana arqueada',
         caption: 'El gimnasio, frente al mar',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       },
       {
-        id: 'vc-gal-6',
-        url: publicImage('sec2-gal6-vacas-v.jpg'),
+        id: 'vc-gal-8',
+        url: publicImage('sec2-gal08-vacas-v.jpg'),
         alt: 'Vacas pastando en los campos que rodean la finca',
         caption: 'El paisaje agrícola que envuelve la finca',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       },
       {
-        id: 'vc-gal-7',
-        url: publicImage('sec2-gal7-habitacion-h.jpg'),
+        id: 'vc-gal-9',
+        url: publicImage('sec2-gal09-piscina-h.jpg'),
+        alt: 'Vista aérea de la piscina ovalada entre tumbonas y vegetación',
+        caption: 'La piscina, vista desde el aire',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vc-gal-10',
+        url: publicImage('sec2-gal10-habitacion-h.jpg'),
         alt: 'Mujer en albornoz sentada en la habitación junto a una pared de piedra',
         caption: 'El descanso, junto a la piedra',
         aspectRatio: 'landscape',
