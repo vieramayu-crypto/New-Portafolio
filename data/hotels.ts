@@ -118,7 +118,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Villa Histórica',
     layoutVariant: 1,
-    coverImage: 'https://images.unsplash.com/photo-1545232979-fbfd42e000b5?auto=format&fit=crop&w=1200&q=85',
+    coverImage: publicImage('sec2-portada.jpg'),
     description:
       'En un valle del norte de Menorca, dentro de una finca privada de 800 hectáreas, Vestige Binidufà restaura una possessió agrícola del siglo XVIII — piedra, barro y materiales naturales que toman su tono directamente del paisaje que la rodea, con la herencia morisca aún presente en su nombre.',
     quote: 'Piedra, tierra y silencio — el norte de Menorca tal como siempre fue.',
@@ -145,6 +145,64 @@ export const HOTEL_STORIES: HotelStory[] = [
         alt: 'Gran vasija de barro y planta en un rincón de paredes encaladas',
         caption: 'Materiales que nacen del paisaje',
         aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      }
+    ],
+    galleryPhotos: [
+      {
+        id: 'vc-gal-1',
+        url: publicImage('sec2-gal1-facade-h.jpg'),
+        alt: 'Fachada de piedra de la finca con tumbonas y sombrilla en la terraza',
+        caption: 'La fachada de piedra, entre colinas',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vc-gal-2',
+        url: publicImage('sec2-gal2-salon-v.jpg'),
+        alt: 'Hombre caminando por el salón rústico de techos de madera',
+        caption: 'Un paseo por los espacios comunes',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vc-gal-3',
+        url: publicImage('sec2-gal3-patio-v.jpg'),
+        alt: 'Mujer leyendo en un sillón bajo un arco de piedra junto a la habitación',
+        caption: 'Un momento de calma en el patio',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vc-gal-4',
+        url: publicImage('sec2-gal4-piscina-h.jpg'),
+        alt: 'Vista aérea de la piscina ovalada entre tumbonas y vegetación',
+        caption: 'La piscina, vista desde el aire',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vc-gal-5',
+        url: publicImage('sec2-gal5-gym-v.jpg'),
+        alt: 'Gimnasio abovedado con vistas al mar desde una ventana arqueada',
+        caption: 'El gimnasio, frente al mar',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vc-gal-6',
+        url: publicImage('sec2-gal6-vacas-v.jpg'),
+        alt: 'Vacas pastando en los campos que rodean la finca',
+        caption: 'El paisaje agrícola que envuelve la finca',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vc-gal-7',
+        url: publicImage('sec2-gal7-habitacion-h.jpg'),
+        alt: 'Mujer en albornoz sentada en la habitación junto a una pared de piedra',
+        caption: 'El descanso, junto a la piedra',
+        aspectRatio: 'landscape',
         isBlackAndWhite: false
       }
     ]
