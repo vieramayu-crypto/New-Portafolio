@@ -104,79 +104,81 @@ export const HOTEL_STORIES: HotelStory[] = [
   },
   {
     id: 'villa-cimbrone-ravello',
-    hotelName: 'VILLA CIMBRONE',
-    leftTag: 'VILLA',
-    coupleName: 'DAVY & DAVID',
-    location: 'Ravello, Costa Amalfitana',
-    country: 'Italia',
-    year: '2025',
+    hotelName: 'VESTIGE BINIDUFÀ',
+    leftTag: 'FINCA',
+    coupleName: 'Fotografía & Video',
+    location: 'Ferreries, Menorca',
+    country: 'España',
+    year: '2026',
     category: 'Villa Histórica',
     layoutVariant: 1,
     coverImage: 'https://images.unsplash.com/photo-1545232979-fbfd42e000b5?auto=format&fit=crop&w=1200&q=85',
-    description: 'En lo alto de los acantilados de Ravello, la Terrazza dell’Infinito de Villa Cimbrone ofrece vistas panorámicas sobre el mar Tirreno.',
-    quote: 'Donde los arcos góticos rozan las nubes y el Mediterráneo se vuelve infinito.',
+    description:
+      'En un valle del norte de Menorca, dentro de una finca privada de 800 hectáreas, Vestige Binidufà restaura una possessió agrícola del siglo XVIII — piedra, barro y materiales naturales que toman su tono directamente del paisaje que la rodea, con la herencia morisca aún presente en su nombre.',
+    quote: 'Piedra, tierra y silencio — el norte de Menorca tal como siempre fue.',
     photos: [
       {
         id: 'vc-1',
         url: publicImage('sec2-foto1-h.jpg'),
-        alt: 'Novia en vestido editorial sobre balcón de arcos mirando al mar',
-        caption: 'Arco gótico de la terraza',
+        alt: 'Vista aérea de la finca de Vestige Binidufà entre olivos y campos del norte de Menorca',
+        caption: 'La finca vista desde el aire',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       },
       {
         id: 'vc-2',
         url: publicImage('sec2-foto2-c.jpg'),
-        alt: 'Pareja bajando por escalinata de piedra blanca',
-        caption: 'Escalinata de las buganvillas',
-        aspectRatio: 'portrait',
+        alt: 'Mujer caminando por el camino de tierra hacia las casas de piedra de la finca',
+        caption: 'El camino hacia la possessió',
+        aspectRatio: 'square',
         isBlackAndWhite: false
       },
       {
         id: 'vc-3',
         url: publicImage('sec2-foto3-v.jpg'),
-        alt: 'Abrazo elegante de los novios entre jardines románticos',
-        caption: 'Jardines secretos de Ravello',
-        aspectRatio: 'square',
-        isBlackAndWhite: true
+        alt: 'Gran vasija de barro y planta en un rincón de paredes encaladas',
+        caption: 'Materiales que nacen del paisaje',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
       }
     ]
   },
   {
     id: 'hotel-caruso-belmond',
-    hotelName: 'BELMOND HOTEL CARUSO',
-    leftTag: 'PALAZZO',
-    coupleName: 'CLARA & JULIAN',
-    location: 'Ravello',
-    country: 'Italia',
-    year: '2024',
-    category: 'Hotel de Lujo',
+    hotelName: 'DELTAPARK VITALRESORT',
+    leftTag: 'RESORT',
+    coupleName: 'Fotografía & Video',
+    location: 'Gwatt, Thunersee',
+    country: 'Suiza',
+    year: '2026',
+    category: 'Escapada Romántica',
     layoutVariant: 2,
     coverImage: 'https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=85',
-    description: 'Un palacio del siglo XI suspendido entre el cielo y el mar, famoso por su piscina infinita que parece fundirse con el horizonte amalfitano.',
-    quote: 'La elegancia serena del romanticismo italiano clásico.',
+    description:
+      'A orillas del lago de Thun, entre dos reservas naturales del Kanderdelta, Deltapark Vitalresort combina arquitectura alpina contemporánea con un spa de 2.000 m² — agua, montaña y bienestar en un mismo horizonte.',
+    quote: 'El silencio de los Alpes se refleja entero en el lago de Thun.',
     photos: [
       {
         id: 'hc-1',
         url: publicImage('sec3-foto1-v.jpg'),
-        alt: 'Beso apasionado de los novios bajo arcos',
-        caption: 'Paseo privado al amanecer',
+        alt: 'Servicio de café y folleto de Deltapark Vitalresort sobre la cama',
+        caption: 'Los pequeños detalles del servicio',
         aspectRatio: 'portrait',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       },
       {
         id: 'hc-2',
         url: publicImage('sec3-foto2-h.jpg'),
-        alt: 'Piscina infinita con reflejos dorados',
-        caption: 'Piscina infinita sobre las nubes',
+        alt: 'Vista aérea del resort junto al lago de Thun',
+        caption: 'El resort visto desde el aire',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       },
       {
         id: 'hc-3',
         url: publicImage('sec3-foto3-v.jpg'),
-        alt: 'Detalles de papelería y alta costura',
-        caption: 'Detalles bordados artesanalmente',
+        alt: 'Cesta de mimbre con toallas recién lavadas junto a la entrada',
+        caption: 'El detalle del spa alpino',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       }
@@ -184,39 +186,40 @@ export const HOTEL_STORIES: HotelStory[] = [
   },
   {
     id: 'borgo-egnazia-puglia',
-    hotelName: 'BORGO EGNAZIA',
-    leftTag: 'BORGO',
-    coupleName: 'ELENA & MATTEO',
-    location: 'Savelletri di Fasano, Puglia',
-    country: 'Italia',
-    year: '2024',
-    category: 'Boda Destino',
+    hotelName: 'HONEYMOON PETRA VILLAS',
+    leftTag: 'VILLAS',
+    coupleName: 'Fotografía & Video',
+    location: 'Imerovigli, Santorini',
+    country: 'Grecia',
+    year: '2026',
+    category: 'Hotel de Lujo',
     layoutVariant: 3,
     coverImage: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85',
-    description: 'Una reinterpretación contemporánea de una villa apuliana tradicional, construida en piedra caliza blanca con olivos milenarios.',
-    quote: 'Piedra blanca, olivos milenarios y la luz dorada del mar Adriático.',
+    description:
+      'Suspendido sobre el acantilado de Imerovigli, tallado en roca volcánica sobre la caldera de Santorini, Honeymoon Petra Villas ofrece una de las piscinas más buscadas del Egeo — un balcón de piedra sobre el mar más azul de Grecia.',
+    quote: 'Roca volcánica y horizonte infinito — así se ve el amanecer sobre la caldera.',
     photos: [
       {
         id: 'be-1',
         url: publicImage('sec4-foto1-v.jpg'),
-        alt: 'Novios caminando por callejuela de piedra blanca',
-        caption: 'La quietud de las callejuelas apulianas',
+        alt: 'Pareja desayunando frente a la caldera de Santorini',
+        caption: 'Desayuno frente a la caldera',
         aspectRatio: 'portrait',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       },
       {
         id: 'be-2',
         url: publicImage('sec4-foto2-c.jpg'),
-        alt: 'Patio de cal blanca y sol cenital',
-        caption: 'Arquitectura de piedra caliza',
+        alt: 'Arquitectura de cúpulas blancas de Honeymoon Petra Villas con el mar Egeo al fondo',
+        caption: 'Cúpulas blancas sobre el Egeo',
         aspectRatio: 'square',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       },
       {
         id: 'be-3',
         url: publicImage('sec4-foto3-h.jpg'),
-        alt: 'Mesa imperial iluminada por faroles artesanales',
-        caption: 'Fiesta nocturna bajo las estrellas',
+        alt: 'Piscina infinita sobre el acantilado de Imerovigli',
+        caption: 'Una de las piscinas más buscadas del Egeo',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       }
@@ -224,39 +227,40 @@ export const HOTEL_STORIES: HotelStory[] = [
   },
   {
     id: 'hotel-danieli-venezia',
-    hotelName: 'HOTEL DANIELI',
-    leftTag: 'PALAZZO',
-    coupleName: 'SOPHIA & LUCAS',
-    location: 'Venecia',
-    country: 'Italia',
-    year: '2024',
+    hotelName: 'GPRO VALPARAÍSO PALACE & SPA',
+    leftTag: 'PALACE',
+    coupleName: 'Fotografía & Video',
+    location: 'Bonanova, Palma de Mallorca',
+    country: 'España',
+    year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 4,
     coverImage: 'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1200&q=85',
-    description: 'Un palacio gótico veneciano del siglo XIV a pasos de la Plaza de San Marcos, cargado de historia, mármol rosado y chandeliers de Murano.',
-    quote: 'Góndolas al anochecer y el misterio dorado del Gran Canal.',
+    description:
+      'En lo alto del distrito de Bonanova, rodeado de jardines privados con vistas a la bahía de Palma, GPRO Valparaíso Palace & Spa alberga el spa más grande de Mallorca — un refugio sereno entre agua, piedra y vegetación mediterránea.',
+    quote: 'Jardines, agua y la bahía de Palma extendida al fondo de cada terraza.',
     photos: [
       {
         id: 'hd-1',
         url: publicImage('sec5-foto1-h.jpg'),
-        alt: 'Brindis con champán en la terraza Terrazza Danieli',
-        caption: 'Vista sobre la laguna veneciana',
+        alt: 'Piscina interior del spa con cascada de agua',
+        caption: 'El spa más grande de Mallorca',
         aspectRatio: 'landscape',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       },
       {
         id: 'hd-2',
         url: publicImage('sec5-foto2-v.jpg'),
-        alt: 'Pareja en góndola veneciana vestida de gala',
-        caption: 'Navegando el Gran Canal',
+        alt: 'Llegada a la habitación con maleta y frutas de bienvenida',
+        caption: 'La llegada a la suite',
         aspectRatio: 'portrait',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       },
       {
         id: 'hd-3',
         url: publicImage('sec5-foto3-v.jpg'),
-        alt: 'Beso bajo los arcos de mármol del Palacio Ducal',
-        caption: 'Arquitectura veneciana atemporal',
+        alt: 'Huésped en albornoz leyendo el folleto de tratamientos con vista a la bahía de Palma',
+        caption: 'Tratamientos con vista a la bahía',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       }
@@ -264,39 +268,40 @@ export const HOTEL_STORIES: HotelStory[] = [
   },
   {
     id: 'villa-deste-como',
-    hotelName: "VILLA D'ESTE",
-    leftTag: 'RESORT',
-    coupleName: 'CAMILLA & ADRIAN',
-    location: 'Cernobbio, Lago di Como',
-    country: 'Italia',
-    year: '2025',
+    hotelName: 'HOTEL ESPLÉNDIDO',
+    leftTag: 'HOTEL',
+    coupleName: 'Fotografía & Video',
+    location: 'Port de Sóller, Mallorca',
+    country: 'España',
+    year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 5,
     coverImage: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=85',
-    description: 'Una legendaria residencia renacentista del siglo XVI rodeada de 25 hectáreas de jardines privados con estatuas y nymphaeums.',
-    quote: 'Elegancia majestuosa en los jardines renacentistas del lago.',
+    description:
+      'En primera línea de la bahía de Puerto de Sóller, con la Serra de Tramuntana como telón de fondo, Hotel Espléndido combina fachadas de piedra caliza, terrazas frente al mar y el tranvía histórico que aún recorre el paseo marítimo.',
+    quote: 'Piedra, mar y el eco del tranvía sobre los adoquines de Sóller.',
     photos: [
       {
         id: 'vde-1',
         url: publicImage('sec6-foto1-c.jpg'),
-        alt: 'Paseo romántico por los jardines renacentistas',
-        caption: 'Jardines históricos de Villa d’Este',
+        alt: 'Entrada de Hotel Espléndido con el bistro Davant la Mar',
+        caption: 'La entrada sobre el paseo marítimo',
         aspectRatio: 'square',
         isBlackAndWhite: false
       },
       {
         id: 'vde-2',
         url: publicImage('sec6-foto2-v.jpg'),
-        alt: 'Novia preparando su vestido junto al mirador',
-        caption: 'Preparativos al amanecer',
+        alt: 'Vista elevada del tranvía histórico y la playa de Puerto de Sóller',
+        caption: 'El tranvía histórico junto a la bahía',
         aspectRatio: 'portrait',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       },
       {
         id: 'vde-3',
         url: publicImage('sec6-foto3-h.jpg'),
-        alt: 'Llegada en embarcación histórica Riva por el lago',
-        caption: 'Navegación privada al atardecer',
+        alt: 'Pareja conversando en la terraza con vista a la bahía de Sóller',
+        caption: 'Terraza frente a la bahía',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       }
@@ -304,79 +309,81 @@ export const HOTEL_STORIES: HotelStory[] = [
   },
   {
     id: 'aman-venice',
-    hotelName: 'AMAN VENICE',
-    leftTag: 'PALAZZO',
-    coupleName: 'VALENTINA & MARCO',
-    location: 'Venecia',
-    country: 'Italia',
-    year: '2025',
+    hotelName: 'INTERCONTINENTAL LISBOA',
+    leftTag: 'HOTEL',
+    coupleName: 'Fotografía & Video',
+    location: 'Lisboa',
+    country: 'Portugal',
+    year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 6,
     coverImage: 'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1200&q=85',
-    description: 'El Palazzo Papadopoli alberga frescos del siglo XVIII de Tiepolo, jardines privados y salones barrocos sobre el Gran Canal.',
-    quote: 'Lujo sutil y silencio dorado sobre las aguas de Venecia.',
+    description:
+      'Construido sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, InterContinental Lisboa combina arquitectura contemporánea con vistas que se extienden hasta el río Tajo — una lectura moderna del skyline lisboeta.',
+    quote: 'Lisboa entera se despliega desde lo alto de esta colina.',
     photos: [
       {
         id: 'av-1',
         url: publicImage('sec7-foto1-v.jpg'),
-        alt: 'Mirada compartida en el balcón del Palazzo Papadopoli',
-        caption: 'Balcón privado sobre el Gran Canal',
-        aspectRatio: 'landscape',
-        isBlackAndWhite: true
+        alt: 'Servicio de café y zumo de naranja en la mesa de la suite',
+        caption: 'El detalle del servicio en suite',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
       },
       {
         id: 'av-2',
         url: publicImage('sec7-foto2-v.jpg'),
-        alt: 'Novia con capa de tul bajo techos frescos de Tiepolo',
-        caption: 'Frescos históricos de Tiepolo',
+        alt: 'Juego de luz y sombra entre las cortinas de la habitación',
+        caption: 'Luz de media tarde en la suite',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       },
       {
         id: 'av-3',
         url: publicImage('sec7-foto3-v.jpg'),
-        alt: 'Brindis íntimo en los jardines privados del hotel',
-        caption: 'Jardines secretos del palacio',
+        alt: 'Fachada de InterContinental Lisboa construida sobre una de las siete colinas',
+        caption: 'La fachada sobre la colina',
         aspectRatio: 'portrait',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       }
     ]
   },
   {
     id: 'san-domenico-palace',
-    hotelName: 'SAN DOMENICO PALACE',
-    leftTag: 'RELAIS',
-    coupleName: 'ISABELLA & MATHIEU',
-    location: 'Taormina, Sicilia',
-    country: 'Italia',
-    year: '2024',
-    category: 'Hotel de Lujo',
+    hotelName: 'WELMOON VILLAS PAISAJE',
+    leftTag: 'GLAMPING',
+    coupleName: 'Fotografía & Video',
+    location: 'Caravaca de la Cruz, Murcia',
+    country: 'España',
+    year: '2026',
+    category: 'Escapada Romántica',
     layoutVariant: 7,
     coverImage: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85',
-    description: 'Un antiguo convento dominico del siglo XIV transformado en hotel Four Seasons con vistas al volcán Etna y la bahía de Taormina.',
-    quote: 'Aromas de azahar, claustros de piedra y el resplandor del Etna.',
+    description:
+      'Entre pinares de Caravaca de la Cruz, las villas abovedadas de Welmoon Paisaje están pensadas para dormir bajo un manto de estrellas — arquitectura íntima, hecha para desconectar del ruido y mirar el cielo sin filtros.',
+    quote: 'Un techo de estrellas y el silencio de la sierra murciana.',
     photos: [
       {
         id: 'sdp-1',
         url: publicImage('sec8-foto1-c.jpg'),
-        alt: 'Claustro de piedra y patio de los limoneros',
-        caption: 'Claustro dominico del siglo XIV',
+        alt: 'Telescopio y tumbona en la terraza de madera entre pinos',
+        caption: 'Preparados para mirar las estrellas',
         aspectRatio: 'square',
-        isBlackAndWhite: true
+        isBlackAndWhite: false
       },
       {
         id: 'sdp-2',
         url: publicImage('sec8-foto2-c.jpg'),
-        alt: 'Novia contemplando la bahía de Taormina al atardecer',
-        caption: 'Atardecer mediterráneo en Taormina',
-        aspectRatio: 'portrait',
+        alt: 'Pareja relajada en la cama con dosel bajo el techo abovedado',
+        caption: 'La cama bajo el cielo abierto',
+        aspectRatio: 'square',
         isBlackAndWhite: false
       },
       {
         id: 'sdp-3',
         url: publicImage('sec8-foto3-h.jpg'),
-        alt: 'Cena romántica al aire libre entre olivos y bougainvillea',
-        caption: 'Banquete en los jardines sicilianos',
+        alt: 'Interior de la villa abovedada con techo de cristal y vistas al bosque',
+        caption: 'El techo de cristal hacia el bosque',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       }

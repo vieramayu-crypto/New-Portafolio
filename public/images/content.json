@@ -31,52 +31,52 @@
     },
     {
       "seccion": 2,
-      "hotelName": "VILLA CIMBRONE",
-      "coupleName": "DAVY & DAVID",
-      "description": "En lo alto de los acantilados de Ravello, la Terrazza dell’Infinito de Villa Cimbrone ofrece vistas panorámicas sobre el mar Tirreno.",
-      "quote": "Donde los arcos góticos rozan las nubes y el Mediterráneo se vuelve infinito."
+      "hotelName": "VESTIGE BINIDUFÀ",
+      "coupleName": "Fotografía & Video",
+      "description": "En un valle del norte de Menorca, dentro de una finca privada de 800 hectáreas, Vestige Binidufà restaura una possessió agrícola del siglo XVIII — piedra, barro y materiales naturales que toman su tono directamente del paisaje que la rodea, con la herencia morisca aún presente en su nombre.",
+      "quote": "Piedra, tierra y silencio — el norte de Menorca tal como siempre fue."
     },
     {
       "seccion": 3,
-      "hotelName": "BELMOND HOTEL CARUSO",
-      "coupleName": "CLARA & JULIAN",
-      "description": "Un palacio del siglo XI suspendido entre el cielo y el mar, famoso por su piscina infinita que parece fundirse con el horizonte amalfitano.",
-      "quote": "La elegancia serena del romanticismo italiano clásico."
+      "hotelName": "DELTAPARK VITALRESORT",
+      "coupleName": "Fotografía & Video",
+      "description": "A orillas del lago de Thun, entre dos reservas naturales del Kanderdelta, Deltapark Vitalresort combina arquitectura alpina contemporánea con un spa de 2.000 m² — agua, montaña y bienestar en un mismo horizonte.",
+      "quote": "El silencio de los Alpes se refleja entero en el lago de Thun."
     },
     {
       "seccion": 4,
-      "hotelName": "BORGO EGNAZIA",
-      "coupleName": "ELENA & MATTEO",
-      "description": "Una reinterpretación contemporánea de una villa apuliana tradicional, construida en piedra caliza blanca con olivos milenarios.",
-      "quote": "Piedra blanca, olivos milenarios y la luz dorada del mar Adriático."
+      "hotelName": "HONEYMOON PETRA VILLAS",
+      "coupleName": "Fotografía & Video",
+      "description": "Suspendido sobre el acantilado de Imerovigli, tallado en roca volcánica sobre la caldera de Santorini, Honeymoon Petra Villas ofrece una de las piscinas más buscadas del Egeo — un balcón de piedra sobre el mar más azul de Grecia.",
+      "quote": "Roca volcánica y horizonte infinito — así se ve el amanecer sobre la caldera."
     },
     {
       "seccion": 5,
-      "hotelName": "HOTEL DANIELI",
-      "coupleName": "SOPHIA & LUCAS",
-      "description": "Un palacio gótico veneciano del siglo XIV a pasos de la Plaza de San Marcos, cargado de historia, mármol rosado y chandeliers de Murano.",
-      "quote": "Góndolas al anochecer y el misterio dorado del Gran Canal."
+      "hotelName": "GPRO VALPARAÍSO PALACE & SPA",
+      "coupleName": "Fotografía & Video",
+      "description": "En lo alto del distrito de Bonanova, rodeado de jardines privados con vistas a la bahía de Palma, GPRO Valparaíso Palace & Spa alberga el spa más grande de Mallorca — un refugio sereno entre agua, piedra y vegetación mediterránea.",
+      "quote": "Jardines, agua y la bahía de Palma extendida al fondo de cada terraza."
     },
     {
       "seccion": 6,
-      "hotelName": "VILLA D'ESTE",
-      "coupleName": "CAMILLA & ADRIAN",
-      "description": "Una legendaria residencia renacentista del siglo XVI rodeada de 25 hectáreas de jardines privados con estatuas y nymphaeums.",
-      "quote": "Elegancia majestuosa en los jardines renacentistas del lago."
+      "hotelName": "HOTEL ESPLÉNDIDO",
+      "coupleName": "Fotografía & Video",
+      "description": "En primera línea de la bahía de Puerto de Sóller, con la Serra de Tramuntana como telón de fondo, Hotel Espléndido combina fachadas de piedra caliza, terrazas frente al mar y el tranvía histórico que aún recorre el paseo marítimo.",
+      "quote": "Piedra, mar y el eco del tranvía sobre los adoquines de Sóller."
     },
     {
       "seccion": 7,
-      "hotelName": "AMAN VENICE",
-      "coupleName": "VALENTINA & MARCO",
-      "description": "El Palazzo Papadopoli alberga frescos del siglo XVIII de Tiepolo, jardines privados y salones barrocos sobre el Gran Canal.",
-      "quote": "Lujo sutil y silencio dorado sobre las aguas de Venecia."
+      "hotelName": "INTERCONTINENTAL LISBOA",
+      "coupleName": "Fotografía & Video",
+      "description": "Construido sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, InterContinental Lisboa combina arquitectura contemporánea con vistas que se extienden hasta el río Tajo — una lectura moderna del skyline lisboeta.",
+      "quote": "Lisboa entera se despliega desde lo alto de esta colina."
     },
     {
       "seccion": 8,
-      "hotelName": "SAN DOMENICO PALACE",
-      "coupleName": "ISABELLA & MATHIEU",
-      "description": "Un antiguo convento dominico del siglo XIV transformado en hotel Four Seasons con vistas al volcán Etna y la bahía de Taormina.",
-      "quote": "Aromas de azahar, claustros de piedra y el resplandor del Etna."
+      "hotelName": "WELMOON VILLAS PAISAJE",
+      "coupleName": "Fotografía & Video",
+      "description": "Entre pinares de Caravaca de la Cruz, las villas abovedadas de Welmoon Paisaje están pensadas para dormir bajo un manto de estrellas — arquitectura íntima, hecha para desconectar del ruido y mirar el cielo sin filtros.",
+      "quote": "Un techo de estrellas y el silencio de la sierra murciana."
     }
   ]
 }
