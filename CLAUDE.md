@@ -113,6 +113,24 @@ navegador en `/opt/pw-browsers/chromium`, `args: ['--no-sandbox']`.
   DOM refleje el estado "silenciado", y bloquea el autoplay. Fix: forzar
   `video.muted = true` y llamar `.play()` explícitamente en un
   `useLayoutEffect` via ref (ver `components/IntroLoader.tsx`).
+- **Bug real de `<source>` encontrado (no solo limitación del entorno)**: si
+  la fuente primaria de un `<video>` empieza a cargar pero falla al
+  decodificar a mitad de la descarga (no de inmediato), algunos navegadores
+  disparan `error` directamente en el `<video>` en vez de pasar a la
+  siguiente `<source>` — el fallback automático solo aplica en la selección
+  inicial de recurso. Solución: asignar `video.src` de forma imperativa y
+  reintentar manualmente con la copia webm en el handler de error, en vez de
+  depender de `<source>` hijos (ver `components/IntroLoader.tsx`).
+- **Las fotos pegadas directo en el chat se re-codifican a WebP y se limitan
+  a ~2000px de ancho** por el pipeline de pegado — no es el archivo original
+  de su cámara, aunque sea "la mejor calidad disponible" en la conversación.
+  Si Mayurlin reenvía la misma foto "más comprimida" para ahorrar peso en
+  una ronda anterior, la versión menos comprimida sigue estando en el
+  historial de la conversación y se puede recuperar con el mismo script de
+  extracción de imágenes del JSONL (ver ejemplos ya usados en este archivo
+  de contexto). Si pide máxima calidad después, preferir siempre la versión
+  menos comprimida ya recibida antes que la comprimida — pero explicarle que
+  ninguna de las dos es el archivo original sin pasar por el chat.
 
 ## Sistema de contenido editable (fotos y textos fuera del bundle)
 
@@ -205,18 +223,23 @@ de las 3 fotos del teaser de Inicio.
 - Logo actual: sin efecto de sombra/resplandor (el anterior sí lo tenía, ella
   lo pidió quitar). Tamaño reducido en dos rondas: -15% y luego -18%
   adicional (actual: 25px móvil / 30px escritorio en navbar, 25px en footer).
-- Foto del Hero: sin ningún filtro CSS ni máscara/degradado sobre el cuerpo
-  de la foto (pedido explícito). Sí lleva un degradado sutil, muy pequeño,
-  solo en la franja superior (detrás del logo/menú) e inferior (detrás del
-  texto del pie) para legibilidad — no es un filtro sobre la foto completa,
-  ver `HeroSection.tsx`.
+- Foto del Hero (`hero-portada.jpg`): lleva un tinte plano negro al 10%
+  (`bg-black/10`) sobre toda la foto para que el titular blanco tenga más
+  contraste — pedido explícito, revierte la decisión anterior de "sin
+  ningún filtro". Además el degradado inferior (detrás del texto del pie)
+  y la franja blanca del Navbar (logo/menú) para legibilidad, ver
+  `HeroSection.tsx`. Esta misma foto se reutiliza como vista previa al
+  pasar el cursor sobre "Portafolio" en el menú.
 - Titular del Hero: centrado en ambos ejes, blanco puro (`text-white`),
   copy elegido por Mayurlin entre 4 opciones que generé con la skill de
   copywriting: "Contamos lo que se siente, no solo lo que se ve."
 - Video de intro: se reproduce en **cada** carga/recarga (no solo la primera
   vez) — pedido explícito de ella, acepta el costo de carga adicional.
   Cache-busting por montaje (`?v=timestamp`) para evitar reconstrucción
-  corrupta desde caché del navegador en recargas rápidas.
+  corrupta desde caché del navegador en recargas rápidas. **Sin contador de
+  porcentaje** — se probó un contador 0-100% renderizado en código
+  (reemplazando uno que venía quemado en el video y se veía borroso), pero
+  no quedó bien y se eliminó por completo; el video se reproduce solo.
 - La página "Portafolio" fue eliminada — el enlace (menú y footer) ahora
   lleva a Inicio. La foto de vista previa al pasar el mouse sobre
   "Portafolio" en el menú es la misma que el fondo del Hero.

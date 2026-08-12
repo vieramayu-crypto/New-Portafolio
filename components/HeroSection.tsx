@@ -75,6 +75,10 @@ export const HeroSection: React.FC = () => {
         />
       </div>
 
+      {/* Flat 10% black tint over the whole photo, just enough to lift the
+          centered white headline's contrast without reading as a filter. */}
+      <div className="absolute inset-0 z-[12] bg-black/10 pointer-events-none" />
+
       {/* Localized scrim -- lightens just the bottom strip (behind the footer info)
           so it stays legible regardless of the photo's own brightness there. The
           logo/menu area is instead protected by the Navbar's own solid white strip. */}
