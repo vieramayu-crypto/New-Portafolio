@@ -244,38 +244,95 @@ const GALLERY_LAYOUTS: Array<React.FC<GalleryLayoutProps>> = [
     </>
   ),
 
-  // 2 -- DELTAPARK VITALRESORT: calm stacked solos, no early pair
+  // 2 -- DELTAPARK VITALRESORT: a longer guided walk (12 photos) -- aerial,
+  // lobby + arrival, room + balcony, breakfast, spa, wellness + lake, dusk
+  // facade, closing overhead aerial. Denser rhythm than the others: two
+  // pairs run back-to-back twice instead of always alternating with solos.
   ({ photos, y }) => (
     <>
       {photos[0] && (
-        <div className="w-full flex justify-center">
-          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-[4/3]" widthClass="w-full md:w-[70%]" />
-        </div>
-      )}
-      {photos[1] && (
         <Bleed>
-          <GalleryPhoto photo={photos[1]} y={y[1]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
         </Bleed>
       )}
-      {photos[2] && (
-        <div className="w-full flex justify-end">
-          <GalleryPhoto photo={photos[2]} y={y[2]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[52%]" />
+      {(photos[1] || photos[2]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          {photos[1] && (
+            <GalleryPhoto photo={photos[1]} y={y[1]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[62%]" />
+          )}
+          {photos[2] && (
+            <GalleryPhoto
+              photo={photos[2]}
+              y={y[2]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[34%]"
+              offsetClass="md:mt-20"
+            />
+          )}
         </div>
       )}
       {(photos[3] || photos[4]) && (
-        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
           {photos[3] && (
-            <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
+            <GalleryPhoto
+              photo={photos[3]}
+              y={y[3]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[34%]"
+              offsetClass="md:mt-20"
+            />
           )}
           {photos[4] && (
-            <GalleryPhoto photo={photos[4]} y={y[4]} aspectClass="aspect-square" widthClass="w-full md:w-1/2" />
+            <GalleryPhoto photo={photos[4]} y={y[4]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[62%]" />
           )}
         </div>
       )}
       {photos[5] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[5]} y={y[5]} aspectClass="aspect-[4/5]" widthClass="w-full md:w-[54%]" />
+        </div>
+      )}
+      {(photos[6] || photos[7]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          {photos[6] && (
+            <GalleryPhoto photo={photos[6]} y={y[6]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[62%]" />
+          )}
+          {photos[7] && (
+            <GalleryPhoto
+              photo={photos[7]}
+              y={y[7]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[34%]"
+              offsetClass="md:mt-20"
+            />
+          )}
+        </div>
+      )}
+      {(photos[8] || photos[9]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          {photos[8] && (
+            <GalleryPhoto
+              photo={photos[8]}
+              y={y[8]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[34%]"
+              offsetClass="md:mt-20"
+            />
+          )}
+          {photos[9] && (
+            <GalleryPhoto photo={photos[9]} y={y[9]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[62%]" />
+          )}
+        </div>
+      )}
+      {photos[10] && (
         <Bleed>
-          <GalleryPhoto photo={photos[5]} y={y[5]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+          <GalleryPhoto photo={photos[10]} y={y[10]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
         </Bleed>
+      )}
+      {photos[11] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[11]} y={y[11]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[50%]" />
+        </div>
       )}
     </>
   ),
@@ -489,8 +546,8 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
   const [creditsOpen, setCreditsOpen] = useState(false);
   const [heroLoaded, setHeroLoaded] = useState(false);
 
-  // STRICT CONSTRAINT: Maximum 10 photos in the gallery
-  const photos = (story.galleryPhotos ?? story.photos ?? []).slice(0, 10);
+  // STRICT CONSTRAINT: Maximum 14 photos in the gallery
+  const photos = (story.galleryPhotos ?? story.photos ?? []).slice(0, 14);
 
   const galleryRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -499,7 +556,7 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
   });
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 70, damping: 22 });
 
-  // Same parallax mechanism as the home page hotel sections, extended to 10 photos
+  // Same parallax mechanism as the home page hotel sections, extended to 14 photos
   const y0 = useTransform(smoothProgress, [0, 1], ['60px', '-60px']);
   const y1 = useTransform(smoothProgress, [0, 1], ['110px', '-110px']);
   const y2 = useTransform(smoothProgress, [0, 1], ['40px', '-40px']);
@@ -510,7 +567,11 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
   const y7 = useTransform(smoothProgress, [0, 1], ['90px', '-90px']);
   const y8 = useTransform(smoothProgress, [0, 1], ['65px', '-65px']);
   const y9 = useTransform(smoothProgress, [0, 1], ['55px', '-55px']);
-  const yTransforms = [y0, y1, y2, y3, y4, y5, y6, y7, y8, y9];
+  const y10 = useTransform(smoothProgress, [0, 1], ['75px', '-75px']);
+  const y11 = useTransform(smoothProgress, [0, 1], ['95px', '-95px']);
+  const y12 = useTransform(smoothProgress, [0, 1], ['45px', '-45px']);
+  const y13 = useTransform(smoothProgress, [0, 1], ['85px', '-85px']);
+  const yTransforms = [y0, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, y11, y12, y13];
 
   const venueMapUrl = `https://www.google.com/maps/search/${encodeURIComponent(
     `${story.hotelName} ${story.location} ${story.country}`
