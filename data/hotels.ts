@@ -241,7 +241,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Escapada Romántica',
     layoutVariant: 2,
-    coverImage: 'https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=85',
+    coverImage: publicImage('sec3-portada.jpg'),
     description:
       'A orillas del lago de Thun, entre dos reservas naturales del Kanderdelta, Deltapark Vitalresort combina arquitectura alpina contemporánea con un spa de 2.000 m² — agua, montaña y bienestar en un mismo horizonte.',
     quote: 'El silencio de los Alpes se refleja entero en el lago de Thun.',
@@ -267,6 +267,104 @@ export const HOTEL_STORIES: HotelStory[] = [
         url: publicImage('sec3-foto3-v.jpg'),
         alt: 'Cesta de mimbre con toallas recién lavadas junto a la entrada',
         caption: 'El detalle del spa alpino',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      }
+    ],
+    galleryPhotos: [
+      {
+        id: 'hc-gal-1',
+        url: publicImage('sec3-foto2-h.jpg'),
+        alt: 'Vista aérea del resort junto al lago de Thun',
+        caption: 'El resort, visto desde el aire',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hc-gal-2',
+        url: publicImage('sec3-gal01-fireplace-v.jpg'),
+        alt: 'Chimenea de diseño en el lobby del resort',
+        caption: 'La chimenea del lobby',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hc-gal-3',
+        url: publicImage('sec3-gal02-checkin-v.jpg'),
+        alt: 'Mujer con bata de Deltapark caminando por el jardín hacia el resort',
+        caption: 'Camino hacia la recepción',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hc-gal-4',
+        url: publicImage('sec3-foto1-v.jpg'),
+        alt: 'Servicio de café y folleto de Deltapark Vitalresort sobre la cama',
+        caption: 'Los pequeños detalles del servicio',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hc-gal-5',
+        url: publicImage('sec3-gal03-balcon-v.jpg'),
+        alt: 'Mujer en bata tomando café en el balcón de la habitación',
+        caption: 'Café en el balcón, frente al lago',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hc-gal-6',
+        url: publicImage('sec3-gal04-desayuno-v.jpg'),
+        alt: 'Detalle de café y manzana en bata Deltapark sobre la cama',
+        caption: 'Desayuno en la habitación',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hc-gal-7',
+        url: publicImage('sec3-foto3-v.jpg'),
+        alt: 'Cesta de mimbre con toallas recién lavadas junto a la entrada',
+        caption: 'El detalle del spa alpino',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hc-gal-8',
+        url: publicImage('sec3-gal05-sauna-v.jpg'),
+        alt: 'Mujer sentada en la sauna de madera del spa',
+        caption: 'Un momento de calma en la sauna',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: true
+      },
+      {
+        id: 'hc-gal-9',
+        url: publicImage('sec3-gal06-lounge-v.jpg'),
+        alt: 'Mujer en bata sentada frente a la vista del lago desde el área de relajación',
+        caption: 'El área de relajación, frente al lago',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hc-gal-10',
+        url: publicImage('sec3-gal07-atardecer-v.jpg'),
+        alt: 'Atardecer sobre el lago de Thun con veleros amarrados',
+        caption: 'Atardecer sobre el lago',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hc-gal-11',
+        url: publicImage('sec3-gal08-fachada-h.jpg'),
+        alt: 'Fachada del resort iluminada al anochecer entre los árboles',
+        caption: 'La fachada, al anochecer',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hc-gal-12',
+        url: publicImage('sec3-gal09-aerea-v.jpg'),
+        alt: 'Vista aérea cenital del complejo del resort junto al lago',
+        caption: 'El complejo, visto desde arriba',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       }
