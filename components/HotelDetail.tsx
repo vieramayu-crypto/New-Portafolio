@@ -337,46 +337,88 @@ const GALLERY_LAYOUTS: Array<React.FC<GalleryLayoutProps>> = [
     </>
   ),
 
-  // 3 -- HONEYMOON PETRA VILLAS: square hero opens, then a narrow floating diptych
+  // 3 -- HONEYMOON PETRA VILLAS: a longer guided walk (12 photos) -- arrival,
+  // room details, walk to view, breakfast + square dome hero, poolside pair,
+  // wide pool bleed, cliff pool + closing sunset. Photos 0/9/10 horizontal,
+  // 6 square, rest portrait.
   ({ photos, y }) => (
     <>
       {photos[0] && (
-        <div className="w-full flex justify-center">
-          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-square" widthClass="w-full md:w-[62%]" />
-        </div>
+        <Bleed>
+          <GalleryPhoto photo={photos[0]} y={y[0]} aspectClass="aspect-[3/2]" widthClass="w-full" bleed />
+        </Bleed>
       )}
       {(photos[1] || photos[2]) && (
         <div className="flex flex-col md:flex-row gap-10 md:gap-14 justify-center items-start">
           {photos[1] && (
-            <GalleryPhoto photo={photos[1]} y={y[1]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[30%]" />
+            <GalleryPhoto photo={photos[1]} y={y[1]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[36%]" />
           )}
           {photos[2] && (
             <GalleryPhoto
               photo={photos[2]}
               y={y[2]}
               aspectClass="aspect-[3/4]"
-              widthClass="w-full md:w-[30%]"
+              widthClass="w-full md:w-[36%]"
               offsetClass="md:mt-12"
             />
           )}
         </div>
       )}
-      {photos[3] && (
+      {(photos[3] || photos[4]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          {photos[3] && (
+            <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[62%]" />
+          )}
+          {photos[4] && (
+            <GalleryPhoto
+              photo={photos[4]}
+              y={y[4]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[34%]"
+              offsetClass="md:mt-20"
+            />
+          )}
+        </div>
+      )}
+      {photos[5] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[5]} y={y[5]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[48%]" />
+        </div>
+      )}
+      {photos[6] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[6]} y={y[6]} aspectClass="aspect-square" widthClass="w-full md:w-[58%]" />
+        </div>
+      )}
+      {(photos[7] || photos[8]) && (
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          {photos[7] && (
+            <GalleryPhoto
+              photo={photos[7]}
+              y={y[7]}
+              aspectClass="aspect-[3/4]"
+              widthClass="w-full md:w-[34%]"
+              offsetClass="md:mt-20"
+            />
+          )}
+          {photos[8] && (
+            <GalleryPhoto photo={photos[8]} y={y[8]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[62%]" />
+          )}
+        </div>
+      )}
+      {photos[9] && (
         <Bleed>
-          <GalleryPhoto photo={photos[3]} y={y[3]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
+          <GalleryPhoto photo={photos[9]} y={y[9]} aspectClass="aspect-[16/9]" widthClass="w-full" bleed />
         </Bleed>
       )}
-      {(photos[4] || photos[5] || photos[6]) && (
-        <div className="flex flex-col md:flex-row gap-4 md:gap-6">
-          {photos[4] && (
-            <GalleryPhoto photo={photos[4]} y={y[4]} aspectClass="aspect-square" widthClass="w-full md:w-1/3" />
-          )}
-          {photos[5] && (
-            <GalleryPhoto photo={photos[5]} y={y[5]} aspectClass="aspect-square" widthClass="w-full md:w-1/3" />
-          )}
-          {photos[6] && (
-            <GalleryPhoto photo={photos[6]} y={y[6]} aspectClass="aspect-square" widthClass="w-full md:w-1/3" />
-          )}
+      {photos[10] && (
+        <div className="w-full">
+          <GalleryPhoto photo={photos[10]} y={y[10]} aspectClass="aspect-[16/9]" widthClass="w-full" />
+        </div>
+      )}
+      {photos[11] && (
+        <div className="w-full flex justify-center">
+          <GalleryPhoto photo={photos[11]} y={y[11]} aspectClass="aspect-[3/4]" widthClass="w-full md:w-[52%]" />
         </div>
       )}
     </>
