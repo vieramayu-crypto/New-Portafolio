@@ -380,7 +380,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 3,
-    coverImage: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85',
+    coverImage: publicImage('sec4-portada.jpg'),
     description:
       'Suspendido sobre el acantilado de Imerovigli, tallado en roca volcánica sobre la caldera de Santorini, Honeymoon Petra Villas ofrece una de las piscinas más buscadas del Egeo — un balcón de piedra sobre el mar más azul de Grecia.',
     quote: 'Roca volcánica y horizonte infinito — así se ve el amanecer sobre la caldera.',
@@ -407,6 +407,104 @@ export const HOTEL_STORIES: HotelStory[] = [
         alt: 'Piscina infinita sobre el acantilado de Imerovigli',
         caption: 'Una de las piscinas más buscadas del Egeo',
         aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      }
+    ],
+    galleryPhotos: [
+      {
+        id: 'be-gal-1',
+        url: publicImage('sec4-gal01-entrada-h.jpg'),
+        alt: 'Entrada de Honeymoon Petra Villas con la cúpula azul de una iglesia al fondo',
+        caption: 'La entrada, con la cúpula azul asomando',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-2',
+        url: publicImage('sec4-gal02-detalle-hat-v.jpg'),
+        alt: 'Sombrero y toalla bordada Honeymoon Petra sobre la cama',
+        caption: 'Los detalles del recibimiento',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-3',
+        url: publicImage('sec4-gal03-habitacion-v.jpg'),
+        alt: 'Habitación con cabecera de madera y cojín bordado de Honeymoon Petra Villas',
+        caption: 'El descanso, tallado en la roca',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-4',
+        url: publicImage('sec4-gal04-terraza-caminando-v.jpg'),
+        alt: 'Mujer con vestido azul caminando por la terraza hacia la vista de la caldera',
+        caption: 'Camino a la terraza',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-5',
+        url: publicImage('sec4-foto1-v.jpg'),
+        alt: 'Pareja desayunando frente a la caldera de Santorini',
+        caption: 'Desayuno frente a la caldera',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-6',
+        url: publicImage('sec4-gal05-desayuno-v.jpg'),
+        alt: 'Rebanadas de sandía servidas en el buffet del desayuno',
+        caption: 'Sabores de la isla en el desayuno',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-7',
+        url: publicImage('sec4-foto2-c.jpg'),
+        alt: 'Arquitectura de cúpulas blancas de Honeymoon Petra Villas con el mar Egeo al fondo',
+        caption: 'Cúpulas blancas sobre el Egeo',
+        aspectRatio: 'square',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-8',
+        url: publicImage('sec4-gal06-piscina-mujer-v.jpg'),
+        alt: 'Mujer bajo la sombrilla Honeymoon Petra en el borde de la piscina',
+        caption: 'Sombra al borde de la piscina',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-9',
+        url: publicImage('sec4-gal07-piscina-cruceros-v.jpg'),
+        alt: 'Piscina infinita con vista a los cruceros anclados en la caldera',
+        caption: 'La piscina, frente a los cruceros de la caldera',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-10',
+        url: publicImage('sec4-gal08-piscina-panorama-h.jpg'),
+        alt: 'Vista panorámica de la piscina con la caldera y cruceros al fondo',
+        caption: 'La caldera entera, desde la piscina',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-11',
+        url: publicImage('sec4-foto3-h.jpg'),
+        alt: 'Piscina infinita sobre el acantilado de Imerovigli',
+        caption: 'Una de las piscinas más buscadas del Egeo',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'be-gal-12',
+        url: publicImage('sec4-gal09-piscina-imerovigli-v.jpg'),
+        alt: 'Reflejo del sol en la piscina infinita con las casas blancas de Imerovigli detrás',
+        caption: 'Últimos reflejos sobre Imerovigli',
+        aspectRatio: 'portrait',
         isBlackAndWhite: false
       }
     ]
