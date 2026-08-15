@@ -75,6 +75,14 @@ export const DEFAULT_CONTENT: SiteContent = {
     },
     {
       seccion: 2,
+      hotelName: 'INTERCONTINENTAL LISBOA',
+      coupleName: 'Fotografía & Video',
+      description:
+        'Construido sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, InterContinental Lisboa combina arquitectura contemporánea con vistas que se extienden hasta el río Tajo — una lectura moderna del skyline lisboeta.',
+      quote: 'Lisboa entera se despliega desde lo alto de esta colina.',
+    },
+    {
+      seccion: 3,
       hotelName: 'VESTIGE COLLECTION, BINIDUFÀ',
       coupleName: 'Fotografía & Video',
       description:
@@ -82,7 +90,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       quote: 'Piedra, tierra y silencio — el norte de Menorca tal como siempre fue.',
     },
     {
-      seccion: 3,
+      seccion: 4,
       hotelName: 'DELTAPARK VITALRESORT',
       coupleName: 'Fotografía & Video',
       description:
@@ -90,7 +98,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       quote: 'El silencio de los Alpes se refleja entero en el lago de Thun.',
     },
     {
-      seccion: 4,
+      seccion: 5,
       hotelName: 'HONEYMOON PETRA VILLAS',
       coupleName: 'Fotografía & Video',
       description:
@@ -98,7 +106,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       quote: 'Roca volcánica y horizonte infinito — así se ve el amanecer sobre la caldera.',
     },
     {
-      seccion: 5,
+      seccion: 6,
       hotelName: 'GPRO VALPARAÍSO PALACE & SPA',
       coupleName: 'Fotografía & Video',
       description:
@@ -106,20 +114,12 @@ export const DEFAULT_CONTENT: SiteContent = {
       quote: 'Jardines, agua y la bahía de Palma extendida al fondo de cada terraza.',
     },
     {
-      seccion: 6,
+      seccion: 7,
       hotelName: 'HOTEL ESPLÉNDIDO',
       coupleName: 'Fotografía & Video',
       description:
         'En primera línea de la bahía de Puerto de Sóller, con la Serra de Tramuntana como telón de fondo, Hotel Espléndido combina fachadas de piedra caliza, terrazas frente al mar y el tranvía histórico que aún recorre el paseo marítimo.',
       quote: 'Piedra, mar y el eco del tranvía sobre los adoquines de Sóller.',
-    },
-    {
-      seccion: 7,
-      hotelName: 'INTERCONTINENTAL LISBOA',
-      coupleName: 'Fotografía & Video',
-      description:
-        'Construido sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, InterContinental Lisboa combina arquitectura contemporánea con vistas que se extienden hasta el río Tajo — una lectura moderna del skyline lisboeta.',
-      quote: 'Lisboa entera se despliega desde lo alto de esta colina.',
     },
     {
       seccion: 8,

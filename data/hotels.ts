@@ -109,6 +109,145 @@ export const HOTEL_STORIES: HotelStory[] = [
     ]
   },
   {
+    id: 'aman-venice',
+    hotelName: 'INTERCONTINENTAL LISBOA',
+    leftTag: 'HOTEL',
+    coupleName: 'Fotografía & Video',
+    location: 'Lisboa',
+    country: 'Portugal',
+    year: '2026',
+    category: 'Hotel de Lujo',
+    layoutVariant: 6,
+    coverImage: publicImage('sec7-portada.jpg'),
+    description:
+      'Construido sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, InterContinental Lisboa combina arquitectura contemporánea con vistas que se extienden hasta el río Tajo — una lectura moderna del skyline lisboeta.',
+    quote: 'Lisboa entera se despliega desde lo alto de esta colina.',
+    photos: [
+      {
+        id: 'av-1',
+        url: publicImage('sec7-foto1-v.jpg'),
+        alt: 'Lobby del InterContinental Lisboa con lámparas de globos de cristal ámbar',
+        caption: 'El lobby, entre lámparas de cristal',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-2',
+        url: publicImage('sec7-foto2-v.jpg'),
+        alt: 'Camarero sirviendo el desayuno en la suite del InterContinental Lisboa',
+        caption: 'El servicio al detalle en la suite',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-3',
+        url: publicImage('sec7-foto3-v.jpg'),
+        alt: 'Vista cenital del desayuno completo servido en la habitación',
+        caption: 'Desayuno cenital en la habitación',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      }
+    ],
+    galleryPhotos: [
+      {
+        id: 'av-gal-1',
+        url: publicImage('sec7-gal01-fachada-v.jpg'),
+        alt: 'Fachada vertical del InterContinental Lisboa, edificio completo sobre la colina',
+        caption: 'La fachada, sobre la colina',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-2',
+        url: publicImage('sec7-gal02-fachada-h.jpg'),
+        alt: 'Fachada del InterContinental Lisboa vista de esquina, con la marquesina de entrada',
+        caption: 'La entrada, desde la avenida',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-3',
+        url: publicImage('sec7-gal03-recepcion-h.jpg'),
+        alt: 'Recepción del hotel con mostrador dorado y panel de mármol azul iluminado',
+        caption: 'El check-in, entre mármol azul y latón',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-4',
+        url: publicImage('sec7-foto1-v.jpg'),
+        alt: 'Lobby del hotel con lámparas colgantes de globos de cristal ámbar',
+        caption: 'El lobby, bajo las lámparas de cristal',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-5',
+        url: publicImage('sec7-foto2-v.jpg'),
+        alt: 'Camarero sirviendo el desayuno en la suite',
+        caption: 'El servicio, en la habitación',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-6',
+        url: publicImage('sec7-foto3-v.jpg'),
+        alt: 'Vista cenital del desayuno servido en la habitación',
+        caption: 'El desayuno, visto desde arriba',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-7',
+        url: publicImage('sec7-gal07-cama-h.jpg'),
+        alt: 'Pareja en batas blancas brindando con zumo de naranja en la cama, con el desayuno servido delante',
+        caption: 'Un brindis, antes de empezar el día',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-8',
+        url: publicImage('sec7-gal08-cafe-v.jpg'),
+        alt: 'Camarero sirviendo café con zumo de naranja y desayuno en primer plano',
+        caption: 'El café recién servido',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-9',
+        url: publicImage('sec7-gal09-cortinas-v.jpg'),
+        alt: 'Juego de luz y sombra entre las cortinas de la habitación sobre la alfombra',
+        caption: 'Luz de media tarde en la suite',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-10',
+        url: publicImage('sec7-gal10-gym-v.jpg'),
+        alt: 'Mujer corriendo en una cinta del gimnasio del hotel',
+        caption: 'Un momento en el gimnasio',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-11',
+        url: publicImage('sec7-gal11-lampara-v.jpg'),
+        alt: 'Detalle de lámpara y planta sobre mesa de mármol en el restaurante al anochecer',
+        caption: 'La cena, entre luz cálida y mármol',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-12',
+        url: publicImage('sec7-gal12-tranvia-v.jpg'),
+        alt: 'Tranvía amarillo número 28 pasando por una calle empedrada de Lisboa',
+        caption: 'Lisboa, a la salida del hotel',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      }
+    ]
+  },
+  {
     id: 'villa-cimbrone-ravello',
     hotelName: 'VESTIGE COLLECTION, BINIDUFÀ',
     leftTag: 'FINCA',
@@ -587,47 +726,6 @@ export const HOTEL_STORIES: HotelStory[] = [
         alt: 'Pareja conversando en la terraza con vista a la bahía de Sóller',
         caption: 'Terraza frente a la bahía',
         aspectRatio: 'landscape',
-        isBlackAndWhite: false
-      }
-    ]
-  },
-  {
-    id: 'aman-venice',
-    hotelName: 'INTERCONTINENTAL LISBOA',
-    leftTag: 'HOTEL',
-    coupleName: 'Fotografía & Video',
-    location: 'Lisboa',
-    country: 'Portugal',
-    year: '2026',
-    category: 'Hotel de Lujo',
-    layoutVariant: 6,
-    coverImage: 'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1200&q=85',
-    description:
-      'Construido sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, InterContinental Lisboa combina arquitectura contemporánea con vistas que se extienden hasta el río Tajo — una lectura moderna del skyline lisboeta.',
-    quote: 'Lisboa entera se despliega desde lo alto de esta colina.',
-    photos: [
-      {
-        id: 'av-1',
-        url: publicImage('sec7-foto1-v.jpg'),
-        alt: 'Servicio de café y zumo de naranja en la mesa de la suite',
-        caption: 'El detalle del servicio en suite',
-        aspectRatio: 'portrait',
-        isBlackAndWhite: false
-      },
-      {
-        id: 'av-2',
-        url: publicImage('sec7-foto2-v.jpg'),
-        alt: 'Juego de luz y sombra entre las cortinas de la habitación',
-        caption: 'Luz de media tarde en la suite',
-        aspectRatio: 'portrait',
-        isBlackAndWhite: false
-      },
-      {
-        id: 'av-3',
-        url: publicImage('sec7-foto3-v.jpg'),
-        alt: 'Fachada de InterContinental Lisboa construida sobre una de las siete colinas',
-        caption: 'La fachada sobre la colina',
-        aspectRatio: 'portrait',
         isBlackAndWhite: false
       }
     ]
