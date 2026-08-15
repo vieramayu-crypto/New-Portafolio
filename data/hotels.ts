@@ -175,6 +175,22 @@ export const HOTEL_STORIES: HotelStory[] = [
       },
       {
         id: 'av-gal-4',
+        url: publicImage('sec7-gal04-escritorio-h.jpg'),
+        alt: 'Escritorio de la habitación con laptop y lámpara junto al ventanal con vista al skyline de Lisboa',
+        caption: 'La habitación, con Lisboa al fondo',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-5',
+        url: publicImage('sec7-gal05-cama-detalle-v.jpg'),
+        alt: 'Detalle de la cama con cojines bordados turquesa y lámparas encendidas',
+        caption: 'La cama, entre cojines bordados',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-6',
         url: publicImage('sec7-foto2-v.jpg'),
         alt: 'Camarero sirviendo el desayuno en la suite',
         caption: 'El servicio, en la habitación',
@@ -182,7 +198,7 @@ export const HOTEL_STORIES: HotelStory[] = [
         isBlackAndWhite: false
       },
       {
-        id: 'av-gal-5',
+        id: 'av-gal-7',
         url: publicImage('sec7-foto3-v.jpg'),
         alt: 'Vista cenital del desayuno servido en la habitación',
         caption: 'El desayuno, visto desde arriba',
@@ -190,7 +206,7 @@ export const HOTEL_STORIES: HotelStory[] = [
         isBlackAndWhite: false
       },
       {
-        id: 'av-gal-6',
+        id: 'av-gal-8',
         url: publicImage('sec7-gal07-cama-h.jpg'),
         alt: 'Pareja en batas blancas brindando con zumo de naranja en la cama, con el desayuno servido delante',
         caption: 'Un brindis, antes de empezar el día',
@@ -198,7 +214,15 @@ export const HOTEL_STORIES: HotelStory[] = [
         isBlackAndWhite: false
       },
       {
-        id: 'av-gal-7',
+        id: 'av-gal-9',
+        url: publicImage('sec7-gal06-silueta-v.jpg'),
+        alt: 'Silueta de una mujer abriendo la cortina del ventanal al contraluz de la mañana',
+        caption: 'La primera luz, al abrir la cortina',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'av-gal-10',
         url: publicImage('sec7-gal09-cortinas-v.jpg'),
         alt: 'Juego de luz y sombra entre las cortinas de la habitación sobre la alfombra',
         caption: 'Luz de media tarde en la suite',
@@ -206,7 +230,7 @@ export const HOTEL_STORIES: HotelStory[] = [
         isBlackAndWhite: false
       },
       {
-        id: 'av-gal-8',
+        id: 'av-gal-11',
         url: publicImage('sec7-gal10-gym-v.jpg'),
         alt: 'Mujer corriendo en una cinta del gimnasio del hotel',
         caption: 'Un momento en el gimnasio',
@@ -214,7 +238,7 @@ export const HOTEL_STORIES: HotelStory[] = [
         isBlackAndWhite: false
       },
       {
-        id: 'av-gal-9',
+        id: 'av-gal-12',
         url: publicImage('sec7-gal11-lampara-v.jpg'),
         alt: 'Detalle de lámpara y planta sobre mesa de mármol en el restaurante al anochecer',
         caption: 'La cena, entre luz cálida y mármol',
