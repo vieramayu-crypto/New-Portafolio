@@ -123,6 +123,14 @@ export const DEFAULT_CONTENT: SiteContent = {
     },
     {
       seccion: 8,
+      hotelName: 'DISTRICT HIVE',
+      coupleName: 'Fotografía & Video',
+      description:
+        'En el corazón del desierto de Gorafe, District Hive es una cápsula de vidrio y acero suspendida sobre el badlands granadino — arquitectura off-grid pensada para desaparecer en el paisaje: agua del aire, energía del sol, y el silencio absoluto de Andalucía interior.',
+      quote: 'El cielo entero por techo, el badlands entero por horizonte.',
+    },
+    {
+      seccion: 9,
       hotelName: 'WELMOON VILLAS PAISAJE',
       coupleName: 'Fotografía & Video',
       description:
