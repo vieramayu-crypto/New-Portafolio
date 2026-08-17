@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Page, HotelStory } from './types';
+import { HOTEL_STORIES } from './data/hotels';
 import { Navbar } from './components/Navbar';
 import { HomeMain } from './components/HomeMain';
 import { About } from './components/About';
@@ -16,6 +17,10 @@ export default function App() {
   const [isAvailabilityOpen, setIsAvailabilityOpen] = useState<boolean>(false);
   const [selectedStory, setSelectedStory] = useState<HotelStory | null>(null);
   const [pendingTransition, setPendingTransition] = useState<HotelStory | null>(null);
+  // The intro plays once per full page load. Internal SPA navigation (e.g.
+  // returning to Home from a hotel detail) does not re-trigger it -- a
+  // refresh does, because React state resets with the page.
+  const [introPlayed, setIntroPlayed] = useState<boolean>(false);
 
   const handleNavigate = (page: Page) => {
     setCurrentPage(page);
@@ -42,6 +47,26 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
+  const handleNavigateStory = (direction: 'prev' | 'next') => {
+    if (!selectedStory) return;
+    const idx = HOTEL_STORIES.findIndex((s) => s.id === selectedStory.id);
+    if (idx === -1) return;
+    const total = HOTEL_STORIES.length;
+    const newIdx = direction === 'next' ? (idx + 1) % total : (idx - 1 + total) % total;
+    setSelectedStory(HOTEL_STORIES[newIdx]);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  const currentIdx = selectedStory
+    ? HOTEL_STORIES.findIndex((s) => s.id === selectedStory.id)
+    : -1;
+  const prevStory =
+    currentIdx >= 0
+      ? HOTEL_STORIES[(currentIdx - 1 + HOTEL_STORIES.length) % HOTEL_STORIES.length]
+      : null;
+  const nextStory =
+    currentIdx >= 0 ? HOTEL_STORIES[(currentIdx + 1) % HOTEL_STORIES.length] : null;
+
   return (
     <ContentProvider>
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] font-sans antialiased selection:bg-[#1a1918] selection:text-[#f5f3ed]">
@@ -55,18 +80,21 @@ export default function App() {
       {/* Main View Router */}
       <main>
         {selectedStory ? (
-          <HotelDetail story={selectedStory} onBack={handleCloseStory} />
+          <HotelDetail
+            story={selectedStory}
+            onBack={handleCloseStory}
+            onNavigateStory={handleNavigateStory}
+            prevStory={prevStory}
+            nextStory={nextStory}
+          />
         ) : (
           <>
             {currentPage === 'home' && (
-              <>
-                <HomeMain
-                  onNavigate={handleNavigate}
-                  onOpenAvailability={() => setIsAvailabilityOpen(true)}
-                  onSelectStory={handleSelectStory}
-                />
-                <IntroLoader />
-              </>
+              <HomeMain
+                onNavigate={handleNavigate}
+                onOpenAvailability={() => setIsAvailabilityOpen(true)}
+                onSelectStory={handleSelectStory}
+              />
             )}
 
             {currentPage === 'about' && (
@@ -96,6 +124,11 @@ export default function App() {
       {pendingTransition && (
         <PhotoZoomTransition imageUrl={pendingTransition.coverImage} onComplete={handleTransitionComplete} />
       )}
+
+      {/* Intro loader plays once per page load. Going back from a hotel does
+          not re-trigger it because App-level state persists across the
+          inner navigation. */}
+      {!introPlayed && <IntroLoader onDone={() => setIntroPlayed(true)} />}
     </div>
     </ContentProvider>
   );
