@@ -357,7 +357,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                 }
                 transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(0)}
-                className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[4%] w-full md:w-[32%] aspect-[3/4] shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
+                className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[4%] w-full md:w-[32%] aspect-[3/4] shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-30"
               >
                 <img
                   src={photos[0].url}
@@ -434,7 +434,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                 }
                 transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(0)}
-                className="relative md:absolute left-0 md:left-[10%] top-0 md:top-[2%] w-full md:w-[52%] aspect-[16/9] shadow-xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
+                className="relative md:absolute left-0 md:left-[20%] top-0 md:top-[4%] w-full md:w-[60%] aspect-[16/9] shadow-xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-10"
               >
                 <img
                   src={photos[0].url}
@@ -458,7 +458,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                 }
                 transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(1)}
-                className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[32%] w-full md:w-[66%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-20"
+                className="relative md:absolute left-0 md:left-[0%] top-0 md:top-[26%] w-full md:w-[66%] aspect-[3/4] shadow-2xl border border-[#1a1918]/10 group overflow-hidden bg-stone-200 mb-8 md:mb-0 z-20"
               >
                 <img
                   src={photos[1].url}
@@ -482,7 +482,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
                 }
                 transition={{ duration: 0.56, ease: [0.5, 0, 0.25, 1.1] }}
                 onClick={() => handlePhotoClick(2)}
-                className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[48%] w-full md:w-[38%] aspect-[3/4] shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-10"
+                className="relative md:absolute right-0 md:right-[0%] top-0 md:top-[44%] w-full md:w-[38%] aspect-[3/4] shadow-md border border-[#1a1918]/10 group overflow-hidden bg-stone-200 z-10"
               >
                 <img
                   src={photos[2].url}

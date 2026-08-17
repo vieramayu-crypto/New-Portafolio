@@ -5,6 +5,9 @@ import { HotelStory, PhotoItem } from '../types';
 interface HotelDetailProps {
   story: HotelStory;
   onBack: () => void;
+  onNavigateStory?: (direction: 'prev' | 'next') => void;
+  prevStory?: HotelStory | null;
+  nextStory?: HotelStory | null;
 }
 
 interface GalleryPhotoProps {
@@ -644,7 +647,13 @@ const GALLERY_LAYOUTS: Array<React.FC<GalleryLayoutProps>> = [
   ),
 ];
 
-export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
+export const HotelDetail: React.FC<HotelDetailProps> = ({
+  story,
+  onBack,
+  onNavigateStory,
+  prevStory,
+  nextStory,
+}) => {
   const [creditsOpen, setCreditsOpen] = useState(false);
   const [heroLoaded, setHeroLoaded] = useState(false);
 
@@ -778,13 +787,61 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({ story, onBack }) => {
       {/* GALLERY — max 10 photos, masonry mix with shared parallax movement */}
       <section
         ref={galleryRef}
-        className="px-4 md:px-10 lg:px-16 pb-24 md:pb-32 max-w-[1600px] mx-auto flex flex-col gap-6 md:gap-10"
+        className="px-4 md:px-10 lg:px-16 pb-16 md:pb-24 max-w-[1600px] mx-auto flex flex-col gap-6 md:gap-10"
       >
         {(() => {
           const Layout = GALLERY_LAYOUTS[(story.layoutVariant ?? 0) % GALLERY_LAYOUTS.length];
           return <Layout photos={photos} y={yTransforms} video={story.galleryVideo} />;
         })()}
       </section>
+
+      {/* Navigation between hotel portfolios — no re-load, no intro re-play */}
+      {onNavigateStory && (prevStory || nextStory) && (
+        <nav
+          aria-label="Navegación entre hoteles"
+          className="max-w-[1600px] mx-auto px-6 md:px-10 lg:px-16 pb-20 md:pb-28 border-t border-[#1a1918]/10 pt-10 md:pt-14"
+        >
+          <div className="flex items-stretch justify-between gap-4 md:gap-10">
+            {prevStory ? (
+              <button
+                onClick={() => onNavigateStory('prev')}
+                className="group flex flex-col items-start text-left flex-1 max-w-[46%] hover:opacity-70 transition-opacity"
+              >
+                <span className="text-[10px] md:text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854] flex items-center gap-2">
+                  <span aria-hidden="true" className="transition-transform group-hover:-translate-x-1">
+                    &larr;
+                  </span>
+                  Anterior
+                </span>
+                <span className="mt-2 md:mt-3 font-serif text-sm md:text-lg tracking-wide text-[#1a1918]">
+                  {prevStory.hotelName}
+                </span>
+              </button>
+            ) : (
+              <span className="flex-1" />
+            )}
+
+            {nextStory ? (
+              <button
+                onClick={() => onNavigateStory('next')}
+                className="group flex flex-col items-end text-right flex-1 max-w-[46%] hover:opacity-70 transition-opacity"
+              >
+                <span className="text-[10px] md:text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854] flex items-center gap-2">
+                  Siguiente
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </span>
+                <span className="mt-2 md:mt-3 font-serif text-sm md:text-lg tracking-wide text-[#1a1918]">
+                  {nextStory.hotelName}
+                </span>
+              </button>
+            ) : (
+              <span className="flex-1" />
+            )}
+          </div>
+        </nav>
+      )}
     </div>
   );
 };

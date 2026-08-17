@@ -10,7 +10,11 @@ function isMobileViewport(): boolean {
   return typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
 }
 
-export const IntroLoader: React.FC = () => {
+interface IntroLoaderProps {
+  onDone?: () => void;
+}
+
+export const IntroLoader: React.FC<IntroLoaderProps> = ({ onDone }) => {
   const [phase, setPhase] = useState<'playing' | 'fading' | 'done'>('playing');
   const [isVertical] = useState(isMobileViewport);
   // Cache-busting so every mount forces a fresh network fetch instead of
@@ -35,9 +39,12 @@ export const IntroLoader: React.FC = () => {
 
   useEffect(() => {
     if (phase !== 'fading') return;
-    const timeout = window.setTimeout(() => setPhase('done'), 500);
+    const timeout = window.setTimeout(() => {
+      setPhase('done');
+      onDone?.();
+    }, 500);
     return () => window.clearTimeout(timeout);
-  }, [phase]);
+  }, [phase, onDone]);
 
   useLayoutEffect(() => {
     // Safari can miss the `muted` prop's timing and treat the video as
