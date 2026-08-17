@@ -731,6 +731,47 @@ export const HOTEL_STORIES: HotelStory[] = [
     ]
   },
   {
+    id: 'district-hive',
+    hotelName: 'DISTRICT HIVE',
+    leftTag: 'PODTEL',
+    coupleName: 'Fotografía & Video',
+    location: 'Gorafe, Granada',
+    country: 'España',
+    year: '2026',
+    category: 'Escapada Romántica',
+    layoutVariant: 0,
+    coverImage: publicImage('sec9-foto1-v.jpg'),
+    description:
+      'En el corazón del desierto de Gorafe, District Hive es una cápsula de vidrio y acero suspendida sobre el badlands granadino — arquitectura off-grid pensada para desaparecer en el paisaje: agua del aire, energía del sol, y el silencio absoluto de Andalucía interior.',
+    quote: 'El cielo entero por techo, el badlands entero por horizonte.',
+    photos: [
+      {
+        id: 'dh-1',
+        url: publicImage('sec9-foto1-v.jpg'),
+        alt: 'Hombre caminando junto a la cápsula de vidrio y acero de District Hive en el desierto de Gorafe',
+        caption: 'Un paseo junto a la cápsula',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'dh-2',
+        url: publicImage('sec9-foto2-v.jpg'),
+        alt: 'Logotipo hexagonal de District Hive sobre el ventanal, con el badlands de Gorafe al fondo',
+        caption: 'El logo, sobre el desierto',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'dh-3',
+        url: publicImage('sec9-foto3-h.jpg'),
+        alt: 'Vista aérea de la cápsula de District Hive sobre el borde del cañón en el desierto de Gorafe',
+        caption: 'La cápsula, sobre el filo del cañón',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      }
+    ]
+  },
+  {
     id: 'san-domenico-palace',
     hotelName: 'WELMOON VILLAS PAISAJE',
     leftTag: 'GLAMPING',
