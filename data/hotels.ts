@@ -764,6 +764,40 @@ export const HOTEL_STORIES: HotelStory[] = [
       {
         id: 'dh-3',
         url: publicImage('sec9-foto3-h.jpg'),
+        alt: 'Cápsula de vidrio de District Hive con piscina exterior asomando sobre el badlands de Gorafe',
+        caption: 'La cápsula, con su piscina sobre el desierto',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      }
+    ],
+    galleryPhotos: [
+      {
+        id: 'dh-gal-1',
+        url: publicImage('sec9-foto1-v.jpg'),
+        alt: 'Hombre caminando junto a la cápsula de vidrio y acero de District Hive en el desierto de Gorafe',
+        caption: 'Un paseo junto a la cápsula',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'dh-gal-2',
+        url: publicImage('sec9-foto3-h.jpg'),
+        alt: 'Cápsula de vidrio de District Hive con piscina exterior asomando sobre el badlands de Gorafe',
+        caption: 'La cápsula, con su piscina sobre el desierto',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'dh-gal-3',
+        url: publicImage('sec9-foto2-v.jpg'),
+        alt: 'Logotipo hexagonal de District Hive sobre el ventanal, con el badlands de Gorafe al fondo',
+        caption: 'El logo, sobre el desierto',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'dh-gal-4',
+        url: publicImage('sec9-gal01-aerea-h.jpg'),
         alt: 'Vista aérea de la cápsula de District Hive sobre el borde del cañón en el desierto de Gorafe',
         caption: 'La cápsula, sobre el filo del cañón',
         aspectRatio: 'landscape',
