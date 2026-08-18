@@ -658,7 +658,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 4,
-    coverImage: 'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1200&q=85',
+    coverImage: publicImage('sec5-portada.jpg'),
     description:
       'En lo alto del distrito de Bonanova, rodeado de jardines privados con vistas a la bahía de Palma, GPRO Valparaíso Palace & Spa alberga el spa más grande de Mallorca — un refugio sereno entre agua, piedra y vegetación mediterránea.',
     quote: 'Jardines, agua y la bahía de Palma extendida al fondo de cada terraza.',
@@ -687,6 +687,112 @@ export const HOTEL_STORIES: HotelStory[] = [
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       }
+    ],
+    galleryPhotos: [
+      {
+        id: 'hd-gal-1',
+        url: publicImage('sec5-gal01-recepcion-h.jpg'),
+        alt: 'Anfitriona rubia recibiendo a una huésped en la recepción del GPRO Valparaíso',
+        caption: 'La recepción, primera bienvenida',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-2',
+        url: publicImage('sec5-gal10-cartel-jardin-v.jpg'),
+        alt: 'Cartel del jardín señalando Piscina, Hall, Gamba Palace, Wellness & Spa, Tenis y Bistro Mar Blau',
+        caption: 'Un vistazo al mapa del resort',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-3',
+        url: publicImage('sec5-foto2-v.jpg'),
+        alt: 'Llegada a la habitación con maleta y frutas de bienvenida',
+        caption: 'La llegada a la suite',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-4',
+        url: publicImage('sec5-gal03-cafe-cama-v.jpg'),
+        alt: 'Mano levantando la taza de café por encima de la cama, con el cabecero de cuero mostaza detrás',
+        caption: 'El café, buenos días',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-5',
+        url: publicImage('sec5-gal02-cava-v.jpg'),
+        alt: 'Botella de cava Codorníu Cuvée Original con dos copas y la tarjeta del GPRO Valparaíso Palace & Spa sobre la cama',
+        caption: 'Bienvenida con cava en la habitación',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-6',
+        url: publicImage('sec5-gal04-silueta-cortina-v.jpg'),
+        alt: 'Silueta de mujer en bata blanca abriendo la cortina hacia el balcón con vista a la bahía',
+        caption: 'La luz de la mañana entra a la suite',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-7',
+        url: publicImage('sec5-foto3-v.jpg'),
+        alt: 'Huésped en albornoz leyendo el folleto de tratamientos con vista a la bahía de Palma',
+        caption: 'Tratamientos con vista a la bahía',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-8',
+        url: publicImage('sec5-gal05-sauna-v.jpg'),
+        alt: 'Silueta de mujer sentada en la sauna con luz cálida detrás iluminando los paneles de madera',
+        caption: 'Un momento de calma en la sauna',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-9',
+        url: publicImage('sec5-foto1-h.jpg'),
+        alt: 'Piscina interior del spa con cascada de agua y arquitectura de mármol verde',
+        caption: 'El spa más grande de Mallorca',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-10',
+        url: publicImage('sec5-gal06-jacuzzi-spa-h.jpg'),
+        alt: 'Pareja relajándose en el jacuzzi interior del spa con vista al jardín tropical',
+        caption: 'El jacuzzi del spa, frente al jardín',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-11',
+        url: publicImage('sec5-gal07-piscina-bali-h.jpg'),
+        alt: 'Piscina exterior del GPRO con palmeras y bali beds junto al agua',
+        caption: 'La piscina exterior, entre palmeras',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-12',
+        url: publicImage('sec5-gal08-piernas-frutas-v.jpg'),
+        alt: 'Piernas al borde de la piscina con naranja, manzana y nectarina sobre el bordillo',
+        caption: 'El borde de la piscina, con frutas',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'hd-gal-13',
+        url: publicImage('sec5-gal09-piscina-palmeras-v.jpg'),
+        alt: 'Piscina exterior del resort con palmeras altas y cielo abierto',
+        caption: 'Palmeras y cielo abierto',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      }
     ]
   },
   {
@@ -699,7 +805,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 5,
-    coverImage: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=85',
+    coverImage: publicImage('sec6-portada.jpg'),
     description:
       'En primera línea de la bahía de Puerto de Sóller, con la Serra de Tramuntana como telón de fondo, Hotel Espléndido combina fachadas de piedra caliza, terrazas frente al mar y el tranvía histórico que aún recorre el paseo marítimo.',
     quote: 'Piedra, mar y el eco del tranvía sobre los adoquines de Sóller.',
@@ -728,6 +834,112 @@ export const HOTEL_STORIES: HotelStory[] = [
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       }
+    ],
+    galleryPhotos: [
+      {
+        id: 'vde-gal-1',
+        url: publicImage('sec6-gal01-fachada-noche-h.jpg'),
+        alt: 'Fachada iluminada del Hotel Espléndido de noche, con el tranvía vintage naranja y la terraza del bistro',
+        caption: 'La fachada, al caer la noche',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-2',
+        url: publicImage('sec6-gal02-guia-flatlay-v.jpg'),
+        alt: 'Guía del Hotel Espléndido de Sóller abierta sobre la cama, con sombrero de paja y una mandarina',
+        caption: 'La guía del hotel, sobre la cama',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-3',
+        url: publicImage('sec6-gal03-detalle-habitacion-v.jpg'),
+        alt: 'Detalle de la habitación con cabecero de cuero, lámpara encendida, sillón turquesa y sombrero de paja',
+        caption: 'El detalle de la habitación',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-4',
+        url: publicImage('sec6-gal04-spa-entrada-v.jpg'),
+        alt: 'Mujer con capazo y camisola de encaje entrando al SPA del Hotel Espléndido',
+        caption: 'Camino al spa',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-5',
+        url: publicImage('sec6-gal05-spa-interior-h.jpg'),
+        alt: 'Piscina interior del spa iluminada en turquesa con celosía blanca decorativa',
+        caption: 'La piscina interior del spa',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-6',
+        url: publicImage('sec6-gal06-bahia-panoramica-v.jpg'),
+        alt: 'Panorámica de la bahía de Puerto de Sóller con gaviotas, veleros y la playa de guijarros blancos',
+        caption: 'La bahía de Sóller, entre gaviotas',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-7',
+        url: publicImage('sec6-gal07-playa-vestido-v.jpg'),
+        alt: 'Mujer con vestido turquesa sentada en la playa de guijarros, vista desde la habitación entre palmeras',
+        caption: 'La playa, vista desde la habitación',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-8',
+        url: publicImage('sec6-gal08-piscina-pareja-h.jpg'),
+        alt: 'Pareja bañándose en la piscina de la azotea con vista a la bahía de Sóller y su faro',
+        caption: 'La piscina, frente al faro',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-9',
+        url: publicImage('sec6-gal09-piscina-coco-v.jpg'),
+        alt: 'Mujer en bañador blanco al borde de la piscina de la azotea bebiendo un coco verde',
+        caption: 'Un coco al borde de la piscina',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-10',
+        url: publicImage('sec6-gal10-piscina-copa-v.jpg'),
+        alt: 'Piernas al borde de la piscina con copa de cava y guía Hotel Espléndido de Sóller abierta',
+        caption: 'Cava y guía al sol',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-11',
+        url: publicImage('sec6-foto1-c.jpg'),
+        alt: 'Entrada de Hotel Espléndido con el bistro Davant la Mar y sus flores rojas',
+        caption: 'La entrada sobre el paseo marítimo',
+        aspectRatio: 'square',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-12',
+        url: publicImage('sec6-foto3-h.jpg'),
+        alt: 'Pareja conversando en la terraza con vista a la bahía de Sóller',
+        caption: 'Terraza frente a la bahía',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'vde-gal-13',
+        url: publicImage('sec6-foto2-v.jpg'),
+        alt: 'Vista elevada del tranvía histórico y la playa de Puerto de Sóller',
+        caption: 'El tranvía histórico junto a la bahía',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      }
     ]
   },
   {
@@ -739,7 +951,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     country: 'España',
     year: '2026',
     category: 'Escapada Romántica',
-    layoutVariant: 0,
+    layoutVariant: 8,
     coverImage: publicImage('sec9-foto1-v.jpg'),
     description:
       'En el corazón del desierto de Gorafe, District Hive es una cápsula de vidrio y acero suspendida sobre el badlands granadino — arquitectura off-grid pensada para desaparecer en el paisaje: agua del aire, energía del sol, y el silencio absoluto de Andalucía interior.',
@@ -773,22 +985,46 @@ export const HOTEL_STORIES: HotelStory[] = [
     galleryPhotos: [
       {
         id: 'dh-gal-1',
+        url: publicImage('sec9-gal06-panoramica-h.jpg'),
+        alt: 'Panorámica del badlands de Gorafe con el pantano y un pueblo blanco a lo lejos',
+        caption: 'El badlands de Gorafe, hasta el pantano',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'dh-gal-2',
+        url: publicImage('sec9-gal02-badlands-aerea-v.jpg'),
+        alt: 'Vista aérea alta del desierto de Gorafe con la propiedad apenas visible en la distancia',
+        caption: 'La propiedad, apenas visible en el desierto',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'dh-gal-3',
         url: publicImage('sec9-foto1-v.jpg'),
-        alt: 'Hombre caminando junto a la cápsula de vidrio y acero de District Hive en el desierto de Gorafe',
+        alt: 'Hombre caminando junto a la cápsula de vidrio y acero de District Hive',
         caption: 'Un paseo junto a la cápsula',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
       },
       {
-        id: 'dh-gal-2',
-        url: publicImage('sec9-foto3-h.jpg'),
-        alt: 'Cápsula de vidrio de District Hive con piscina exterior asomando sobre el badlands de Gorafe',
-        caption: 'La cápsula, con su piscina sobre el desierto',
+        id: 'dh-gal-4',
+        url: publicImage('sec9-gal05-atardecer-v.jpg'),
+        alt: 'Mujer caminando hacia la cápsula al atardecer con el logo de District Hive visible en el lateral',
+        caption: 'La cápsula, al caer la tarde',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'dh-gal-5',
+        url: publicImage('sec9-gal01-aerea-h.jpg'),
+        alt: 'Vista aérea de la cápsula de District Hive sobre el borde del cañón en el desierto de Gorafe',
+        caption: 'La cápsula, sobre el filo del cañón',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       },
       {
-        id: 'dh-gal-3',
+        id: 'dh-gal-6',
         url: publicImage('sec9-foto2-v.jpg'),
         alt: 'Logotipo hexagonal de District Hive sobre el ventanal, con el badlands de Gorafe al fondo',
         caption: 'El logo, sobre el desierto',
@@ -796,10 +1032,26 @@ export const HOTEL_STORIES: HotelStory[] = [
         isBlackAndWhite: false
       },
       {
-        id: 'dh-gal-4',
-        url: publicImage('sec9-gal01-aerea-h.jpg'),
-        alt: 'Vista aérea de la cápsula de District Hive sobre el borde del cañón en el desierto de Gorafe',
-        caption: 'La cápsula, sobre el filo del cañón',
+        id: 'dh-gal-7',
+        url: publicImage('sec9-gal03-ducha-v.jpg'),
+        alt: 'Ducha exterior de District Hive con la cápsula al fondo entre gravilla y tierra roja',
+        caption: 'La ducha exterior, junto a la cápsula',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'dh-gal-8',
+        url: publicImage('sec9-foto3-h.jpg'),
+        alt: 'Cápsula de vidrio de District Hive con piscina exterior asomando sobre el badlands',
+        caption: 'La cápsula, con su piscina sobre el desierto',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'dh-gal-9',
+        url: publicImage('sec9-gal04-jacuzzi-h.jpg'),
+        alt: 'La cápsula vista desde el jacuzzi/piscina exterior con las montañas al fondo',
+        caption: 'La cápsula, vista desde el jacuzzi',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       }

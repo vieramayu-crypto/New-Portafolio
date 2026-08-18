@@ -37,7 +37,11 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
 }) => {
   // STRICT CONSTRAINT: Maximum 3 photos per section so each photo has its own space to be viewed
   const photos = (story.photos || []).slice(0, 3);
-  const variant = story.layoutVariant !== undefined ? story.layoutVariant : index % 8;
+  // The home teaser has 8 layout templates (0-7). Some hotels reuse a gallery-only
+  // layout variant beyond 7 (e.g. District Hive uses variant 8 for its gallery but
+  // still needs a home teaser); modulo folds those back into 0-7 without visual break.
+  const rawVariant = story.layoutVariant !== undefined ? story.layoutVariant : index;
+  const variant = ((rawVariant % 8) + 8) % 8;
 
   // Track section scroll for smooth vertical parallax motion on photos
   const sectionRef = useRef<HTMLDivElement>(null);
