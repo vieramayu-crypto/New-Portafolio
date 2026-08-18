@@ -1067,7 +1067,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Escapada Romántica',
     layoutVariant: 7,
-    coverImage: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85',
+    coverImage: publicImage('sec8-portada.jpg'),
     description:
       'Entre pinares de Caravaca de la Cruz, las villas abovedadas de Welmoon Paisaje están pensadas para dormir bajo un manto de estrellas — arquitectura íntima, hecha para desconectar del ruido y mirar el cielo sin filtros.',
     quote: 'Un techo de estrellas y el silencio de la sierra murciana.',
@@ -1083,8 +1083,8 @@ export const HOTEL_STORIES: HotelStory[] = [
       {
         id: 'sdp-2',
         url: publicImage('sec8-foto2-c.jpg'),
-        alt: 'Pareja relajada en la cama con dosel bajo el techo abovedado',
-        caption: 'La cama bajo el cielo abierto',
+        alt: 'Pareja relajada en la cama exterior con la villa abovedada al fondo',
+        caption: 'La cama al aire libre, junto a la villa',
         aspectRatio: 'square',
         isBlackAndWhite: false
       },
@@ -1094,6 +1094,96 @@ export const HOTEL_STORIES: HotelStory[] = [
         alt: 'Interior de la villa abovedada con techo de cristal y vistas al bosque',
         caption: 'El techo de cristal hacia el bosque',
         aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      }
+    ],
+    galleryPhotos: [
+      {
+        id: 'sdp-gal-1',
+        url: publicImage('sec8-gal01-fachada-v.jpg'),
+        alt: 'Fachada de madera de la villa abovedada de Welmoon Paisaje entre pinos, con banco acolchado en la terraza',
+        caption: 'La villa, entre pinos',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'sdp-gal-2',
+        url: publicImage('sec8-gal02-cats-h.jpg'),
+        alt: 'Dos gatos atigrados sobre el felpudo "Welmoon" en la entrada de la villa',
+        caption: 'Los recibidores de Welmoon',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'sdp-gal-3',
+        url: publicImage('sec8-gal03-interior-cama-h.jpg'),
+        alt: 'Interior de la villa abovedada con cama, cojines y vista al baño de mármol y bosque',
+        caption: 'El interior, bajo el techo abovedado',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'sdp-gal-4',
+        url: publicImage('sec8-gal04-bano-v.jpg'),
+        alt: 'Baño de la villa con lavamanos de piedra, espejo circular y pampas grass',
+        caption: 'El baño, entre madera y piedra',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'sdp-gal-5',
+        url: publicImage('sec8-gal05-amenities-v.jpg'),
+        alt: 'Detalle de amenities Welmoon: tarros con logo, toalla bordada y caja de bienvenida con corazón',
+        caption: 'El detalle Welmoon',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'sdp-gal-6',
+        url: publicImage('sec8-gal06-vista-bosque-h.jpg'),
+        alt: 'Vista del bosque de pinos desde la cama, a través del gran ventanal abovedado',
+        caption: 'El pinar, desde la cama',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'sdp-gal-7',
+        url: publicImage('sec8-foto3-h.jpg'),
+        alt: 'Interior de la villa abovedada con techo de cristal y vistas al bosque',
+        caption: 'El techo de cristal hacia el bosque',
+        aspectRatio: 'landscape',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'sdp-gal-8',
+        url: publicImage('sec8-gal07-desayuno-v.jpg'),
+        alt: 'Desayuno servido en la mesa de madera con croissant, frutas, mermelada y lámpara cálida',
+        caption: 'El desayuno, entre madera cálida',
+        aspectRatio: 'portrait',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'sdp-gal-9',
+        url: publicImage('sec8-foto1-c.jpg'),
+        alt: 'Telescopio y tumbona en la terraza de madera entre pinos',
+        caption: 'Preparados para mirar las estrellas',
+        aspectRatio: 'square',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'sdp-gal-10',
+        url: publicImage('sec8-foto2-c.jpg'),
+        alt: 'Pareja relajada en la cama exterior con la villa abovedada al fondo',
+        caption: 'La cama al aire libre, junto a la villa',
+        aspectRatio: 'square',
+        isBlackAndWhite: false
+      },
+      {
+        id: 'sdp-gal-11',
+        url: publicImage('sec8-gal08-jacuzzi-noche-v.jpg'),
+        alt: 'Jacuzzi de madera con estufa de leña y velas encendidas en la terraza, cielo nocturno entre pinos',
+        caption: 'El jacuzzi al calor de las velas',
+        aspectRatio: 'portrait',
         isBlackAndWhite: false
       }
     ]
