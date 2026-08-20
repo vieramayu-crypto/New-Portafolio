@@ -15,9 +15,26 @@ export interface HotelContent {
   quote: string;
 }
 
+export interface MilestoneItem {
+  value: string;
+  label: string;
+}
+
+export interface HowWeWorkStep {
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface FaqEntry {
+  question: string;
+  answer: string;
+}
+
 export interface SiteContent {
   hero: {
     headline: string;
+    subheadline: string;
   };
   about: {
     flipWords: string[];
@@ -31,6 +48,22 @@ export interface SiteContent {
     eyebrow: string;
     heading: string;
     subheading: string;
+    emailAddress: string;
+  };
+  milestones: {
+    eyebrow: string;
+    items: MilestoneItem[];
+    footnote: string;
+  };
+  howWeWork: {
+    eyebrow: string;
+    heading: string;
+    steps: HowWeWorkStep[];
+  };
+  faq: {
+    eyebrow: string;
+    heading: string;
+    questions: FaqEntry[];
   };
   hotels: HotelContent[];
 }
@@ -41,34 +74,108 @@ export interface SiteContent {
 export const DEFAULT_CONTENT: SiteContent = {
   hero: {
     headline: 'Contamos lo que se siente, no solo lo que se ve.',
+    subheadline: 'Producción visual para hoteles de lujo — fotografía, video y cortometraje editorial.',
   },
   about: {
-    flipWords: ['Alma', 'Amor', 'Autenticidad'],
+    flipWords: ['Mirada', 'Carácter', 'Verdad'],
     introStatement:
       'Mayu Travel es un estudio de producción visual para hoteles de lujo, hecho por dos personas que se conocen desde hace años. No trabajamos con fórmulas ni plantillas: cada proyecto nace de mirar de cerca, con tiempo, lo que hace único a cada lugar.',
     legacyQuote:
       'No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse como se siente vivirlo.',
     mayurlin: {
       name: 'Mayurlin Viera',
-      bio: 'Crear contenido fue el sueño de Mayu antes de tener con qué hacerlo. Trabajar con los mejores hoteles del mundo fue, desde siempre, su objetivo número uno. Esa idea no se le fue nunca — solo esperó el momento y las manos correctas para hacerla real.',
+      bio: 'Crear contenido fue el sueño de Mayu antes de tener con qué hacerlo. Trabajar con los mejores hoteles del mundo fue, desde siempre, su objetivo número uno. Esa idea no se le fue nunca — solo esperó el momento y las manos correctas para hacerla real. Seis años y más de treinta y cinco propiedades después, sigue mirando cada nuevo hotel como el primero.',
     },
     yerfran: {
       name: 'Yerfran',
-      bio: 'Yerfran llegó a la fotografía por otro camino: el de capturar lo que una persona siente en un lugar, no solo cómo se ve. Años de mirar con atención se convirtieron en un estilo propio — fotos con alma, hechas desde el cuidado y no desde la fórmula.',
+      bio: 'Yerfran llegó a la fotografía por otro camino: el de capturar lo que una persona siente en un lugar, no solo cómo se ve. Años de mirar con atención se convirtieron en un estilo propio — fotos con alma, hechas desde el cuidado y no desde la fórmula. Hoy codirige la producción visual de Mayu Travel en hoteles de España, Portugal, Grecia, Suiza y Países Bajos.',
     },
     closingStatement:
       'Con los años, eso se volvió esto. Combinamos lo que cada uno hace mejor para darle a cada hotel lo mismo: una mirada honesta, con el tiempo y el cuidado de dos personas que ya saben trabajar juntas.',
   },
   contact: {
-    eyebrow: 'Contacto directo',
+    eyebrow: 'Reserva de calendario',
     heading: 'Trabajemos juntos',
-    subheading: 'Si esto encaja con lo que necesitas ahora, podemos compartir fechas y detalles de entregables.',
+    subheading:
+      'Reservamos con dos a tres semanas de antelación. Contanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.',
+    emailAddress: 'mayuviera@gmail.com',
+  },
+  milestones: {
+    eyebrow: 'Trayectoria',
+    items: [
+      { value: '35+', label: 'Propiedades hoteleras producidas' },
+      { value: '5', label: 'Países' },
+      { value: '6', label: 'Años trabajando en pareja' },
+    ],
+    footnote:
+      'Clientes recurrentes — GPRO Valparaíso (3 rodajes) · Portixol (2 rodajes) · Numa Group (Madrid, Amsterdam, Sevilla)',
+  },
+  howWeWork: {
+    eyebrow: 'Cómo trabajamos',
+    heading: 'El proceso',
+    steps: [
+      {
+        number: '01',
+        title: 'Contacto y encaje',
+        description:
+          'Nos escribís desde el formulario o el email. En una llamada breve entendemos la propiedad, la temporada y el uso que le vas a dar al material.',
+      },
+      {
+        number: '02',
+        title: 'Plan visual',
+        description:
+          'Antes de viajar preparamos brief creativo, lista de tomas y storyboard del cortometraje. Ajustamos con el equipo del hotel para que nada quede fuera.',
+      },
+      {
+        number: '03',
+        title: 'Rodaje en la propiedad',
+        description:
+          'Dos a cinco días en el hotel — el alcance se dimensiona según temporada y actividades. Cobertura en vivo (mínimo tres stories diarias) mientras rodamos.',
+      },
+      {
+        number: '04',
+        title: 'Postproducción y entrega',
+        description:
+          'Corrección de color, edición y entrega en un plazo aproximado de tres semanas, organizada para uso inmediato en web, redes y publicidad.',
+      },
+    ],
+  },
+  faq: {
+    eyebrow: 'Preguntas frecuentes',
+    heading: 'Antes de escribir',
+    questions: [
+      {
+        question: '¿Con cuánta antelación conviene reservar fechas?',
+        answer:
+          'Dos a tres semanas es el rango habitual. Para temporadas altas o aperturas conviene consultar antes.',
+      },
+      {
+        question: '¿Quién cubre viajes y alojamiento?',
+        answer:
+          'Van incluidos en la propuesta económica que armamos para cada proyecto. Nos encargamos nosotros de logística y traslados.',
+      },
+      {
+        question: '¿Qué derechos de uso incluye la entrega?',
+        answer:
+          'Cesión para uso del hotel en sus canales propios — web, redes, newsletter — y en campañas de publicidad pagada.',
+      },
+      {
+        question: '¿Ofrecen exclusividad geográfica por temporada?',
+        answer:
+          'Sí, disponible bajo pedido. Se define al cerrar el proyecto y se refleja en la propuesta económica.',
+      },
+      {
+        question: '¿Dan cobertura durante la estancia?',
+        answer:
+          'Sí. Mínimo tres stories diarias en @mayurlintravel, además de reels en colaboración con la cuenta del hotel y una publicación en el feed.',
+      },
+    ],
   },
   hotels: [
     {
       seccion: 1,
       hotelName: 'THE RITZ-CARLTON TENERIFE, ABAMA',
-      coupleName: 'Fotografía & Video',
+      coupleName: 'Editorial de arquitectura morisca',
       description:
         'En lo alto de un acantilado de Guía de Isora, con vistas al Atlántico y a La Gomera, The Ritz-Carlton Tenerife, Abama recrea una finca de arquitectura morisca — muros terracota, formas irregulares y jardines subtropicales de palmeras, lagos y cascadas que envuelven cada rincón del resort.',
       quote: 'Terracota, océano y jardín — tres tonos que se encuentran en cada esquina de Abama.',
@@ -76,7 +183,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 2,
       hotelName: 'INTERCONTINENTAL LISBOA',
-      coupleName: 'Fotografía & Video',
+      coupleName: 'Editorial urbano de altura',
       description:
         'Construido sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, InterContinental Lisboa combina arquitectura contemporánea con vistas que se extienden hasta el río Tajo — una lectura moderna del skyline lisboeta.',
       quote: 'Lisboa entera se despliega desde lo alto de esta colina.',
@@ -84,7 +191,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 3,
       hotelName: 'VESTIGE COLLECTION, BINIDUFÀ',
-      coupleName: 'Fotografía & Video',
+      coupleName: 'Editorial de patrimonio menorquín',
       description:
         'En un valle del norte de Menorca, dentro de una finca privada de 800 hectáreas, Vestige Binidufà restaura una possessió agrícola del siglo XVIII — piedra, barro y materiales naturales que toman su tono directamente del paisaje que la rodea, con la herencia morisca aún presente en su nombre.',
       quote: 'Piedra, tierra y silencio — el norte de Menorca tal como siempre fue.',
@@ -92,7 +199,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 4,
       hotelName: 'DELTAPARK VITALRESORT',
-      coupleName: 'Fotografía & Video',
+      coupleName: 'Editorial alpino de bienestar',
       description:
         'A orillas del lago de Thun, entre dos reservas naturales del Kanderdelta, Deltapark Vitalresort combina arquitectura alpina contemporánea con un spa de 2.000 m² — agua, montaña y bienestar en un mismo horizonte.',
       quote: 'El silencio de los Alpes se refleja entero en el lago de Thun.',
@@ -100,7 +207,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 5,
       hotelName: 'HONEYMOON PETRA VILLAS',
-      coupleName: 'Fotografía & Video',
+      coupleName: 'Editorial de acantilado egeo',
       description:
         'Suspendido sobre el acantilado de Imerovigli, tallado en roca volcánica sobre la caldera de Santorini, Honeymoon Petra Villas ofrece una de las piscinas más buscadas del Egeo — un balcón de piedra sobre el mar más azul de Grecia.',
       quote: 'Roca volcánica y horizonte infinito — así se ve el amanecer sobre la caldera.',
@@ -108,7 +215,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 6,
       hotelName: 'GPRO VALPARAÍSO PALACE & SPA',
-      coupleName: 'Fotografía & Video',
+      coupleName: 'Editorial mediterráneo de spa',
       description:
         'En lo alto del distrito de Bonanova, rodeado de jardines privados con vistas a la bahía de Palma, GPRO Valparaíso Palace & Spa alberga el spa más grande de Mallorca — un refugio sereno entre agua, piedra y vegetación mediterránea.',
       quote: 'Jardines, agua y la bahía de Palma extendida al fondo de cada terraza.',
@@ -116,7 +223,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 7,
       hotelName: 'HOTEL ESPLÉNDIDO',
-      coupleName: 'Fotografía & Video',
+      coupleName: 'Editorial de bahía y piedra',
       description:
         'En primera línea de la bahía de Puerto de Sóller, con la Serra de Tramuntana como telón de fondo, Hotel Espléndido combina fachadas de piedra caliza, terrazas frente al mar y el tranvía histórico que aún recorre el paseo marítimo.',
       quote: 'Piedra, mar y el eco del tranvía sobre los adoquines de Sóller.',
@@ -124,7 +231,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 8,
       hotelName: 'DISTRICT HIVE',
-      coupleName: 'Fotografía & Video',
+      coupleName: 'Editorial off-grid en el desierto',
       description:
         'En el corazón del desierto de Gorafe, District Hive es una cápsula de vidrio y acero suspendida sobre el badlands granadino — arquitectura off-grid pensada para desaparecer en el paisaje: agua del aire, energía del sol, y el silencio absoluto de Andalucía interior.',
       quote: 'El cielo entero por techo, el badlands entero por horizonte.',
@@ -132,7 +239,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 9,
       hotelName: 'WELMOON VILLAS PAISAJE',
-      coupleName: 'Fotografía & Video',
+      coupleName: 'Editorial bajo las estrellas',
       description:
         'Entre pinares de Caravaca de la Cruz, las villas abovedadas de Welmoon Paisaje están pensadas para dormir bajo un manto de estrellas — arquitectura íntima, hecha para desconectar del ruido y mirar el cielo sin filtros.',
       quote: 'Un techo de estrellas y el silencio de la sierra murciana.',
@@ -142,6 +249,34 @@ export const DEFAULT_CONTENT: SiteContent = {
 
 function isNonEmptyString(v: unknown): v is string {
   return typeof v === 'string' && v.trim().length > 0;
+}
+
+function isMilestoneItem(v: unknown): v is MilestoneItem {
+  return (
+    !!v &&
+    typeof v === 'object' &&
+    isNonEmptyString((v as MilestoneItem).value) &&
+    isNonEmptyString((v as MilestoneItem).label)
+  );
+}
+
+function isHowWeWorkStep(v: unknown): v is HowWeWorkStep {
+  return (
+    !!v &&
+    typeof v === 'object' &&
+    isNonEmptyString((v as HowWeWorkStep).number) &&
+    isNonEmptyString((v as HowWeWorkStep).title) &&
+    isNonEmptyString((v as HowWeWorkStep).description)
+  );
+}
+
+function isFaqEntry(v: unknown): v is FaqEntry {
+  return (
+    !!v &&
+    typeof v === 'object' &&
+    isNonEmptyString((v as FaqEntry).question) &&
+    isNonEmptyString((v as FaqEntry).answer)
+  );
 }
 
 // Merges fetched JSON over the defaults field by field, so a missing or
@@ -164,9 +299,27 @@ function mergeContent(fetched: unknown): SiteContent {
       })
     : DEFAULT_CONTENT.hotels;
 
+  const milestoneItems =
+    Array.isArray(f.milestones?.items) && f.milestones!.items.every(isMilestoneItem) && f.milestones!.items.length > 0
+      ? f.milestones!.items
+      : DEFAULT_CONTENT.milestones.items;
+
+  const howWeWorkSteps =
+    Array.isArray(f.howWeWork?.steps) && f.howWeWork!.steps.every(isHowWeWorkStep) && f.howWeWork!.steps.length > 0
+      ? f.howWeWork!.steps
+      : DEFAULT_CONTENT.howWeWork.steps;
+
+  const faqQuestions =
+    Array.isArray(f.faq?.questions) && f.faq!.questions.every(isFaqEntry) && f.faq!.questions.length > 0
+      ? f.faq!.questions
+      : DEFAULT_CONTENT.faq.questions;
+
   return {
     hero: {
       headline: isNonEmptyString(f.hero?.headline) ? f.hero!.headline : DEFAULT_CONTENT.hero.headline,
+      subheadline: isNonEmptyString(f.hero?.subheadline)
+        ? f.hero!.subheadline
+        : DEFAULT_CONTENT.hero.subheadline,
     },
     about: {
       flipWords:
@@ -195,6 +348,32 @@ function mergeContent(fetched: unknown): SiteContent {
       subheading: isNonEmptyString(f.contact?.subheading)
         ? f.contact!.subheading
         : DEFAULT_CONTENT.contact.subheading,
+      emailAddress: isNonEmptyString(f.contact?.emailAddress)
+        ? f.contact!.emailAddress
+        : DEFAULT_CONTENT.contact.emailAddress,
+    },
+    milestones: {
+      eyebrow: isNonEmptyString(f.milestones?.eyebrow)
+        ? f.milestones!.eyebrow
+        : DEFAULT_CONTENT.milestones.eyebrow,
+      items: milestoneItems,
+      footnote: isNonEmptyString(f.milestones?.footnote)
+        ? f.milestones!.footnote
+        : DEFAULT_CONTENT.milestones.footnote,
+    },
+    howWeWork: {
+      eyebrow: isNonEmptyString(f.howWeWork?.eyebrow)
+        ? f.howWeWork!.eyebrow
+        : DEFAULT_CONTENT.howWeWork.eyebrow,
+      heading: isNonEmptyString(f.howWeWork?.heading)
+        ? f.howWeWork!.heading
+        : DEFAULT_CONTENT.howWeWork.heading,
+      steps: howWeWorkSteps,
+    },
+    faq: {
+      eyebrow: isNonEmptyString(f.faq?.eyebrow) ? f.faq!.eyebrow : DEFAULT_CONTENT.faq.eyebrow,
+      heading: isNonEmptyString(f.faq?.heading) ? f.faq!.heading : DEFAULT_CONTENT.faq.heading,
+      questions: faqQuestions,
     },
     hotels,
   };

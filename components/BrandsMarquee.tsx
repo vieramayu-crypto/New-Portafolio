@@ -1,17 +1,32 @@
 import React, { useRef, useState } from 'react';
 
 const ELEGANT = 'font-serif italic tracking-wide text-2xl md:text-3xl';
+const SANS_BOLD_UPPER = 'font-sans font-bold uppercase tracking-wide text-xl md:text-2xl';
+const SANS_MEDIUM_UPPER = 'font-sans font-medium uppercase tracking-[0.1em] text-lg md:text-xl';
+const SERIF_WIDE = 'font-serif tracking-[0.15em] text-2xl md:text-3xl';
+const SERIF_SEMI = 'font-serif font-semibold tracking-wide text-2xl md:text-3xl';
 
 const BRANDS: { name: string; sub?: string; className: string }[] = [
-  { name: 'The Ritz-Carlton', className: 'font-serif tracking-[0.15em] text-2xl md:text-3xl' },
-  { name: 'InterContinental', sub: 'LISBON', className: 'font-serif font-semibold tracking-wide text-2xl md:text-3xl' },
-  { name: 'GPRO Valparaíso Palace & Spa', className: ELEGANT },
-  { name: 'Villa Venecia', className: ELEGANT },
-  { name: 'Honeymoon Petra Villas', sub: 'SANTORINI', className: 'font-sans font-medium uppercase tracking-[0.1em] text-lg md:text-xl' },
-  { name: 'Terra Dominicata', className: 'font-serif italic text-2xl md:text-3xl' },
-  { name: 'Delta Park', className: ELEGANT },
+  { name: 'The Ritz-Carlton', className: SERIF_WIDE },
+  { name: 'InterContinental', sub: 'LISBON', className: SERIF_SEMI },
+  { name: 'Holiday Inn Express', className: SANS_MEDIUM_UPPER },
   { name: 'numa', className: 'font-sans font-bold lowercase text-2xl md:text-3xl' },
-  { name: 'District Hive', className: 'font-sans font-bold uppercase tracking-wide text-xl md:text-2xl' },
+  { name: 'Dolce', sub: 'BARCELONA RESORT', className: SERIF_WIDE },
+  { name: 'Hotel Gold River', sub: 'PORTAVENTURA WORLD', className: SERIF_SEMI },
+  { name: 'Vestige Collection', className: ELEGANT },
+  { name: 'GPRO Valparaíso Palace & Spa', className: ELEGANT },
+  { name: 'Honeymoon Petra Villas', sub: 'SANTORINI', className: SANS_MEDIUM_UPPER },
+  { name: 'Terra Dominicata', className: 'font-serif italic text-2xl md:text-3xl' },
+  { name: 'Deltapark Vitalresort', className: ELEGANT },
+  { name: 'District Hive', className: SANS_BOLD_UPPER },
+  { name: 'Villa Venecia', className: ELEGANT },
+  { name: 'Portixol', sub: 'MALLORCA', className: SERIF_WIDE },
+  { name: 'Carema Hotels', sub: 'MENORCA', className: SANS_MEDIUM_UPPER },
+  { name: 'Lago Resort', sub: 'MENORCA', className: SERIF_SEMI },
+  { name: 'Bluesea Hotels', className: SANS_BOLD_UPPER },
+  { name: 'Welmoon Villas', className: ELEGANT },
+  { name: 'Hotel Espléndido', sub: 'SÓLLER', className: SERIF_WIDE },
+  { name: 'Casa Marquina', className: 'font-serif italic text-2xl md:text-3xl' },
 ];
 
 const BrandLogo: React.FC<{ brand: (typeof BRANDS)[number] }> = ({ brand }) => (

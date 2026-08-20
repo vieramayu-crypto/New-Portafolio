@@ -3,30 +3,33 @@ import { AnimatePresence, motion } from 'motion/react';
 
 const PILLARS = [
   {
-    title: 'Producción Visual',
+    title: 'Producción visual',
     items: [
-      'Selección curada de fotografía de lifestyle y arquitectura en alta resolución.',
-      'Video cinematográfico orientado a la marca.',
+      'Fotografía editorial de arquitectura, lifestyle y detalle.',
+      'Video cinematográfico y cortometraje de marca alineado a la narrativa del hotel.',
     ],
   },
   {
-    title: 'Visibilidad Digital',
+    title: 'Cobertura en vivo',
     items: [
-      'Cortometrajes de marca alineados con la narrativa del hotel.',
-      'Cobertura diaria de stories durante la estancia.',
-      'Distribución en Instagram y TikTok.',
+      'Mínimo tres stories diarias en @mayurlintravel durante la estancia.',
+      'Reels en colaboración con la cuenta del hotel y publicación en el feed.',
     ],
   },
   {
-    title: 'Entrega de Material',
+    title: 'Entrega adaptativa',
     items: [
-      'Archivos editados, con corrección de color, listos para usar.',
-      'Entrega digital organizada para web, redes sociales y plataformas de reservas.',
+      'Cada rodaje se dimensiona según propiedad, temporada y actividades.',
+      'Cuanto más nos abre el hotel, más historia podemos contar.',
+      'Postproducción y entrega organizada en un plazo aproximado de tres semanas.',
     ],
   },
   {
-    title: 'Alineación Estratégica',
-    items: ['Revisión y ajuste de marca en postproducción.'],
+    title: 'Derechos de uso',
+    items: [
+      'Cesión para uso del hotel en sus canales propios y en publicidad pagada.',
+      'Exclusividad geográfica por temporada disponible bajo pedido.',
+    ],
   },
 ];
 

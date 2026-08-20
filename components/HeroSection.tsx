@@ -23,7 +23,7 @@ export const HeroSection: React.FC = () => {
       />
 
       {/* Static Editorial Headline (z-20) */}
-      <div className="absolute inset-0 z-20 flex items-center justify-center px-6 sm:px-10 pointer-events-none">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 sm:px-10 pointer-events-none gap-6 md:gap-8">
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -32,6 +32,14 @@ export const HeroSection: React.FC = () => {
         >
           {content.hero.headline}
         </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.9 }}
+          className="max-w-2xl mx-auto text-center font-sans text-xs sm:text-sm md:text-base tracking-[0.15em] uppercase text-white/85"
+        >
+          {content.hero.subheadline}
+        </motion.p>
       </div>
 
       {/* Horizontal Rule */}

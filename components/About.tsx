@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { FlipWords } from './FlipWords';
-import { ProductionScope } from './ProductionScope';
+import { HowWeWork } from './HowWeWork';
 import { COUPLE_PHOTO, MAYU_PORTRAIT, YERFRAN_PORTRAIT } from '../data/media';
 import { useSiteContent } from '../src/lib/content';
 
@@ -136,14 +136,10 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
           </div>
         </div>
 
-        {/* Production scope */}
-        <div className="min-h-[70vh] md:min-h-[90vh] flex flex-col items-center justify-center text-center py-24">
-          <h2 className="font-serif font-semibold text-5xl md:text-7xl text-[#1a1918] mb-24 md:mb-32">
-            Alcance de producción
-          </h2>
-          <ProductionScope />
-        </div>
       </div>
+
+      {/* How we work — full-width, replaces the old "Alcance de producción" block */}
+      <HowWeWork />
     </div>
   );
 };
