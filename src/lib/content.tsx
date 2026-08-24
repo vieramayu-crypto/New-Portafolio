@@ -177,7 +177,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'THE RITZ-CARLTON TENERIFE, ABAMA',
       coupleName: 'Editorial de arquitectura morisca',
       description:
-        'En lo alto de un acantilado de Guía de Isora, con vistas al Atlántico y a La Gomera, The Ritz-Carlton Tenerife, Abama recrea una finca de arquitectura morisca — muros terracota, formas irregulares y jardines subtropicales de palmeras, lagos y cascadas que envuelven cada rincón del resort.',
+        'Una finca morisca de muros terracota sobre el acantilado de Guía de Isora, con jardines subtropicales que descienden hasta el Atlántico y La Gomera al fondo.',
       quote: 'Terracota, océano y jardín — tres tonos que se encuentran en cada esquina de Abama.',
     },
     {
@@ -185,7 +185,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'INTERCONTINENTAL LISBOA',
       coupleName: 'Editorial urbano de altura',
       description:
-        'Construido sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, InterContinental Lisboa combina arquitectura contemporánea con vistas que se extienden hasta el río Tajo — una lectura moderna del skyline lisboeta.',
+        'Arquitectura contemporánea sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, con el skyline y el Tajo al fondo.',
       quote: 'Lisboa entera se despliega desde lo alto de esta colina.',
     },
     {
@@ -193,7 +193,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'VESTIGE COLLECTION, BINIDUFÀ',
       coupleName: 'Editorial de patrimonio menorquín',
       description:
-        'En un valle del norte de Menorca, dentro de una finca privada de 800 hectáreas, Vestige Binidufà restaura una possessió agrícola del siglo XVIII — piedra, barro y materiales naturales que toman su tono directamente del paisaje que la rodea, con la herencia morisca aún presente en su nombre.',
+        'Una possessió del siglo XVIII restaurada en una finca privada de 800 hectáreas al norte de Menorca — piedra, barro y silencio agrícola.',
       quote: 'Piedra, tierra y silencio — el norte de Menorca tal como siempre fue.',
     },
     {
@@ -201,7 +201,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'DELTAPARK VITALRESORT',
       coupleName: 'Editorial alpino de bienestar',
       description:
-        'A orillas del lago de Thun, entre dos reservas naturales del Kanderdelta, Deltapark Vitalresort combina arquitectura alpina contemporánea con un spa de 2.000 m² — agua, montaña y bienestar en un mismo horizonte.',
+        'Arquitectura alpina contemporánea a orillas del lago de Thun, entre dos reservas del Kanderdelta, con un spa de 2.000 m².',
       quote: 'El silencio de los Alpes se refleja entero en el lago de Thun.',
     },
     {
@@ -209,7 +209,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'HONEYMOON PETRA VILLAS',
       coupleName: 'Editorial de acantilado egeo',
       description:
-        'Suspendido sobre el acantilado de Imerovigli, tallado en roca volcánica sobre la caldera de Santorini, Honeymoon Petra Villas ofrece una de las piscinas más buscadas del Egeo — un balcón de piedra sobre el mar más azul de Grecia.',
+        'Tallado en roca volcánica sobre la caldera de Santorini, con una de las piscinas más buscadas del Egeo suspendida sobre el mar.',
       quote: 'Roca volcánica y horizonte infinito — así se ve el amanecer sobre la caldera.',
     },
     {
@@ -217,7 +217,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'GPRO VALPARAÍSO PALACE & SPA',
       coupleName: 'Editorial mediterráneo de spa',
       description:
-        'En lo alto del distrito de Bonanova, rodeado de jardines privados con vistas a la bahía de Palma, GPRO Valparaíso Palace & Spa alberga el spa más grande de Mallorca — un refugio sereno entre agua, piedra y vegetación mediterránea.',
+        'Jardines privados sobre la bahía de Palma, en lo alto de Bonanova, con el spa más grande de Mallorca en su interior.',
       quote: 'Jardines, agua y la bahía de Palma extendida al fondo de cada terraza.',
     },
     {
@@ -225,7 +225,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'HOTEL ESPLÉNDIDO',
       coupleName: 'Editorial de bahía y piedra',
       description:
-        'En primera línea de la bahía de Puerto de Sóller, con la Serra de Tramuntana como telón de fondo, Hotel Espléndido combina fachadas de piedra caliza, terrazas frente al mar y el tranvía histórico que aún recorre el paseo marítimo.',
+        'Piedra caliza y terrazas frente a la bahía de Sóller, con la Serra de Tramuntana detrás y el tranvía histórico cruzando el paseo.',
       quote: 'Piedra, mar y el eco del tranvía sobre los adoquines de Sóller.',
     },
     {
@@ -233,7 +233,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'DISTRICT HIVE',
       coupleName: 'Editorial off-grid en el desierto',
       description:
-        'En el corazón del desierto de Gorafe, District Hive es una cápsula de vidrio y acero suspendida sobre el badlands granadino — arquitectura off-grid pensada para desaparecer en el paisaje: agua del aire, energía del sol, y el silencio absoluto de Andalucía interior.',
+        'Una cápsula de vidrio y acero suspendida sobre el badlands de Gorafe — arquitectura off-grid con agua del aire y energía solar.',
       quote: 'El cielo entero por techo, el badlands entero por horizonte.',
     },
     {
@@ -241,7 +241,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'WELMOON VILLAS PAISAJE',
       coupleName: 'Editorial bajo las estrellas',
       description:
-        'Entre pinares de Caravaca de la Cruz, las villas abovedadas de Welmoon Paisaje están pensadas para dormir bajo un manto de estrellas — arquitectura íntima, hecha para desconectar del ruido y mirar el cielo sin filtros.',
+        'Villas abovedadas entre pinares de Caravaca de la Cruz, pensadas para dormir bajo un cielo sin filtros de la sierra murciana.',
       quote: 'Un techo de estrellas y el silencio de la sierra murciana.',
     },
   ],
