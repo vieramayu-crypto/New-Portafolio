@@ -149,7 +149,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
 
               {/* Portrait that swaps with the hovered link */}
               <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                <div className="relative w-full max-w-[300px] aspect-[4/5] overflow-hidden shadow-sm border border-[#1a1918]/10">
+                <div className="relative w-full max-w-[300px] aspect-[4/5] overflow-hidden shadow-sm">
                   <AnimatePresence mode="sync">
                     <motion.img
                       key={activeMenuPhoto}

@@ -29,7 +29,7 @@ const GalleryPhoto: React.FC<GalleryPhotoProps> = ({ photo, y, aspectClass, widt
   <motion.div
     style={{ y }}
     className={`relative ${widthClass} ${aspectClass} ${offsetClass || ''} ${
-      bleed ? '' : 'shadow-2xl border border-[#1a1918]/10'
+      bleed ? '' : 'shadow-2xl'
     } group overflow-hidden bg-stone-200`}
   >
     <img
