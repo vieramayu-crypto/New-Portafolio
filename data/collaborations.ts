@@ -1,4 +1,5 @@
 import { CollaborationCase, Testimonial } from '../types';
+import { publicImage } from '../src/lib/content';
 
 // Trabajos confirmados en el media kit. Sin fotografía propia todavía
 // (hasMedia: false) -- se muestran como casos reservados en vez de usar
@@ -71,22 +72,84 @@ export const COLLABORATIONS: CollaborationCase[] = [
   },
 ];
 
-// Testimonios reales, tomados del media kit.
+// Testimonios reales de los equipos de cada propiedad. Ordenados por fuerza
+// comercial, no cronológicamente: primero los que hablan en lenguaje de negocio
+// (alcance, marca, resultados) y los que acreditan trabajo recurrente.
+// Las citas están recortadas -- se quitan saludos y despedidas, el cuerpo queda
+// intacto. `photo` solo se rellena cuando tenemos material de esa propiedad.
 export const TESTIMONIALS: Testimonial[] = [
   {
-    id: 't-ritz-carlton',
+    id: 't-honeymoon-petra',
     quote:
-      'Fotografía y video excepcionales. Gracias por tu visita y por el contenido tan especial que creaste durante tu estancia.',
-    author: 'Jose',
+      'Su perspectiva única y el uso de imágenes cautivadoras han sido invaluables para compartir nuestra historia y llegar a nuevos públicos. Su imagen positiva ha captado la esencia de nuestra marca.',
+    author: 'Aias Mavrikis',
     role: 'Equipo de Marketing',
-    brandName: 'The Ritz-Carlton Abama',
+    brandName: 'Honeymoon Petra Villas',
+    photo: publicImage('sec4-gal07-piscina-cruceros-v.jpg'),
   },
   {
     id: 't-gpro',
     quote:
-      'Contenido increíble y una experiencia maravillosa. Esperamos que hayas disfrutado tanto como nosotros de tenerte aquí. Muchas gracias por el material tan bueno, le daremos muy buen uso.',
-    author: 'Francisco',
+      'Gracias a vosotros por, como siempre, la profesionalidad y buen hacer que han mostrado en todo momento. Y, qué decir, el grandísimo material que nos habéis dejado. Será un gusto tenerlos de vuelta en nuestra casa.',
+    author: 'Francisco Dominguez',
     role: 'Director de Marketing',
-    brandName: 'GPRO Valparaiso Palace & Spa',
+    brandName: 'GPRO Valparaíso Palace & Spa',
+    photo: publicImage('sec5-gal09-piscina-palmeras-v.jpg'),
+    repeatNote: '3 rodajes juntos',
+  },
+  {
+    id: 't-ritz-carlton',
+    quote:
+      'Me gustaría agradecerle de parte del departamento su interés por todo el proyecto de The Ritz-Carlton, Abama y nuestra oferta gastronómica, y por el maravilloso contenido que ha creado en su estancia. Esperamos tenerla de vuelta en el futuro.',
+    author: 'Jose Lorente',
+    role: 'Equipo de Marketing',
+    brandName: 'The Ritz-Carlton Tenerife, Abama',
+    photo: publicImage('sec1-gal1-facade-v.jpg'),
+  },
+  {
+    id: 't-costa-magica',
+    quote:
+      'Muchas gracias por tu trabajo. Las fotos y videos son simplemente increíbles. Ganamos muchos seguidores nuevos.',
+    author: 'Katerina',
+    role: 'Community Manager',
+    brandName: 'Costa Mágica',
+    photo: publicImage('testi-costa-magica-v.jpg'),
+  },
+  {
+    id: 't-numa',
+    quote:
+      'Acabamos de revisar el contenido y es absolutamente precioso. Gracias por todo el esfuerzo, el cariño y el amor que le dedicaron.',
+    author: 'Luna Nemeth',
+    role: 'Equipo de Marketing',
+    brandName: 'Numa',
+    photo: publicImage('testi-numa-v.jpg'),
+    repeatNote: '3 propiedades: Madrid, Ámsterdam y Sevilla',
+  },
+  {
+    id: 't-welmoon',
+    quote:
+      'Un contenido increíble. Sois unos grandes profesionales. Llegaréis lejos poniéndole tanto cariño a lo que hacéis. Estaremos encantados de recibiros en más ocasiones.',
+    author: 'Juan',
+    role: 'Equipo de Marketing',
+    brandName: 'Welmoon Villas Paisaje',
+    photo: publicImage('sec8-gal08-jacuzzi-noche-v.jpg'),
+  },
+  {
+    id: 't-holiday-inn',
+    quote:
+      'Estamos muy contentos con el resultado del contenido. Muy satisfechos con la calidad y con el resultado de su creatividad.',
+    author: 'Zara',
+    role: 'Equipo de Marketing',
+    brandName: 'Holiday Inn Express — Ámsterdam',
+    photo: publicImage('testi-holiday-inn-v.jpg'),
+  },
+  {
+    id: 't-coeo',
+    quote:
+      'Las fotos están muy bonitas y como contenido para todos los canales nos va muy muy bien, ya las verás en todo lado.',
+    author: 'María Andrea',
+    role: 'Equipo de Marketing',
+    brandName: 'COEO Stay & Share',
+    photo: publicImage('testi-coeo-v.jpg'),
   },
 ];

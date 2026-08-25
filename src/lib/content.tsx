@@ -33,8 +33,20 @@ export interface FaqEntry {
 
 export interface SiteContent {
   hero: {
-    headline: string;
+    /** Bloques que se turnan en el titular, uno a la vez. */
+    blocks: string[];
     subheadline: string;
+  };
+  valueBlock: {
+    eyebrow: string;
+    claim: string;
+    benefits: string[];
+    audience: string;
+    ctaLabel: string;
+  };
+  closingCta: {
+    heading: string;
+    ctaLabel: string;
   };
   about: {
     flipWords: string[];
@@ -73,8 +85,22 @@ export interface SiteContent {
 // in content.json once it's fetched.
 export const DEFAULT_CONTENT: SiteContent = {
   hero: {
-    headline: 'Contamos lo que se siente, no solo lo que se ve.',
+    blocks: ['Un rodaje.', 'Un año de material.'],
     subheadline: 'Producción visual para hoteles de lujo — fotografía, video y cortometraje editorial.',
+  },
+  valueBlock: {
+    eyebrow: 'Lo que deja un rodaje',
+    claim: 'Cada rodaje deja dos cosas.',
+    benefits: [
+      'Fotografía y video que tu equipo usa todo el año. Web, campañas, publicidad — con derechos incluidos.',
+      'Y tu hotel delante de una audiencia que aún no lo conocía.',
+    ],
+    audience: 'Hoteles de lujo y boutique en Europa. De grandes grupos a casas de doce habitaciones.',
+    ctaLabel: 'Consultar disponibilidad',
+  },
+  closingCta: {
+    heading: '¿Hablamos de tu propiedad?',
+    ctaLabel: 'Consultar disponibilidad',
   },
   about: {
     flipWords: ['Mirada', 'Carácter', 'Verdad'],
@@ -97,7 +123,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     eyebrow: 'Reserva de calendario',
     heading: 'Trabajemos juntos',
     subheading:
-      'Reservamos con dos a tres semanas de antelación. Contanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.',
+      'Reservamos con dos a tres semanas de antelación. Cuéntanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.',
     emailAddress: 'mayuviera@gmail.com',
   },
   milestones: {
@@ -108,7 +134,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       { value: '6', label: 'Años trabajando en pareja' },
     ],
     footnote:
-      'Clientes recurrentes — GPRO Valparaíso (3 rodajes) · Portixol (2 rodajes) · Numa Group (Madrid, Amsterdam, Sevilla)',
+      'Clientes recurrentes — GPRO Valparaíso (3 rodajes) · Numa Group (3 propiedades) · Hotel Espléndido (2 rodajes) · Portixol (2 rodajes)',
   },
   howWeWork: {
     eyebrow: 'Cómo trabajamos',
@@ -118,7 +144,7 @@ export const DEFAULT_CONTENT: SiteContent = {
         number: '01',
         title: 'Contacto y encaje',
         description:
-          'Nos escribís desde el formulario o el email. En una llamada breve entendemos la propiedad, la temporada y el uso que le vas a dar al material.',
+          'Nos escribes desde el formulario o el email. En una llamada breve entendemos la propiedad, la temporada y el uso que le vas a dar al material.',
       },
       {
         number: '02',
@@ -177,7 +203,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'THE RITZ-CARLTON TENERIFE, ABAMA',
       coupleName: 'Editorial de arquitectura morisca',
       description:
-        'En lo alto de un acantilado de Guía de Isora, con vistas al Atlántico y a La Gomera, The Ritz-Carlton Tenerife, Abama recrea una finca de arquitectura morisca — muros terracota, formas irregulares y jardines subtropicales de palmeras, lagos y cascadas que envuelven cada rincón del resort.',
+        'Una finca morisca de muros terracota sobre el acantilado de Guía de Isora, con jardines subtropicales que descienden hasta el Atlántico y La Gomera al fondo.',
       quote: 'Terracota, océano y jardín — tres tonos que se encuentran en cada esquina de Abama.',
     },
     {
@@ -185,7 +211,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'INTERCONTINENTAL LISBOA',
       coupleName: 'Editorial urbano de altura',
       description:
-        'Construido sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, InterContinental Lisboa combina arquitectura contemporánea con vistas que se extienden hasta el río Tajo — una lectura moderna del skyline lisboeta.',
+        'Arquitectura contemporánea sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, con el skyline y el Tajo al fondo.',
       quote: 'Lisboa entera se despliega desde lo alto de esta colina.',
     },
     {
@@ -193,7 +219,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'VESTIGE COLLECTION, BINIDUFÀ',
       coupleName: 'Editorial de patrimonio menorquín',
       description:
-        'En un valle del norte de Menorca, dentro de una finca privada de 800 hectáreas, Vestige Binidufà restaura una possessió agrícola del siglo XVIII — piedra, barro y materiales naturales que toman su tono directamente del paisaje que la rodea, con la herencia morisca aún presente en su nombre.',
+        'Una possessió del siglo XVIII restaurada en una finca privada de 800 hectáreas al norte de Menorca — piedra, barro y silencio agrícola.',
       quote: 'Piedra, tierra y silencio — el norte de Menorca tal como siempre fue.',
     },
     {
@@ -201,7 +227,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'DELTAPARK VITALRESORT',
       coupleName: 'Editorial alpino de bienestar',
       description:
-        'A orillas del lago de Thun, entre dos reservas naturales del Kanderdelta, Deltapark Vitalresort combina arquitectura alpina contemporánea con un spa de 2.000 m² — agua, montaña y bienestar en un mismo horizonte.',
+        'Arquitectura alpina contemporánea a orillas del lago de Thun, entre dos reservas del Kanderdelta, con un spa de 2.000 m².',
       quote: 'El silencio de los Alpes se refleja entero en el lago de Thun.',
     },
     {
@@ -209,7 +235,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'HONEYMOON PETRA VILLAS',
       coupleName: 'Editorial de acantilado egeo',
       description:
-        'Suspendido sobre el acantilado de Imerovigli, tallado en roca volcánica sobre la caldera de Santorini, Honeymoon Petra Villas ofrece una de las piscinas más buscadas del Egeo — un balcón de piedra sobre el mar más azul de Grecia.',
+        'Tallado en roca volcánica sobre la caldera de Santorini, con una de las piscinas más buscadas del Egeo suspendida sobre el mar.',
       quote: 'Roca volcánica y horizonte infinito — así se ve el amanecer sobre la caldera.',
     },
     {
@@ -217,7 +243,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'GPRO VALPARAÍSO PALACE & SPA',
       coupleName: 'Editorial mediterráneo de spa',
       description:
-        'En lo alto del distrito de Bonanova, rodeado de jardines privados con vistas a la bahía de Palma, GPRO Valparaíso Palace & Spa alberga el spa más grande de Mallorca — un refugio sereno entre agua, piedra y vegetación mediterránea.',
+        'Jardines privados sobre la bahía de Palma, en lo alto de Bonanova, con el spa más grande de Mallorca en su interior.',
       quote: 'Jardines, agua y la bahía de Palma extendida al fondo de cada terraza.',
     },
     {
@@ -225,7 +251,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'HOTEL ESPLÉNDIDO',
       coupleName: 'Editorial de bahía y piedra',
       description:
-        'En primera línea de la bahía de Puerto de Sóller, con la Serra de Tramuntana como telón de fondo, Hotel Espléndido combina fachadas de piedra caliza, terrazas frente al mar y el tranvía histórico que aún recorre el paseo marítimo.',
+        'Piedra caliza y terrazas frente a la bahía de Sóller, con la Serra de Tramuntana detrás y el tranvía histórico cruzando el paseo.',
       quote: 'Piedra, mar y el eco del tranvía sobre los adoquines de Sóller.',
     },
     {
@@ -233,7 +259,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'DISTRICT HIVE',
       coupleName: 'Editorial off-grid en el desierto',
       description:
-        'En el corazón del desierto de Gorafe, District Hive es una cápsula de vidrio y acero suspendida sobre el badlands granadino — arquitectura off-grid pensada para desaparecer en el paisaje: agua del aire, energía del sol, y el silencio absoluto de Andalucía interior.',
+        'Una cápsula de vidrio y acero suspendida sobre el badlands de Gorafe — arquitectura off-grid con agua del aire y energía solar.',
       quote: 'El cielo entero por techo, el badlands entero por horizonte.',
     },
     {
@@ -241,7 +267,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'WELMOON VILLAS PAISAJE',
       coupleName: 'Editorial bajo las estrellas',
       description:
-        'Entre pinares de Caravaca de la Cruz, las villas abovedadas de Welmoon Paisaje están pensadas para dormir bajo un manto de estrellas — arquitectura íntima, hecha para desconectar del ruido y mirar el cielo sin filtros.',
+        'Villas abovedadas entre pinares de Caravaca de la Cruz, pensadas para dormir bajo un cielo sin filtros de la sierra murciana.',
       quote: 'Un techo de estrellas y el silencio de la sierra murciana.',
     },
   ],
@@ -314,12 +340,45 @@ function mergeContent(fetched: unknown): SiteContent {
       ? f.faq!.questions
       : DEFAULT_CONTENT.faq.questions;
 
+  const heroBlocks =
+    Array.isArray(f.hero?.blocks) && f.hero!.blocks.every(isNonEmptyString) && f.hero!.blocks.length > 0
+      ? f.hero!.blocks
+      : DEFAULT_CONTENT.hero.blocks;
+
+  const benefits =
+    Array.isArray(f.valueBlock?.benefits) &&
+    f.valueBlock!.benefits.every(isNonEmptyString) &&
+    f.valueBlock!.benefits.length > 0
+      ? f.valueBlock!.benefits
+      : DEFAULT_CONTENT.valueBlock.benefits;
+
   return {
     hero: {
-      headline: isNonEmptyString(f.hero?.headline) ? f.hero!.headline : DEFAULT_CONTENT.hero.headline,
+      blocks: heroBlocks,
       subheadline: isNonEmptyString(f.hero?.subheadline)
         ? f.hero!.subheadline
         : DEFAULT_CONTENT.hero.subheadline,
+    },
+    valueBlock: {
+      eyebrow: isNonEmptyString(f.valueBlock?.eyebrow)
+        ? f.valueBlock!.eyebrow
+        : DEFAULT_CONTENT.valueBlock.eyebrow,
+      claim: isNonEmptyString(f.valueBlock?.claim) ? f.valueBlock!.claim : DEFAULT_CONTENT.valueBlock.claim,
+      benefits,
+      audience: isNonEmptyString(f.valueBlock?.audience)
+        ? f.valueBlock!.audience
+        : DEFAULT_CONTENT.valueBlock.audience,
+      ctaLabel: isNonEmptyString(f.valueBlock?.ctaLabel)
+        ? f.valueBlock!.ctaLabel
+        : DEFAULT_CONTENT.valueBlock.ctaLabel,
+    },
+    closingCta: {
+      heading: isNonEmptyString(f.closingCta?.heading)
+        ? f.closingCta!.heading
+        : DEFAULT_CONTENT.closingCta.heading,
+      ctaLabel: isNonEmptyString(f.closingCta?.ctaLabel)
+        ? f.closingCta!.ctaLabel
+        : DEFAULT_CONTENT.closingCta.ctaLabel,
     },
     about: {
       flipWords:

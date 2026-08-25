@@ -49,7 +49,7 @@ export const ProductionScope: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="relative w-full max-w-4xl min-h-[320px] md:min-h-[380px] text-center">
+      <div className="relative w-full max-w-4xl min-h-[240px] md:min-h-[280px] text-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={pillar.title}

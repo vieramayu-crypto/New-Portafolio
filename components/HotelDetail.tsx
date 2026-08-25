@@ -29,7 +29,7 @@ const GalleryPhoto: React.FC<GalleryPhotoProps> = ({ photo, y, aspectClass, widt
   <motion.div
     style={{ y }}
     className={`relative ${widthClass} ${aspectClass} ${offsetClass || ''} ${
-      bleed ? '' : 'shadow-2xl border border-[#1a1918]/10'
+      bleed ? '' : 'shadow-2xl'
     } group overflow-hidden bg-stone-200`}
   >
     <img
@@ -959,7 +959,7 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
 
         <div className="grid grid-cols-3 gap-3 md:gap-6 mt-16 md:mt-20">
           <div>
-            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Venue</span>
+            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Propiedad</span>
             <a
               href={venueMapUrl}
               target="_blank"
@@ -970,13 +970,13 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
             </a>
           </div>
           <div>
-            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Location</span>
+            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Ubicación</span>
             <span className="text-xs sm:text-sm md:text-base font-sans text-[#1a1918]">
               {story.location}
             </span>
           </div>
           <div>
-            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Credits</span>
+            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Créditos</span>
             <button
               onClick={() => setCreditsOpen((v) => !v)}
               aria-expanded={creditsOpen}
@@ -1010,6 +1010,37 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Case study — durable facts about the shoot. Renders only the fields we
+            actually have, so a hotel with partial data still looks deliberate. */}
+        {story.caseStudy && (
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-6 mt-14 md:mt-16 pt-10 md:pt-12 border-t border-[#1a1918]/10">
+            {story.caseStudy.season && (
+              <div>
+                <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Temporada</span>
+                <span className="text-xs sm:text-sm md:text-base font-sans text-[#1a1918]">
+                  {story.caseStudy.season}
+                </span>
+              </div>
+            )}
+            {story.caseStudy.duration && (
+              <div>
+                <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Rodaje</span>
+                <span className="text-xs sm:text-sm md:text-base font-sans text-[#1a1918]">
+                  {story.caseStudy.duration}
+                </span>
+              </div>
+            )}
+            {story.caseStudy.usage && (
+              <div>
+                <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Uso del material</span>
+                <span className="text-xs sm:text-sm md:text-base font-sans text-[#1a1918]">
+                  {story.caseStudy.usage}
+                </span>
+              </div>
+            )}
+          </div>
+        )}
       </section>
 
       {/* GALLERY — max 10 photos, masonry mix with shared parallax movement */}

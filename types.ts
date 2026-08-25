@@ -34,6 +34,17 @@ export interface HotelStory {
   quote?: string;
   category: 'Hotel de Lujo' | 'Boda Destino' | 'Escapada Romántica' | 'Villa Histórica';
   layoutVariant?: number; // 0 to 7 unique layout variations
+  /** Durable facts about the shoot, shown on the portfolio page. They turn the
+   *  gallery from "nice photos" into demonstrable commercial work. Every field
+   *  is optional -- each one renders only when we actually have the data. */
+  caseStudy?: {
+    /** When it was shot, e.g. "Julio · Verano" or "Verano · 2023, 2024 y 2026". */
+    season?: string;
+    /** Length of the shoot, e.g. "4 días". */
+    duration?: string;
+    /** Where the hotel put the material, e.g. "Redes sociales · Campaña de temporada alta". */
+    usage?: string;
+  };
 }
 
 export type CollaborationCategory =
@@ -56,8 +67,14 @@ export interface Testimonial {
   id: string;
   quote: string;
   author: string;
-  role: string;
+  /** Job title. Omitted when the client only gave us a name. */
+  role?: string;
   brandName: string;
+  /** Photo from that property's shoot, shown beside the quote. Falls back to
+   *  the brand name set in type when we don't have imagery for the brand yet. */
+  photo?: string;
+  /** Durable proof of repeat business, e.g. "3 rodajes juntos". */
+  repeatNote?: string;
 }
 
 export interface CollaborationInquiry {

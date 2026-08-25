@@ -7,6 +7,7 @@ import { ProductionScope } from './ProductionScope';
 import { Testimonials } from './Testimonials';
 import { FAQ } from './FAQ';
 import { useSiteContent } from '../src/lib/content';
+import { openInquiryMail } from '../src/lib/inquiry';
 
 const fieldClass =
   'w-full bg-white px-5 py-4 text-base text-[#1a1918] placeholder:text-[#5a5854] shadow-sm focus:outline-none focus:ring-1 focus:ring-[#1a1918]/40 transition-shadow';
@@ -24,9 +25,24 @@ export const Contact: React.FC = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [composed, setComposed] = useState('');
 
+  // El sitio es estático: no hay servidor que reciba el formulario. La consulta
+  // se entrega abriendo el correo del visitante con todo el mensaje redactado,
+  // y se deja el texto a la vista por si no tiene cliente de correo.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setComposed(
+      openInquiryMail(content.contact.emailAddress, {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        propertyName: formData.propertyName,
+        scope: formData.collaborationType,
+        availabilityDate: formData.availabilityDate,
+        message: formData.message,
+      })
+    );
     setSubmitted(true);
   };
 
@@ -96,13 +112,28 @@ export const Contact: React.FC = () => {
             <div className="w-12 h-12 rounded-full bg-[#1a1918] text-[#f5f3ed] mx-auto flex items-center justify-center font-serif text-xl">
               ✓
             </div>
-            <h2 className="font-serif text-3xl text-[#1a1918]">Solicitud recibida</h2>
+            <h2 className="font-serif text-3xl text-[#1a1918]">Tu solicitud está lista</h2>
             <p className="text-sm text-[#5a5854] max-w-md mx-auto leading-relaxed">
-              Gracias por escribir, <span className="font-semibold text-[#1a1918]">{formData.name}</span>. Te
-              responderé a <span className="font-semibold text-[#1a1918]">{formData.email}</span> para revisar el
-              proyecto con{' '}
-              <span className="font-semibold text-[#1a1918]">{formData.propertyName || 'tu propiedad'}</span>.
+              Gracias, <span className="font-semibold text-[#1a1918]">{formData.name}</span>. Abrimos tu correo con
+              la consulta de{' '}
+              <span className="font-semibold text-[#1a1918]">{formData.propertyName || 'tu propiedad'}</span> ya
+              redactada — sólo queda enviarla. Respondemos en 48 h.
             </p>
+            <p className="text-sm text-[#5a5854] max-w-md mx-auto leading-relaxed">
+              ¿No se abrió tu cliente de correo? Copia el mensaje y escríbenos a{' '}
+              <a
+                href={`mailto:${content.contact.emailAddress}`}
+                className="font-semibold text-[#1a1918] underline underline-offset-4"
+              >
+                {content.contact.emailAddress}
+              </a>
+              .
+            </p>
+            {composed && (
+              <pre className="mx-auto max-h-56 max-w-md overflow-auto whitespace-pre-wrap bg-[#fbfaf6] p-4 text-left text-xs leading-relaxed text-[#5a5854]">
+                {composed}
+              </pre>
+            )}
             <button
               onClick={() => setSubmitted(false)}
               className="text-xs font-sans tracking-widest uppercase underline underline-offset-4 text-[#1a1918]"
@@ -182,7 +213,7 @@ export const Contact: React.FC = () => {
                 type="submit"
                 className="bg-[#1a1918] text-[#f5f3ed] px-12 py-4 text-xs font-sans tracking-[0.25em] uppercase font-medium hover:bg-[#5a5854] transition-colors"
               >
-                Enviar solicitud
+                Consultar disponibilidad
               </button>
             </div>
           </form>

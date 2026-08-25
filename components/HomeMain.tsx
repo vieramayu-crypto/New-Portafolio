@@ -4,6 +4,8 @@ import { HotelStory, Page } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 import { HeroSection } from './HeroSection';
 import { HotelSectionBlock } from './HotelSectionBlock';
+import { ValueBlock } from './ValueBlock';
+import { ClosingCta } from './ClosingCta';
 import { useSiteContent } from '../src/lib/content';
 
 interface HomeMainProps {
@@ -11,6 +13,10 @@ interface HomeMainProps {
   onOpenAvailability: () => void;
   onSelectStory?: (story: HotelStory) => void;
 }
+
+/** El bloque de valor entra despues del tercer hotel: primero el prestigio del
+ *  trabajo, despues el argumento. */
+const VALUE_BLOCK_AFTER_INDEX = 2;
 
 function renderTwoLineHotelName(name: string) {
   const parts = name.trim().split(' ');
@@ -38,6 +44,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
   const [activeStoryIndex, setActiveStoryIndex] = useState<number>(0);
   const [isHotelSelectorOpen, setIsHotelSelectorOpen] = useState<boolean>(false);
   const [showFixedLabels, setShowFixedLabels] = useState<boolean>(false);
+  const [isValueBlockVisible, setIsValueBlockVisible] = useState<boolean>(false);
 
   const { hotels: hotelContent } = useSiteContent();
 
@@ -95,6 +102,22 @@ export const HomeMain: React.FC<HomeMainProps> = ({
       containerObserver.observe(hotelSectionEl);
     }
 
+    // El bloque de valor ocupa la pantalla entera con su propio texto grande:
+    // mientras esta a la vista se apartan los rotulos laterales y el boton
+    // flotante, que si no se le montarian encima.
+    const valueBlockEl = document.getElementById('value-block');
+    const valueBlockObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]) {
+          setIsValueBlockVisible(entries[0].isIntersecting);
+        }
+      },
+      { threshold: 0.12 }
+    );
+    if (valueBlockEl) {
+      valueBlockObserver.observe(valueBlockEl);
+    }
+
     return () => {
       sectionElements.forEach((el) => observer.unobserve(el));
       observer.disconnect();
@@ -102,8 +125,14 @@ export const HomeMain: React.FC<HomeMainProps> = ({
         containerObserver.unobserve(hotelSectionEl);
       }
       containerObserver.disconnect();
+      if (valueBlockEl) {
+        valueBlockObserver.unobserve(valueBlockEl);
+      }
+      valueBlockObserver.disconnect();
     };
   }, []);
+
+  const chromeVisible = showFixedLabels && !isValueBlockVisible;
 
   const scrollToHotel = (hotelId: string) => {
     setIsHotelSelectorOpen(false);
@@ -123,7 +152,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
         <div className="relative w-full pb-32">
           {/* Viewport-fixed Side Labels (Locked in place at screen vertical center while scrolling) */}
           <AnimatePresence>
-            {showFixedLabels && (
+            {chromeVisible && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -164,17 +193,20 @@ export const HomeMain: React.FC<HomeMainProps> = ({
 
           {/* Seamless Stack of all 8 Hotel Sections (NO DIVIDING LINES) */}
           {hotelStories.map((story, index) => (
-            <HotelSectionBlock
-              key={story.id}
-              story={story}
-              index={index}
-              onSelectStory={onSelectStory}
-            />
+            <React.Fragment key={story.id}>
+              <HotelSectionBlock story={story} index={index} onSelectStory={onSelectStory} />
+              {index === VALUE_BLOCK_AFTER_INDEX && (
+                <ValueBlock
+                  onOpenAvailability={onOpenAvailability}
+                  nextSectionId={hotelStories[index + 1]?.id}
+                />
+              )}
+            </React.Fragment>
           ))}
 
           {/* Bottom Floating Button: only appears once the first photo section is reached */}
           <AnimatePresence>
-            {showFixedLabels && (
+            {chromeVisible && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -229,6 +261,8 @@ export const HomeMain: React.FC<HomeMainProps> = ({
           </AnimatePresence>
         </div>
       </div>
+
+      <ClosingCta onOpenAvailability={onOpenAvailability} onNavigate={onNavigate} />
     </div>
   );
 };
