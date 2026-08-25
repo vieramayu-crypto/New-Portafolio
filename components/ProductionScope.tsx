@@ -48,8 +48,10 @@ export const ProductionScope: React.FC = () => {
   const pillar = PILLARS[index];
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="relative w-full max-w-4xl min-h-[240px] md:min-h-[280px] text-center">
+    <div className="flex flex-col">
+      {/* Reserva la altura de la diapositiva más larga (medidas: 358px en móvil,
+          383px en escritorio) para que los puntos no salten al rotar. */}
+      <div className="relative w-full min-h-[360px] md:min-h-[390px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={pillar.title}
@@ -59,10 +61,15 @@ export const ProductionScope: React.FC = () => {
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             className="space-y-8"
           >
-            <h3 className="font-serif text-4xl md:text-6xl text-[#1a1918]">{pillar.title}</h3>
-            <ul className="space-y-3">
+            <h3 className="font-serif text-4xl text-[#1a1918] md:text-6xl">{pillar.title}</h3>
+            {/* Filas separadas por hairlines, el mismo sistema de contenedores
+                que las preguntas frecuentes y la franja de trayectoria. */}
+            <ul className="max-w-3xl divide-y divide-[#1a1918]/10 border-y border-[#1a1918]/10">
               {pillar.items.map((item) => (
-                <li key={item} className="text-lg md:text-2xl text-[#5a5854] leading-relaxed">
+                <li
+                  key={item}
+                  className="py-5 font-serif text-xl leading-[1.35] text-[#1a1918] md:py-6 md:text-[1.65rem]"
+                >
                   {item}
                 </li>
               ))}
@@ -71,7 +78,7 @@ export const ProductionScope: React.FC = () => {
         </AnimatePresence>
       </div>
 
-      <div className="flex items-center gap-3 pt-16">
+      <div className="flex items-center justify-center gap-3 pt-16">
         {PILLARS.map((p, i) => (
           <button
             key={p.title}
