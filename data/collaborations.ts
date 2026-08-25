@@ -83,6 +83,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       'Su perspectiva única y el uso de imágenes cautivadoras han sido invaluables para compartir nuestra historia y llegar a nuevos públicos. Su imagen positiva ha captado la esencia de nuestra marca.',
     author: 'Aias Mavrikis',
+    role: 'Equipo de Marketing',
     brandName: 'Honeymoon Petra Villas',
     photo: publicImage('sec4-gal07-piscina-cruceros-v.jpg'),
   },
@@ -110,6 +111,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       'Muchas gracias por tu trabajo. Las fotos y videos son simplemente increíbles. Ganamos muchos seguidores nuevos.',
     author: 'Katerina',
+    role: 'Community Manager',
     brandName: 'Costa Mágica',
     photo: publicImage('testi-costa-magica-v.jpg'),
   },
@@ -118,6 +120,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       'Acabamos de revisar el contenido y es absolutamente precioso. Gracias por todo el esfuerzo, el cariño y el amor que le dedicaron.',
     author: 'Luna Nemeth',
+    role: 'Equipo de Marketing',
     brandName: 'Numa',
     photo: publicImage('testi-numa-v.jpg'),
     repeatNote: '3 propiedades: Madrid, Ámsterdam y Sevilla',
@@ -127,6 +130,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       'Un contenido increíble. Sois unos grandes profesionales. Llegaréis lejos poniéndole tanto cariño a lo que hacéis. Estaremos encantados de recibiros en más ocasiones.',
     author: 'Juan',
+    role: 'Equipo de Marketing',
     brandName: 'Welmoon Villas Paisaje',
     photo: publicImage('sec8-gal08-jacuzzi-noche-v.jpg'),
   },
@@ -135,6 +139,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       'Estamos muy contentos con el resultado del contenido. Muy satisfechos con la calidad y con el resultado de su creatividad.',
     author: 'Zara',
+    role: 'Equipo de Marketing',
     brandName: 'Holiday Inn Express — Ámsterdam',
     photo: publicImage('testi-holiday-inn-v.jpg'),
   },
@@ -143,6 +148,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       'Las fotos están muy bonitas y como contenido para todos los canales nos va muy muy bien, ya las verás en todo lado.',
     author: 'María Andrea',
+    role: 'Equipo de Marketing',
     brandName: 'COEO Stay & Share',
     photo: publicImage('testi-coeo-v.jpg'),
   },

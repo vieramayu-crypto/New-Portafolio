@@ -959,7 +959,7 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
 
         <div className="grid grid-cols-3 gap-3 md:gap-6 mt-16 md:mt-20">
           <div>
-            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Venue</span>
+            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Propiedad</span>
             <a
               href={venueMapUrl}
               target="_blank"
@@ -970,13 +970,13 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
             </a>
           </div>
           <div>
-            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Location</span>
+            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Ubicación</span>
             <span className="text-xs sm:text-sm md:text-base font-sans text-[#1a1918]">
               {story.location}
             </span>
           </div>
           <div>
-            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Credits</span>
+            <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Créditos</span>
             <button
               onClick={() => setCreditsOpen((v) => !v)}
               aria-expanded={creditsOpen}
