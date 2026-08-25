@@ -119,6 +119,7 @@ export const TESTIMONIALS: Testimonial[] = [
       'Acabamos de revisar el contenido y es absolutamente precioso. Gracias por todo el esfuerzo, el cariño y el amor que le dedicaron.',
     author: 'Luna Nemeth',
     brandName: 'Numa',
+    photo: publicImage('testi-numa-v.jpg'),
     repeatNote: '3 propiedades: Madrid, Ámsterdam y Sevilla',
   },
   {
@@ -135,6 +136,7 @@ export const TESTIMONIALS: Testimonial[] = [
       'Estamos muy contentos con el resultado del contenido. Muy satisfechos con la calidad y con el resultado de su creatividad.',
     author: 'Zara',
     brandName: 'Holiday Inn Express — Ámsterdam',
+    photo: publicImage('testi-holiday-inn-v.jpg'),
   },
   {
     id: 't-coeo',
