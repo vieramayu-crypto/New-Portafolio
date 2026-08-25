@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { CollaborationInquiry } from '../types';
 import { motion } from 'motion/react';
 import { BrandsMarquee } from './BrandsMarquee';
-import { Milestones } from './Milestones';
 import { ProductionScope } from './ProductionScope';
 import { Testimonials } from './Testimonials';
 import { FAQ } from './FAQ';
-import { useSiteContent } from '../src/lib/content';
+import { publicImage, useSiteContent } from '../src/lib/content';
 import { openInquiryMail } from '../src/lib/inquiry';
 
+/** Campos al mismo sistema de hairlines que el resto del sitio: sin relleno
+ *  blanco ni sombra, que era lo único que quedaba con aire de plantilla. */
 const fieldClass =
-  'w-full bg-white px-5 py-4 text-base text-[#1a1918] placeholder:text-[#5a5854] shadow-sm focus:outline-none focus:ring-1 focus:ring-[#1a1918]/40 transition-shadow';
+  'w-full border border-[#1a1918]/25 bg-transparent px-5 py-4 text-base text-[#1a1918] placeholder:text-[#5a5854] transition-colors focus:border-[#1a1918] focus:outline-none';
 
 export const Contact: React.FC = () => {
   const content = useSiteContent();
@@ -48,45 +49,100 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] pt-28 font-sans">
-      {/* Header */}
-      <div className="max-w-4xl mx-auto px-6 md:px-12 text-center space-y-4 mb-8">
-        <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#5a5854]">{content.contact.eyebrow}</span>
-        <h1 className="font-serif text-4xl md:text-6xl text-[#1a1918] tracking-wide">{content.contact.heading}</h1>
-        <p className="max-w-2xl mx-auto text-sm md:text-base text-[#5a5854] font-sans leading-relaxed">
-          {content.contact.subheading}
-        </p>
-      </div>
+      {/* Portada de Contacto — mismo esqueleto editorial que el bloque de valor
+          de Inicio: titular a escala, texto en serif, una foto real de su
+          trabajo y la trayectoria dentro de un contenedor, no flotando. */}
+      <section className="max-w-6xl mx-auto px-6 md:px-12 pb-16 md:pb-24">
+        <motion.span
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+          className="block text-[10px] font-sans uppercase tracking-[0.3em] text-[#5a5854] md:text-xs"
+        >
+          {content.contact.eyebrow}
+        </motion.span>
 
-      {/* Milestones */}
-      <Milestones />
+        <motion.div
+          initial={{ opacity: 0, y: 26, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.85, ease: [0.4, 0, 0.2, 1], delay: 0.08 }}
+          className="mt-8 md:mt-12 md:grid md:grid-cols-[1fr_auto] md:items-end md:gap-x-16"
+        >
+          <div>
+            <h1 className="font-serif text-[13vw] leading-[1.02] text-[#1a1918] sm:text-[9vw] md:text-[5.6vw] lg:text-[5.2vw]">
+              {content.contact.heading}
+            </h1>
+            <p className="mt-8 max-w-xl font-serif text-[1.35rem] leading-[1.35] text-[#1a1918] sm:text-2xl md:mt-10 md:text-[1.8rem]">
+              {content.contact.subheading}
+            </p>
+          </div>
+
+          <img
+            src={publicImage('sec4-gal06-piscina-mujer-v.jpg')}
+            alt=""
+            className="mt-10 w-full object-cover md:mt-0 md:w-[280px] lg:w-[320px]"
+            style={{ aspectRatio: '3 / 4' }}
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 26 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-90px' }}
+          transition={{ duration: 0.85, ease: [0.4, 0, 0.2, 1], delay: 0.16 }}
+          className="mt-20 border-y border-[#1a1918]/15 md:mt-28 md:grid md:grid-cols-[1fr_auto]"
+        >
+          <div className="grid grid-cols-3 gap-x-6 py-10 md:gap-x-12 md:py-14 md:pr-12">
+            {content.milestones.items.map((item) => (
+              <div key={item.label}>
+                <div className="font-serif text-4xl leading-none text-[#1a1918] md:text-6xl">{item.value}</div>
+                <div className="mt-3 text-[10px] font-sans uppercase leading-relaxed tracking-[0.2em] text-[#5a5854] md:mt-4 md:text-xs">
+                  {item.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {content.milestones.footnote && (
+            <p className="max-w-sm border-t border-[#1a1918]/15 py-10 font-sans text-xs uppercase leading-relaxed tracking-[0.2em] text-[#5a5854] md:my-10 md:max-w-[19rem] md:border-l md:border-t-0 md:py-4 md:pl-12">
+              {content.milestones.footnote}
+            </p>
+          )}
+        </motion.div>
+      </section>
 
       {/* Production scope — moved from Acerca de, presented as "qué entregamos" */}
-      <section className="max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-24 border-t border-[#1a1918]/10">
-        <div className="text-center mb-14 md:mb-20 space-y-3">
+      <section className="w-full border-t border-[#1a1918]/10 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="mb-14 md:mb-20 space-y-3">
           <span className="text-[10px] md:text-xs font-sans tracking-[0.3em] uppercase text-[#5a5854]">
             Qué entregamos
           </span>
           <h2 className="font-serif text-4xl md:text-6xl text-[#1a1918]">Alcance de producción</h2>
         </div>
-        <ProductionScope />
+          <ProductionScope />
+        </div>
       </section>
 
       {/* Testimonials — real quotes from clients */}
-      <section className="max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-24 border-t border-[#1a1918]/10">
-        <div className="text-center mb-14 space-y-3">
+      <section className="w-full border-t border-[#1a1918]/10 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="mb-14 space-y-3">
           <span className="text-[10px] md:text-xs font-sans tracking-[0.3em] uppercase text-[#5a5854]">
             Lo que dicen los equipos
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-[#1a1918]">Voces de la industria</h2>
         </div>
-        <Testimonials />
+          <Testimonials />
+        </div>
       </section>
 
       {/* Form + email CTA */}
-      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-16 md:pt-20 pb-24 border-t border-[#1a1918]/10">
-        <div className="text-center mb-12 space-y-3">
+      <div className="w-full border-t border-[#1a1918]/10 pt-16 md:pt-20 pb-24">
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="mb-12 space-y-3">
           <span className="text-[10px] md:text-xs font-sans tracking-[0.3em] uppercase text-[#5a5854]">
-            Escribinos
+            Escríbenos
           </span>
           <h2 className="font-serif text-3xl md:text-5xl text-[#1a1918]">Cuéntanos del proyecto</h2>
           <div className="pt-2">
@@ -107,19 +163,19 @@ export const Contact: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white border border-[#1a1918]/15 p-8 md:p-12 text-center space-y-6 shadow-sm"
+            className="max-w-3xl border border-[#1a1918]/25 p-8 md:p-12 space-y-6"
           >
-            <div className="w-12 h-12 rounded-full bg-[#1a1918] text-[#f5f3ed] mx-auto flex items-center justify-center font-serif text-xl">
+            <div className="w-12 h-12 rounded-full bg-[#1a1918] text-[#f5f3ed] flex items-center justify-center font-serif text-xl">
               ✓
             </div>
             <h2 className="font-serif text-3xl text-[#1a1918]">Tu solicitud está lista</h2>
-            <p className="text-sm text-[#5a5854] max-w-md mx-auto leading-relaxed">
+            <p className="text-sm text-[#5a5854] max-w-md leading-relaxed">
               Gracias, <span className="font-semibold text-[#1a1918]">{formData.name}</span>. Abrimos tu correo con
               la consulta de{' '}
               <span className="font-semibold text-[#1a1918]">{formData.propertyName || 'tu propiedad'}</span> ya
               redactada — sólo queda enviarla. Respondemos en 48 h.
             </p>
-            <p className="text-sm text-[#5a5854] max-w-md mx-auto leading-relaxed">
+            <p className="text-sm text-[#5a5854] max-w-md leading-relaxed">
               ¿No se abrió tu cliente de correo? Copia el mensaje y escríbenos a{' '}
               <a
                 href={`mailto:${content.contact.emailAddress}`}
@@ -130,7 +186,7 @@ export const Contact: React.FC = () => {
               .
             </p>
             {composed && (
-              <pre className="mx-auto max-h-56 max-w-md overflow-auto whitespace-pre-wrap bg-[#fbfaf6] p-4 text-left text-xs leading-relaxed text-[#5a5854]">
+              <pre className="max-h-56 max-w-md overflow-auto whitespace-pre-wrap bg-[#fbfaf6] p-4 text-left text-xs leading-relaxed text-[#5a5854]">
                 {composed}
               </pre>
             )}
@@ -142,7 +198,7 @@ export const Contact: React.FC = () => {
             </button>
           </motion.div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="max-w-3xl space-y-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <input
                 type="text"
@@ -182,7 +238,7 @@ export const Contact: React.FC = () => {
               <select
                 value={formData.collaborationType}
                 onChange={(e) => setFormData({ ...formData, collaborationType: e.target.value })}
-                className={`${fieldClass} appearance-none`}
+                className={fieldClass}
               >
                 <option value="Fotografía">Fotografía</option>
                 <option value="Dirección cinematográfica">Dirección cinematográfica</option>
@@ -208,7 +264,7 @@ export const Contact: React.FC = () => {
               className={`${fieldClass} resize-none`}
             />
 
-            <div className="flex justify-center pt-4">
+            <div className="flex pt-4">
               <button
                 type="submit"
                 className="bg-[#1a1918] text-[#f5f3ed] px-12 py-4 text-xs font-sans tracking-[0.25em] uppercase font-medium hover:bg-[#5a5854] transition-colors"
@@ -218,6 +274,7 @@ export const Contact: React.FC = () => {
             </div>
           </form>
         )}
+        </div>
       </div>
 
       {/* FAQ */}

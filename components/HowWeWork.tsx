@@ -54,7 +54,7 @@ export const HowWeWork: React.FC = () => {
 
       <div className="mx-auto max-w-6xl px-6 md:px-12">
         {/* Section label */}
-        <div className="mb-16 space-y-3 text-center md:mb-24">
+        <div className="mb-16 space-y-3 md:mb-24">
           <span className="text-[10px] font-sans uppercase tracking-[0.3em] text-[#5a5854] md:text-xs">
             {howWeWork.eyebrow}
           </span>
