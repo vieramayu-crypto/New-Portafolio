@@ -36,7 +36,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         transition={{ duration: 0.7 }}
         className="min-h-[100dvh] w-full flex items-center justify-center px-6 py-24"
       >
-        <p className="font-serif text-4xl sm:text-5xl md:text-7xl text-[#1a1918] leading-[1.2] max-w-6xl text-center">
+        <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1a1918] leading-[1.35] max-w-4xl text-center">
           {content.about.introStatement}
         </p>
       </motion.section>
@@ -68,7 +68,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5"
           >
-            <div className="relative aspect-[3/4] overflow-hidden border border-[#1a1918]/15 shadow-md">
+            <div className="relative aspect-[3/4] overflow-hidden shadow-md">
               <img
                 src={MAYU_PORTRAIT}
                 alt="Mayurlin Viera"
@@ -99,7 +99,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 order-1 lg:order-2"
           >
-            <div className="relative aspect-[3/4] overflow-hidden border border-[#1a1918]/15 shadow-md">
+            <div className="relative aspect-[3/4] overflow-hidden shadow-md">
               <img
                 src={YERFRAN_PORTRAIT}
                 alt="Yerfran"
@@ -129,9 +129,9 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
           <div className="pt-16">
             <button
               onClick={onOpenAvailability}
-              className="bg-[#1a1918] text-[#f5f3ed] px-12 py-6 text-base md:text-lg font-sans tracking-[0.25em] uppercase font-semibold hover:bg-[#5a5854] transition-colors"
+              className="bg-[#1a1918] px-10 py-5 text-xs font-sans uppercase tracking-[0.25em] font-medium text-[#f5f3ed] transition-colors hover:bg-[#5a5854] md:px-12 md:py-6 md:text-sm"
             >
-              Iniciar un proyecto
+              Consultar disponibilidad
             </button>
           </div>
         </div>

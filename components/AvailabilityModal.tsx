@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { openInquiryMail } from '../src/lib/inquiry';
+import { useSiteContent } from '../src/lib/content';
 
 interface AvailabilityModalProps {
   isOpen: boolean;
@@ -12,14 +14,23 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
   const [propertyName, setPropertyName] = useState('');
   const [availabilityDate, setAvailabilityDate] = useState('');
   const [sent, setSent] = useState(false);
+  const [composed, setComposed] = useState('');
+  const { contact } = useSiteContent();
 
+  // El sitio es estático: la solicitud se entrega abriendo el correo del
+  // visitante ya redactado. Se guarda el texto compuesto por si su navegador
+  // no tiene cliente de correo y necesita copiarlo a mano.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setComposed(
+      openInquiryMail(contact.emailAddress, { name, email, propertyName, availabilityDate })
+    );
     setSent(true);
   };
 
   const handleReset = () => {
     setSent(false);
+    setComposed('');
     setName('');
     setEmail('');
     setPropertyName('');
@@ -58,11 +69,26 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
                 <div className="w-12 h-12 bg-[#1a1918] text-[#f5f3ed] rounded-full mx-auto flex items-center justify-center font-serif">
                   ✓
                 </div>
-                <h3 className="font-serif text-2xl text-[#1a1918]">Solicitud en revisión</h3>
+                <h3 className="font-serif text-2xl text-[#1a1918]">Tu solicitud está lista</h3>
                 <p className="text-xs text-[#5a5854] leading-relaxed">
-                  Gracias {name}. Revisaré la disponibilidad para {propertyName || 'tu propiedad'}
-                  {availabilityDate ? ` en ${availabilityDate}` : ''} y te escribo a {email} a la brevedad.
+                  Gracias {name}. Abrimos tu correo con la consulta de {propertyName || 'tu propiedad'}
+                  {availabilityDate ? ` para ${availabilityDate}` : ''} ya redactada — sólo queda enviarla.
+                  Respondemos en 48 h.
                 </p>
+                <p className="text-xs text-[#5a5854] leading-relaxed">
+                  ¿No se abrió?{' '}
+                  <a
+                    href={`mailto:${contact.emailAddress}`}
+                    className="font-medium text-[#1a1918] underline underline-offset-2"
+                  >
+                    {contact.emailAddress}
+                  </a>
+                </p>
+                {composed && (
+                  <pre className="max-h-40 overflow-auto whitespace-pre-wrap bg-[#fbfaf6] p-3 text-left text-[11px] leading-relaxed text-[#5a5854]">
+                    {composed}
+                  </pre>
+                )}
                 <button
                   onClick={handleReset}
                   className="mt-4 bg-[#1a1918] text-[#f5f3ed] px-6 py-2.5 text-xs font-sans tracking-widest uppercase"
@@ -76,7 +102,7 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
                   <span className="text-[10px] font-sans tracking-[0.25em] uppercase text-[#5a5854] block mb-1">
                     Atención rápida
                   </span>
-                  <h3 className="font-serif text-2xl text-[#1a1918]">Iniciar un proyecto</h3>
+                  <h3 className="font-serif text-2xl text-[#1a1918]">Consultar disponibilidad</h3>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -140,7 +166,7 @@ export const AvailabilityModal: React.FC<AvailabilityModalProps> = ({ isOpen, on
                     type="submit"
                     className="w-full bg-[#1a1918] text-[#f5f3ed] py-3 text-xs font-sans tracking-[0.2em] uppercase font-medium hover:bg-[#5a5854] transition-colors mt-2"
                   >
-                    Consultar fechas
+                    Consultar disponibilidad
                   </button>
                 </form>
               </div>

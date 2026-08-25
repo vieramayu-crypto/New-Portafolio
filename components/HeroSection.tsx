@@ -1,13 +1,33 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { HERO_PHOTO } from '../data/media';
 import { useSiteContent } from '../src/lib/content';
+
+/** Cuánto permanece cada bloque del titular antes de dar paso al siguiente.
+ *  AnimatePresence en modo "wait" encadena salida y entrada, así que el ciclo
+ *  real es BLOCK_MS + OUT_S + IN_S: hay que dejar margen o el titular pasa más
+ *  tiempo desvanecido que a la vista. */
+const BLOCK_MS = 4200;
+const OUT_S = 0.5;
+const IN_S = 0.7;
 
 const TEXTURE =
   'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260729_022513_486985a2-ac8c-4278-91a8-071dcd9fcaff.png&w=1280&q=85';
 
 export const HeroSection: React.FC = () => {
   const content = useSiteContent();
+  const blocks = content.hero.blocks;
+  const [blockIndex, setBlockIndex] = useState(0);
+
+  // Los bloques se turnan en bucle: aparece uno, se desvanece, entra el
+  // siguiente. Con un solo bloque no hay temporizador que mantener.
+  useEffect(() => {
+    if (blocks.length <= 1) return;
+    const timer = setInterval(() => {
+      setBlockIndex((prev) => (prev + 1) % blocks.length);
+    }, BLOCK_MS);
+    return () => clearInterval(timer);
+  }, [blocks.length]);
 
   const scrollToContent = () => {
     document.getElementById('hotel-section')?.scrollIntoView({ behavior: 'smooth' });
@@ -52,20 +72,39 @@ export const HeroSection: React.FC = () => {
 
       {/* Bloque de texto, abajo a la izquierda */}
       <div className="absolute inset-x-0 bottom-0 z-20 px-6 pb-20 sm:px-10 sm:pb-24 md:pb-28 pointer-events-none">
-        <motion.h1
-          initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.45 }}
-          className="max-w-[17ch] font-serif text-[12.5vw] leading-[1.0] text-white sm:max-w-[16ch] sm:text-[9vw] md:max-w-[15ch] md:text-[6.4vw] lg:text-[6vw]"
-        >
-          {content.hero.headline}
-        </motion.h1>
+        {/* Altura fija de dos líneas y anclado abajo: el subtítulo no salta
+            entre bloques y ambos titulares comparten la misma línea base.
+            El ancho máximo obliga al bloque largo a partirse en dos líneas,
+            que es lo que lo mantiene lejos de la persona de la foto. */}
+        <div className="relative min-h-[2.15em] font-serif text-[16vw] leading-[1.0] sm:text-[12vw] md:max-w-[62%] md:text-[9.4vw]">
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={blocks[blockIndex]}
+              initial={{ opacity: 0, y: 26, filter: 'blur(14px)' }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                filter: 'blur(0px)',
+                transition: { duration: IN_S, ease: [0.22, 1, 0.36, 1] },
+              }}
+              exit={{
+                opacity: 0,
+                y: -20,
+                filter: 'blur(14px)',
+                transition: { duration: OUT_S, ease: [0.4, 0, 1, 1] },
+              }}
+              className="absolute inset-x-0 bottom-0 text-white"
+            >
+              {blocks[blockIndex]}
+            </motion.h1>
+          </AnimatePresence>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut', delay: 0.85 }}
-          className="mt-6 max-w-[30ch] font-sans text-base uppercase leading-relaxed tracking-[0.2em] text-white sm:max-w-[46ch] sm:text-lg md:mt-8 md:max-w-[58ch] md:text-xl md:tracking-[0.22em]"
+          className="mt-6 max-w-[34ch] font-sans text-[13px] uppercase leading-relaxed tracking-[0.14em] text-white sm:max-w-[46ch] sm:text-lg sm:tracking-[0.2em] md:mt-8 md:max-w-[58ch] md:text-xl md:tracking-[0.22em]"
         >
           {content.hero.subheadline}
         </motion.p>

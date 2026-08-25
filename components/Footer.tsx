@@ -22,7 +22,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }
 
         {/* Links */}
         <div className="md:col-span-4 space-y-3">
-          <span className="text-[10px] font-sans tracking-[0.25em] uppercase text-[#f5f3ed]/40 block mb-2">
+          <span className="text-[10px] font-sans tracking-[0.25em] uppercase text-[#f5f3ed]/60 block mb-2">
             Navegación
           </span>
           <div className="flex flex-col space-y-2 text-xs font-sans tracking-wider uppercase text-[#f5f3ed]/80">
@@ -43,7 +43,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }
 
         {/* Contact & Social */}
         <div className="md:col-span-4 space-y-3">
-          <span className="text-[10px] font-sans tracking-[0.25em] uppercase text-[#f5f3ed]/40 block mb-2">
+          <span className="text-[10px] font-sans tracking-[0.25em] uppercase text-[#f5f3ed]/60 block mb-2">
             Contacto & Social
           </span>
           <p className="text-xs text-[#f5f3ed]/80">
@@ -65,7 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }
             onClick={onOpenAvailability}
             className="mt-4 inline-block text-xs font-sans tracking-[0.2em] uppercase border border-[#f5f3ed]/30 px-4 py-2 hover:bg-[#f5f3ed] hover:text-[#1a1918] transition-colors"
           >
-            Iniciar un proyecto &rarr;
+            Consultar disponibilidad &rarr;
           </button>
         </div>
       </div>

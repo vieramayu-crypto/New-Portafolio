@@ -1,7 +1,21 @@
 {
   "hero": {
-    "headline": "Contamos lo que se siente, no solo lo que se ve.",
+    "blocks": ["Un rodaje.", "Un año de material."],
     "subheadline": "Producción visual para hoteles de lujo — fotografía, video y cortometraje editorial."
+  },
+  "valueBlock": {
+    "eyebrow": "Lo que deja un rodaje",
+    "claim": "Cada rodaje deja dos cosas.",
+    "benefits": [
+      "Fotografía y video que tu equipo usa todo el año. Web, campañas, publicidad — con derechos incluidos.",
+      "Y tu hotel delante de una audiencia que aún no lo conocía."
+    ],
+    "audience": "Hoteles de lujo y boutique en Europa. De grandes grupos a casas de doce habitaciones.",
+    "ctaLabel": "Consultar disponibilidad"
+  },
+  "closingCta": {
+    "heading": "¿Hablamos de tu propiedad?",
+    "ctaLabel": "Consultar disponibilidad"
   },
   "about": {
     "flipWords": ["Mirada", "Carácter", "Verdad"],
@@ -20,7 +34,7 @@
   "contact": {
     "eyebrow": "Reserva de calendario",
     "heading": "Trabajemos juntos",
-    "subheading": "Reservamos con dos a tres semanas de antelación. Contanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.",
+    "subheading": "Reservamos con dos a tres semanas de antelación. Cuéntanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.",
     "emailAddress": "mayuviera@gmail.com"
   },
   "milestones": {
@@ -39,7 +53,7 @@
       {
         "number": "01",
         "title": "Contacto y encaje",
-        "description": "Nos escribís desde el formulario o el email. En una llamada breve entendemos la propiedad, la temporada y el uso que le vas a dar al material."
+        "description": "Nos escribes desde el formulario o el email. En una llamada breve entendemos la propiedad, la temporada y el uso que le vas a dar al material."
       },
       {
         "number": "02",

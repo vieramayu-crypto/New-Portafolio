@@ -33,8 +33,20 @@ export interface FaqEntry {
 
 export interface SiteContent {
   hero: {
-    headline: string;
+    /** Bloques que se turnan en el titular, uno a la vez. */
+    blocks: string[];
     subheadline: string;
+  };
+  valueBlock: {
+    eyebrow: string;
+    claim: string;
+    benefits: string[];
+    audience: string;
+    ctaLabel: string;
+  };
+  closingCta: {
+    heading: string;
+    ctaLabel: string;
   };
   about: {
     flipWords: string[];
@@ -73,8 +85,22 @@ export interface SiteContent {
 // in content.json once it's fetched.
 export const DEFAULT_CONTENT: SiteContent = {
   hero: {
-    headline: 'Contamos lo que se siente, no solo lo que se ve.',
+    blocks: ['Un rodaje.', 'Un año de material.'],
     subheadline: 'Producción visual para hoteles de lujo — fotografía, video y cortometraje editorial.',
+  },
+  valueBlock: {
+    eyebrow: 'Lo que deja un rodaje',
+    claim: 'Cada rodaje deja dos cosas.',
+    benefits: [
+      'Fotografía y video que tu equipo usa todo el año. Web, campañas, publicidad — con derechos incluidos.',
+      'Y tu hotel delante de una audiencia que aún no lo conocía.',
+    ],
+    audience: 'Hoteles de lujo y boutique en Europa. De grandes grupos a casas de doce habitaciones.',
+    ctaLabel: 'Consultar disponibilidad',
+  },
+  closingCta: {
+    heading: '¿Hablamos de tu propiedad?',
+    ctaLabel: 'Consultar disponibilidad',
   },
   about: {
     flipWords: ['Mirada', 'Carácter', 'Verdad'],
@@ -97,7 +123,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     eyebrow: 'Reserva de calendario',
     heading: 'Trabajemos juntos',
     subheading:
-      'Reservamos con dos a tres semanas de antelación. Contanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.',
+      'Reservamos con dos a tres semanas de antelación. Cuéntanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.',
     emailAddress: 'mayuviera@gmail.com',
   },
   milestones: {
@@ -118,7 +144,7 @@ export const DEFAULT_CONTENT: SiteContent = {
         number: '01',
         title: 'Contacto y encaje',
         description:
-          'Nos escribís desde el formulario o el email. En una llamada breve entendemos la propiedad, la temporada y el uso que le vas a dar al material.',
+          'Nos escribes desde el formulario o el email. En una llamada breve entendemos la propiedad, la temporada y el uso que le vas a dar al material.',
       },
       {
         number: '02',
@@ -314,12 +340,45 @@ function mergeContent(fetched: unknown): SiteContent {
       ? f.faq!.questions
       : DEFAULT_CONTENT.faq.questions;
 
+  const heroBlocks =
+    Array.isArray(f.hero?.blocks) && f.hero!.blocks.every(isNonEmptyString) && f.hero!.blocks.length > 0
+      ? f.hero!.blocks
+      : DEFAULT_CONTENT.hero.blocks;
+
+  const benefits =
+    Array.isArray(f.valueBlock?.benefits) &&
+    f.valueBlock!.benefits.every(isNonEmptyString) &&
+    f.valueBlock!.benefits.length > 0
+      ? f.valueBlock!.benefits
+      : DEFAULT_CONTENT.valueBlock.benefits;
+
   return {
     hero: {
-      headline: isNonEmptyString(f.hero?.headline) ? f.hero!.headline : DEFAULT_CONTENT.hero.headline,
+      blocks: heroBlocks,
       subheadline: isNonEmptyString(f.hero?.subheadline)
         ? f.hero!.subheadline
         : DEFAULT_CONTENT.hero.subheadline,
+    },
+    valueBlock: {
+      eyebrow: isNonEmptyString(f.valueBlock?.eyebrow)
+        ? f.valueBlock!.eyebrow
+        : DEFAULT_CONTENT.valueBlock.eyebrow,
+      claim: isNonEmptyString(f.valueBlock?.claim) ? f.valueBlock!.claim : DEFAULT_CONTENT.valueBlock.claim,
+      benefits,
+      audience: isNonEmptyString(f.valueBlock?.audience)
+        ? f.valueBlock!.audience
+        : DEFAULT_CONTENT.valueBlock.audience,
+      ctaLabel: isNonEmptyString(f.valueBlock?.ctaLabel)
+        ? f.valueBlock!.ctaLabel
+        : DEFAULT_CONTENT.valueBlock.ctaLabel,
+    },
+    closingCta: {
+      heading: isNonEmptyString(f.closingCta?.heading)
+        ? f.closingCta!.heading
+        : DEFAULT_CONTENT.closingCta.heading,
+      ctaLabel: isNonEmptyString(f.closingCta?.ctaLabel)
+        ? f.closingCta!.ctaLabel
+        : DEFAULT_CONTENT.closingCta.ctaLabel,
     },
     about: {
       flipWords:

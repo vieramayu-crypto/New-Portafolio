@@ -106,13 +106,12 @@ export default function App() {
         )}
       </main>
 
-      {/* Render Footer on pages other than full home scroll, or at bottom */}
-      {(currentPage !== 'home' || selectedStory) && (
-        <Footer
-          onNavigate={handleNavigate}
-          onOpenAvailability={() => setIsAvailabilityOpen(true)}
-        />
-      )}
+      {/* El pie cierra todas las páginas, Inicio incluido: hasta ahora Inicio
+          terminaba en seco, sin Instagram, sin navegación y sin aviso legal. */}
+      <Footer
+        onNavigate={handleNavigate}
+        onOpenAvailability={() => setIsAvailabilityOpen(true)}
+      />
 
       {/* Quick Availability Modal */}
       <AvailabilityModal
