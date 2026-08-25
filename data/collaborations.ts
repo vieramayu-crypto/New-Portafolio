@@ -141,5 +141,6 @@ export const TESTIMONIALS: Testimonial[] = [
       'Las fotos están muy bonitas y como contenido para todos los canales nos va muy muy bien, ya las verás en todo lado.',
     author: 'María Andrea',
     brandName: 'COEO Stay & Share',
+    photo: publicImage('testi-coeo-v.jpg'),
   },
 ];
