@@ -111,6 +111,7 @@ export const TESTIMONIALS: Testimonial[] = [
       'Muchas gracias por tu trabajo. Las fotos y videos son simplemente increíbles. Ganamos muchos seguidores nuevos.',
     author: 'Katerina',
     brandName: 'Costa Mágica',
+    photo: publicImage('testi-costa-magica-v.jpg'),
   },
   {
     id: 't-numa',
