@@ -108,7 +108,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 't-costa-magica',
     quote:
-      'Muchas gracias por tu trabajo. Las fotos y videos son simplemente increíbles. Ganamos muchos seguidores nuevos después de nuestra colaboración.',
+      'Muchas gracias por tu trabajo. Las fotos y videos son simplemente increíbles. Ganamos muchos seguidores nuevos.',
     author: 'Katerina',
     brandName: 'Costa Mágica',
   },
