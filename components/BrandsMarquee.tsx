@@ -27,6 +27,8 @@ const BRANDS: { name: string; sub?: string; className: string }[] = [
   { name: 'Welmoon Villas', className: ELEGANT },
   { name: 'Hotel Espléndido', sub: 'SÓLLER', className: SERIF_WIDE },
   { name: 'Casa Marquina', className: 'font-serif italic text-2xl md:text-3xl' },
+  { name: 'Costa Mágica', sub: 'TENERIFE', className: ELEGANT },
+  { name: 'COEO', sub: 'STAY & SHARE', className: SANS_BOLD_UPPER },
 ];
 
 const BrandLogo: React.FC<{ brand: (typeof BRANDS)[number] }> = ({ brand }) => (

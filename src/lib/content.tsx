@@ -108,7 +108,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       { value: '6', label: 'Años trabajando en pareja' },
     ],
     footnote:
-      'Clientes recurrentes — GPRO Valparaíso (3 rodajes) · Portixol (2 rodajes) · Numa Group (Madrid, Amsterdam, Sevilla)',
+      'Clientes recurrentes — GPRO Valparaíso (3 rodajes) · Numa Group (3 propiedades) · Hotel Espléndido (2 rodajes) · Portixol (2 rodajes)',
   },
   howWeWork: {
     eyebrow: 'Cómo trabajamos',

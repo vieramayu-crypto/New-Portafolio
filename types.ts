@@ -56,8 +56,14 @@ export interface Testimonial {
   id: string;
   quote: string;
   author: string;
-  role: string;
+  /** Job title. Omitted when the client only gave us a name. */
+  role?: string;
   brandName: string;
+  /** Photo from that property's shoot, shown beside the quote. Falls back to
+   *  the brand name set in type when we don't have imagery for the brand yet. */
+  photo?: string;
+  /** Durable proof of repeat business, e.g. "3 rodajes juntos". */
+  repeatNote?: string;
 }
 
 export interface CollaborationInquiry {
