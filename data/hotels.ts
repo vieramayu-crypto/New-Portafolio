@@ -12,6 +12,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 0,
+    caseStudy: {
+      season: 'Julio · Verano',
+      duration: '4 días',
+      usage: 'Redes sociales · Campaña de temporada alta',
+    },
     coverImage: publicImage('sec1-portada.jpg'),
     description: 'Ubicado en las orillas cristalinas del Lago di Como, el Grand Hotel Tremezzo representa la cima del glamour italiano de la belle époque. Sus jardines escalonados descienden hasta el agua, enmarcando cada celebración con la calma del lago y el eco de las montañas circundantes. Dentro, los salones conservan el espíritu de la belle époque: mármoles claros, arañas de cristal y una luz que parece detenida en el tiempo. Cada rincón del hotel cuenta una historia distinta, y juntos forman el escenario perfecto para una boda que se siente íntima incluso en su grandeza.',
     quote: 'Un romance envuelto en velos de encaje vintage y la brisa atemporal del lago.',
@@ -118,6 +123,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 6,
+    caseStudy: {
+      season: 'Septiembre · Verano',
+      duration: '3 días',
+      usage: 'Redes sociales',
+    },
     coverImage: publicImage('sec7-portada.jpg'),
     description:
       'Construido sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, InterContinental Lisboa combina arquitectura contemporánea con vistas que se extienden hasta el río Tajo — una lectura moderna del skyline lisboeta.',
@@ -257,6 +267,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Villa Histórica',
     layoutVariant: 1,
+    caseStudy: {
+      season: 'Junio · Verano',
+      duration: '3 días',
+      usage: 'Redes sociales · Campaña de temporada alta',
+    },
     coverImage: publicImage('sec2-portada.jpg'),
     description:
       'En un valle del norte de Menorca, dentro de una finca privada de 800 hectáreas, Vestige Binidufà restaura una possessió agrícola del siglo XVIII — piedra, barro y materiales naturales que toman su tono directamente del paisaje que la rodea, con la herencia morisca aún presente en su nombre.',
@@ -380,6 +395,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Escapada Romántica',
     layoutVariant: 2,
+    caseStudy: {
+      season: 'Septiembre · Verano',
+      duration: '3 días',
+      usage: 'Redes sociales',
+    },
     coverImage: publicImage('sec3-portada.jpg'),
     description:
       'A orillas del lago de Thun, entre dos reservas naturales del Kanderdelta, Deltapark Vitalresort combina arquitectura alpina contemporánea con un spa de 2.000 m² — agua, montaña y bienestar en un mismo horizonte.',
@@ -519,6 +539,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 3,
+    caseStudy: {
+      season: 'Mayo · Primavera',
+      duration: '4 días',
+      usage: 'Redes sociales',
+    },
     coverImage: publicImage('sec4-portada.jpg'),
     description:
       'Suspendido sobre el acantilado de Imerovigli, tallado en roca volcánica sobre la caldera de Santorini, Honeymoon Petra Villas ofrece una de las piscinas más buscadas del Egeo — un balcón de piedra sobre el mar más azul de Grecia.',
@@ -658,6 +683,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 4,
+    caseStudy: {
+      season: 'Verano · 2023, 2024 y 2026',
+      duration: '5 días',
+      usage: 'Redes sociales · Campaña de temporada alta',
+    },
     coverImage: publicImage('sec5-portada.jpg'),
     description:
       'En lo alto del distrito de Bonanova, rodeado de jardines privados con vistas a la bahía de Palma, GPRO Valparaíso Palace & Spa alberga el spa más grande de Mallorca — un refugio sereno entre agua, piedra y vegetación mediterránea.',
@@ -805,6 +835,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Hotel de Lujo',
     layoutVariant: 5,
+    caseStudy: {
+      season: 'Julio · 2024 y 2026',
+      duration: '3 días',
+      usage: 'Redes sociales',
+    },
     coverImage: publicImage('sec6-portada.jpg'),
     description:
       'En primera línea de la bahía de Puerto de Sóller, con la Serra de Tramuntana como telón de fondo, Hotel Espléndido combina fachadas de piedra caliza, terrazas frente al mar y el tranvía histórico que aún recorre el paseo marítimo.',
@@ -952,6 +987,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Escapada Romántica',
     layoutVariant: 8,
+    caseStudy: {
+      season: 'Octubre · Otoño',
+      duration: '4 días',
+      usage: 'Redes sociales',
+    },
     coverImage: publicImage('sec9-foto1-v.jpg'),
     description:
       'En el corazón del desierto de Gorafe, District Hive es una cápsula de vidrio y acero suspendida sobre el badlands granadino — arquitectura off-grid pensada para desaparecer en el paisaje: agua del aire, energía del sol, y el silencio absoluto de Andalucía interior.',
@@ -1067,6 +1107,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     year: '2026',
     category: 'Escapada Romántica',
     layoutVariant: 7,
+    caseStudy: {
+      season: 'Marzo · Primavera',
+      duration: '3 días',
+      usage: 'Redes sociales',
+    },
     coverImage: publicImage('sec8-portada.jpg'),
     description:
       'Entre pinares de Caravaca de la Cruz, las villas abovedadas de Welmoon Paisaje están pensadas para dormir bajo un manto de estrellas — arquitectura íntima, hecha para desconectar del ruido y mirar el cielo sin filtros.',
