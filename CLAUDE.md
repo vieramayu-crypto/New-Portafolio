@@ -124,17 +124,18 @@ reporte completo — decir brevemente que ya se confirmó antes y seguir.
 - **Jerarquía de líneas**: regla a sangre completa = cambio de sección; hairline
   al ancho del contenido = estructura dentro de un bloque. Los campos del
   formulario usan el mismo hairline, sin relleno ni sombra.
-- **Hero**: Playfair Display **500** (`font-display font-medium`), no Cormorant
-  —Cormorant no gana peso ni en su grado más alto— y **sin tracking negativo**:
-  al 600 y apretado las letras se tocaban. Titular **alineado a la izquierda** y
-  centrado en vertical; la primera línea (`hero.fixedLine`) no cambia, sólo rota
-  la de debajo (`hero.blocks`). El subtítulo vive abajo, con su propio aire.
-  Con el texto a la izquierda la persona de la foto queda libre sin forzar el
-  encuadre — no hace falta `scale` ni `translate-x`.
-- **Velo del hero: uno por viewport.** En escritorio entra desde la izquierda y
-  se apaga antes de la persona; en móvil el titular ocupa casi todo el ancho y
-  necesita una cortina más plana y más opaca. Medir siempre contra el píxel más
-  claro bajo cada caja de texto, no promediando.
+- **Hero**: Cormorant (`font-serif`, peso normal). Se probó Playfair 500/600 y
+  ella lo rechazó: "se perdió la elegancia, se ve como negrita". El tamaño se
+  mantiene; lo que baja es el peso.
+- **El hero son dos zonas**: la foto arriba (`flex-1`) con el titular repartido
+  —`hero.fixedLine` arriba, la palabra que rota abajo— dejando a la persona
+  respirar en medio; y debajo una **banda de fondo crema** con el subtítulo en
+  negro y la trayectoria. Con el subtítulo sobre fondo sólido no hace falta
+  oscurecer media foto. Sin señal de "Desplazar".
+- **Velo del hero: dos elipses ancladas a las esquinas** donde vive el titular,
+  no una cortina de lado a lado. Al medir contraste, la caja del `<span>` es de
+  ancho completo y da lecturas falsas: hay que medir sobre los glifos reales
+  (`Range.getBoundingClientRect`) y contra el píxel más claro, no promediando.
 - **Botones**: un solo tamaño en toda la web —
   `px-8 py-4 text-[11px] md:px-10 md:py-[1.15rem] md:text-xs`, centrados.
 - **Un solo CTA por bloque.** El "ver más" de Inicio vive en el umbral de la

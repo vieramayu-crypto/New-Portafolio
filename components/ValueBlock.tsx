@@ -44,7 +44,7 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
             "Voces de la industria": ancla discreta, foto flotada y el texto
             envolviéndola. Se pasa de una a otra pulsando la foto. */}
         <motion.div {...rise(0.1)} className="mt-20 md:mt-28">
-          <div className="relative min-h-[430px] sm:min-h-[400px] md:min-h-[420px]">
+          <div className="relative min-h-[380px] sm:min-h-[400px] md:min-h-[420px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
@@ -65,7 +65,7 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
                     <button
                       onClick={next}
                       aria-label="Ver la otra cosa que deja un rodaje"
-                      className="float-left mb-3 mr-5 block w-28 cursor-pointer sm:w-36 md:mb-4 md:mr-8 md:w-[210px] lg:w-[240px]"
+                      className="float-left mb-4 mr-5 block w-[38%] cursor-pointer sm:w-44 md:mb-4 md:mr-8 md:w-[210px] lg:w-[240px]"
                     >
                       <img
                         src={publicImage(BENEFIT_PHOTOS[index % BENEFIT_PHOTOS.length])}
@@ -75,7 +75,7 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
                       />
                     </button>
 
-                    <p className="font-serif text-[1.45rem] leading-[1.3] text-[#1a1918] sm:text-3xl md:text-[2.35rem] md:leading-[1.28] lg:text-[2.6rem]">
+                    <p className="font-serif text-[1.7rem] leading-[1.28] text-[#1a1918] sm:text-3xl md:text-[2.35rem] md:leading-[1.28] lg:text-[2.6rem]">
                       {current}
                     </p>
                   </div>
@@ -123,12 +123,12 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
                 <img
                   src={testimonial.photo}
                   alt=""
-                  className="float-left mb-3 mr-5 w-28 object-cover sm:w-36 md:mb-4 md:mr-8 md:w-[210px] lg:w-[240px]"
+                  className="float-left mb-4 mr-5 w-[38%] object-cover sm:w-44 md:mb-4 md:mr-8 md:w-[210px] lg:w-[240px]"
                   style={{ aspectRatio: '3 / 4' }}
                 />
               )}
 
-              <blockquote className="font-serif text-[1.45rem] leading-[1.3] text-[#1a1918] sm:text-3xl md:text-[2.35rem] md:leading-[1.28] lg:text-[2.6rem]">
+              <blockquote className="font-serif text-[1.7rem] leading-[1.28] text-[#1a1918] sm:text-3xl md:text-[2.35rem] md:leading-[1.28] lg:text-[2.6rem]">
                 {testimonial.quote}
               </blockquote>
 

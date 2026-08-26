@@ -56,11 +56,11 @@ export const ProductionScope: React.FC = () => {
             <h3 className="font-serif text-4xl text-[#1a1918] md:text-6xl">{pillar.title}</h3>
             {/* Filas separadas por hairlines, el mismo sistema de contenedores
                 que las preguntas frecuentes y la franja de trayectoria. */}
-            <ul className="divide-y divide-[#1a1918]/10 border-y border-[#1a1918]/10">
+            <ul className="space-y-6 md:space-y-8">
               {pillar.items.map((item) => (
                 <li
                   key={item}
-                  className="py-5 font-serif text-xl leading-[1.35] text-[#1a1918] md:py-6 md:text-[1.65rem]"
+                  className="font-serif text-xl leading-[1.35] text-[#1a1918] md:text-[1.65rem]"
                 >
                   {item}
                 </li>
