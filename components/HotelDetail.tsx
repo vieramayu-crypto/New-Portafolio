@@ -926,7 +926,7 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
           onLoad={() => setHeroLoaded(true)}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1918]/35 via-transparent to-[#1a1918]/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1918]/60 via-transparent to-[#1a1918]/10" />
 
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
@@ -949,6 +949,23 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
           <span aria-hidden="true">&larr;</span>
           <span>Volver</span>
         </button>
+
+        {/* Los datos del rodaje, en una sola línea al pie de la portada: se leen
+            de un vistazo y no interrumpen a quien sólo viene a mirar fotos. */}
+        {story.caseStudy && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={heroLoaded ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.5 }}
+            className="pointer-events-none absolute inset-x-0 bottom-0 px-6 pb-6 sm:px-10 sm:pb-8 md:px-16"
+          >
+            <div className="flex flex-wrap items-baseline justify-center gap-x-6 gap-y-1 text-[9px] font-sans uppercase tracking-[0.2em] text-white/85 md:gap-x-12 md:text-[10px]">
+              {story.caseStudy.season && <span>{story.caseStudy.season}</span>}
+              {story.caseStudy.duration && <span>{story.caseStudy.duration}</span>}
+              {story.caseStudy.usage && <span>{story.caseStudy.usage}</span>}
+            </div>
+          </motion.div>
+        )}
       </section>
 
       {/* TEXT BLOCK — description + Venue / Location / Credits, its own section between hero and gallery */}
@@ -1011,36 +1028,6 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
           )}
         </AnimatePresence>
 
-        {/* Case study — durable facts about the shoot. Renders only the fields we
-            actually have, so a hotel with partial data still looks deliberate. */}
-        {story.caseStudy && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-6 mt-14 md:mt-16 pt-10 md:pt-12 border-t border-[#1a1918]/10">
-            {story.caseStudy.season && (
-              <div>
-                <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Temporada</span>
-                <span className="text-xs sm:text-sm md:text-base font-sans text-[#1a1918]">
-                  {story.caseStudy.season}
-                </span>
-              </div>
-            )}
-            {story.caseStudy.duration && (
-              <div>
-                <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Rodaje</span>
-                <span className="text-xs sm:text-sm md:text-base font-sans text-[#1a1918]">
-                  {story.caseStudy.duration}
-                </span>
-              </div>
-            )}
-            {story.caseStudy.usage && (
-              <div>
-                <span className="block text-[11px] sm:text-xs md:text-sm text-[#5a5854] mb-2">Uso del material</span>
-                <span className="text-xs sm:text-sm md:text-base font-sans text-[#1a1918]">
-                  {story.caseStudy.usage}
-                </span>
-              </div>
-            )}
-          </div>
-        )}
       </section>
 
       {/* GALLERY — max 10 photos, masonry mix with shared parallax movement */}

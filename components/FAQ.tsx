@@ -9,10 +9,7 @@ export const FAQ: React.FC = () => {
   return (
     <section className="w-full py-20 md:py-28">
       <div className="max-w-3xl mx-auto px-6 md:px-8">
-        <div className="text-center mb-12 md:mb-16 space-y-3">
-          <span className="text-[10px] md:text-xs font-sans tracking-[0.3em] uppercase text-[#5a5854]">
-            {faq.eyebrow}
-          </span>
+        <div className="text-center mb-12 md:mb-16">
           <h2 className="font-serif text-4xl md:text-5xl text-[#1a1918]">{faq.heading}</h2>
         </div>
 

@@ -38,10 +38,10 @@
     "closingStatement": "Una parte importante de nuestro trabajo son propiedades donde la sostenibilidad no es una etiqueta: casas off-grid, fincas agrícolas, hoteles que se sostienen con lo que tienen alrededor. Contarlo bien exige mirarlo de cerca — y es lo que mejor sabemos hacer."
   },
   "contact": {
-    "eyebrow": "Reserva de calendario",
     "heading": "Trabajemos juntos",
-    "subheading": "Cuéntanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.",
-    "emailAddress": "mayuviera@gmail.com"
+    "emailAddress": "mayuviera@gmail.com",
+    "formHeading": "Cuéntanos del proyecto",
+    "formIntro": "Tu propiedad y las fechas que estás considerando. Respondemos en 48 h."
   },
   "milestones": {
     "eyebrow": "Trayectoria",
@@ -88,8 +88,7 @@
     ]
   },
   "faq": {
-    "eyebrow": "Preguntas frecuentes",
-    "heading": "Antes de escribir",
+    "heading": "Dudas habituales",
     "questions": [
       {
         "question": "¿Con cuánta antelación conviene reservar fechas?",
