@@ -102,23 +102,30 @@ reporte completo — decir brevemente que ya se confirmó antes y seguir.
 
 ## Sistema de diseño (decidido, no revertir sin que ella lo pida)
 
-- **Todo centrado y simétrico.** Se probó el eje izquierdo en una ronda y ella
-  lo rechazó: cabeceras, textos, carruseles, formulario y botones van al centro.
-  Las únicas piezas asimétricas son las galerías de hotel de Inicio.
-- **Tres carruseles hermanos**, con el mismo esqueleto: ancla sobredimensionada
-  (cifra o comilla) → foto real 3/4 → texto en serif grande → firma.
-  Son el bloque de valor de Inicio, "El proceso" (Acerca de) y "Voces de la
-  industria" (Contacto). Cambiar uno es cambiar los tres.
+- **Centrado sí, pero no los carruseles.** Cabeceras de sección, bloques de
+  texto sueltos, formulario y botones van centrados. Se probó centrar también
+  los carruseles y ella lo rechazó de inmediato: **ese diseño no se toca.**
+- **Tres carruseles hermanos**, con el mismo esqueleto y **alineados a la
+  izquierda**: ancla a la izquierda (comilla o cifra) → foto flotada 3/4 →
+  el texto en serif grande envolviéndola → firma. Son el bloque de valor de
+  Inicio, "El proceso" (Acerca de) y "Voces de la industria" (Contacto).
+  Cambiar uno es cambiar los tres.
+- El bloque de valor **no lleva bucle**: entra una vez y se pasa de 01 a 02
+  pulsando la foto. La cifra es un rótulo diminuto, no un ancla gigante.
 - **Jerarquía de líneas**: regla a sangre completa = cambio de sección; hairline
   al ancho del contenido = estructura dentro de un bloque. Los campos del
   formulario usan el mismo hairline, sin relleno ni sombra.
-- **Hero**: Playfair Display 600 (`font-display font-semibold`), no Cormorant —
-  Cormorant es una serif ligera que no gana peso ni en su grado más alto.
-  Titular centrado en los dos ejes, dos líneas por bloque (los saltos de línea
-  van en `content.json` como `\n`). La foto es más alta que ancha respecto al
-  viewport, así que `object-position` horizontal no hace nada en escritorio:
-  para mover a la persona hay que `scale` + `translate-x`, y el margen máximo
-  de desplazamiento es `720*(escala-1)` px o aparece una franja vacía.
+- **Hero**: Playfair Display **500** (`font-display font-medium`), no Cormorant
+  —Cormorant no gana peso ni en su grado más alto— y **sin tracking negativo**:
+  al 600 y apretado las letras se tocaban. Titular **alineado a la izquierda** y
+  centrado en vertical; la primera línea (`hero.fixedLine`) no cambia, sólo rota
+  la de debajo (`hero.blocks`). El subtítulo vive abajo, con su propio aire.
+  Con el texto a la izquierda la persona de la foto queda libre sin forzar el
+  encuadre — no hace falta `scale` ni `translate-x`.
+- **Velo del hero: uno por viewport.** En escritorio entra desde la izquierda y
+  se apaga antes de la persona; en móvil el titular ocupa casi todo el ancho y
+  necesita una cortina más plana y más opaca. Medir siempre contra el píxel más
+  claro bajo cada caja de texto, no promediando.
 - **Botones**: un solo tamaño en toda la web —
   `px-8 py-4 text-[11px] md:px-10 md:py-[1.15rem] md:text-xs`, centrados.
 - **Un solo CTA por bloque.** El "ver más" de Inicio vive en el umbral de la
