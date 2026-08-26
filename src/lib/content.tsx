@@ -57,9 +57,12 @@ export interface SiteContent {
     closingStatement: string;
   };
   contact: {
-    eyebrow: string;
     heading: string;
-    subheading: string;
+    /** Rótulo y línea de instrucción del formulario. La instrucción vive aquí,
+     *  junto al formulario, y no en la portada: decirla dos veces era la
+     *  repetición más visible de la página. */
+    formHeading: string;
+    formIntro: string;
     emailAddress: string;
   };
   milestones: {
@@ -73,7 +76,6 @@ export interface SiteContent {
     steps: HowWeWorkStep[];
   };
   faq: {
-    eyebrow: string;
     heading: string;
     questions: FaqEntry[];
   };
@@ -119,10 +121,9 @@ export const DEFAULT_CONTENT: SiteContent = {
       'Una parte importante de nuestro trabajo son propiedades donde la sostenibilidad no es una etiqueta: casas off-grid, fincas agrícolas, hoteles que se sostienen con lo que tienen alrededor. Contarlo bien exige mirarlo de cerca — y es lo que mejor sabemos hacer.',
   },
   contact: {
-    eyebrow: 'Reserva de calendario',
     heading: 'Trabajemos juntos',
-    subheading:
-      'Cuéntanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.',
+    formHeading: 'Cuéntanos del proyecto',
+    formIntro: 'Tu propiedad y las fechas que estás considerando. Respondemos en 48 h.',
     emailAddress: 'mayuviera@gmail.com',
   },
   milestones: {
@@ -166,8 +167,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     ],
   },
   faq: {
-    eyebrow: 'Preguntas frecuentes',
-    heading: 'Antes de escribir',
+    heading: 'Dudas habituales',
     questions: [
       {
         question: '¿Con cuánta antelación conviene reservar fechas?',
@@ -396,11 +396,13 @@ function mergeContent(fetched: unknown): SiteContent {
         : DEFAULT_CONTENT.about.closingStatement,
     },
     contact: {
-      eyebrow: isNonEmptyString(f.contact?.eyebrow) ? f.contact!.eyebrow : DEFAULT_CONTENT.contact.eyebrow,
       heading: isNonEmptyString(f.contact?.heading) ? f.contact!.heading : DEFAULT_CONTENT.contact.heading,
-      subheading: isNonEmptyString(f.contact?.subheading)
-        ? f.contact!.subheading
-        : DEFAULT_CONTENT.contact.subheading,
+      formHeading: isNonEmptyString(f.contact?.formHeading)
+        ? f.contact!.formHeading
+        : DEFAULT_CONTENT.contact.formHeading,
+      formIntro: isNonEmptyString(f.contact?.formIntro)
+        ? f.contact!.formIntro
+        : DEFAULT_CONTENT.contact.formIntro,
       emailAddress: isNonEmptyString(f.contact?.emailAddress)
         ? f.contact!.emailAddress
         : DEFAULT_CONTENT.contact.emailAddress,
@@ -424,7 +426,6 @@ function mergeContent(fetched: unknown): SiteContent {
       steps: howWeWorkSteps,
     },
     faq: {
-      eyebrow: isNonEmptyString(f.faq?.eyebrow) ? f.faq!.eyebrow : DEFAULT_CONTENT.faq.eyebrow,
       heading: isNonEmptyString(f.faq?.heading) ? f.faq!.heading : DEFAULT_CONTENT.faq.heading,
       questions: faqQuestions,
     },

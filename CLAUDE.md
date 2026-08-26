@@ -127,15 +127,23 @@ reporte completo — decir brevemente que ya se confirmó antes y seguir.
 - **Hero**: Cormorant (`font-serif`, peso normal). Se probó Playfair 500/600 y
   ella lo rechazó: "se perdió la elegancia, se ve como negrita". El tamaño se
   mantiene; lo que baja es el peso.
-- **El hero son dos zonas**: la foto arriba (`flex-1`) con el titular repartido
-  —`hero.fixedLine` arriba, la palabra que rota abajo— dejando a la persona
-  respirar en medio; y debajo una **banda de fondo crema** con el subtítulo en
-  negro y la trayectoria. Con el subtítulo sobre fondo sólido no hace falta
-  oscurecer media foto. Sin señal de "Desplazar".
-- **Velo del hero: dos elipses ancladas a las esquinas** donde vive el titular,
-  no una cortina de lado a lado. Al medir contraste, la caja del `<span>` es de
-  ancho completo y da lecturas falsas: hay que medir sobre los glifos reales
-  (`Range.getBoundingClientRect`) y contra el píxel más claro, no promediando.
+- **El hero es la foto entera y un solo bloque de texto abajo a la izquierda**:
+  titular en dos líneas (`hero.fixedLine` + la palabra que rota, esta en
+  cursiva), subtítulo pequeño debajo y la trayectoria en un renglón fino. Sin
+  banda de fondo, sin "Desplazar". Referencia que dio ella: la portada de v0.
+- **La foto del hero es el problema de fondo**: `hero-portada.jpg` tiene su zona
+  más clara (la grava) justo donde va el texto, y por eso pide tanto velo.
+  Alternativas medidas con la esquina inferior izquierda oscura y limpia:
+  `sec6-gal01-fachada-noche-h.jpg` (la mejor con diferencia) y
+  `sec3-gal08-fachada-h.jpg`.
+- **Al medir contraste, cuidado con la caja**: un `<span>` de bloque ocupa todo
+  el ancho y da lecturas falsas; hay que medir sobre los glifos reales
+  (`Range.getBoundingClientRect`), coger el div **más pequeño** que contiene el
+  texto (si no se coge un ancestro), y comparar contra el píxel más claro y
+  contra la opacidad real del texto, no contra blanco puro.
+- **Ficha de hotel**: los datos del rodaje (temporada, duración, uso) van en una
+  sola línea fina al pie de la foto de portada, no en una segunda fila de datos
+  debajo de la ficha — ahí era demasiado texto para quien viene a ver fotos.
 - **Botones**: un solo tamaño en toda la web —
   `px-8 py-4 text-[11px] md:px-10 md:py-[1.15rem] md:text-xs`, centrados.
 - **Un solo CTA por bloque.** El "ver más" de Inicio vive en el umbral de la

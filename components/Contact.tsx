@@ -49,35 +49,17 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f5f3ed] text-[#1a1918] pt-28 font-sans">
-      {/* Portada de Contacto. Sin foto y sin trayectoria: la foto no encajaba
-          con el resto y los números ya viven en el hero de Inicio. */}
+      {/* Portada: sólo el titular. El rótulo no decía nada que el titular no
+          dijera, y la instrucción vive ahora junto al formulario. */}
       <section className="max-w-4xl mx-auto px-6 md:px-12 pb-20 text-center md:pb-28">
-        <motion.span
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
-          className="block text-[10px] font-sans uppercase tracking-[0.3em] text-[#5a5854] md:text-xs"
-        >
-          {content.contact.eyebrow}
-        </motion.span>
-
         <motion.h1
           initial={{ opacity: 0, y: 26, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.85, ease: [0.4, 0, 0.2, 1], delay: 0.08 }}
-          className="mt-8 font-serif text-[13vw] leading-[1.02] text-[#1a1918] sm:text-[9vw] md:mt-10 md:text-[5.2vw]"
+          transition={{ duration: 0.85, ease: [0.4, 0, 0.2, 1] }}
+          className="font-serif text-[13vw] leading-[1.02] text-[#1a1918] sm:text-[9vw] md:text-[5.2vw]"
         >
           {content.contact.heading}
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.16 }}
-          className="mx-auto mt-8 max-w-2xl font-serif text-[1.35rem] leading-[1.35] text-[#1a1918] sm:text-2xl md:mt-10 md:text-[1.8rem]"
-        >
-          {content.contact.subheading}
-        </motion.p>
       </section>
 
       {/* Production scope — moved from Acerca de, presented as "qué entregamos" */}
@@ -110,10 +92,8 @@ export const Contact: React.FC = () => {
       <div className="w-full pt-16 md:pt-20 pb-24">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="text-center mb-12 space-y-3">
-          <span className="text-[10px] md:text-xs font-sans tracking-[0.3em] uppercase text-[#5a5854]">
-            Escríbenos
-          </span>
-          <h2 className="font-serif text-3xl md:text-5xl text-[#1a1918]">Cuéntanos del proyecto</h2>
+          <h2 className="font-serif text-3xl md:text-5xl text-[#1a1918]">{content.contact.formHeading}</h2>
+          <p className="mx-auto max-w-xl text-sm md:text-base text-[#5a5854]">{content.contact.formIntro}</p>
           <div className="pt-2">
             <a
               href={`mailto:${content.contact.emailAddress}`}
@@ -122,9 +102,6 @@ export const Contact: React.FC = () => {
               <span>{content.contact.emailAddress}</span>
               <span aria-hidden>&rarr;</span>
             </a>
-            <p className="mt-3 text-[11px] font-sans tracking-widest uppercase text-[#5a5854]">
-              o completa el formulario
-            </p>
           </div>
         </div>
 
