@@ -1,8 +1,9 @@
 {
   "hero": {
+    "fixedLine": "Tu hotel",
     "blocks": [
-      "Tu hotel\nrodado.",
-      "Tu hotel\nvisto."
+      "rodado",
+      "visto"
     ],
     "subheadline": "Producción visual para hoteles de lujo con enfoque sostenible."
   },

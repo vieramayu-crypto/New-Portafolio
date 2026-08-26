@@ -33,8 +33,9 @@ export interface FaqEntry {
 
 export interface SiteContent {
   hero: {
-    /** Bloques que se turnan en el titular, uno a la vez. Cada salto de línea
-     *  del texto es un salto de línea real en pantalla. */
+    /** Primera línea del titular. No cambia: sólo rota la de debajo. */
+    fixedLine: string;
+    /** Palabras que se turnan en la segunda línea, una a la vez. */
     blocks: string[];
     subheadline: string;
   };
@@ -84,7 +85,8 @@ export interface SiteContent {
 // in content.json once it's fetched.
 export const DEFAULT_CONTENT: SiteContent = {
   hero: {
-    blocks: ['Tu hotel\nrodado.', 'Tu hotel\nvisto.'],
+    fixedLine: 'Tu hotel',
+    blocks: ['rodado', 'visto'],
     subheadline: 'Producción visual para hoteles de lujo con enfoque sostenible.',
   },
   valueBlock: {
@@ -351,6 +353,7 @@ function mergeContent(fetched: unknown): SiteContent {
 
   return {
     hero: {
+      fixedLine: isNonEmptyString(f.hero?.fixedLine) ? f.hero!.fixedLine : DEFAULT_CONTENT.hero.fixedLine,
       blocks: heroBlocks,
       subheadline: isNonEmptyString(f.hero?.subheadline)
         ? f.hero!.subheadline

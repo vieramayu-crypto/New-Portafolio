@@ -54,7 +54,7 @@ export const HowWeWork: React.FC = () => {
 
       <div className="mx-auto max-w-6xl px-6 md:px-12">
         {/* Section label */}
-        <div className="text-center mb-16 space-y-3 md:mb-24">
+        <div className="mb-16 space-y-3 md:mb-24">
           <span className="text-[10px] font-sans uppercase tracking-[0.3em] text-[#5a5854] md:text-xs">
             {howWeWork.eyebrow}
           </span>
@@ -62,7 +62,7 @@ export const HowWeWork: React.FC = () => {
         </div>
 
         {/* Slide */}
-        <div className="relative min-h-[700px] sm:min-h-[740px] md:min-h-[800px]">
+        <div className="relative min-h-[430px] sm:min-h-[400px] md:min-h-[440px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={step.number}
@@ -71,27 +71,33 @@ export const HowWeWork: React.FC = () => {
               exit={{ opacity: 0, y: -18 }}
               transition={{ duration: 0.55, ease: 'easeInOut' }}
             >
-              <div className="flex flex-col items-center text-center">
-                {/* Cifra sobredimensionada — el ancla de la composición */}
-                <div aria-hidden className="font-serif text-5xl leading-none text-[#1a1918]/25 md:text-7xl">
+              <div className="md:grid md:grid-cols-[auto_1fr] md:gap-x-10 lg:gap-x-16">
+                {/* Oversized step number — the decorative anchor of the composition */}
+                <div
+                  aria-hidden
+                  className="mb-6 font-serif text-6xl leading-none text-[#1a1918]/25 md:mb-0 md:pt-2 md:text-8xl lg:text-9xl"
+                >
                   {step.number}
                 </div>
 
-                <img
-                  src={photo}
-                  alt=""
-                  className="mt-8 w-52 object-cover sm:w-60 md:mt-10 md:w-[280px]"
-                  style={{ aspectRatio: '3 / 4' }}
-                />
+                <div>
+                  {/* Photo floats so the copy wraps around it, then runs full width below */}
+                  <img
+                    src={photo}
+                    alt=""
+                    className="float-left mb-3 mr-5 w-28 object-cover sm:w-36 md:mb-4 md:mr-8 md:w-[220px] lg:w-[250px]"
+                    style={{ aspectRatio: '3 / 4' }}
+                  />
 
-                <p className="mt-10 max-w-2xl font-serif text-[1.45rem] leading-[1.3] text-[#1a1918] sm:text-3xl md:mt-12 md:text-[2.2rem] md:leading-[1.28]">
-                  {step.description}
-                </p>
+                  <p className="font-serif text-[1.6rem] leading-[1.25] text-[#1a1918] sm:text-4xl md:text-[2.9rem] lg:text-5xl lg:leading-[1.22]">
+                    {step.description}
+                  </p>
 
-                <div className="mt-8 md:mt-10">
-                  <div className="font-serif text-xl text-[#1a1918] md:text-2xl">{step.title}</div>
-                  <div className="mt-1 text-[10px] font-sans uppercase tracking-[0.25em] text-[#5a5854] md:text-xs">
-                    Paso {index + 1} de {steps.length}
+                  <div className="clear-left pt-8 md:pt-12">
+                    <div className="font-serif text-xl text-[#1a1918] md:text-2xl">{step.title}</div>
+                    <div className="mt-1 text-[10px] font-sans uppercase tracking-[0.25em] text-[#5a5854] md:text-xs">
+                      Paso {index + 1} de {steps.length}
+                    </div>
                   </div>
                 </div>
               </div>

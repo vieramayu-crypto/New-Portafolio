@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Page, HotelStory } from './types';
 import { HOTEL_STORIES } from './data/hotels';
 import { Navbar } from './components/Navbar';
@@ -26,8 +26,13 @@ export default function App() {
     setCurrentPage(page);
     setSelectedStory(null);
     setPendingTransition(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // El reseteo va después del render, no en el manejador: hacerlo antes de que
+  // React monte la página nueva dejaba el scroll a media altura.
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  }, [currentPage]);
 
   const handleSelectStory = (story: HotelStory) => {
     if (pendingTransition) return;

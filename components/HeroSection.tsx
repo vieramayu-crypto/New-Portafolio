@@ -3,10 +3,10 @@ import { AnimatePresence, motion } from 'motion/react';
 import { HERO_PHOTO } from '../data/media';
 import { useSiteContent } from '../src/lib/content';
 
-/** Cuánto permanece cada bloque del titular antes de dar paso al siguiente.
+/** Cuánto permanece cada palabra antes de dar paso a la siguiente.
  *  AnimatePresence en modo "wait" encadena salida y entrada, así que el ciclo
- *  real es BLOCK_MS + OUT_S + IN_S: hay que dejar margen o el titular pasa más
- *  tiempo desvanecido que a la vista. */
+ *  real es BLOCK_MS + OUT_S + IN_S: hay que dejar margen o la palabra pasa más
+ *  tiempo desvanecida que a la vista. */
 const BLOCK_MS = 4200;
 const OUT_S = 0.5;
 const IN_S = 0.7;
@@ -16,11 +16,10 @@ const TEXTURE =
 
 export const HeroSection: React.FC = () => {
   const content = useSiteContent();
-  const blocks = content.hero.blocks;
+  const { fixedLine, blocks } = content.hero;
   const [blockIndex, setBlockIndex] = useState(0);
 
-  // Los bloques se turnan en bucle: aparece uno, se desvanece, entra el
-  // siguiente. Con un solo bloque no hay temporizador que mantener.
+  // Sólo rota la segunda línea: "Tu hotel" se queda fijo.
   useEffect(() => {
     if (blocks.length <= 1) return;
     const timer = setInterval(() => {
@@ -33,9 +32,6 @@ export const HeroSection: React.FC = () => {
     document.getElementById('hotel-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const current = blocks[blockIndex] ?? '';
-  const lines = current.split('\n');
-
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden bg-[#fbfaf6] text-[#1a1918] font-sans select-none">
       <img
@@ -44,70 +40,80 @@ export const HeroSection: React.FC = () => {
         className="absolute inset-0 h-full w-full object-cover mix-blend-multiply opacity-25 anim-fade-in"
       />
 
-      {/* Foto de portada. Con el titular centrado la composición ya no depende
-          de dejar libre una esquina: se encuadra a la persona hacia la derecha
-          para que el bloque de texto caiga sobre el suelo, no sobre ella. */}
+      {/* Foto de portada. Con el titular a la izquierda no hace falta forzar el
+          encuadre: la persona ya cae fuera de la columna de texto. */}
       <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
         <img
           src={HERO_PHOTO}
           alt="Mayu Travel — producción visual para hoteles de lujo"
-          /* En móvil el titular ocupa el 73% del ancho: no hay recorte que deje
-             a la persona libre y a la vez visible. Se encuadra para que el texto
-             caiga sobre la parte más uniforme de la escena; medido, el peor
-             contraste ahí es 8.19:1 sobre un mínimo de 3. */
-          className="h-full w-full object-cover object-[62%_30%] md:object-center md:scale-[1.6] md:translate-x-[26.5%] md:origin-center"
+          className="h-full w-full object-cover object-[58%_30%] md:object-center"
         />
       </div>
 
-      {/* Velo de contraste. El titular ya no vive abajo, así que en vez de un
-          degradado inferior se oscurece el centro con una viñeta radial más un
-          tinte general suave. Medido: el blanco puro pasa de sobra el mínimo. */}
+      {/* Velo de contraste. Dos versiones: en escritorio entra desde la
+          izquierda y se apaga antes de llegar a la persona; en móvil el titular
+          ocupa casi todo el ancho, así que necesita una cortina más plana.
+          Medido contra el píxel más claro bajo cada texto. */}
       <div
-        className="absolute inset-0 z-[12] pointer-events-none"
+        className="absolute inset-0 z-[12] pointer-events-none md:hidden"
         style={{
           background:
-            'radial-gradient(120% 85% at 45% 50%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.52) 38%, rgba(0,0,0,0.30) 66%, rgba(0,0,0,0.16) 100%)',
+            'linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.74) 58%, rgba(0,0,0,0.48) 84%, rgba(0,0,0,0.32) 100%)',
         }}
       />
-      <div className="absolute inset-0 z-[13] bg-black/20 pointer-events-none" />
+      <div
+        className="absolute inset-0 z-[12] pointer-events-none hidden md:block"
+        style={{
+          background:
+            'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.58) 28%, rgba(0,0,0,0.32) 52%, rgba(0,0,0,0.10) 74%, rgba(0,0,0,0) 92%)',
+        }}
+      />
+      <div
+        className="absolute inset-0 z-[13] pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.52) 18%, rgba(0,0,0,0.12) 34%, rgba(0,0,0,0) 46%)',
+        }}
+      />
 
-      {/* Titular centrado en los dos ejes. Playfair Display al 600 en vez de
-          Cormorant: Cormorant es una serif ligera y de alto contraste que no
-          gana peso ni en su grado más alto. */}
-      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-5 text-center pointer-events-none">
-        <div className="relative flex w-full items-center justify-center">
-          <AnimatePresence mode="wait">
-            <motion.h1
-              key={current}
-              initial={{ opacity: 0, y: 30, filter: 'blur(16px)' }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                filter: 'blur(0px)',
-                transition: { duration: IN_S, ease: [0.22, 1, 0.36, 1] },
-              }}
-              exit={{
-                opacity: 0,
-                y: -24,
-                filter: 'blur(16px)',
-                transition: { duration: OUT_S, ease: [0.4, 0, 1, 1] },
-              }}
-              className="font-display font-semibold tracking-[-0.02em] text-[22vw] leading-[0.94] text-white sm:text-[18vw] md:text-[14.5vw]"
-            >
-              {lines.map((line, i) => (
-                <span key={`${line}-${i}`} className="block">
-                  {line}
-                </span>
-              ))}
-            </motion.h1>
-          </AnimatePresence>
-        </div>
+      {/* Titular a la izquierda y centrado en vertical. Peso medio y sin
+          tracking negativo: al grado 600 y apretado las letras se tocaban. */}
+      <div className="absolute inset-0 z-20 flex items-center px-6 sm:px-10 md:px-16 pointer-events-none">
+        <h1 className="font-display font-medium text-[16vw] leading-[1.0] text-white sm:text-[13vw] md:text-[11.5vw]">
+          <span className="block">{fixedLine}</span>
+          <span className="relative block">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={blocks[blockIndex]}
+                initial={{ opacity: 0, y: 26, filter: 'blur(14px)' }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  filter: 'blur(0px)',
+                  transition: { duration: IN_S, ease: [0.22, 1, 0.36, 1] },
+                }}
+                exit={{
+                  opacity: 0,
+                  y: -20,
+                  filter: 'blur(14px)',
+                  transition: { duration: OUT_S, ease: [0.4, 0, 1, 1] },
+                }}
+                className="block"
+              >
+                {blocks[blockIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
+        </h1>
+      </div>
 
+      {/* El subtítulo vive abajo, con su propio aire — no colgando del titular */}
+      <div className="absolute inset-x-0 bottom-0 z-20 px-6 pb-24 sm:px-10 sm:pb-28 md:px-16 md:pb-32 pointer-events-none">
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut', delay: 0.85 }}
-          className="mt-10 max-w-[26ch] font-sans text-[11px] uppercase leading-relaxed tracking-[0.22em] text-white sm:max-w-none sm:text-sm md:mt-14 md:text-base md:tracking-[0.28em]"
+          className="max-w-[28ch] font-sans text-[11px] uppercase leading-relaxed tracking-[0.22em] text-white sm:max-w-[52ch] sm:text-sm md:max-w-[56ch] md:text-base md:tracking-[0.28em]"
         >
           {content.hero.subheadline}
         </motion.p>
