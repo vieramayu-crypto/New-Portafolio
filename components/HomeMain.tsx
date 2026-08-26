@@ -22,12 +22,12 @@ const VALUE_BLOCK_AFTER_INDEX = 2;
  *  para que el unico boton de ese bloque sea el de disponibilidad. */
 const ContinueCue: React.FC<{ nextSectionId: string }> = ({ nextSectionId }) => (
   <div className="mx-auto max-w-6xl px-6 pb-4 md:px-12 md:pb-8">
-    <div className="border-t border-[#1a1918]/15 pt-8 md:pt-10">
+    <div className="flex justify-center border-t border-[#1a1918]/15 pt-8 md:pt-10">
       <button
         onClick={() =>
           document.getElementById(`hotel-${nextSectionId}`)?.scrollIntoView({ behavior: 'smooth' })
         }
-        className="group flex items-center gap-4 text-left text-[10px] font-sans uppercase tracking-[0.25em] text-[#5a5854] transition-colors hover:text-[#1a1918] md:text-xs"
+        className="group flex items-center gap-4 text-[10px] font-sans uppercase tracking-[0.25em] text-[#5a5854] transition-colors hover:text-[#1a1918] md:text-xs"
       >
         <span>Ver más trabajo</span>
         <span className="inline-block transition-transform duration-300 group-hover:translate-y-1">&darr;</span>

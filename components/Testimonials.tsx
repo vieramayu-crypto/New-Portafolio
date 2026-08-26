@@ -23,7 +23,7 @@ export const Testimonials: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="relative min-h-[430px] sm:min-h-[400px] md:min-h-[420px]">
+      <div className="relative min-h-[660px] sm:min-h-[700px] md:min-h-[760px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={t.id}
@@ -32,53 +32,48 @@ export const Testimonials: React.FC = () => {
             exit={{ opacity: 0, y: -18 }}
             transition={{ duration: 0.55, ease: 'easeInOut' }}
           >
-            <div className="md:grid md:grid-cols-[auto_1fr] md:gap-x-10 lg:gap-x-16">
-              {/* Oversized quote mark — the decorative anchor, mirroring the
-                  step number in "El proceso" so both carousels read as a set. */}
-              <div
-                aria-hidden
-                className="mb-4 font-serif text-6xl leading-none text-[#1a1918]/25 md:mb-0 md:text-8xl lg:text-9xl"
-              >
+            <div className="flex flex-col items-center text-center">
+              {/* Comilla sobredimensionada — el ancla decorativa, igual que la
+                  cifra en "El proceso" y en el bloque de valor de Inicio. */}
+              <div aria-hidden className="font-serif text-5xl leading-none text-[#1a1918]/25 md:text-7xl">
                 &ldquo;
               </div>
 
-              <div>
-                {/* Work from that property, floated so the quote wraps around it.
-                    Falls back to the brand set in type when we have no imagery. */}
-                {t.photo ? (
-                  <img
-                    src={t.photo}
-                    alt=""
-                    className="float-left mb-3 mr-5 w-28 object-cover sm:w-36 md:mb-4 md:mr-8 md:w-[210px] lg:w-[240px]"
-                    style={{ aspectRatio: '3 / 4' }}
-                  />
-                ) : (
-                  <div
-                    className="float-left mb-3 mr-5 flex w-28 items-center justify-center bg-[#1a1918] px-3 text-center sm:w-36 md:mb-4 md:mr-8 md:w-[210px] md:px-6 lg:w-[240px]"
-                    style={{ aspectRatio: '3 / 4' }}
-                  >
-                    <span className="font-serif text-lg leading-snug tracking-wide text-[#f5f3ed] md:text-3xl">
-                      {t.brandName}
-                    </span>
+              {/* Trabajo de esa propiedad. Cuando no hay foto, la marca compuesta
+                  en tipografía sobre una placa oscura. */}
+              {t.photo ? (
+                <img
+                  src={t.photo}
+                  alt=""
+                  className="mt-8 w-52 object-cover sm:w-60 md:mt-10 md:w-[280px]"
+                  style={{ aspectRatio: '3 / 4' }}
+                />
+              ) : (
+                <div
+                  className="mt-8 flex w-52 items-center justify-center bg-[#1a1918] px-6 sm:w-60 md:mt-10 md:w-[280px]"
+                  style={{ aspectRatio: '3 / 4' }}
+                >
+                  <span className="font-serif text-2xl leading-snug tracking-wide text-[#f5f3ed] md:text-3xl">
+                    {t.brandName}
+                  </span>
+                </div>
+              )}
+
+              <p className="mt-10 max-w-2xl font-serif text-[1.45rem] leading-[1.3] text-[#1a1918] sm:text-3xl md:mt-12 md:text-[2.2rem] md:leading-[1.28]">
+                {t.quote}
+              </p>
+
+              <div className="mt-8 md:mt-10">
+                <div className="font-serif text-xl text-[#1a1918] md:text-2xl">{t.author}</div>
+                <div className="mt-1 text-[10px] font-sans uppercase tracking-[0.22em] text-[#5a5854] md:text-xs">
+                  {t.role ? `${t.role} · ` : ''}
+                  {t.brandName}
+                </div>
+                {t.repeatNote && (
+                  <div className="mt-4 inline-block border border-[#1a1918]/30 px-3 py-1.5 text-[10px] font-sans uppercase tracking-[0.2em] text-[#1a1918] md:text-[11px]">
+                    {t.repeatNote}
                   </div>
                 )}
-
-                <p className="font-serif text-[1.45rem] leading-[1.3] text-[#1a1918] sm:text-3xl md:text-[2.35rem] md:leading-[1.28] lg:text-[2.6rem]">
-                  {t.quote}
-                </p>
-
-                <div className="clear-left pt-8 md:pt-10">
-                  <div className="font-serif text-xl text-[#1a1918] md:text-2xl">{t.author}</div>
-                  <div className="mt-1 text-[10px] font-sans uppercase tracking-[0.22em] text-[#5a5854] md:text-xs">
-                    {t.role ? `${t.role} · ` : ''}
-                    {t.brandName}
-                  </div>
-                  {t.repeatNote && (
-                    <div className="mt-3 inline-block border border-[#1a1918]/30 px-3 py-1.5 text-[10px] font-sans uppercase tracking-[0.2em] text-[#1a1918] md:text-[11px]">
-                      {t.repeatNote}
-                    </div>
-                  )}
-                </div>
               </div>
             </div>
           </motion.div>

@@ -20,10 +20,10 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
           initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
-          className="font-serif font-medium text-[18vw] sm:text-[14vw] md:text-[11vw] leading-[1.15] text-[#1a1918]"
+          className="font-serif font-medium text-[16vw] leading-[1.08] text-[#1a1918] sm:text-[13vw] md:text-[10.5vw]"
         >
-          Fotografía con
-          <br />
+          <span className="block">Fotografía,</span>
+          <span className="block">video y</span>
           <FlipWords words={content.about.flipWords} />
         </motion.h1>
       </section>
@@ -36,7 +36,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         transition={{ duration: 0.7 }}
         className="min-h-[100dvh] w-full flex items-center justify-center px-6 py-24"
       >
-        <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1a1918] leading-[1.35] max-w-4xl text-center">
+        <p className="font-serif text-3xl leading-[1.4] sm:text-4xl sm:leading-[1.38] md:text-[3.25rem] md:leading-[1.34] mx-auto max-w-4xl text-center text-[#1a1918]">
           {content.about.introStatement}
         </p>
       </motion.section>
@@ -52,7 +52,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10" />
         <div className="relative min-h-[90vh] md:min-h-[100dvh] flex items-center justify-center px-6 md:px-16">
-          <p className="font-serif text-white text-3xl sm:text-4xl md:text-6xl leading-[1.2] max-w-5xl text-center">
+          <p className="font-serif text-3xl leading-[1.4] sm:text-4xl sm:leading-[1.38] md:text-[3.25rem] md:leading-[1.34] mx-auto max-w-4xl text-center text-white">
             &ldquo;{content.about.legacyQuote}&rdquo;
           </p>
         </div>
@@ -123,13 +123,13 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
 
         {/* Together */}
         <div className="min-h-[70vh] md:min-h-[85vh] flex flex-col items-center justify-center text-center px-2 py-20 mb-32 md:mb-40">
-          <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1a1918] leading-relaxed max-w-3xl">
+          <p className="font-serif text-3xl leading-[1.4] sm:text-4xl sm:leading-[1.38] md:text-[3.25rem] md:leading-[1.34] mx-auto max-w-4xl text-center text-[#1a1918]">
             {content.about.closingStatement}
           </p>
           <div className="pt-16">
             <button
               onClick={onOpenAvailability}
-              className="bg-[#1a1918] px-10 py-5 text-xs font-sans uppercase tracking-[0.25em] font-medium text-[#f5f3ed] transition-colors hover:bg-[#5a5854] md:px-12 md:py-6 md:text-sm"
+              className="bg-[#1a1918] px-8 py-4 text-[11px] font-sans uppercase tracking-[0.22em] font-medium text-[#f5f3ed] transition-colors hover:bg-[#5a5854] md:px-10 md:py-[1.15rem] md:text-xs"
             >
               Consultar disponibilidad
             </button>

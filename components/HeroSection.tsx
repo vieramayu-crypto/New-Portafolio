@@ -33,6 +33,9 @@ export const HeroSection: React.FC = () => {
     document.getElementById('hotel-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const current = blocks[blockIndex] ?? '';
+  const lines = current.split('\n');
+
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden bg-[#fbfaf6] text-[#1a1918] font-sans select-none">
       <img
@@ -41,46 +44,42 @@ export const HeroSection: React.FC = () => {
         className="absolute inset-0 h-full w-full object-cover mix-blend-multiply opacity-25 anim-fade-in"
       />
 
-      {/* Foto de portada.
-          La imagen es 2000x1416, asi que en escritorio el recorte es vertical y
-          object-position horizontal no tiene efecto: se desplaza con transform.
-          Se amplia primero para que al empujarla a la derecha no aparezca borde.
-          En movil el recorte si es horizontal, y ahi manda object-position. */}
+      {/* Foto de portada. Con el titular centrado la composición ya no depende
+          de dejar libre una esquina: se encuadra a la persona hacia la derecha
+          para que el bloque de texto caiga sobre el suelo, no sobre ella. */}
       <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
         <img
           src={HERO_PHOTO}
           alt="Mayu Travel — producción visual para hoteles de lujo"
-          className="h-full w-full object-cover object-[40%_28%] md:object-[50%_30%] md:scale-125 md:translate-x-[10%] md:origin-center"
+          /* En móvil el titular ocupa el 73% del ancho: no hay recorte que deje
+             a la persona libre y a la vez visible. Se encuadra para que el texto
+             caiga sobre la parte más uniforme de la escena; medido, el peor
+             contraste ahí es 8.19:1 sobre un mínimo de 3. */
+          className="h-full w-full object-cover object-[62%_30%] md:object-center md:scale-[1.6] md:translate-x-[26.5%] md:origin-center"
         />
       </div>
 
-      {/* Degradado desde abajo, donde vive el texto. Sustituye al tinte plano
-          del 10%, que dejaba el subtitulo en 1.78:1 (necesita 4.5:1). */}
+      {/* Velo de contraste. El titular ya no vive abajo, así que en vez de un
+          degradado inferior se oscurece el centro con una viñeta radial más un
+          tinte general suave. Medido: el blanco puro pasa de sobra el mínimo. */}
       <div
         className="absolute inset-0 z-[12] pointer-events-none"
         style={{
           background:
-            'linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.70) 26%, rgba(0,0,0,0.48) 46%, rgba(0,0,0,0.18) 68%, rgba(0,0,0,0) 88%)',
+            'radial-gradient(120% 85% at 45% 50%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.52) 38%, rgba(0,0,0,0.30) 66%, rgba(0,0,0,0.16) 100%)',
         }}
       />
-      <div
-        className="absolute inset-0 z-[13] pointer-events-none"
-        style={{
-          background: 'linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 42%, rgba(0,0,0,0) 72%)',
-        }}
-      />
+      <div className="absolute inset-0 z-[13] bg-black/20 pointer-events-none" />
 
-      {/* Bloque de texto, abajo a la izquierda */}
-      <div className="absolute inset-x-0 bottom-0 z-20 px-6 pb-20 sm:px-10 sm:pb-24 md:pb-28 pointer-events-none">
-        {/* Altura fija de dos líneas y anclado abajo: el subtítulo no salta
-            entre bloques y ambos titulares comparten la misma línea base.
-            El ancho máximo obliga al bloque largo a partirse en dos líneas,
-            que es lo que lo mantiene lejos de la persona de la foto. */}
-        <div className="relative min-h-[2.15em] font-serif text-[16vw] leading-[1.0] sm:text-[12vw] md:max-w-[62%] md:text-[9.4vw]">
+      {/* Titular centrado en los dos ejes. Playfair Display al 600 en vez de
+          Cormorant: Cormorant es una serif ligera y de alto contraste que no
+          gana peso ni en su grado más alto. */}
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-5 text-center pointer-events-none">
+        <div className="relative flex w-full items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.h1
-              key={blocks[blockIndex]}
-              initial={{ opacity: 0, y: 26, filter: 'blur(14px)' }}
+              key={current}
+              initial={{ opacity: 0, y: 30, filter: 'blur(16px)' }}
               animate={{
                 opacity: 1,
                 y: 0,
@@ -89,13 +88,17 @@ export const HeroSection: React.FC = () => {
               }}
               exit={{
                 opacity: 0,
-                y: -20,
-                filter: 'blur(14px)',
+                y: -24,
+                filter: 'blur(16px)',
                 transition: { duration: OUT_S, ease: [0.4, 0, 1, 1] },
               }}
-              className="absolute inset-x-0 bottom-0 text-white"
+              className="font-display font-semibold tracking-[-0.02em] text-[22vw] leading-[0.94] text-white sm:text-[18vw] md:text-[14.5vw]"
             >
-              {blocks[blockIndex]}
+              {lines.map((line, i) => (
+                <span key={`${line}-${i}`} className="block">
+                  {line}
+                </span>
+              ))}
             </motion.h1>
           </AnimatePresence>
         </div>
@@ -104,15 +107,12 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut', delay: 0.85 }}
-          className="mt-6 max-w-[34ch] font-sans text-[13px] uppercase leading-relaxed tracking-[0.14em] text-white sm:max-w-[46ch] sm:text-lg sm:tracking-[0.2em] md:mt-8 md:max-w-[58ch] md:text-xl md:tracking-[0.22em]"
+          className="mt-10 max-w-[26ch] font-sans text-[11px] uppercase leading-relaxed tracking-[0.22em] text-white sm:max-w-none sm:text-sm md:mt-14 md:text-base md:tracking-[0.28em]"
         >
           {content.hero.subheadline}
         </motion.p>
       </div>
 
-      {/* Unico elemento del pie: la señal de desplazar. Los rotulos de
-          "Dirección Creativa" y "Fotografía & Dirección Cinematográfica" se
-          eliminaron por repetir lo que ya dice el subtitulo. */}
       <div className="absolute inset-x-0 bottom-0 z-30 flex justify-center pb-6 sm:pb-8 pointer-events-auto">
         <button
           onClick={scrollToContent}
