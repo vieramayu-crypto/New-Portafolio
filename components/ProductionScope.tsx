@@ -21,14 +21,6 @@ const PILLARS = [
     items: [
       'Cada rodaje se dimensiona según propiedad, temporada y actividades.',
       'Cuanto más nos abre el hotel, más historia podemos contar.',
-      'Postproducción y entrega organizada en un plazo aproximado de tres semanas.',
-    ],
-  },
-  {
-    title: 'Derechos de uso',
-    items: [
-      'Cesión para uso del hotel en sus canales propios y en publicidad pagada.',
-      'Exclusividad geográfica por temporada disponible bajo pedido.',
     ],
   },
 ];
@@ -48,10 +40,10 @@ export const ProductionScope: React.FC = () => {
   const pillar = PILLARS[index];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col items-center">
       {/* Reserva la altura de la diapositiva más larga (medidas: 358px en móvil,
           383px en escritorio) para que los puntos no salten al rotar. */}
-      <div className="relative w-full min-h-[360px] md:min-h-[390px]">
+      <div className="relative w-full max-w-3xl text-center min-h-[300px] md:min-h-[330px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={pillar.title}
@@ -64,7 +56,7 @@ export const ProductionScope: React.FC = () => {
             <h3 className="font-serif text-4xl text-[#1a1918] md:text-6xl">{pillar.title}</h3>
             {/* Filas separadas por hairlines, el mismo sistema de contenedores
                 que las preguntas frecuentes y la franja de trayectoria. */}
-            <ul className="max-w-3xl divide-y divide-[#1a1918]/10 border-y border-[#1a1918]/10">
+            <ul className="divide-y divide-[#1a1918]/10 border-y border-[#1a1918]/10">
               {pillar.items.map((item) => (
                 <li
                   key={item}

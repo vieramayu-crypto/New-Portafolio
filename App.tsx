@@ -108,10 +108,7 @@ export default function App() {
 
       {/* El pie cierra todas las páginas, Inicio incluido: hasta ahora Inicio
           terminaba en seco, sin Instagram, sin navegación y sin aviso legal. */}
-      <Footer
-        onNavigate={handleNavigate}
-        onOpenAvailability={() => setIsAvailabilityOpen(true)}
-      />
+      <Footer onNavigate={handleNavigate} />
 
       {/* Quick Availability Modal */}
       <AvailabilityModal

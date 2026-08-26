@@ -47,7 +47,7 @@ futura" abajo antes de tocar `vite.config.ts`.
 
 ## Pipeline de git / deploy (repetir en cada ronda)
 
-Rama de trabajo: `claude/vieramayu-portfolio-setup-vhn4sr`.
+Rama de trabajo: `claude/portfolio-copy-analysis-qjsul0`.
 
 ```
 1. git add <archivos específicos> (nunca git add -A a ciegas)
@@ -59,10 +59,10 @@ Rama de trabajo: `claude/vieramayu-portfolio-setup-vhn4sr`.
       remoto coincide con lo ya fusionado, y resolver quedándose con HEAD
       (o `git rebase --skip` si el commit completo ya está aguas arriba).
 4. npx tsc --noEmit && npm run build   (verificar limpio, otra vez tras el rebase)
-5. git push -u origin claude/vieramayu-portfolio-setup-vhn4sr
+5. git push -u origin claude/portfolio-copy-analysis-qjsul0
    -- normalmente falla con "non-fast-forward" por la misma razón del paso 3.
       Confirmar con git log/diff que es seguro, y entonces:
-      git push --force-with-lease -u origin claude/vieramayu-portfolio-setup-vhn4sr
+      git push --force-with-lease -u origin claude/portfolio-copy-analysis-qjsul0
 6. mcp__github__create_pull_request (base: main)
 7. mcp__github__merge_pull_request (merge_method: "squash")
 8. mcp__github__actions_run_trigger (method: run_workflow, workflow_id: 328898289, ref: main)
@@ -79,6 +79,50 @@ Rama de trabajo: `claude/vieramayu-portfolio-setup-vhn4sr`.
 tarde o fuera de orden (después de que ya se reportó ese mismo resultado por
 otro camino). Si el head_sha ya fue confirmado y reportado, no repetir el
 reporte completo — decir brevemente que ya se confirmó antes y seguir.
+
+## Reglas de copy
+
+- **Todo copy nuevo se valida en español Y en su traducción al inglés** antes de
+  proponerlo. Pedido explícito de Mayurlin: la versión en inglés se hará al
+  final, pero una frase que sólo funciona en español obliga a rehacerla. Ejemplo
+  real: "Se usa durante mucho tiempo" → "Used for a long time" es plano en
+  inglés, y las alternativas naturales devuelven la promesa temporal.
+- **Nunca prometer volumen ni duración de entrega.** "Un año de material" se
+  descartó por eso: entregan piezas suficientes para publicar, no un año.
+- **Menos es más: nada se dice dos veces.** Antes de añadir una frase, buscar si
+  ya está en otro sitio. El email vive en dos lugares (Contacto y pie), el plazo
+  de reserva en uno (preguntas frecuentes), los oficios en Acerca de y en
+  "Alcance de producción" — no en el hero.
+- **Posicionamiento**: producción visual para hoteles de lujo **con enfoque
+  sostenible**. Es el cliente quien tiene ese enfoque, no una certificación del
+  estudio — en inglés, "sustainability-led luxury hotels", nunca "sustainable".
+  Vive en el subtítulo del hero (posiciona) y en el cierre de Acerca de
+  (sustenta); las fichas de District Hive, Vestige, Welmoon y Deltapark lo
+  prueban solas.
+
+## Sistema de diseño (decidido, no revertir sin que ella lo pida)
+
+- **Todo centrado y simétrico.** Se probó el eje izquierdo en una ronda y ella
+  lo rechazó: cabeceras, textos, carruseles, formulario y botones van al centro.
+  Las únicas piezas asimétricas son las galerías de hotel de Inicio.
+- **Tres carruseles hermanos**, con el mismo esqueleto: ancla sobredimensionada
+  (cifra o comilla) → foto real 3/4 → texto en serif grande → firma.
+  Son el bloque de valor de Inicio, "El proceso" (Acerca de) y "Voces de la
+  industria" (Contacto). Cambiar uno es cambiar los tres.
+- **Jerarquía de líneas**: regla a sangre completa = cambio de sección; hairline
+  al ancho del contenido = estructura dentro de un bloque. Los campos del
+  formulario usan el mismo hairline, sin relleno ni sombra.
+- **Hero**: Playfair Display 600 (`font-display font-semibold`), no Cormorant —
+  Cormorant es una serif ligera que no gana peso ni en su grado más alto.
+  Titular centrado en los dos ejes, dos líneas por bloque (los saltos de línea
+  van en `content.json` como `\n`). La foto es más alta que ancha respecto al
+  viewport, así que `object-position` horizontal no hace nada en escritorio:
+  para mover a la persona hay que `scale` + `translate-x`, y el margen máximo
+  de desplazamiento es `720*(escala-1)` px o aparece una franja vacía.
+- **Botones**: un solo tamaño en toda la web —
+  `px-8 py-4 text-[11px] md:px-10 md:py-[1.15rem] md:text-xs`, centrados.
+- **Un solo CTA por bloque.** El "ver más" de Inicio vive en el umbral de la
+  galería siguiente, fuera del bloque de valor, para que no compitan.
 
 ## Verificación local (antes de cada push)
 

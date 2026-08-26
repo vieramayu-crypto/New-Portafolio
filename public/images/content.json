@@ -1,16 +1,17 @@
 {
   "hero": {
-    "blocks": ["Un rodaje.", "Un año de material."],
-    "subheadline": "Producción visual para hoteles de lujo — fotografía, video y cortometraje editorial."
+    "blocks": [
+      "Tu hotel\nrodado.",
+      "Tu hotel\nvisto."
+    ],
+    "subheadline": "Producción visual para hoteles de lujo con enfoque sostenible."
   },
   "valueBlock": {
-    "eyebrow": "Lo que deja un rodaje",
     "claim": "Cada rodaje deja dos cosas.",
     "benefits": [
       "Fotografía y video que tu equipo usa todo el año. Web, campañas, publicidad — con derechos incluidos.",
       "Y tu hotel delante de una audiencia que aún no lo conocía."
     ],
-    "audience": "Hoteles de lujo y boutique en Europa. De grandes grupos a casas de doce habitaciones.",
     "ctaLabel": "Consultar disponibilidad"
   },
   "closingCta": {
@@ -18,7 +19,11 @@
     "ctaLabel": "Consultar disponibilidad"
   },
   "about": {
-    "flipWords": ["Mirada", "Carácter", "Verdad"],
+    "flipWords": [
+      "Alcance",
+      "Exposición",
+      "Audiencia"
+    ],
     "introStatement": "Mayu Travel es un estudio de producción visual para hoteles de lujo, hecho por dos personas que se conocen desde hace años. No trabajamos con fórmulas ni plantillas: cada proyecto nace de mirar de cerca, con tiempo, lo que hace único a cada lugar.",
     "legacyQuote": "No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse como se siente vivirlo.",
     "mayurlin": {
@@ -27,22 +32,31 @@
     },
     "yerfran": {
       "name": "Yerfran",
-      "bio": "Yerfran llegó a la fotografía por otro camino: el de capturar lo que una persona siente en un lugar, no solo cómo se ve. Años de mirar con atención se convirtieron en un estilo propio — fotos con alma, hechas desde el cuidado y no desde la fórmula. Hoy codirige la producción visual de Mayu Travel en hoteles de España, Portugal, Grecia, Suiza y Países Bajos."
+      "bio": "Yerfran llegó a la fotografía por otro camino: el de capturar lo que una persona siente en un lugar, no solo cómo se ve. Años de mirar con atención se convirtieron en un estilo propio — fotos con alma, hechas desde el cuidado. Hoy codirige la producción visual de Mayu Travel en hoteles de España, Portugal, Grecia, Suiza y Países Bajos."
     },
-    "closingStatement": "Con los años, eso se volvió esto. Combinamos lo que cada uno hace mejor para darle a cada hotel lo mismo: una mirada honesta, con el tiempo y el cuidado de dos personas que ya saben trabajar juntas."
+    "closingStatement": "Una parte importante de nuestro trabajo son propiedades donde la sostenibilidad no es una etiqueta: casas off-grid, fincas agrícolas, hoteles que se sostienen con lo que tienen alrededor. Contarlo bien exige mirarlo de cerca — y es lo que mejor sabemos hacer."
   },
   "contact": {
     "eyebrow": "Reserva de calendario",
     "heading": "Trabajemos juntos",
-    "subheading": "Reservamos con dos a tres semanas de antelación. Cuéntanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.",
+    "subheading": "Cuéntanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.",
     "emailAddress": "mayuviera@gmail.com"
   },
   "milestones": {
     "eyebrow": "Trayectoria",
     "items": [
-      { "value": "35+", "label": "Propiedades hoteleras producidas" },
-      { "value": "5", "label": "Países" },
-      { "value": "6", "label": "Años trabajando en pareja" }
+      {
+        "value": "35+",
+        "label": "Propiedades hoteleras producidas"
+      },
+      {
+        "value": "5",
+        "label": "Países"
+      },
+      {
+        "value": "6",
+        "label": "Años trabajando en pareja"
+      }
     ],
     "footnote": "Clientes recurrentes — GPRO Valparaíso (3 rodajes) · Numa Group (3 propiedades) · Hotel Espléndido (2 rodajes) · Portixol (2 rodajes)"
   },
@@ -63,7 +77,7 @@
       {
         "number": "03",
         "title": "Rodaje en la propiedad",
-        "description": "Dos a cinco días en el hotel — el alcance se dimensiona según temporada y actividades. Cobertura en vivo (mínimo tres stories diarias) mientras rodamos."
+        "description": "Dos a cinco días en el hotel — el alcance se dimensiona según temporada y actividades. Cubrimos en vivo mientras rodamos."
       },
       {
         "number": "04",
@@ -91,10 +105,6 @@
       {
         "question": "¿Ofrecen exclusividad geográfica por temporada?",
         "answer": "Sí, disponible bajo pedido. Se define al cerrar el proyecto y se refleja en la propuesta económica."
-      },
-      {
-        "question": "¿Dan cobertura durante la estancia?",
-        "answer": "Sí. Mínimo tres stories diarias en @mayurlintravel, además de reels en colaboración con la cuenta del hotel y una publicación en el feed."
       }
     ]
   },
@@ -102,63 +112,63 @@
     {
       "seccion": 1,
       "hotelName": "THE RITZ-CARLTON TENERIFE, ABAMA",
-      "coupleName": "Editorial de arquitectura morisca",
+      "coupleName": "Arquitectura morisca",
       "description": "Una finca morisca de muros terracota sobre el acantilado de Guía de Isora, con jardines subtropicales que descienden hasta el Atlántico y La Gomera al fondo.",
       "quote": "Terracota, océano y jardín — tres tonos que se encuentran en cada esquina de Abama."
     },
     {
       "seccion": 2,
       "hotelName": "INTERCONTINENTAL LISBOA",
-      "coupleName": "Editorial urbano de altura",
+      "coupleName": "Urbano de altura",
       "description": "Arquitectura contemporánea sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, con el skyline y el Tajo al fondo.",
       "quote": "Lisboa entera se despliega desde lo alto de esta colina."
     },
     {
       "seccion": 3,
       "hotelName": "VESTIGE COLLECTION, BINIDUFÀ",
-      "coupleName": "Editorial de patrimonio menorquín",
+      "coupleName": "Patrimonio menorquín",
       "description": "Una possessió del siglo XVIII restaurada en una finca privada de 800 hectáreas al norte de Menorca — piedra, barro y silencio agrícola.",
       "quote": "Piedra, tierra y silencio — el norte de Menorca tal como siempre fue."
     },
     {
       "seccion": 4,
       "hotelName": "DELTAPARK VITALRESORT",
-      "coupleName": "Editorial alpino de bienestar",
+      "coupleName": "Alpino de bienestar",
       "description": "Arquitectura alpina contemporánea a orillas del lago de Thun, entre dos reservas del Kanderdelta, con un spa de 2.000 m².",
       "quote": "El silencio de los Alpes se refleja entero en el lago de Thun."
     },
     {
       "seccion": 5,
       "hotelName": "HONEYMOON PETRA VILLAS",
-      "coupleName": "Editorial de acantilado egeo",
+      "coupleName": "Acantilado egeo",
       "description": "Tallado en roca volcánica sobre la caldera de Santorini, con una de las piscinas más buscadas del Egeo suspendida sobre el mar.",
       "quote": "Roca volcánica y horizonte infinito — así se ve el amanecer sobre la caldera."
     },
     {
       "seccion": 6,
       "hotelName": "GPRO VALPARAÍSO PALACE & SPA",
-      "coupleName": "Editorial mediterráneo de spa",
+      "coupleName": "Mediterráneo de spa",
       "description": "Jardines privados sobre la bahía de Palma, en lo alto de Bonanova, con el spa más grande de Mallorca en su interior.",
       "quote": "Jardines, agua y la bahía de Palma extendida al fondo de cada terraza."
     },
     {
       "seccion": 7,
       "hotelName": "HOTEL ESPLÉNDIDO",
-      "coupleName": "Editorial de bahía y piedra",
+      "coupleName": "Bahía y piedra",
       "description": "Piedra caliza y terrazas frente a la bahía de Sóller, con la Serra de Tramuntana detrás y el tranvía histórico cruzando el paseo.",
       "quote": "Piedra, mar y el eco del tranvía sobre los adoquines de Sóller."
     },
     {
       "seccion": 8,
       "hotelName": "DISTRICT HIVE",
-      "coupleName": "Editorial off-grid en el desierto",
+      "coupleName": "Off-grid en el desierto",
       "description": "Una cápsula de vidrio y acero suspendida sobre el badlands de Gorafe — arquitectura off-grid con agua del aire y energía solar.",
       "quote": "El cielo entero por techo, el badlands entero por horizonte."
     },
     {
       "seccion": 9,
       "hotelName": "WELMOON VILLAS PAISAJE",
-      "coupleName": "Editorial bajo las estrellas",
+      "coupleName": "Bajo las estrellas",
       "description": "Villas abovedadas entre pinares de Caravaca de la Cruz, pensadas para dormir bajo un cielo sin filtros de la sierra murciana.",
       "quote": "Un techo de estrellas y el silencio de la sierra murciana."
     }

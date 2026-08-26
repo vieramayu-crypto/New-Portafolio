@@ -4,10 +4,9 @@ import mayuLogoWhite from '../src/assets/images/mayu-logo-white.png';
 
 interface FooterProps {
   onNavigate: (page: Page) => void;
-  onOpenAvailability: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer className="bg-[#1a1918] text-[#f5f3ed] pt-16 pb-12 px-6 md:px-16 font-sans border-t border-[#f5f3ed]/10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#f5f3ed]/15">
@@ -15,8 +14,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }
         <div className="md:col-span-4 space-y-4">
           <img src={mayuLogoWhite} alt="MAYU" className="h-[25px] w-auto" />
           <p className="text-xs text-[#f5f3ed]/60 max-w-xs leading-relaxed font-sans">
-            Producción visual — fotografía y dirección cinematográfica — para hoteles y propiedades de lujo, con
-            enfoque en sostenibilidad.
+            Producción visual para hoteles de lujo con enfoque sostenible.
           </p>
         </div>
 
@@ -28,9 +26,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }
           <div className="flex flex-col space-y-2 text-xs font-sans tracking-wider uppercase text-[#f5f3ed]/80">
             <button onClick={() => onNavigate('home')} className="text-left hover:text-[#f5f3ed]">
               Inicio
-            </button>
-            <button onClick={() => onNavigate('home')} className="text-left hover:text-[#f5f3ed]">
-              Portafolio
             </button>
             <button onClick={() => onNavigate('about')} className="text-left hover:text-[#f5f3ed]">
               Acerca de
@@ -61,19 +56,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAvailability }
               Instagram
             </a>
           </div>
-          <button
-            onClick={onOpenAvailability}
-            className="mt-4 inline-block text-xs font-sans tracking-[0.2em] uppercase border border-[#f5f3ed]/30 px-4 py-2 hover:bg-[#f5f3ed] hover:text-[#1a1918] transition-colors"
-          >
-            Consultar disponibilidad &rarr;
-          </button>
         </div>
       </div>
 
       {/* Copyright */}
-      <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] font-sans text-[#f5f3ed]/50 tracking-wider">
+      <div className="max-w-7xl mx-auto pt-8 text-center text-[11px] font-sans text-[#f5f3ed]/50 tracking-wider">
         <span>&copy; {new Date().getFullYear()} Mayurlin Viera. Todos los derechos reservados.</span>
-        <span className="mt-2 sm:mt-0">Producción Visual &bull; Hoteles de Lujo</span>
       </div>
     </footer>
   );

@@ -33,15 +33,14 @@ export interface FaqEntry {
 
 export interface SiteContent {
   hero: {
-    /** Bloques que se turnan en el titular, uno a la vez. */
+    /** Bloques que se turnan en el titular, uno a la vez. Cada salto de línea
+     *  del texto es un salto de línea real en pantalla. */
     blocks: string[];
     subheadline: string;
   };
   valueBlock: {
-    eyebrow: string;
     claim: string;
     benefits: string[];
-    audience: string;
     ctaLabel: string;
   };
   closingCta: {
@@ -85,17 +84,15 @@ export interface SiteContent {
 // in content.json once it's fetched.
 export const DEFAULT_CONTENT: SiteContent = {
   hero: {
-    blocks: ['Un rodaje.', 'Un año de material.'],
-    subheadline: 'Producción visual para hoteles de lujo — fotografía, video y cortometraje editorial.',
+    blocks: ['Tu hotel\nrodado.', 'Tu hotel\nvisto.'],
+    subheadline: 'Producción visual para hoteles de lujo con enfoque sostenible.',
   },
   valueBlock: {
-    eyebrow: 'Lo que deja un rodaje',
     claim: 'Cada rodaje deja dos cosas.',
     benefits: [
       'Fotografía y video que tu equipo usa todo el año. Web, campañas, publicidad — con derechos incluidos.',
       'Y tu hotel delante de una audiencia que aún no lo conocía.',
     ],
-    audience: 'Hoteles de lujo y boutique en Europa. De grandes grupos a casas de doce habitaciones.',
     ctaLabel: 'Consultar disponibilidad',
   },
   closingCta: {
@@ -103,7 +100,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     ctaLabel: 'Consultar disponibilidad',
   },
   about: {
-    flipWords: ['Mirada', 'Carácter', 'Verdad'],
+    flipWords: ['Alcance', 'Exposición', 'Audiencia'],
     introStatement:
       'Mayu Travel es un estudio de producción visual para hoteles de lujo, hecho por dos personas que se conocen desde hace años. No trabajamos con fórmulas ni plantillas: cada proyecto nace de mirar de cerca, con tiempo, lo que hace único a cada lugar.',
     legacyQuote:
@@ -114,16 +111,16 @@ export const DEFAULT_CONTENT: SiteContent = {
     },
     yerfran: {
       name: 'Yerfran',
-      bio: 'Yerfran llegó a la fotografía por otro camino: el de capturar lo que una persona siente en un lugar, no solo cómo se ve. Años de mirar con atención se convirtieron en un estilo propio — fotos con alma, hechas desde el cuidado y no desde la fórmula. Hoy codirige la producción visual de Mayu Travel en hoteles de España, Portugal, Grecia, Suiza y Países Bajos.',
+      bio: 'Yerfran llegó a la fotografía por otro camino: el de capturar lo que una persona siente en un lugar, no solo cómo se ve. Años de mirar con atención se convirtieron en un estilo propio — fotos con alma, hechas desde el cuidado. Hoy codirige la producción visual de Mayu Travel en hoteles de España, Portugal, Grecia, Suiza y Países Bajos.',
     },
     closingStatement:
-      'Con los años, eso se volvió esto. Combinamos lo que cada uno hace mejor para darle a cada hotel lo mismo: una mirada honesta, con el tiempo y el cuidado de dos personas que ya saben trabajar juntas.',
+      'Una parte importante de nuestro trabajo son propiedades donde la sostenibilidad no es una etiqueta: casas off-grid, fincas agrícolas, hoteles que se sostienen con lo que tienen alrededor. Contarlo bien exige mirarlo de cerca — y es lo que mejor sabemos hacer.',
   },
   contact: {
     eyebrow: 'Reserva de calendario',
     heading: 'Trabajemos juntos',
     subheading:
-      'Reservamos con dos a tres semanas de antelación. Cuéntanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.',
+      'Cuéntanos tu propiedad y las fechas que estás considerando — respondemos en 48 h.',
     emailAddress: 'mayuviera@gmail.com',
   },
   milestones: {
@@ -156,7 +153,7 @@ export const DEFAULT_CONTENT: SiteContent = {
         number: '03',
         title: 'Rodaje en la propiedad',
         description:
-          'Dos a cinco días en el hotel — el alcance se dimensiona según temporada y actividades. Cobertura en vivo (mínimo tres stories diarias) mientras rodamos.',
+          'Dos a cinco días en el hotel — el alcance se dimensiona según temporada y actividades. Cubrimos en vivo mientras rodamos.',
       },
       {
         number: '04',
@@ -360,14 +357,8 @@ function mergeContent(fetched: unknown): SiteContent {
         : DEFAULT_CONTENT.hero.subheadline,
     },
     valueBlock: {
-      eyebrow: isNonEmptyString(f.valueBlock?.eyebrow)
-        ? f.valueBlock!.eyebrow
-        : DEFAULT_CONTENT.valueBlock.eyebrow,
       claim: isNonEmptyString(f.valueBlock?.claim) ? f.valueBlock!.claim : DEFAULT_CONTENT.valueBlock.claim,
       benefits,
-      audience: isNonEmptyString(f.valueBlock?.audience)
-        ? f.valueBlock!.audience
-        : DEFAULT_CONTENT.valueBlock.audience,
       ctaLabel: isNonEmptyString(f.valueBlock?.ctaLabel)
         ? f.valueBlock!.ctaLabel
         : DEFAULT_CONTENT.valueBlock.ctaLabel,
