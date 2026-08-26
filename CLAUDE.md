@@ -112,6 +112,15 @@ reporte completo — decir brevemente que ya se confirmó antes y seguir.
   Cambiar uno es cambiar los tres.
 - El bloque de valor **no lleva bucle**: entra una vez y se pasa de 01 a 02
   pulsando la foto. La cifra es un rótulo diminuto, no un ancla gigante.
+- "El proceso" **recorre los cuatro pasos una sola vez y se detiene** en el
+  último. Arranca al entrar en pantalla (con `IntersectionObserver`): si
+  arrancara al montar, la sección vive tan abajo de Acerca de que al llegar ya
+  estaría acabada. Cualquier toque de Mayurlin lo detiene y manda ella. La foto
+  y el texto son pulsables. No lleva rótulo ni cifra grande — el "Paso N de M"
+  de abajo ya lo dice.
+- **La trayectoria (35+ / 5 / 6) vive en la banda inferior del hero**, no en una
+  sección propia: pequeña, centrada, sin reglas divisorias y con aire. Se quitó
+  del bloque de valor para aligerarlo.
 - **Jerarquía de líneas**: regla a sangre completa = cambio de sección; hairline
   al ancho del contenido = estructura dentro de un bloque. Los campos del
   formulario usan el mismo hairline, sin relleno ni sombra.
