@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { publicImage, useSiteContent } from '../src/lib/content';
 
@@ -17,14 +17,46 @@ export const HowWeWork: React.FC = () => {
   const { howWeWork } = useSiteContent();
   const steps = howWeWork.steps;
   const [index, setIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+  const [manual, setManual] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
+  // El recorrido automático arranca al entrar en pantalla. Si empezara al
+  // montar, la sección vive tan abajo de "Acerca de" que al llegar ya estaría
+  // en el último paso.
   useEffect(() => {
-    if (steps.length <= 1) return;
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % steps.length);
-    }, AUTO_ADVANCE_MS);
-    return () => clearInterval(timer);
-  }, [steps.length]);
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Pasa una sola vez por los cuatro pasos y se queda en el último. Cualquier
+  // toque de Mayurlin lo detiene: a partir de ahí manda ella.
+  useEffect(() => {
+    if (!started || manual || index >= steps.length - 1) return;
+    const timer = setTimeout(() => setIndex((prev) => prev + 1), AUTO_ADVANCE_MS);
+    return () => clearTimeout(timer);
+  }, [started, manual, index, steps.length]);
+
+  const goNext = () => {
+    setManual(true);
+    setIndex((prev) => (prev + 1) % steps.length);
+  };
+
+  const goTo = (i: number) => {
+    setManual(true);
+    setIndex(i);
+  };
 
   const step = steps[index];
   const photo = STEP_PHOTOS[index % STEP_PHOTOS.length];
@@ -33,7 +65,7 @@ export const HowWeWork: React.FC = () => {
   if (!step) return null;
 
   return (
-    <section className="relative w-full overflow-hidden py-20 md:py-32">
+    <section ref={sectionRef} className="relative w-full overflow-hidden py-20 md:py-32">
       {/* Peripheral slice of the next photo, bleeding off the left edge.
           Sits level with the slide's photo band, echoing a carousel mid-motion. */}
       <div className="pointer-events-none absolute left-0 top-[40%] hidden h-[300px] w-[38px] -translate-y-1/2 overflow-hidden md:block lg:w-[54px]">
@@ -54,10 +86,7 @@ export const HowWeWork: React.FC = () => {
 
       <div className="mx-auto max-w-6xl px-6 md:px-12">
         {/* Section label */}
-        <div className="mb-16 space-y-3 md:mb-24">
-          <span className="text-[10px] font-sans uppercase tracking-[0.3em] text-[#5a5854] md:text-xs">
-            {howWeWork.eyebrow}
-          </span>
+        <div className="mb-16 text-center md:mb-24">
           <h2 className="font-serif text-4xl text-[#1a1918] md:text-6xl">{howWeWork.heading}</h2>
         </div>
 
@@ -71,15 +100,21 @@ export const HowWeWork: React.FC = () => {
               exit={{ opacity: 0, y: -18 }}
               transition={{ duration: 0.55, ease: 'easeInOut' }}
             >
-              <div className="md:grid md:grid-cols-[auto_1fr] md:gap-x-10 lg:gap-x-16">
-                {/* Oversized step number — the decorative anchor of the composition */}
-                <div
-                  aria-hidden
-                  className="mb-6 font-serif text-6xl leading-none text-[#1a1918]/25 md:mb-0 md:pt-2 md:text-8xl lg:text-9xl"
-                >
-                  {step.number}
-                </div>
-
+              {/* La cifra sobredimensionada desaparece: competía con el
+                  "Paso N de M" que ya va debajo. */}
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={goNext}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    goNext();
+                  }
+                }}
+                aria-label="Ver el paso siguiente"
+                className="cursor-pointer"
+              >
                 <div>
                   {/* Photo floats so the copy wraps around it, then runs full width below */}
                   <img
@@ -110,7 +145,7 @@ export const HowWeWork: React.FC = () => {
           {steps.map((s, i) => (
             <button
               key={s.number}
-              onClick={() => setIndex(i)}
+              onClick={() => goTo(i)}
               aria-label={`Ir al paso ${i + 1}: ${s.title}`}
               aria-current={i === index}
               className="p-1.5 -m-1.5"

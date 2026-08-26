@@ -21,7 +21,7 @@ const rise = (delay: number) => ({
 });
 
 export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) => {
-  const { valueBlock, milestones } = useSiteContent();
+  const { valueBlock } = useSiteContent();
   const testimonial = TESTIMONIALS[0];
   const benefits = valueBlock.benefits;
   const [index, setIndex] = useState(0);
@@ -103,21 +103,6 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
               ))}
             </div>
           )}
-        </motion.div>
-
-        {/* Trayectoria */}
-        <motion.div
-          {...rise(0.2)}
-          className="mt-24 grid grid-cols-3 gap-x-6 border-y border-[#1a1918]/15 py-10 text-center md:mt-32 md:gap-x-12 md:py-14"
-        >
-          {milestones.items.map((item) => (
-            <div key={item.label}>
-              <div className="font-serif text-4xl leading-none text-[#1a1918] md:text-6xl">{item.value}</div>
-              <div className="mx-auto mt-3 max-w-[12rem] text-[10px] font-sans uppercase leading-relaxed tracking-[0.2em] text-[#5a5854] md:mt-4 md:text-xs">
-                {item.label}
-              </div>
-            </div>
-          ))}
         </motion.div>
 
         {/* Una voz de cliente, en el mismo lenguaje que el carrusel de Contacto */}

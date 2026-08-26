@@ -17,6 +17,7 @@ const TEXTURE =
 export const HeroSection: React.FC = () => {
   const content = useSiteContent();
   const { fixedLine, blocks } = content.hero;
+  const { milestones } = content;
   const [blockIndex, setBlockIndex] = useState(0);
 
   // Sólo rota la segunda línea: "Tu hotel" se queda fijo.
@@ -33,32 +34,31 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative h-[100dvh] w-full overflow-hidden bg-[#fbfaf6] text-[#1a1918] font-sans select-none">
+    <section className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-[#fbfaf6] text-[#1a1918] font-sans select-none">
       <img
         src={TEXTURE}
         alt=""
         className="absolute inset-0 h-full w-full object-cover mix-blend-multiply opacity-25 anim-fade-in"
       />
 
-      {/* Foto de portada. Con el titular a la izquierda no hace falta forzar el
-          encuadre: la persona ya cae fuera de la columna de texto. */}
+      {/* Foto de portada. En móvil el encuadre lleva a la persona a la derecha
+          del titular sin perder las ramas del borde, que dan profundidad. */}
       <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
         <img
           src={HERO_PHOTO}
           alt="Mayu Travel — producción visual para hoteles de lujo"
-          className="h-full w-full object-cover object-[58%_30%] md:object-center"
+          className="h-full w-full object-cover object-[46%_30%] md:object-center"
         />
       </div>
 
-      {/* Velo de contraste. Dos versiones: en escritorio entra desde la
-          izquierda y se apaga antes de llegar a la persona; en móvil el titular
-          ocupa casi todo el ancho, así que necesita una cortina más plana.
-          Medido contra el píxel más claro bajo cada texto. */}
+      {/* Velo de contraste. Entra desde la izquierda, donde vive el titular, y
+          se apaga antes de la persona para no apagarla. Más un pie para la
+          banda inferior. Medido contra el píxel más claro de cada caja. */}
       <div
         className="absolute inset-0 z-[12] pointer-events-none md:hidden"
         style={{
           background:
-            'linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.74) 58%, rgba(0,0,0,0.48) 84%, rgba(0,0,0,0.32) 100%)',
+            'linear-gradient(to right, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.52) 46%, rgba(0,0,0,0.22) 72%, rgba(0,0,0,0.08) 100%)',
         }}
       />
       <div
@@ -72,13 +72,14 @@ export const HeroSection: React.FC = () => {
         className="absolute inset-0 z-[13] pointer-events-none"
         style={{
           background:
-            'linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.52) 18%, rgba(0,0,0,0.12) 34%, rgba(0,0,0,0) 46%)',
+            'linear-gradient(to top, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.68) 20%, rgba(0,0,0,0.22) 38%, rgba(0,0,0,0) 52%)',
         }}
       />
 
-      {/* Titular a la izquierda y centrado en vertical. Peso medio y sin
-          tracking negativo: al grado 600 y apretado las letras se tocaban. */}
-      <div className="absolute inset-0 z-20 flex items-center px-6 sm:px-10 md:px-16 pointer-events-none">
+      {/* Titular a la izquierda, centrado en el espacio que le queda por encima
+          de la banda inferior. Peso medio y sin tracking negativo: al 600 y
+          apretado las letras se tocaban. */}
+      <div className="relative z-20 flex flex-1 items-center px-6 sm:px-10 md:px-16 pointer-events-none">
         <h1 className="font-display font-medium text-[16vw] leading-[1.0] text-white sm:text-[13vw] md:text-[11.5vw]">
           <span className="block">{fixedLine}</span>
           <span className="relative block">
@@ -107,22 +108,38 @@ export const HeroSection: React.FC = () => {
         </h1>
       </div>
 
-      {/* El subtítulo vive abajo, con su propio aire — no colgando del titular */}
-      <div className="absolute inset-x-0 bottom-0 z-20 px-6 pb-24 sm:px-10 sm:pb-28 md:px-16 md:pb-32 pointer-events-none">
+      {/* Banda inferior: subtítulo, trayectoria y la señal de desplazar. La
+          trayectoria vive aquí y no en una sección propia — sin reglas, sólo
+          aire. */}
+      <div className="relative z-20 px-6 pb-6 text-center sm:px-10 sm:pb-8 md:px-16">
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut', delay: 0.85 }}
-          className="max-w-[28ch] font-sans text-[11px] uppercase leading-relaxed tracking-[0.22em] text-white sm:max-w-[52ch] sm:text-sm md:max-w-[56ch] md:text-base md:tracking-[0.28em]"
+          className="mx-auto max-w-3xl font-sans text-xs uppercase leading-relaxed tracking-[0.22em] text-white sm:text-sm md:text-base md:tracking-[0.28em]"
         >
           {content.hero.subheadline}
         </motion.p>
-      </div>
 
-      <div className="absolute inset-x-0 bottom-0 z-30 flex justify-center pb-6 sm:pb-8 pointer-events-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: 'easeOut', delay: 1.05 }}
+          className="mt-8 flex flex-col items-center gap-y-2 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-center sm:gap-x-14 md:mt-12 md:gap-x-20"
+        >
+          {milestones.items.map((item) => (
+            <span
+              key={item.label}
+              className="text-[9px] font-sans uppercase tracking-[0.2em] text-white/75 md:text-[11px]"
+            >
+              <span className="text-white">{item.value}</span> {item.label}
+            </span>
+          ))}
+        </motion.div>
+
         <button
           onClick={scrollToContent}
-          className="anim-fade-up flex flex-col items-center gap-1.5 group text-[10px] uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors"
+          className="anim-fade-up mt-8 inline-flex flex-col items-center gap-1.5 group text-[10px] uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors md:mt-10"
           style={{ animationDelay: '1400ms' }}
         >
           <span>Desplazar</span>
