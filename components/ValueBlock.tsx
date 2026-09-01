@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { TESTIMONIALS } from '../data/collaborations';
 import { publicImage, useSiteContent } from '../src/lib/content';
 
 interface ValueBlockProps {
   onOpenAvailability: () => void;
 }
 
-/** Una foto real por cada cosa que deja un rodaje. La primera es el material
+/** Una foto real por cada forma de generar valor. La primera es el material
  *  en sí; la segunda, alguien descubriendo el sitio por primera vez. */
 const BENEFIT_PHOTOS = ['sec5-gal03-cafe-cama-v.jpg', 'sec5-gal04-silueta-cortina-v.jpg'];
 
@@ -22,13 +21,13 @@ const rise = (delay: number) => ({
 
 export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) => {
   const { valueBlock } = useSiteContent();
-  const testimonial = TESTIMONIALS[0];
   const benefits = valueBlock.benefits;
   const [index, setIndex] = useState(0);
 
   // Sin bucle: entra una vez y se cambia haciendo clic en la foto.
   const next = () => setIndex((prev) => (prev + 1) % benefits.length);
   const current = benefits[index];
+  const currentDetail = valueBlock.benefitDetails[index];
 
   return (
     <section id="value-block" className="relative w-full bg-[#fbfaf6] py-28 md:py-40">
@@ -42,7 +41,12 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
 
         {/* Las dos cosas comparten una ranura, con el mismo esqueleto que
             "Voces de la industria": ancla discreta, foto flotada y el texto
-            envolviéndola. Se pasa de una a otra pulsando la foto. */}
+            envolviéndola. Se pasa de una a otra pulsando la foto.
+
+            La medida de lectura se fija en la columna de la rejilla, nunca con
+            un `max-w` en el párrafo: al lado de una foto flotada el max-width
+            recorta la caja y el float recorta además las líneas dentro de esa
+            caja ya estrecha, y el texto queda en una tira de 160px. */}
         <motion.div {...rise(0.1)} className="mt-20 md:mt-28">
           <div className="relative min-h-[380px] sm:min-h-[400px] md:min-h-[420px]">
             <AnimatePresence mode="wait">
@@ -53,7 +57,7 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
                 exit={{ opacity: 0, y: -18 }}
                 transition={{ duration: 0.55, ease: 'easeInOut' }}
               >
-                <div className="md:grid md:grid-cols-[auto_1fr] md:gap-x-10 lg:gap-x-16">
+                <div className="md:grid md:grid-cols-[auto_minmax(0,780px)] md:gap-x-10 lg:gap-x-16">
                   <div
                     aria-hidden
                     className="mb-4 font-sans text-[10px] uppercase tracking-[0.3em] text-[#5a5854] md:mb-0 md:pt-3 md:text-xs"
@@ -64,7 +68,7 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
                   <div>
                     <button
                       onClick={next}
-                      aria-label="Ver la otra cosa que deja un rodaje"
+                      aria-label="Ver la otra forma de generar valor"
                       className="float-left mb-4 mr-5 block w-[38%] cursor-pointer sm:w-44 md:mb-4 md:mr-8 md:w-[210px] lg:w-[240px]"
                     >
                       <img
@@ -78,6 +82,12 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
                     <p className="font-serif text-[1.7rem] leading-[1.28] text-[#1a1918] sm:text-3xl md:text-[2.35rem] md:leading-[1.28] lg:text-[2.6rem]">
                       {current}
                     </p>
+
+                    {currentDetail && (
+                      <p className="mt-5 font-sans text-sm leading-[1.75] text-[#5f5b55] md:mt-6 md:text-[15px]">
+                        {currentDetail}
+                      </p>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -105,43 +115,8 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
           )}
         </motion.div>
 
-        {/* Una voz de cliente, en el mismo lenguaje que el carrusel de Contacto */}
-        {testimonial && (
-          <motion.figure
-            {...rise(0.28)}
-            className="mt-24 md:mt-32 md:grid md:grid-cols-[auto_1fr] md:gap-x-10 lg:gap-x-16"
-          >
-            <div
-              aria-hidden
-              className="mb-4 font-serif text-6xl leading-none text-[#1a1918]/25 md:mb-0 md:text-8xl lg:text-9xl"
-            >
-              &ldquo;
-            </div>
-
-            <div>
-              {testimonial.photo && (
-                <img
-                  src={testimonial.photo}
-                  alt=""
-                  className="float-left mb-4 mr-5 w-[38%] object-cover sm:w-44 md:mb-4 md:mr-8 md:w-[210px] lg:w-[240px]"
-                  style={{ aspectRatio: '3 / 4' }}
-                />
-              )}
-
-              <blockquote className="font-serif text-[1.7rem] leading-[1.28] text-[#1a1918] sm:text-3xl md:text-[2.35rem] md:leading-[1.28] lg:text-[2.6rem]">
-                {testimonial.quote}
-              </blockquote>
-
-              <figcaption className="clear-left pt-8 md:pt-10">
-                <div className="font-serif text-xl text-[#1a1918] md:text-2xl">{testimonial.author}</div>
-                <div className="mt-1 text-[10px] font-sans uppercase tracking-[0.22em] text-[#5a5854] md:text-xs">
-                  {testimonial.role ? `${testimonial.role} · ` : ''}
-                  {testimonial.brandName}
-                </div>
-              </figcaption>
-            </div>
-          </motion.figure>
-        )}
+        {/* Sin testimonio: las voces de cliente viven ahora en su propio bloque,
+            más abajo en esta misma página, y repetirlas aquí duplicaba la cita. */}
 
         <motion.div {...rise(0.36)} className="mt-20 text-center md:mt-24">
           <button

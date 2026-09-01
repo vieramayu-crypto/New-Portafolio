@@ -14,7 +14,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="md:col-span-4 space-y-4">
           <img src={mayuLogoWhite} alt="MAYU" className="h-[25px] w-auto" />
           <p className="text-xs text-[#f5f3ed]/60 max-w-xs leading-relaxed font-sans">
-            Producción visual para hoteles de lujo con enfoque sostenible.
+            Producción visual para hoteles de lujo.
           </p>
         </div>
 

@@ -10,7 +10,9 @@ export interface InquiryFields {
   name: string;
   email: string;
   propertyName: string;
-  availabilityDate: string;
+  /** Opcional: el formulario de Contacto ya no pide una fecha aparte — las
+   *  fechas se cuentan dentro del proyecto. `AvailabilityModal` sí la manda. */
+  availabilityDate?: string;
   phone?: string;
   scope?: string;
   message?: string;
@@ -29,7 +31,7 @@ export function buildInquiryBody(f: InquiryFields): string {
   if (f.phone?.trim()) lines.push(`Teléfono: ${f.phone.trim()}`);
   lines.push(`Propiedad: ${f.propertyName.trim()}`);
   if (f.scope?.trim()) lines.push(`Servicio: ${f.scope.trim()}`);
-  lines.push(`Fechas consideradas: ${f.availabilityDate.trim()}`);
+  if (f.availabilityDate?.trim()) lines.push(`Fechas consideradas: ${f.availabilityDate.trim()}`);
   if (f.message?.trim()) lines.push('', 'Detalles del proyecto:', f.message.trim());
   return lines.join('\n');
 }
