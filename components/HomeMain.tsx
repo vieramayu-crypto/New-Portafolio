@@ -6,6 +6,8 @@ import { HeroSection } from './HeroSection';
 import { HotelSectionBlock } from './HotelSectionBlock';
 import { ValueBlock } from './ValueBlock';
 import { ClosingCta } from './ClosingCta';
+import { Testimonials } from './Testimonials';
+import { BrandsMarquee } from './BrandsMarquee';
 import { useSiteContent } from '../src/lib/content';
 
 interface HomeMainProps {
@@ -281,6 +283,23 @@ export const HomeMain: React.FC<HomeMainProps> = ({
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Autoridad, después de haber enseñado el trabajo entero: primero las
+          voces de los equipos, después las marcas. Los dos bloques son los
+          originales — sólo cambian de sitio, desde Contacto hasta aquí. */}
+      <section className="w-full bg-[#fbfaf6] pt-8 pb-16 md:pt-12 md:pb-24">
+        <div className="mx-auto max-w-6xl px-6 md:px-12">
+          <div className="mb-14 space-y-3 text-center">
+            <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-[#5a5854] md:text-xs">
+              Lo que dicen los equipos
+            </span>
+            <h2 className="font-serif text-4xl text-[#1a1918] md:text-5xl">Voces de la industria</h2>
+          </div>
+          <Testimonials />
+        </div>
+      </section>
+
+      <BrandsMarquee />
 
       <ClosingCta onOpenAvailability={onOpenAvailability} onNavigate={onNavigate} />
     </div>

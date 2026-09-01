@@ -1,22 +1,25 @@
 {
   "hero": {
-    "fixedLine": "Tu hotel",
-    "blocks": [
-      "rodado",
-      "visto"
-    ],
-    "subheadline": "Producción visual para hoteles de lujo con enfoque sostenible."
+    "eyebrow": "Producción visual · Hotelería de lujo",
+    "titleLead": "Producción visual para",
+    "titleEmphasis": "hoteles de lujo.",
+    "glassLabel": "Estudio de producción visual",
+    "ctaLabel": "Proyectos ↓"
   },
   "valueBlock": {
-    "claim": "Cada rodaje deja dos cosas.",
+    "claim": "Una producción. Dos formas de generar valor.",
     "benefits": [
-      "Fotografía y video que tu equipo usa todo el año. Web, campañas, publicidad — con derechos incluidos.",
-      "Y tu hotel delante de una audiencia que aún no lo conocía."
+      "Activos para tu marca.",
+      "Distribución, cuando suma."
     ],
-    "ctaLabel": "Consultar disponibilidad"
+    "benefitDetails": [
+      "Fotografía y video listos para web, campañas, redes y publicidad. El alcance y los derechos se definen en cada propuesta según el uso que necesite la propiedad.",
+      "Cuando encaja con el objetivo del proyecto, añadimos cobertura y publicación ante una audiencia internacional interesada en viajes y hotelería. No es un requisito de la producción: es una capa adicional."
+    ],
+    "ctaLabel": "Consultar producción"
   },
   "closingCta": {
-    "heading": "¿Hablamos de tu propiedad?",
+    "heading": "Hablemos de tu propiedad.",
     "ctaLabel": "Consultar disponibilidad"
   },
   "about": {
@@ -25,7 +28,7 @@
       "Exposición",
       "Audiencia"
     ],
-    "introStatement": "Mayu Travel es un estudio de producción visual para hoteles de lujo, hecho por dos personas que se conocen desde hace años. No trabajamos con fórmulas ni plantillas: cada proyecto nace de mirar de cerca, con tiempo, lo que hace único a cada lugar.",
+    "introStatement": "Mayu Travel es un estudio de producción visual especializado en hotelería de lujo. Trabajamos en pareja y construimos cada proyecto desde la propiedad: su arquitectura, su ritmo, su servicio y la forma en que quiere ser recordada.",
     "legacyQuote": "No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse como se siente vivirlo.",
     "mayurlin": {
       "name": "Mayurlin Viera",
@@ -35,28 +38,36 @@
       "name": "Yerfran",
       "bio": "Yerfran llegó a la fotografía por otro camino: el de capturar lo que una persona siente en un lugar, no solo cómo se ve. Años de mirar con atención se convirtieron en un estilo propio — fotos con alma, hechas desde el cuidado. Hoy codirige la producción visual de Mayu Travel en hoteles de España, Portugal, Grecia, Suiza y Países Bajos."
     },
-    "closingStatement": "Una parte importante de nuestro trabajo son propiedades donde la sostenibilidad no es una etiqueta: casas off-grid, fincas agrícolas, hoteles que se sostienen con lo que tienen alrededor. Contarlo bien exige mirarlo de cerca — y es lo que mejor sabemos hacer."
+    "closingStatement": "Nos interesan especialmente las propiedades con un sentido de lugar fuerte: arquitectura, paisaje, gastronomía, wellness, servicio y proyectos donde la sostenibilidad forma parte real de la experiencia."
   },
   "contact": {
-    "heading": "Trabajemos juntos",
+    "headingLines": [
+      "Hablemos",
+      "de tu",
+      "propiedad."
+    ],
+    "introMain": "Cuéntanos qué necesitas producir, dónde y cuándo.",
+    "introSub": "Si hay encaje, te respondemos con disponibilidad y próximos pasos. No necesitas preparar un briefing completo.",
+    "ctaLabel": "Iniciar proyecto",
     "emailAddress": "mayuviera@gmail.com",
-    "formHeading": "Cuéntanos del proyecto",
-    "formIntro": "Tu propiedad y las fechas que estás considerando. Respondemos en 48 h."
+    "modalKicker": "Solicitud de proyecto",
+    "modalTitle": "Cuéntanos lo esencial.",
+    "modalCopy": "Con esta información podemos valorar el encaje, la disponibilidad y los próximos pasos."
   },
   "milestones": {
     "eyebrow": "Trayectoria",
     "items": [
       {
         "value": "35+",
-        "label": "Propiedades hoteleras producidas"
+        "label": "propiedades"
       },
       {
         "value": "5",
-        "label": "Países"
+        "label": "países"
       },
       {
-        "value": "6",
-        "label": "Años trabajando en pareja"
+        "value": "4",
+        "label": "clientes recurrentes"
       }
     ],
     "footnote": "Clientes recurrentes — GPRO Valparaíso (3 rodajes) · Numa Group (3 propiedades) · Hotel Espléndido (2 rodajes) · Portixol (2 rodajes)"
@@ -88,23 +99,24 @@
     ]
   },
   "faq": {
-    "heading": "Dudas habituales",
+    "eyebrow": "Información práctica",
+    "heading": "Dudas habituales.",
     "questions": [
       {
         "question": "¿Con cuánta antelación conviene reservar fechas?",
-        "answer": "Dos a tres semanas es el rango habitual. Para temporadas altas o aperturas conviene consultar antes."
+        "answer": "Dos a tres semanas es el rango habitual. Para temporadas altas, aperturas o producciones con mayor alcance, conviene consultar antes."
       },
       {
         "question": "¿Quién cubre viajes y alojamiento?",
-        "answer": "Van incluidos en la propuesta económica que armamos para cada proyecto. Nos encargamos nosotros de logística y traslados."
+        "answer": "Se contemplan dentro de la propuesta económica de cada proyecto. Coordinamos la logística y los traslados necesarios para la producción."
       },
       {
         "question": "¿Qué derechos de uso incluye la entrega?",
-        "answer": "Cesión para uso del hotel en sus canales propios — web, redes, newsletter — y en campañas de publicidad pagada."
+        "answer": "Los derechos se definen según el uso previsto: web, redes, newsletter, PR, plataformas de reserva y campañas de publicidad pagada, entre otros."
       },
       {
-        "question": "¿Ofrecen exclusividad geográfica por temporada?",
-        "answer": "Sí, disponible bajo pedido. Se define al cerrar el proyecto y se refleja en la propuesta económica."
+        "question": "¿La distribución en @mayurlintravel forma parte de todos los proyectos?",
+        "answer": "No. Producción y distribución son capas distintas. Cuando existe encaje entre la propiedad, la campaña y nuestra audiencia, podemos incorporar publicación y cobertura como parte adicional de la propuesta."
       }
     ]
   },

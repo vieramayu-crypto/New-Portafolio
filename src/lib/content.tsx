@@ -33,15 +33,22 @@ export interface FaqEntry {
 
 export interface SiteContent {
   hero: {
-    /** Primera línea del titular. No cambia: sólo rota la de debajo. */
-    fixedLine: string;
-    /** Palabras que se turnan en la segunda línea, una a la vez. */
-    blocks: string[];
-    subheadline: string;
+    /** Rótulo fino sobre el titular. */
+    eyebrow: string;
+    /** Titular editorial, en dos partes: la segunda va en cursiva. */
+    titleLead: string;
+    titleEmphasis: string;
+    /** Etiqueta a la izquierda de la banda glass inferior. */
+    glassLabel: string;
+    /** Enlace al final de la banda glass. */
+    ctaLabel: string;
   };
   valueBlock: {
     claim: string;
+    /** Titular de cada una de las dos formas de generar valor. */
     benefits: string[];
+    /** Párrafo de apoyo de cada una, en el mismo orden que `benefits`. */
+    benefitDetails: string[];
     ctaLabel: string;
   };
   closingCta: {
@@ -57,13 +64,17 @@ export interface SiteContent {
     closingStatement: string;
   };
   contact: {
-    heading: string;
-    /** Rótulo y línea de instrucción del formulario. La instrucción vive aquí,
-     *  junto al formulario, y no en la portada: decirla dos veces era la
-     *  repetición más visible de la página. */
-    formHeading: string;
-    formIntro: string;
+    /** Portada monumental: una línea por renglón, la última es la que cierra. */
+    headingLines: string[];
+    /** Segunda pantalla: una sola orientación y el CTA. */
+    introMain: string;
+    introSub: string;
+    ctaLabel: string;
     emailAddress: string;
+    /** Cabecera del modal de solicitud. */
+    modalKicker: string;
+    modalTitle: string;
+    modalCopy: string;
   };
   milestones: {
     eyebrow: string;
@@ -76,6 +87,7 @@ export interface SiteContent {
     steps: HowWeWorkStep[];
   };
   faq: {
+    eyebrow: string;
     heading: string;
     questions: FaqEntry[];
   };
@@ -87,26 +99,29 @@ export interface SiteContent {
 // in content.json once it's fetched.
 export const DEFAULT_CONTENT: SiteContent = {
   hero: {
-    fixedLine: 'Tu hotel',
-    blocks: ['rodado', 'visto'],
-    subheadline: 'Producción visual para hoteles de lujo con enfoque sostenible.',
+    eyebrow: 'Producción visual · Hotelería de lujo',
+    titleLead: 'Producción visual para',
+    titleEmphasis: 'hoteles de lujo.',
+    glassLabel: 'Estudio de producción visual',
+    ctaLabel: 'Proyectos ↓',
   },
   valueBlock: {
-    claim: 'Cada rodaje deja dos cosas.',
-    benefits: [
-      'Fotografía y video que tu equipo usa todo el año. Web, campañas, publicidad — con derechos incluidos.',
-      'Y tu hotel delante de una audiencia que aún no lo conocía.',
+    claim: 'Una producción. Dos formas de generar valor.',
+    benefits: ['Activos para tu marca.', 'Distribución, cuando suma.'],
+    benefitDetails: [
+      'Fotografía y video listos para web, campañas, redes y publicidad. El alcance y los derechos se definen en cada propuesta según el uso que necesite la propiedad.',
+      'Cuando encaja con el objetivo del proyecto, añadimos cobertura y publicación ante una audiencia internacional interesada en viajes y hotelería. No es un requisito de la producción: es una capa adicional.',
     ],
-    ctaLabel: 'Consultar disponibilidad',
+    ctaLabel: 'Consultar producción',
   },
   closingCta: {
-    heading: '¿Hablamos de tu propiedad?',
+    heading: 'Hablemos de tu propiedad.',
     ctaLabel: 'Consultar disponibilidad',
   },
   about: {
     flipWords: ['Alcance', 'Exposición', 'Audiencia'],
     introStatement:
-      'Mayu Travel es un estudio de producción visual para hoteles de lujo, hecho por dos personas que se conocen desde hace años. No trabajamos con fórmulas ni plantillas: cada proyecto nace de mirar de cerca, con tiempo, lo que hace único a cada lugar.',
+      'Mayu Travel es un estudio de producción visual especializado en hotelería de lujo. Trabajamos en pareja y construimos cada proyecto desde la propiedad: su arquitectura, su ritmo, su servicio y la forma en que quiere ser recordada.',
     legacyQuote:
       'No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse como se siente vivirlo.',
     mayurlin: {
@@ -118,20 +133,26 @@ export const DEFAULT_CONTENT: SiteContent = {
       bio: 'Yerfran llegó a la fotografía por otro camino: el de capturar lo que una persona siente en un lugar, no solo cómo se ve. Años de mirar con atención se convirtieron en un estilo propio — fotos con alma, hechas desde el cuidado. Hoy codirige la producción visual de Mayu Travel en hoteles de España, Portugal, Grecia, Suiza y Países Bajos.',
     },
     closingStatement:
-      'Una parte importante de nuestro trabajo son propiedades donde la sostenibilidad no es una etiqueta: casas off-grid, fincas agrícolas, hoteles que se sostienen con lo que tienen alrededor. Contarlo bien exige mirarlo de cerca — y es lo que mejor sabemos hacer.',
+      'Nos interesan especialmente las propiedades con un sentido de lugar fuerte: arquitectura, paisaje, gastronomía, wellness, servicio y proyectos donde la sostenibilidad forma parte real de la experiencia.',
   },
   contact: {
-    heading: 'Trabajemos juntos',
-    formHeading: 'Cuéntanos del proyecto',
-    formIntro: 'Tu propiedad y las fechas que estás considerando. Respondemos en 48 h.',
+    headingLines: ['Hablemos', 'de tu', 'propiedad.'],
+    introMain: 'Cuéntanos qué necesitas producir, dónde y cuándo.',
+    introSub:
+      'Si hay encaje, te respondemos con disponibilidad y próximos pasos. No necesitas preparar un briefing completo.',
+    ctaLabel: 'Iniciar proyecto',
     emailAddress: 'mayuviera@gmail.com',
+    modalKicker: 'Solicitud de proyecto',
+    modalTitle: 'Cuéntanos lo esencial.',
+    modalCopy:
+      'Con esta información podemos valorar el encaje, la disponibilidad y los próximos pasos.',
   },
   milestones: {
     eyebrow: 'Trayectoria',
     items: [
-      { value: '35+', label: 'Propiedades hoteleras producidas' },
-      { value: '5', label: 'Países' },
-      { value: '6', label: 'Años trabajando en pareja' },
+      { value: '35+', label: 'propiedades' },
+      { value: '5', label: 'países' },
+      { value: '4', label: 'clientes recurrentes' },
     ],
     footnote:
       'Clientes recurrentes — GPRO Valparaíso (3 rodajes) · Numa Group (3 propiedades) · Hotel Espléndido (2 rodajes) · Portixol (2 rodajes)',
@@ -167,32 +188,28 @@ export const DEFAULT_CONTENT: SiteContent = {
     ],
   },
   faq: {
-    heading: 'Dudas habituales',
+    eyebrow: 'Información práctica',
+    heading: 'Dudas habituales.',
     questions: [
       {
         question: '¿Con cuánta antelación conviene reservar fechas?',
         answer:
-          'Dos a tres semanas es el rango habitual. Para temporadas altas o aperturas conviene consultar antes.',
+          'Dos a tres semanas es el rango habitual. Para temporadas altas, aperturas o producciones con mayor alcance, conviene consultar antes.',
       },
       {
         question: '¿Quién cubre viajes y alojamiento?',
         answer:
-          'Van incluidos en la propuesta económica que armamos para cada proyecto. Nos encargamos nosotros de logística y traslados.',
+          'Se contemplan dentro de la propuesta económica de cada proyecto. Coordinamos la logística y los traslados necesarios para la producción.',
       },
       {
         question: '¿Qué derechos de uso incluye la entrega?',
         answer:
-          'Cesión para uso del hotel en sus canales propios — web, redes, newsletter — y en campañas de publicidad pagada.',
+          'Los derechos se definen según el uso previsto: web, redes, newsletter, PR, plataformas de reserva y campañas de publicidad pagada, entre otros.',
       },
       {
-        question: '¿Ofrecen exclusividad geográfica por temporada?',
+        question: '¿La distribución en @mayurlintravel forma parte de todos los proyectos?',
         answer:
-          'Sí, disponible bajo pedido. Se define al cerrar el proyecto y se refleja en la propuesta económica.',
-      },
-      {
-        question: '¿Dan cobertura durante la estancia?',
-        answer:
-          'Sí. Mínimo tres stories diarias en @mayurlintravel, además de reels en colaboración con la cuenta del hotel y una publicación en el feed.',
+          'No. Producción y distribución son capas distintas. Cuando existe encaje entre la propiedad, la campaña y nuestra audiencia, podemos incorporar publicación y cobertura como parte adicional de la propuesta.',
       },
     ],
   },
@@ -200,7 +217,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 1,
       hotelName: 'THE RITZ-CARLTON TENERIFE, ABAMA',
-      coupleName: 'Editorial de arquitectura morisca',
+      coupleName: 'Arquitectura morisca',
       description:
         'Una finca morisca de muros terracota sobre el acantilado de Guía de Isora, con jardines subtropicales que descienden hasta el Atlántico y La Gomera al fondo.',
       quote: 'Terracota, océano y jardín — tres tonos que se encuentran en cada esquina de Abama.',
@@ -208,7 +225,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 2,
       hotelName: 'INTERCONTINENTAL LISBOA',
-      coupleName: 'Editorial urbano de altura',
+      coupleName: 'Urbano de altura',
       description:
         'Arquitectura contemporánea sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, con el skyline y el Tajo al fondo.',
       quote: 'Lisboa entera se despliega desde lo alto de esta colina.',
@@ -216,7 +233,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 3,
       hotelName: 'VESTIGE COLLECTION, BINIDUFÀ',
-      coupleName: 'Editorial de patrimonio menorquín',
+      coupleName: 'Patrimonio menorquín',
       description:
         'Una possessió del siglo XVIII restaurada en una finca privada de 800 hectáreas al norte de Menorca — piedra, barro y silencio agrícola.',
       quote: 'Piedra, tierra y silencio — el norte de Menorca tal como siempre fue.',
@@ -224,7 +241,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 4,
       hotelName: 'DELTAPARK VITALRESORT',
-      coupleName: 'Editorial alpino de bienestar',
+      coupleName: 'Alpino de bienestar',
       description:
         'Arquitectura alpina contemporánea a orillas del lago de Thun, entre dos reservas del Kanderdelta, con un spa de 2.000 m².',
       quote: 'El silencio de los Alpes se refleja entero en el lago de Thun.',
@@ -232,7 +249,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 5,
       hotelName: 'HONEYMOON PETRA VILLAS',
-      coupleName: 'Editorial de acantilado egeo',
+      coupleName: 'Acantilado egeo',
       description:
         'Tallado en roca volcánica sobre la caldera de Santorini, con una de las piscinas más buscadas del Egeo suspendida sobre el mar.',
       quote: 'Roca volcánica y horizonte infinito — así se ve el amanecer sobre la caldera.',
@@ -240,7 +257,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 6,
       hotelName: 'GPRO VALPARAÍSO PALACE & SPA',
-      coupleName: 'Editorial mediterráneo de spa',
+      coupleName: 'Mediterráneo de spa',
       description:
         'Jardines privados sobre la bahía de Palma, en lo alto de Bonanova, con el spa más grande de Mallorca en su interior.',
       quote: 'Jardines, agua y la bahía de Palma extendida al fondo de cada terraza.',
@@ -248,7 +265,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 7,
       hotelName: 'HOTEL ESPLÉNDIDO',
-      coupleName: 'Editorial de bahía y piedra',
+      coupleName: 'Bahía y piedra',
       description:
         'Piedra caliza y terrazas frente a la bahía de Sóller, con la Serra de Tramuntana detrás y el tranvía histórico cruzando el paseo.',
       quote: 'Piedra, mar y el eco del tranvía sobre los adoquines de Sóller.',
@@ -256,7 +273,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 8,
       hotelName: 'DISTRICT HIVE',
-      coupleName: 'Editorial off-grid en el desierto',
+      coupleName: 'Off-grid en el desierto',
       description:
         'Una cápsula de vidrio y acero suspendida sobre el badlands de Gorafe — arquitectura off-grid con agua del aire y energía solar.',
       quote: 'El cielo entero por techo, el badlands entero por horizonte.',
@@ -264,7 +281,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 9,
       hotelName: 'WELMOON VILLAS PAISAJE',
-      coupleName: 'Editorial bajo las estrellas',
+      coupleName: 'Bajo las estrellas',
       description:
         'Villas abovedadas entre pinares de Caravaca de la Cruz, pensadas para dormir bajo un cielo sin filtros de la sierra murciana.',
       quote: 'Un techo de estrellas y el silencio de la sierra murciana.',
@@ -339,29 +356,40 @@ function mergeContent(fetched: unknown): SiteContent {
       ? f.faq!.questions
       : DEFAULT_CONTENT.faq.questions;
 
-  const heroBlocks =
-    Array.isArray(f.hero?.blocks) && f.hero!.blocks.every(isNonEmptyString) && f.hero!.blocks.length > 0
-      ? f.hero!.blocks
-      : DEFAULT_CONTENT.hero.blocks;
+  const stringList = (value: unknown, fallback: string[]): string[] =>
+    Array.isArray(value) && value.length > 0 && value.every(isNonEmptyString)
+      ? (value as string[])
+      : fallback;
 
-  const benefits =
-    Array.isArray(f.valueBlock?.benefits) &&
-    f.valueBlock!.benefits.every(isNonEmptyString) &&
-    f.valueBlock!.benefits.length > 0
-      ? f.valueBlock!.benefits
-      : DEFAULT_CONTENT.valueBlock.benefits;
+  const benefits = stringList(f.valueBlock?.benefits, DEFAULT_CONTENT.valueBlock.benefits);
+
+  // Cada titular necesita su párrafo: si el JSON trae menos de los que hay
+  // titulares, se completa con los de por defecto en vez de dejar huecos.
+  const benefitDetails = stringList(
+    f.valueBlock?.benefitDetails,
+    DEFAULT_CONTENT.valueBlock.benefitDetails
+  );
 
   return {
     hero: {
-      fixedLine: isNonEmptyString(f.hero?.fixedLine) ? f.hero!.fixedLine : DEFAULT_CONTENT.hero.fixedLine,
-      blocks: heroBlocks,
-      subheadline: isNonEmptyString(f.hero?.subheadline)
-        ? f.hero!.subheadline
-        : DEFAULT_CONTENT.hero.subheadline,
+      eyebrow: isNonEmptyString(f.hero?.eyebrow) ? f.hero!.eyebrow : DEFAULT_CONTENT.hero.eyebrow,
+      titleLead: isNonEmptyString(f.hero?.titleLead)
+        ? f.hero!.titleLead
+        : DEFAULT_CONTENT.hero.titleLead,
+      titleEmphasis: isNonEmptyString(f.hero?.titleEmphasis)
+        ? f.hero!.titleEmphasis
+        : DEFAULT_CONTENT.hero.titleEmphasis,
+      glassLabel: isNonEmptyString(f.hero?.glassLabel)
+        ? f.hero!.glassLabel
+        : DEFAULT_CONTENT.hero.glassLabel,
+      ctaLabel: isNonEmptyString(f.hero?.ctaLabel)
+        ? f.hero!.ctaLabel
+        : DEFAULT_CONTENT.hero.ctaLabel,
     },
     valueBlock: {
       claim: isNonEmptyString(f.valueBlock?.claim) ? f.valueBlock!.claim : DEFAULT_CONTENT.valueBlock.claim,
       benefits,
+      benefitDetails,
       ctaLabel: isNonEmptyString(f.valueBlock?.ctaLabel)
         ? f.valueBlock!.ctaLabel
         : DEFAULT_CONTENT.valueBlock.ctaLabel,
@@ -396,16 +424,28 @@ function mergeContent(fetched: unknown): SiteContent {
         : DEFAULT_CONTENT.about.closingStatement,
     },
     contact: {
-      heading: isNonEmptyString(f.contact?.heading) ? f.contact!.heading : DEFAULT_CONTENT.contact.heading,
-      formHeading: isNonEmptyString(f.contact?.formHeading)
-        ? f.contact!.formHeading
-        : DEFAULT_CONTENT.contact.formHeading,
-      formIntro: isNonEmptyString(f.contact?.formIntro)
-        ? f.contact!.formIntro
-        : DEFAULT_CONTENT.contact.formIntro,
+      headingLines: stringList(f.contact?.headingLines, DEFAULT_CONTENT.contact.headingLines),
+      introMain: isNonEmptyString(f.contact?.introMain)
+        ? f.contact!.introMain
+        : DEFAULT_CONTENT.contact.introMain,
+      introSub: isNonEmptyString(f.contact?.introSub)
+        ? f.contact!.introSub
+        : DEFAULT_CONTENT.contact.introSub,
+      ctaLabel: isNonEmptyString(f.contact?.ctaLabel)
+        ? f.contact!.ctaLabel
+        : DEFAULT_CONTENT.contact.ctaLabel,
       emailAddress: isNonEmptyString(f.contact?.emailAddress)
         ? f.contact!.emailAddress
         : DEFAULT_CONTENT.contact.emailAddress,
+      modalKicker: isNonEmptyString(f.contact?.modalKicker)
+        ? f.contact!.modalKicker
+        : DEFAULT_CONTENT.contact.modalKicker,
+      modalTitle: isNonEmptyString(f.contact?.modalTitle)
+        ? f.contact!.modalTitle
+        : DEFAULT_CONTENT.contact.modalTitle,
+      modalCopy: isNonEmptyString(f.contact?.modalCopy)
+        ? f.contact!.modalCopy
+        : DEFAULT_CONTENT.contact.modalCopy,
     },
     milestones: {
       eyebrow: isNonEmptyString(f.milestones?.eyebrow)
@@ -426,6 +466,7 @@ function mergeContent(fetched: unknown): SiteContent {
       steps: howWeWorkSteps,
     },
     faq: {
+      eyebrow: isNonEmptyString(f.faq?.eyebrow) ? f.faq!.eyebrow : DEFAULT_CONTENT.faq.eyebrow,
       heading: isNonEmptyString(f.faq?.heading) ? f.faq!.heading : DEFAULT_CONTENT.faq.heading,
       questions: faqQuestions,
     },
