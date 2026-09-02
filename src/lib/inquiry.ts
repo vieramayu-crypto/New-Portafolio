@@ -10,8 +10,9 @@ export interface InquiryFields {
   name: string;
   email: string;
   propertyName: string;
-  /** Opcional: el formulario de Contacto ya no pide una fecha aparte — las
-   *  fechas se cuentan dentro del proyecto. `AvailabilityModal` sí la manda. */
+  /** Opcional y hoy sin usar: el formulario único no pide una fecha aparte, las
+   *  fechas se cuentan dentro del proyecto. Se mantiene el campo porque el
+   *  cuerpo del correo ya sabe colocarlo si algún día vuelve a hacer falta. */
   availabilityDate?: string;
   phone?: string;
   scope?: string;

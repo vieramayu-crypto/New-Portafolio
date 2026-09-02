@@ -11,6 +11,9 @@ import { BrandsMarquee } from './BrandsMarquee';
 import { useSiteContent } from '../src/lib/content';
 
 interface HomeMainProps {
+  /** El hero no anima hasta que el video de intro se va: si no, la entrada se
+   *  reproduce entera detras del video y al descubrirse ya esta puesta. */
+  introDone: boolean;
   onNavigate: (page: Page) => void;
   onOpenAvailability: () => void;
   onSelectStory?: (story: HotelStory) => void;
@@ -57,6 +60,7 @@ function renderTwoLineHotelName(name: string) {
 }
 
 export const HomeMain: React.FC<HomeMainProps> = ({
+  introDone,
   onNavigate,
   onOpenAvailability,
   onSelectStory,
@@ -165,7 +169,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
   return (
     <div className="relative min-h-screen bg-[#fbfaf6] text-[#1a1918] select-none font-sans overflow-x-hidden">
       {/* Hero Section */}
-      <HeroSection />
+      <HeroSection introDone={introDone} />
 
       {/* Target for smooth scroll from Hero */}
       <div id="hotel-section" className="relative pt-6">
@@ -190,7 +194,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
                     transition={{ duration: 0.2 }}
                     className="font-serif text-base lg:text-xl tracking-[0.25em] text-[#1a1918] uppercase font-light"
                   >
-                    [{currentStory.leftTag || 'HOTEL'}]
+                    {currentStory.leftTag || 'HOTEL'}
                   </motion.div>
                 </AnimatePresence>
 
@@ -289,11 +293,12 @@ export const HomeMain: React.FC<HomeMainProps> = ({
           originales — sólo cambian de sitio, desde Contacto hasta aquí. */}
       <section className="w-full bg-[#fbfaf6] pt-8 pb-16 md:pt-12 md:pb-24">
         <div className="mx-auto max-w-6xl px-6 md:px-12">
-          <div className="mb-14 space-y-3 text-center">
+          {/* Sin titular grande: competia en tamano con la propia cita, que es
+              lo que hay que leer aqui. */}
+          <div className="mb-14 text-center">
             <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-[#5a5854] md:text-xs">
               Lo que dicen los equipos
             </span>
-            <h2 className="font-serif text-4xl text-[#1a1918] md:text-5xl">Voces de la industria</h2>
           </div>
           <Testimonials />
         </div>

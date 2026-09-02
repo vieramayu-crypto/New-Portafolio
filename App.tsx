@@ -5,7 +5,7 @@ import { Navbar } from './components/Navbar';
 import { HomeMain } from './components/HomeMain';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
-import { AvailabilityModal } from './components/AvailabilityModal';
+import { InquiryModal } from './components/InquiryModal';
 import { Footer } from './components/Footer';
 import { HotelDetail } from './components/HotelDetail';
 import { PhotoZoomTransition } from './components/PhotoZoomTransition';
@@ -14,7 +14,7 @@ import { ContentProvider } from './src/lib/content';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
-  const [isAvailabilityOpen, setIsAvailabilityOpen] = useState<boolean>(false);
+  const [isInquiryOpen, setIsInquiryOpen] = useState<boolean>(false);
   const [selectedStory, setSelectedStory] = useState<HotelStory | null>(null);
   const [pendingTransition, setPendingTransition] = useState<HotelStory | null>(null);
   // The intro plays once per full page load. Internal SPA navigation (e.g.
@@ -79,10 +79,18 @@ export default function App() {
       <Navbar
         currentPage={currentPage}
         onNavigate={handleNavigate}
-        onOpenAvailability={() => setIsAvailabilityOpen(true)}
+        onOpenAvailability={() => setIsInquiryOpen(true)}
       />
 
-      {/* Main View Router */}
+      {/* Detras del cristal, la pagina se desenfoca y se apaga — sin eso, una
+          foto a pantalla completa atraviesa el modal como una mancha. Envuelve
+          <main> y el pie, nunca el Navbar: un `filter` distinto de `none` crea
+          bloque contenedor y le quitaria el `position: fixed`. */}
+      <div
+        className={`transition-[filter,transform,opacity] duration-[620ms] ease-[cubic-bezier(.22,1,.36,1)] ${
+          isInquiryOpen ? 'scale-[.994] opacity-60 blur-[10px]' : ''
+        }`}
+      >
       <main>
         {selectedStory ? (
           <HotelDetail
@@ -96,17 +104,20 @@ export default function App() {
           <>
             {currentPage === 'home' && (
               <HomeMain
+                introDone={introPlayed}
                 onNavigate={handleNavigate}
-                onOpenAvailability={() => setIsAvailabilityOpen(true)}
+                onOpenAvailability={() => setIsInquiryOpen(true)}
                 onSelectStory={handleSelectStory}
               />
             )}
 
             {currentPage === 'about' && (
-              <About onOpenAvailability={() => setIsAvailabilityOpen(true)} />
+              <About onOpenAvailability={() => setIsInquiryOpen(true)} />
             )}
 
-            {currentPage === 'contact' && <Contact />}
+            {currentPage === 'contact' && (
+              <Contact onOpen={() => setIsInquiryOpen(true)} />
+            )}
           </>
         )}
       </main>
@@ -114,12 +125,12 @@ export default function App() {
       {/* El pie cierra todas las páginas, Inicio incluido: hasta ahora Inicio
           terminaba en seco, sin Instagram, sin navegación y sin aviso legal. */}
       <Footer onNavigate={handleNavigate} />
+      </div>
 
-      {/* Quick Availability Modal */}
-      <AvailabilityModal
-        isOpen={isAvailabilityOpen}
-        onClose={() => setIsAvailabilityOpen(false)}
-      />
+      {/* Un solo formulario de solicitud en toda la web: lo abren el CTA de
+          Contacto, el del bloque de valor, el del cierre de Inicio, el de
+          Acerca de y "Consultar disponibilidad" del menu. */}
+      <InquiryModal open={isInquiryOpen} onClose={() => setIsInquiryOpen(false)} />
 
       {/* Entry transition: clicked photo zooms full-screen into the story page */}
       {pendingTransition && (

@@ -99,10 +99,10 @@ export interface SiteContent {
 // in content.json once it's fetched.
 export const DEFAULT_CONTENT: SiteContent = {
   hero: {
-    eyebrow: 'Producción visual · Hotelería de lujo',
+    eyebrow: 'Mayu Travel · Creative Studio',
     titleLead: 'Producción visual para',
     titleEmphasis: 'hoteles de lujo.',
-    glassLabel: 'Estudio de producción visual',
+    glassLabel: 'Foto · Film · Content',
     ctaLabel: 'Proyectos ↓',
   },
   valueBlock: {
@@ -119,7 +119,7 @@ export const DEFAULT_CONTENT: SiteContent = {
     ctaLabel: 'Consultar disponibilidad',
   },
   about: {
-    flipWords: ['Alcance', 'Exposición', 'Audiencia'],
+    flipWords: ['Dirección', 'Distribución'],
     introStatement:
       'Mayu Travel es un estudio de producción visual especializado en hotelería de lujo. Trabajamos en pareja y construimos cada proyecto desde la propiedad: su arquitectura, su ritmo, su servicio y la forma en que quiere ser recordada.',
     legacyQuote:
