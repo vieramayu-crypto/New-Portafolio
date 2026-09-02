@@ -45,14 +45,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ introDone }) => {
         className="absolute inset-0 h-full w-full object-cover object-[34%_24%] saturate-[.84] md:object-[56%_28%]"
       />
 
-      {/* En escritorio hacen falta dos velos cruzados: uno lateral que sostiene
-          el titular y otro inferior que asienta la banda. En movil el titular
-          cae sobre la piedra oscura y el lateral sobra — se queda solo el de
-          abajo, y muy leve. */}
+      {/* Dos velos cruzados: uno lateral que sostiene el titular sobre el margen
+          izquierdo y uno inferior muy leve que asienta la banda. En movil el
+          lateral va al 70% de su fuerza (.30 -> .21): la franja oscura de la
+          piedra ya hace parte del trabajo, pero no todo — sin nada, el rotulo
+          se queda en 2,2:1 sobre las piedras claras de arriba. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 md:hidden"
-        style={{ background: 'linear-gradient(0deg, rgba(0,0,0,.13), transparent 42%)' }}
+        style={{
+          background:
+            'linear-gradient(90deg, rgba(0,0,0,.21), transparent 62%), linear-gradient(0deg, rgba(0,0,0,.13), transparent 42%)',
+        }}
       />
       <div
         aria-hidden
@@ -63,16 +67,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ introDone }) => {
         }}
       />
 
-      {/* Bloque editorial. En movil vive alto, dentro de la franja oscura; en
-          escritorio, a media altura sobre el margen izquierdo. */}
-      <div className="absolute inset-x-5 top-[34%] z-[3] -translate-y-1/2 md:right-auto md:left-[clamp(22px,3.4vw,54px)] md:top-1/2 md:-translate-y-[52%]">
+      {/* Bloque editorial, a media altura sobre el margen izquierdo en los dos
+          tamanos. */}
+      <div className="absolute inset-x-5 top-1/2 z-[3] -translate-y-1/2 md:right-auto md:left-[clamp(22px,3.4vw,54px)] md:-translate-y-[52%]">
         <motion.p
           {...rise(0.1)}
           animate={animate}
           // Blanco puro en movil: ahi no hay velo debajo y con .72 el rotulo
           // se quedaba en 2.2:1 sobre la piedra clara. En escritorio el velo
           // lateral lo sostiene y puede seguir apagado.
-          className="mb-[15px] text-[9px] uppercase tracking-[0.28em] text-white md:text-white/[.72]"
+          className="mb-[15px] text-[9px] uppercase tracking-[0.28em] text-white/[.72]"
         >
           {hero.eyebrow}
         </motion.p>
