@@ -9,10 +9,10 @@ const fieldClass =
   'block w-full border-0 bg-transparent p-0 font-serif text-xl text-[#1a1918] outline-none placeholder:text-[#5a5854]/50 md:text-[22px]';
 
 const SCOPE_OPTIONS = [
-  'Fotografía',
-  'Vídeo cinematográfico',
-  'Fotografía + vídeo',
-  'Producción + distribución',
+  'Photography',
+  'Cinematic film',
+  'Photography + film',
+  'Production + distribution',
 ];
 
 interface FieldProps {
@@ -118,7 +118,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                 <div className="relative px-6 pb-9 pt-16 md:px-[clamp(34px,6vw,84px)] md:pb-[clamp(56px,5.5vw,76px)] md:pt-[clamp(50px,5.5vw,76px)]">
                   <button
                     onClick={onClose}
-                    aria-label="Cerrar"
+                    aria-label="Close"
                     className="absolute right-4 top-4 z-[3] flex h-10 w-10 items-center justify-center rounded-full border border-[#1a1918]/20 bg-white/20 text-xl text-[#1a1918] transition-colors hover:bg-white/40 md:right-6 md:top-6 md:h-[42px] md:w-[42px]"
                   >
                     ×
@@ -130,18 +130,18 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                         ✓
                       </div>
                       <h2 className="font-serif text-3xl text-[#1a1918] md:text-4xl">
-                        Tu solicitud está lista
+                        Your enquiry is ready
                       </h2>
                       <p className="mx-auto max-w-md text-sm leading-relaxed text-[#5a5854]">
-                        Gracias, <span className="font-medium text-[#1a1918]">{form.name}</span>.
-                        Abrimos tu correo con la consulta de{' '}
+                        Thank you, <span className="font-medium text-[#1a1918]">{form.name}</span>.
+                        We have opened your email client with the enquiry for{' '}
                         <span className="font-medium text-[#1a1918]">
-                          {form.propertyName || 'tu propiedad'}
+                          {form.propertyName || 'your property'}
                         </span>{' '}
-                        ya redactada — sólo queda enviarla.
+                        already written — all that is left is to send it.
                       </p>
                       <p className="mx-auto max-w-md text-sm leading-relaxed text-[#5a5854]">
-                        ¿No se abrió tu cliente de correo? Copia el mensaje y escríbenos a{' '}
+                        Did your email client not open? Copy the message and write to us at{' '}
                         <a
                           href={`mailto:${contact.emailAddress}`}
                           className="font-medium text-[#1a1918] underline underline-offset-4"
@@ -159,7 +159,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                         onClick={() => setSubmitted(false)}
                         className="text-[10px] font-sans uppercase tracking-[0.22em] text-[#1a1918] underline underline-offset-4"
                       >
-                        Enviar otra consulta
+                        Send another enquiry
                       </button>
                     </div>
                   ) : (
@@ -183,7 +183,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                         onSubmit={handleSubmit}
                         className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-x-[34px] md:gap-y-7"
                       >
-                        <Field label="Nombre">
+                        <Field label="Name">
                           <input
                             required
                             autoComplete="name"
@@ -204,7 +204,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                           />
                         </Field>
 
-                        <Field label="Propiedad">
+                        <Field label="Property">
                           <input
                             required
                             value={form.propertyName}
@@ -213,14 +213,14 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                           />
                         </Field>
 
-                        <Field label="Qué necesitas">
+                        <Field label="What you need">
                           <select
                             required
                             value={form.scope}
                             onChange={(e) => setForm({ ...form, scope: e.target.value })}
                             className={fieldClass}
                           >
-                            <option value="">Seleccionar</option>
+                            <option value="">Select</option>
                             {SCOPE_OPTIONS.map((option) => (
                               <option key={option} value={option}>
                                 {option}
@@ -229,12 +229,12 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                           </select>
                         </Field>
 
-                        <Field label="Proyecto" wide>
+                        <Field label="Project" wide>
                           <textarea
                             required
                             value={form.message}
                             onChange={(e) => setForm({ ...form, message: e.target.value })}
-                            placeholder="Objetivo, fechas aproximadas y cualquier contexto que consideres útil."
+                            placeholder="Your goal, approximate dates and any context you think is useful."
                             className={`${fieldClass} h-48 min-h-[190px] resize-y`}
                           />
                         </Field>
@@ -244,7 +244,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                             type="submit"
                             className="border-b border-[#1a1918]/65 pb-3 text-[10px] font-sans uppercase tracking-[0.22em] text-[#1a1918] transition-colors hover:border-[#1a1918]"
                           >
-                            Enviar consulta →
+                            Send enquiry →
                           </button>
                         </div>
                       </form>

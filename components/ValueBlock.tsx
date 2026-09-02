@@ -68,7 +68,7 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
                   <div>
                     <button
                       onClick={next}
-                      aria-label="Ver la otra forma de generar valor"
+                      aria-label="See the other way we create value"
                       className="float-left mb-4 mr-5 block w-[38%] cursor-pointer sm:w-44 md:mb-4 md:mr-8 md:w-[210px] lg:w-[240px]"
                     >
                       <img
@@ -100,7 +100,7 @@ export const ValueBlock: React.FC<ValueBlockProps> = ({ onOpenAvailability }) =>
                 <button
                   key={b}
                   onClick={() => setIndex(i)}
-                  aria-label={`Ver ${String(i + 1).padStart(2, '0')}`}
+                  aria-label={`View ${String(i + 1).padStart(2, '0')}`}
                   aria-current={i === index}
                   className="p-1.5 -m-1.5"
                 >

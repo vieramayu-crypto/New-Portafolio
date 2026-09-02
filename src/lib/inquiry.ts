@@ -20,20 +20,20 @@ export interface InquiryFields {
 }
 
 export function buildInquirySubject(f: InquiryFields): string {
-  const property = f.propertyName.trim() || 'nueva propiedad';
-  return `Consulta de disponibilidad — ${property}`;
+  const property = f.propertyName.trim() || 'new property';
+  return `Availability enquiry — ${property}`;
 }
 
 export function buildInquiryBody(f: InquiryFields): string {
   const lines: string[] = [
-    `Nombre: ${f.name.trim()}`,
-    `Correo: ${f.email.trim()}`,
+    `Name: ${f.name.trim()}`,
+    `Email: ${f.email.trim()}`,
   ];
-  if (f.phone?.trim()) lines.push(`Teléfono: ${f.phone.trim()}`);
-  lines.push(`Propiedad: ${f.propertyName.trim()}`);
-  if (f.scope?.trim()) lines.push(`Servicio: ${f.scope.trim()}`);
-  if (f.availabilityDate?.trim()) lines.push(`Fechas consideradas: ${f.availabilityDate.trim()}`);
-  if (f.message?.trim()) lines.push('', 'Detalles del proyecto:', f.message.trim());
+  if (f.phone?.trim()) lines.push(`Phone: ${f.phone.trim()}`);
+  lines.push(`Property: ${f.propertyName.trim()}`);
+  if (f.scope?.trim()) lines.push(`Service: ${f.scope.trim()}`);
+  if (f.availabilityDate?.trim()) lines.push(`Dates under consideration: ${f.availabilityDate.trim()}`);
+  if (f.message?.trim()) lines.push('', 'Project details:', f.message.trim());
   return lines.join('\n');
 }
 

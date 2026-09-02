@@ -22,8 +22,8 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
           transition={{ duration: 0.9, ease: 'easeOut' }}
           className="font-serif font-medium text-[16vw] leading-[1.08] text-[#1a1918] sm:text-[13vw] md:text-[10.5vw]"
         >
-          <span className="block">Fotografía,</span>
-          <span className="block">video y</span>
+          <span className="block">Photography,</span>
+          <span className="block">film and</span>
           <FlipWords words={content.about.flipWords} />
         </motion.h1>
       </section>
@@ -45,7 +45,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
       <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen min-h-[90vh] md:min-h-[100dvh] mb-24 md:mb-32 overflow-hidden">
         <img
           src={COUPLE_PHOTO}
-          alt="Mayurlin y Yerfran"
+          alt="Mayurlin and Yerfran"
           referrerPolicy="no-referrer"
           className="absolute inset-0 w-full h-full object-cover grayscale contrast-110"
         />
@@ -131,7 +131,7 @@ export const About: React.FC<AboutProps> = ({ onOpenAvailability }) => {
               onClick={onOpenAvailability}
               className="bg-[#1a1918] px-8 py-4 text-[11px] font-sans uppercase tracking-[0.22em] font-medium text-[#f5f3ed] transition-colors hover:bg-[#5a5854] md:px-10 md:py-[1.15rem] md:text-xs"
             >
-              Consultar disponibilidad
+              Check availability
             </button>
           </div>
         </div>

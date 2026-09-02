@@ -34,7 +34,7 @@ const ContinueCue: React.FC<{ nextSectionId: string }> = ({ nextSectionId }) => 
         }
         className="group flex items-center gap-4 text-[10px] font-sans uppercase tracking-[0.25em] text-[#5a5854] transition-colors hover:text-[#1a1918] md:text-xs"
       >
-        <span>Ver más trabajo</span>
+        <span>See more work</span>
         <span className="inline-block transition-transform duration-300 group-hover:translate-y-1">&darr;</span>
       </button>
     </div>
@@ -244,7 +244,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
                   onClick={() => setIsHotelSelectorOpen(!isHotelSelectorOpen)}
                   className="pointer-events-auto bg-[#f5f3ed]/95 backdrop-blur-sm px-5 py-2 flex items-center gap-3 text-sm md:text-base font-serif tracking-[0.25em] font-medium text-[#1a1918] hover:bg-[#1a1918] hover:text-[#f5f3ed] transition-all duration-300 shadow-[0_2px_20px_rgba(26,25,24,0.14)]"
                 >
-                  <span>Ver trabajo ({hotelStories.length})</span>
+                  <span>View work ({hotelStories.length})</span>
                   <span className="text-xs">{isHotelSelectorOpen ? '▼' : '▲'}</span>
                 </button>
 
@@ -255,10 +255,10 @@ export const HomeMain: React.FC<HomeMainProps> = ({
                       initial={{ opacity: 0, y: 15, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                      className="absolute bottom-16 bg-white border border-[#1a1918]/15 rounded-2xl p-3 shadow-2xl w-80 md:w-96 text-left max-h-80 overflow-y-auto z-50 space-y-1"
+                      className="mt-glass mt-glass-light mt-glass-panel no-scrollbar absolute bottom-16 z-50 max-h-80 w-80 space-y-1 overflow-y-auto rounded-lg p-3 text-left md:w-96 md:rounded-[10px]"
                     >
-                      <div className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#5a5854] px-3 py-1.5 border-b border-[#1a1918]/10 mb-1">
-                        Ir a Hotel / Cliente ({hotelStories.length})
+                      <div className="relative z-[2] mb-1 border-b border-[#1a1918]/15 px-3 py-1.5 font-sans text-[10px] uppercase tracking-[0.2em] text-[#5a5854]">
+                        Jump to hotel / client ({hotelStories.length})
                       </div>
                       {hotelStories.map((hotel, idx) => (
                         <button
@@ -267,7 +267,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
                           className={`w-full text-left px-3 py-2.5 rounded-lg flex items-center justify-between text-xs font-sans transition-colors ${
                             activeStoryIndex === idx
                               ? 'bg-[#1a1918] text-[#fbfaf6] font-medium'
-                              : 'text-[#1a1918] hover:bg-[#fbfaf6]'
+                              : 'text-[#1a1918] hover:bg-white/45'
                           }`}
                         >
                           <div>
@@ -297,7 +297,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
               lo que hay que leer aqui. */}
           <div className="mb-14 text-center">
             <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-[#5a5854] md:text-xs">
-              Lo que dicen los equipos
+              What the teams say
             </span>
           </div>
           <Testimonials />
