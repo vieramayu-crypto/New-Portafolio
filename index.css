@@ -191,7 +191,7 @@ body {
 .animate-marquee-slow {
   display: flex;
   width: max-content;
-  animation: marquee 59.7s linear infinite;
+  animation: marquee 77.6s linear infinite;
 }
 
 .font-serif {

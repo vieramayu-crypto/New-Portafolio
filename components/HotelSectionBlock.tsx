@@ -100,7 +100,7 @@ export const HotelSectionBlock: React.FC<HotelSectionBlockProps> = ({
       {/* Mobile Header Label */}
       <div className="md:hidden w-full max-w-md mx-auto mb-8 text-center space-y-1">
         <span className="text-[10px] font-sans tracking-[0.25em] text-[#5a5854] uppercase block">
-          [{story.leftTag || 'HOTEL'}]
+          {story.leftTag || 'HOTEL'}
         </span>
         <h3 className="font-serif text-lg tracking-wider text-[#1a1918] font-light uppercase">
           {story.hotelName}

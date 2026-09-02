@@ -1,9 +1,9 @@
 {
   "hero": {
-    "eyebrow": "Producción visual · Hotelería de lujo",
+    "eyebrow": "Mayu Travel · Creative Studio",
     "titleLead": "Producción visual para",
     "titleEmphasis": "hoteles de lujo.",
-    "glassLabel": "Estudio de producción visual",
+    "glassLabel": "Foto · Film · Content",
     "ctaLabel": "Proyectos ↓"
   },
   "valueBlock": {
@@ -24,9 +24,8 @@
   },
   "about": {
     "flipWords": [
-      "Alcance",
-      "Exposición",
-      "Audiencia"
+      "Dirección",
+      "Distribución"
     ],
     "introStatement": "Mayu Travel es un estudio de producción visual especializado en hotelería de lujo. Trabajamos en pareja y construimos cada proyecto desde la propiedad: su arquitectura, su ritmo, su servicio y la forma en que quiere ser recordada.",
     "legacyQuote": "No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse como se siente vivirlo.",
