@@ -42,7 +42,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ introDone }) => {
       <img
         src={HERO_PHOTO}
         alt="Mayu Travel — producción visual para hoteles de lujo"
-        className="absolute inset-0 h-full w-full object-cover object-[34%_24%] saturate-[.84] md:object-[56%_28%]"
+        // En movil la foto se dibuja un 5% mas alta y anclada arriba: a 390x844
+        // el `cover` ya encaja de altura exacta, asi que `object-position` en el
+        // eje Y no hace nada y esta es la unica forma de bajar a la persona
+        // hasta la altura del titular. El sobrante cae detras de la banda.
+        className="absolute left-0 top-0 h-[105%] w-full object-cover object-[34%_24%] saturate-[.84] md:h-full md:object-[56%_28%]"
       />
 
       {/* Dos velos cruzados: uno lateral que sostiene el titular sobre el margen

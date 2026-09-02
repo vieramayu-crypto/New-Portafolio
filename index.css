@@ -64,56 +64,85 @@ body {
   pointer-events: none;
 }
 
-/* Reflejo que cruza despacio y con pausas — de ahí lo de "orgánico": no es un
-   barrido lineal, sino una curva que acelera, duda y se va. */
+/* Reflejo que cruza el cristal como una luz real: va, duda, sale por un lado y
+   vuelve por donde vino. De ahi lo de "organico" — no es un barrido lineal en
+   bucle, sino un viaje de ida y vuelta con pausas.
+
+   Ojo con la opacidad: se aplica DOS veces, la del blanco del degradado y la
+   del fotograma. Estaba en .24 x .24 = 5,8% de blanco efectivo, o sea invisible
+   sobre una foto. El pico real ahora es .42 x .34 = 14%. */
 .mt-glass::after {
   content: '';
   position: absolute;
-  top: -48%;
-  left: -34%;
-  width: 34%;
-  height: 196%;
-  transform: rotate(11deg);
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 255, 255, 0.24) 0%,
-    rgba(255, 255, 255, 0.09) 30%,
-    rgba(255, 255, 255, 0) 72%
+  top: -55%;
+  left: -40%;
+  width: 46%;
+  height: 210%;
+  transform: rotate(12deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 26%,
+    rgba(255, 255, 255, 0.42) 50%,
+    rgba(255, 255, 255, 0.1) 74%,
+    rgba(255, 255, 255, 0) 100%
   );
-  filter: blur(16px);
+  filter: blur(14px);
   opacity: 0;
   pointer-events: none;
-  animation: mt-glass-reflection 16s cubic-bezier(0.45, 0.05, 0.15, 1) infinite;
+  animation: mt-glass-reflection 22s ease-in-out infinite;
 }
 
 @keyframes mt-glass-reflection {
-  0%,
-  20% {
-    left: -34%;
+  0% {
+    left: -40%;
     opacity: 0;
   }
-  27% {
-    opacity: 0.13;
+  6% {
+    opacity: 0.18;
   }
-  39% {
-    left: 20%;
+  18% {
+    left: 6%;
+    opacity: 0.34;
+  }
+  26% {
+    left: 18%;
     opacity: 0.24;
   }
-  48% {
-    left: 35%;
-    opacity: 0.16;
+  34% {
+    left: 34%;
+    opacity: 0.32;
   }
-  56% {
+  46% {
+    left: 104%;
+    opacity: 0.1;
+  }
+  52% {
+    left: 104%;
+    opacity: 0;
+  }
+  58% {
+    left: 104%;
+    opacity: 0.14;
+  }
+  68% {
     left: 52%;
-    opacity: 0.22;
+    opacity: 0.3;
   }
-  70% {
-    left: 110%;
-    opacity: 0.08;
+  76% {
+    left: 34%;
+    opacity: 0.2;
   }
-  77%,
+  84% {
+    left: 8%;
+    opacity: 0.28;
+  }
+  94% {
+    left: -40%;
+    opacity: 0.06;
+  }
   100% {
-    left: 110%;
+    left: -40%;
     opacity: 0;
   }
 }
@@ -141,20 +170,19 @@ body {
 
 .mt-glass-light::after {
   top: -72%;
-  left: -38%;
-  width: 18%;
+  width: 26%;
   height: 245%;
   transform: rotate(16deg);
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.03),
-    rgba(255, 255, 255, 0.3),
     rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0.12),
     transparent
   );
   filter: blur(15px);
-  animation-duration: 15s;
+  animation-duration: 19s;
 }
 
 /* En móvil el modal ocupa casi toda la pantalla y el reflejo se lee como una
