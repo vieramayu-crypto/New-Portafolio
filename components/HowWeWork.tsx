@@ -101,7 +101,7 @@ export const HowWeWork: React.FC = () => {
               transition={{ duration: 0.55, ease: 'easeInOut' }}
             >
               {/* La cifra sobredimensionada desaparece: competía con el
-                  "Paso N de M" que ya va debajo. */}
+                  "Step N of M" que ya va debajo. */}
               <div
                 role="button"
                 tabIndex={0}
@@ -112,7 +112,7 @@ export const HowWeWork: React.FC = () => {
                     goNext();
                   }
                 }}
-                aria-label="Ver el paso siguiente"
+                aria-label="See the next step"
                 className="cursor-pointer"
               >
                 <div>
@@ -131,7 +131,7 @@ export const HowWeWork: React.FC = () => {
                   <div className="clear-left pt-8 md:pt-12">
                     <div className="font-serif text-xl text-[#1a1918] md:text-2xl">{step.title}</div>
                     <div className="mt-1 text-[10px] font-sans uppercase tracking-[0.25em] text-[#5a5854] md:text-xs">
-                      Paso {index + 1} de {steps.length}
+                      Step {index + 1} of {steps.length}
                     </div>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export const HowWeWork: React.FC = () => {
             <button
               key={s.number}
               onClick={() => goTo(i)}
-              aria-label={`Ir al paso ${i + 1}: ${s.title}`}
+              aria-label={`Go to step ${i + 1}: ${s.title}`}
               aria-current={i === index}
               className="p-1.5 -m-1.5"
             >

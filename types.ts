@@ -32,7 +32,7 @@ export interface HotelStory {
     poster: string;
   };
   quote?: string;
-  category: 'Hotel de Lujo' | 'Boda Destino' | 'Escapada Romántica' | 'Villa Histórica';
+  category: 'Luxury Hotel' | 'Destination Wedding' | 'Romantic Escape' | 'Historic Villa';
   layoutVariant?: number; // 0 to 7 unique layout variations
   /** Durable facts about the shoot, shown on the portfolio page. They turn the
    *  gallery from "nice photos" into demonstrable commercial work. Every field

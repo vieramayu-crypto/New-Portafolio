@@ -11,8 +11,8 @@ interface NavbarProps {
 }
 
 const PAGE_LABELS: Partial<Record<Page, string>> = {
-  about: 'Acerca de',
-  contact: 'Contacto',
+  about: 'About',
+  contact: 'Contact',
 };
 
 // The "Portafolio" link navigates to Home, so its hover-preview photo is
@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
           )}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
             className="pointer-events-auto flex flex-col justify-center items-end gap-1.5 p-3 -m-1 focus:outline-none group cursor-pointer"
           >
@@ -92,10 +92,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
 
               <button
                 onClick={() => setIsMenuOpen(false)}
-                aria-label="Cerrar menú"
+                aria-label="Close menu"
                 className="text-xs font-sans tracking-[0.2em] uppercase text-[#1a1918] hover:opacity-60 transition-opacity p-2"
               >
-                [ CERRAR ]
+                [ CLOSE ]
               </button>
             </div>
 
@@ -110,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                   onMouseLeave={() => setHoveredLink(null)}
                   className="group relative inline-block font-serif text-3xl md:text-5xl tracking-wide text-[#1a1918]"
                 >
-                  Portafolio
+                  Portfolio
                   <span
                     className={`pointer-events-none absolute left-0 -bottom-1 h-px w-full origin-left bg-[#1a1918] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
                       currentPage === 'home' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
@@ -124,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                   onMouseLeave={() => setHoveredLink(null)}
                   className="group relative inline-block font-serif text-3xl md:text-5xl tracking-wide text-[#1a1918]"
                 >
-                  Acerca de
+                  About
                   <span
                     className={`pointer-events-none absolute left-0 -bottom-1 h-px w-full origin-left bg-[#1a1918] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
                       currentPage === 'about' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
@@ -138,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                   onMouseLeave={() => setHoveredLink(null)}
                   className="group relative inline-block font-serif text-3xl md:text-5xl tracking-wide text-[#1a1918]"
                 >
-                  Contacto
+                  Contact
                   <span
                     className={`pointer-events-none absolute left-0 -bottom-1 h-px w-full origin-left bg-[#1a1918] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
                       currentPage === 'contact' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
@@ -185,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                 }}
                 className="flex items-center space-x-2 text-[#1a1918] hover:opacity-70 transition-opacity uppercase font-medium"
               >
-                <span>Consultar disponibilidad</span>
+                <span>Check availability</span>
                 <span className="w-5 h-5 rounded-full bg-[#1a1918] text-[#f5f3ed] flex items-center justify-center text-[10px]">
                   &rarr;
                 </span>

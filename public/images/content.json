@@ -1,121 +1,121 @@
 {
   "hero": {
     "eyebrow": "Mayu Travel · Creative Studio",
-    "titleLead": "Producción visual para",
-    "titleEmphasis": "hoteles de lujo.",
-    "glassLabel": "Foto · Film · Content",
-    "ctaLabel": "Proyectos ↓"
+    "titleLead": "Visual production for",
+    "titleEmphasis": "luxury hotels.",
+    "glassLabel": "Photo · Film · Content",
+    "ctaLabel": "Projects ↓"
   },
   "valueBlock": {
-    "claim": "Una producción. Dos formas de generar valor.",
+    "claim": "One production. Two ways to create value.",
     "benefits": [
-      "Activos para tu marca.",
-      "Distribución, cuando suma."
+      "Assets for your brand.",
+      "Distribution, when it fits."
     ],
     "benefitDetails": [
-      "Fotografía y video listos para web, campañas, redes y publicidad. El alcance y los derechos se definen en cada propuesta según el uso que necesite la propiedad.",
-      "Cuando encaja con el objetivo del proyecto, añadimos cobertura y publicación ante una audiencia internacional interesada en viajes y hotelería. No es un requisito de la producción: es una capa adicional."
+      "Photography and film ready for your website, campaigns, social channels and paid advertising. Scope and usage rights are defined in each proposal, according to what the property needs.",
+      "When it fits the goal of the project, we add coverage and publication to an international audience interested in travel and hospitality. It is not a requirement of the production: it is an additional layer."
     ],
-    "ctaLabel": "Consultar producción"
+    "ctaLabel": "Enquire about production"
   },
   "closingCta": {
-    "heading": "Hablemos de tu propiedad.",
-    "ctaLabel": "Consultar disponibilidad"
+    "heading": "Let’s talk about your property.",
+    "ctaLabel": "Check availability"
   },
   "about": {
     "flipWords": [
-      "Dirección",
-      "Distribución"
+      "Direction",
+      "Distribution"
     ],
-    "introStatement": "Mayu Travel es un estudio de producción visual especializado en hotelería de lujo. Trabajamos en pareja y construimos cada proyecto desde la propiedad: su arquitectura, su ritmo, su servicio y la forma en que quiere ser recordada.",
-    "legacyQuote": "No lo hacemos para llenar un feed. Lo hacemos porque cada hotel tiene un alma que merece verse como se siente vivirlo.",
+    "introStatement": "Mayu Travel is a visual production studio specialising in luxury hospitality. We work as a couple and build every project from the property itself: its architecture, its rhythm, its service and the way it wants to be remembered.",
+    "legacyQuote": "We don’t do this to fill a feed. We do it because every hotel has a soul that deserves to be seen the way it feels to be there.",
     "mayurlin": {
       "name": "Mayurlin Viera",
-      "bio": "Crear contenido fue el sueño de Mayu antes de tener con qué hacerlo. Trabajar con los mejores hoteles del mundo fue, desde siempre, su objetivo número uno. Esa idea no se le fue nunca — solo esperó el momento y las manos correctas para hacerla real. Seis años y más de treinta y cinco propiedades después, sigue mirando cada nuevo hotel como el primero."
+      "bio": "Creating content was Mayu’s dream long before she had the means to do it. Working with the finest hotels in the world was, from the very beginning, her number one goal. That idea never left her — it simply waited for the right moment and the right hands to make it real. Six years and more than thirty-five properties later, she still looks at every new hotel the way she looked at the first."
     },
     "yerfran": {
       "name": "Yerfran",
-      "bio": "Yerfran llegó a la fotografía por otro camino: el de capturar lo que una persona siente en un lugar, no solo cómo se ve. Años de mirar con atención se convirtieron en un estilo propio — fotos con alma, hechas desde el cuidado. Hoy codirige la producción visual de Mayu Travel en hoteles de España, Portugal, Grecia, Suiza y Países Bajos."
+      "bio": "Yerfran came to photography from a different direction: capturing what a person feels in a place, not only how it looks. Years of paying close attention turned into a style of his own — photographs with soul, made with care. Today he co-directs Mayu Travel’s visual production in hotels across Spain, Portugal, Greece, Switzerland and the Netherlands."
     },
-    "closingStatement": "Nos interesan especialmente las propiedades con un sentido de lugar fuerte: arquitectura, paisaje, gastronomía, wellness, servicio y proyectos donde la sostenibilidad forma parte real de la experiencia."
+    "closingStatement": "We are especially drawn to properties with a strong sense of place: architecture, landscape, gastronomy, wellness, service, and projects where sustainability is a real part of the experience."
   },
   "contact": {
     "headingLines": [
-      "Hablemos",
-      "de tu",
-      "propiedad."
+      "Let’s talk",
+      "about your",
+      "property."
     ],
-    "introMain": "Cuéntanos qué necesitas producir, dónde y cuándo.",
-    "introSub": "Si hay encaje, te respondemos con disponibilidad y próximos pasos. No necesitas preparar un briefing completo.",
-    "ctaLabel": "Iniciar proyecto",
+    "introMain": "Tell us what you need to produce, where and when.",
+    "introSub": "If there’s a fit, we’ll reply with availability and next steps. You don’t need to prepare a full brief.",
+    "ctaLabel": "Start a project",
     "emailAddress": "mayuviera@gmail.com",
-    "modalKicker": "Solicitud de proyecto",
-    "modalTitle": "Cuéntanos lo esencial.",
-    "modalCopy": "Con esta información podemos valorar el encaje, la disponibilidad y los próximos pasos."
+    "modalKicker": "Project enquiry",
+    "modalTitle": "Tell us the essentials.",
+    "modalCopy": "This is all we need to assess the fit, check availability and propose the next steps."
   },
   "milestones": {
-    "eyebrow": "Trayectoria",
+    "eyebrow": "Track record",
     "items": [
       {
         "value": "35+",
-        "label": "propiedades"
+        "label": "properties"
       },
       {
         "value": "5",
-        "label": "países"
+        "label": "countries"
       },
       {
         "value": "4",
-        "label": "clientes recurrentes"
+        "label": "returning clients"
       }
     ],
-    "footnote": "Clientes recurrentes — GPRO Valparaíso (3 rodajes) · Numa Group (3 propiedades) · Hotel Espléndido (2 rodajes) · Portixol (2 rodajes)"
+    "footnote": "Returning clients — GPRO Valparaíso (3 shoots) · Numa Group (3 properties) · Hotel Espléndido (2 shoots) · Portixol (2 shoots)"
   },
   "howWeWork": {
-    "eyebrow": "Cómo trabajamos",
-    "heading": "El proceso",
+    "eyebrow": "How we work",
+    "heading": "The process",
     "steps": [
       {
         "number": "01",
-        "title": "Contacto y encaje",
-        "description": "Nos escribes desde el formulario o el email. En una llamada breve entendemos la propiedad, la temporada y el uso que le vas a dar al material."
+        "title": "First contact and fit",
+        "description": "You get in touch through the form or by email. In a short call we get to know the property, the season and how you plan to use the material."
       },
       {
         "number": "02",
-        "title": "Plan visual",
-        "description": "Antes de viajar preparamos brief creativo, lista de tomas y storyboard del cortometraje. Ajustamos con el equipo del hotel para que nada quede fuera."
+        "title": "Visual plan",
+        "description": "Before we travel we prepare a creative brief, a shot list and a storyboard for the short film. We refine it with the hotel team so that nothing is left out."
       },
       {
         "number": "03",
-        "title": "Rodaje en la propiedad",
-        "description": "Dos a cinco días en el hotel — el alcance se dimensiona según temporada y actividades. Cubrimos en vivo mientras rodamos."
+        "title": "Shooting on site",
+        "description": "Two to five days at the hotel — the scope depends on the season and the activities on offer. We cover the property live while we shoot."
       },
       {
         "number": "04",
-        "title": "Postproducción y entrega",
-        "description": "Corrección de color, edición y entrega en un plazo aproximado de tres semanas, organizada para uso inmediato en web, redes y publicidad."
+        "title": "Post-production and delivery",
+        "description": "Colour grading, editing and delivery in approximately three weeks, organised for immediate use on your website, social channels and advertising."
       }
     ]
   },
   "faq": {
-    "eyebrow": "Información práctica",
-    "heading": "Dudas habituales.",
+    "eyebrow": "Practical information",
+    "heading": "Common questions.",
     "questions": [
       {
-        "question": "¿Con cuánta antelación conviene reservar fechas?",
-        "answer": "Dos a tres semanas es el rango habitual. Para temporadas altas, aperturas o producciones con mayor alcance, conviene consultar antes."
+        "question": "How far in advance should dates be booked?",
+        "answer": "Two to three weeks is the usual range. For high season, openings or larger productions, it is worth getting in touch earlier."
       },
       {
-        "question": "¿Quién cubre viajes y alojamiento?",
-        "answer": "Se contemplan dentro de la propuesta económica de cada proyecto. Coordinamos la logística y los traslados necesarios para la producción."
+        "question": "Who covers travel and accommodation?",
+        "answer": "They are included in the budget proposal for each project. We coordinate the logistics and any transfers the production requires."
       },
       {
-        "question": "¿Qué derechos de uso incluye la entrega?",
-        "answer": "Los derechos se definen según el uso previsto: web, redes, newsletter, PR, plataformas de reserva y campañas de publicidad pagada, entre otros."
+        "question": "What usage rights does the delivery include?",
+        "answer": "Rights are defined according to the intended use: website, social channels, newsletters, PR, booking platforms and paid advertising campaigns, among others."
       },
       {
-        "question": "¿La distribución en @mayurlintravel forma parte de todos los proyectos?",
-        "answer": "No. Producción y distribución son capas distintas. Cuando existe encaje entre la propiedad, la campaña y nuestra audiencia, podemos incorporar publicación y cobertura como parte adicional de la propuesta."
+        "question": "Is distribution on @mayurlintravel part of every project?",
+        "answer": "No. Production and distribution are separate layers. When there is a fit between the property, the campaign and our audience, we can add publication and coverage as an additional part of the proposal."
       }
     ]
   },
@@ -123,65 +123,65 @@
     {
       "seccion": 1,
       "hotelName": "THE RITZ-CARLTON TENERIFE, ABAMA",
-      "coupleName": "Arquitectura morisca",
-      "description": "Una finca morisca de muros terracota sobre el acantilado de Guía de Isora, con jardines subtropicales que descienden hasta el Atlántico y La Gomera al fondo.",
-      "quote": "Terracota, océano y jardín — tres tonos que se encuentran en cada esquina de Abama."
+      "coupleName": "Moorish architecture",
+      "description": "A Moorish estate of terracotta walls above the cliffs of Guía de Isora, with subtropical gardens descending to the Atlantic and La Gomera on the horizon.",
+      "quote": "Terracotta, ocean and garden — three tones that meet at every corner of Abama."
     },
     {
       "seccion": 2,
       "hotelName": "INTERCONTINENTAL LISBOA",
-      "coupleName": "Urbano de altura",
-      "description": "Arquitectura contemporánea sobre una de las siete colinas de Lisboa, frente al Parque Eduardo VII, con el skyline y el Tajo al fondo.",
-      "quote": "Lisboa entera se despliega desde lo alto de esta colina."
+      "coupleName": "Urban heights",
+      "description": "Contemporary architecture on one of Lisbon’s seven hills, facing Parque Eduardo VII, with the skyline and the Tagus beyond.",
+      "quote": "The whole of Lisbon unfolds from the top of this hill."
     },
     {
       "seccion": 3,
       "hotelName": "VESTIGE COLLECTION, BINIDUFÀ",
-      "coupleName": "Patrimonio menorquín",
-      "description": "Una possessió del siglo XVIII restaurada en una finca privada de 800 hectáreas al norte de Menorca — piedra, barro y silencio agrícola.",
-      "quote": "Piedra, tierra y silencio — el norte de Menorca tal como siempre fue."
+      "coupleName": "Menorcan heritage",
+      "description": "An 18th-century possessió restored within an 800-hectare private estate in northern Menorca — stone, clay and agricultural silence.",
+      "quote": "Stone, earth and silence — northern Menorca as it has always been."
     },
     {
       "seccion": 4,
       "hotelName": "DELTAPARK VITALRESORT",
-      "coupleName": "Alpino de bienestar",
-      "description": "Arquitectura alpina contemporánea a orillas del lago de Thun, entre dos reservas del Kanderdelta, con un spa de 2.000 m².",
-      "quote": "El silencio de los Alpes se refleja entero en el lago de Thun."
+      "coupleName": "Alpine wellness",
+      "description": "Contemporary Alpine architecture on the shore of Lake Thun, between two reserves of the Kander delta, with a 2,000 m² spa.",
+      "quote": "The silence of the Alps, reflected whole in Lake Thun."
     },
     {
       "seccion": 5,
       "hotelName": "HONEYMOON PETRA VILLAS",
-      "coupleName": "Acantilado egeo",
-      "description": "Tallado en roca volcánica sobre la caldera de Santorini, con una de las piscinas más buscadas del Egeo suspendida sobre el mar.",
-      "quote": "Roca volcánica y horizonte infinito — así se ve el amanecer sobre la caldera."
+      "coupleName": "Aegean cliffside",
+      "description": "Carved into volcanic rock above the Santorini caldera, with one of the most sought-after pools in the Aegean suspended over the sea.",
+      "quote": "Volcanic rock and an endless horizon — this is sunrise over the caldera."
     },
     {
       "seccion": 6,
       "hotelName": "GPRO VALPARAÍSO PALACE & SPA",
-      "coupleName": "Mediterráneo de spa",
-      "description": "Jardines privados sobre la bahía de Palma, en lo alto de Bonanova, con el spa más grande de Mallorca en su interior.",
-      "quote": "Jardines, agua y la bahía de Palma extendida al fondo de cada terraza."
+      "coupleName": "Mediterranean spa",
+      "description": "Private gardens above the Bay of Palma, high in Bonanova, with the largest spa in Mallorca inside.",
+      "quote": "Gardens, water and the Bay of Palma stretching out beyond every terrace."
     },
     {
       "seccion": 7,
       "hotelName": "HOTEL ESPLÉNDIDO",
-      "coupleName": "Bahía y piedra",
-      "description": "Piedra caliza y terrazas frente a la bahía de Sóller, con la Serra de Tramuntana detrás y el tranvía histórico cruzando el paseo.",
-      "quote": "Piedra, mar y el eco del tranvía sobre los adoquines de Sóller."
+      "coupleName": "Bay and stone",
+      "description": "Limestone and terraces facing the Bay of Sóller, with the Serra de Tramuntana behind and the historic tram crossing the promenade.",
+      "quote": "Stone, sea and the echo of the tram on the cobbles of Sóller."
     },
     {
       "seccion": 8,
       "hotelName": "DISTRICT HIVE",
-      "coupleName": "Off-grid en el desierto",
-      "description": "Una cápsula de vidrio y acero suspendida sobre el badlands de Gorafe — arquitectura off-grid con agua del aire y energía solar.",
-      "quote": "El cielo entero por techo, el badlands entero por horizonte."
+      "coupleName": "Off-grid in the desert",
+      "description": "A capsule of glass and steel suspended above the Gorafe badlands — off-grid architecture with water drawn from the air and solar power.",
+      "quote": "The whole sky for a roof, the whole badlands for a horizon."
     },
     {
       "seccion": 9,
       "hotelName": "WELMOON VILLAS PAISAJE",
-      "coupleName": "Bajo las estrellas",
-      "description": "Villas abovedadas entre pinares de Caravaca de la Cruz, pensadas para dormir bajo un cielo sin filtros de la sierra murciana.",
-      "quote": "Un techo de estrellas y el silencio de la sierra murciana."
+      "coupleName": "Under the stars",
+      "description": "Vaulted villas among the pine woods of Caravaca de la Cruz, designed for sleeping under the unfiltered skies of the Murcian sierra.",
+      "quote": "A roof of stars and the silence of the Murcian sierra."
     }
   ]
 }

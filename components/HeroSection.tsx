@@ -41,7 +41,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ introDone }) => {
     <section className="relative h-[100svh] min-h-[680px] w-full select-none overflow-hidden bg-[#1a1918] font-sans text-white">
       <img
         src={HERO_PHOTO}
-        alt="Mayu Travel — producción visual para hoteles de lujo"
+        alt="Mayu Travel — visual production for luxury hotels"
         // En movil la foto se dibuja un 5% mas alta y anclada arriba: a 390x844
         // el `cover` ya encaja de altura exacta, asi que `object-position` en el
         // eje Y no hace nada y esta es la unica forma de bajar a la persona
@@ -99,7 +99,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ introDone }) => {
       <motion.div
         {...rise(0.42)}
         animate={animate}
-        className="mt-glass absolute inset-x-0 bottom-[max(14px,env(safe-area-inset-bottom))] z-[3] mx-auto h-[74px] w-[calc(100vw-28px)] overflow-hidden rounded-[9px] md:bottom-[clamp(22px,3vw,42px)] md:h-[76px] md:w-[min(68vw,1120px)] md:min-w-[680px] md:rounded-[10px]"
+        className="mt-glass mt-glass-halo absolute inset-x-0 bottom-[max(14px,env(safe-area-inset-bottom))] z-[3] mx-auto h-[74px] w-[calc(100vw-28px)] overflow-hidden rounded-[9px] md:bottom-[clamp(22px,3vw,42px)] md:h-[76px] md:w-[min(68vw,1120px)] md:min-w-[680px] md:rounded-[10px]"
       >
         {/* Las columnas son algo mas anchas que en el prototipo: la metrica
             aprobada ("4 clientes recurrentes") es mas larga que la que habia

@@ -69,25 +69,29 @@ body {
    bucle, sino un viaje de ida y vuelta con pausas.
 
    Ojo con la opacidad: se aplica DOS veces, la del blanco del degradado y la
-   del fotograma. Estaba en .24 x .24 = 5,8% de blanco efectivo, o sea invisible
-   sobre una foto. El pico real ahora es .42 x .34 = 14%. */
+   del fotograma. Estuvo en .24 x .24 = 5,8% de blanco efectivo y medido daba
+   una variacion de 1,4 niveles de gris sobre 255 — es decir, invisible, sobre
+   todo en movil, donde la banda vive sobre grava clara. El nucleo va ahora a
+   .92 x .58 = 53% efectivo. */
 .mt-glass::after {
   content: '';
   position: absolute;
   top: -55%;
-  left: -40%;
-  width: 46%;
+  left: -45%;
+  width: 52%;
   height: 210%;
   transform: rotate(12deg);
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.1) 26%,
-    rgba(255, 255, 255, 0.42) 50%,
-    rgba(255, 255, 255, 0.1) 74%,
+    rgba(255, 255, 255, 0.06) 18%,
+    rgba(255, 255, 255, 0.3) 38%,
+    rgba(255, 255, 255, 0.92) 50%,
+    rgba(255, 255, 255, 0.3) 62%,
+    rgba(255, 255, 255, 0.06) 82%,
     rgba(255, 255, 255, 0) 100%
   );
-  filter: blur(14px);
+  filter: blur(10px);
   opacity: 0;
   pointer-events: none;
   animation: mt-glass-reflection 22s ease-in-out infinite;
@@ -95,27 +99,27 @@ body {
 
 @keyframes mt-glass-reflection {
   0% {
-    left: -40%;
+    left: -45%;
     opacity: 0;
   }
   6% {
-    opacity: 0.18;
+    opacity: 0.3;
   }
   18% {
-    left: 6%;
-    opacity: 0.34;
+    left: 4%;
+    opacity: 0.58;
   }
   26% {
-    left: 18%;
-    opacity: 0.24;
+    left: 16%;
+    opacity: 0.4;
   }
   34% {
-    left: 34%;
-    opacity: 0.32;
+    left: 32%;
+    opacity: 0.54;
   }
   46% {
     left: 104%;
-    opacity: 0.1;
+    opacity: 0.16;
   }
   52% {
     left: 104%;
@@ -123,27 +127,82 @@ body {
   }
   58% {
     left: 104%;
-    opacity: 0.14;
+    opacity: 0.24;
   }
   68% {
-    left: 52%;
-    opacity: 0.3;
+    left: 50%;
+    opacity: 0.52;
   }
   76% {
-    left: 34%;
-    opacity: 0.2;
+    left: 32%;
+    opacity: 0.34;
   }
   84% {
-    left: 8%;
-    opacity: 0.28;
+    left: 6%;
+    opacity: 0.48;
   }
   94% {
-    left: -40%;
-    opacity: 0.06;
+    left: -45%;
+    opacity: 0.1;
   }
   100% {
-    left: -40%;
+    left: -45%;
     opacity: 0;
+  }
+}
+
+/* El canto del cristal tambien recoge la luz: el borde de un pixel se enciende
+   y se apaga en fase con el barrido, y por fuera acompana un halo blanco muy
+   abierto. Va en su propia clase y no en `.mt-glass` porque una animacion gana
+   a cualquier declaracion normal, y en `.mt-glass` se llevaria por delante la
+   sombra del modal, que hereda de ahi. */
+.mt-glass-halo {
+  animation: mt-glass-halo 22s ease-in-out infinite;
+}
+
+@keyframes mt-glass-halo {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.09),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 0 16px rgba(255, 255, 255, 0.04),
+      0 14px 40px rgba(0, 0, 0, 0.06);
+  }
+  18% {
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.34),
+      0 0 0 1px rgba(255, 255, 255, 0.38),
+      0 0 26px rgba(255, 255, 255, 0.26),
+      0 14px 40px rgba(0, 0, 0, 0.06);
+  }
+  34% {
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.32),
+      0 0 24px rgba(255, 255, 255, 0.22),
+      0 14px 40px rgba(0, 0, 0, 0.06);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.09),
+      0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 0 16px rgba(255, 255, 255, 0.04),
+      0 14px 40px rgba(0, 0, 0, 0.06);
+  }
+  68% {
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.34),
+      0 0 25px rgba(255, 255, 255, 0.24),
+      0 14px 40px rgba(0, 0, 0, 0.06);
+  }
+  84% {
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.28),
+      0 0 0 1px rgba(255, 255, 255, 0.3),
+      0 0 23px rgba(255, 255, 255, 0.21),
+      0 14px 40px rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -192,6 +251,15 @@ body {
   .mt-glass-light::after {
     display: none;
   }
+}
+
+/* Variante para paneles de cristal que flotan sobre fotos, sin velo detras.
+   El modal de Contacto vive sobre crema y ahi el .44 de `mt-glass-light` basta;
+   el selector de hoteles se abre encima del portafolio y con esa transparencia
+   el texto se perdia sobre las fotos oscuras. Sigue dejando ver lo que hay
+   detras, pero ya no compite con lo que hay que leer. */
+.mt-glass-panel {
+  background: linear-gradient(135deg, rgba(248, 246, 240, 0.9), rgba(238, 235, 227, 0.82));
 }
 
 @media (prefers-reduced-motion: reduce) {
