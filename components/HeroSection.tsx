@@ -87,7 +87,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ introDone }) => {
         <motion.h1
           {...rise(0.18)}
           animate={animate}
-          className="m-0 max-w-[7.7ch] font-serif text-[clamp(52px,14.85vw,74px)] font-normal leading-[1] tracking-[-0.045em] md:max-w-[8.7ch] md:text-[clamp(64px,7.3vw,116px)]"
+          className="m-0 max-w-[7.7ch] font-serif text-[clamp(52px,14.85vw,74px)] font-normal leading-[1.16] tracking-[-0.045em] md:max-w-[8.7ch] md:text-[clamp(64px,7.3vw,116px)]"
         >
           {hero.titleLead} <i>{hero.titleEmphasis}</i>
         </motion.h1>

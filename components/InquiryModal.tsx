@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
-import { useSiteContent } from '../src/lib/content';
-import { openInquiryMail } from '../src/lib/inquiry';
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { useSiteContent } from "../src/lib/content";
+import { openInquiryMail } from "../src/lib/inquiry";
 
 /** Los campos comparten el hairline del resto del sitio: sin caja, sin relleno,
  *  sin sombra. Serif grande para lo que el visitante escribe. */
 const fieldClass =
-  'block w-full border-0 bg-transparent p-0 font-serif text-xl text-[#1a1918] outline-none placeholder:text-[#5a5854]/50 md:text-[22px]';
+  "block w-full border-0 bg-transparent p-0 font-serif text-xl text-[#1a1918] outline-none placeholder:text-[#5a5854]/50 md:text-[22px]";
 
 const SCOPE_OPTIONS = [
-  'Photography',
-  'Cinematic film',
-  'Photography + film',
-  'Production + distribution',
+  "Photography",
+  "Cinematic film",
+  "Photography + film",
+  "Production + distribution",
 ];
 
 interface FieldProps {
@@ -22,7 +22,9 @@ interface FieldProps {
 }
 
 const Field: React.FC<FieldProps> = ({ label, wide, children }) => (
-  <div className={`border-b border-[#1a1918]/25 pb-4 pt-2 ${wide ? 'md:col-span-2' : ''}`}>
+  <div
+    className={`border-b border-[#1a1918]/25 pb-4 pt-2 ${wide ? "md:col-span-2" : ""}`}
+  >
     <label className="mb-3 block font-sans text-[10px] uppercase tracking-[0.2em] text-[#5a5854]">
       {label}
     </label>
@@ -42,29 +44,32 @@ interface InquiryModalProps {
  *  "Consultar disponibilidad" del menú. Antes había dos formularios distintos y
  *  el visitante veía uno u otro según por dónde entrara.
  */
-export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => {
+export const InquiryModal: React.FC<InquiryModalProps> = ({
+  open,
+  onClose,
+}) => {
   const { contact } = useSiteContent();
   const [submitted, setSubmitted] = useState(false);
-  const [composed, setComposed] = useState('');
+  const [composed, setComposed] = useState("");
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    propertyName: '',
-    scope: '',
-    message: '',
+    name: "",
+    email: "",
+    propertyName: "",
+    scope: "",
+    message: "",
   });
 
   // Cierre con Escape y bloqueo del scroll de fondo mientras el modal vive.
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === "Escape") onClose();
     };
-    document.addEventListener('keydown', onKey);
+    document.addEventListener("keydown", onKey);
     const previous = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener('keydown', onKey);
+      document.removeEventListener("keydown", onKey);
       document.body.style.overflow = previous;
     };
   }, [open, onClose]);
@@ -80,41 +85,48 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
 
   return (
     <AnimatePresence>
-        {open && (
-          <>
-            {/* Velo mucho más crema que en el prototipo (.16). Aquel vivía sólo
+      {open && (
+        <>
+          {/* Velo mucho más crema que en el prototipo (.16). Aquel vivía sólo
                 sobre la página de Contacto, que ya es crema; este se abre
                 también sobre una foto a pantalla completa y sobre el cierre en
                 negro, y a baja opacidad el fondo atravesaba el cristal: mancha
-                cálida en un sitio, losa gris en el otro. A .90 el panel se ve
-                igual se abra desde donde se abra. */}
-            <motion.div
-              key="veil"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              onClick={onClose}
-              className="fixed inset-0 z-[60] bg-[#f5f3ed]/78 backdrop-blur-[9px]"
-              aria-hidden
-            />
+                cálida en un sitio, losa gris en el otro. A .78 el panel se ve
+                igual se abra desde donde se abra, y es un 13% mas transparente que
+                el .90 que llevaba antes: Mayurlin pidio bajar la opacidad de
+                todos los cuadros emergentes entre un 10 y un 15%. */}
+          <motion.div
+            key="veil"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            onClick={onClose}
+            className="fixed inset-0 z-[60] bg-[#f5f3ed]/78 backdrop-blur-[9px]"
+            aria-hidden
+          />
 
-            {/* Contenedor fijo que centra, y dentro el panel animado: así el
+          {/* Contenedor fijo que centra, y dentro el panel animado: así el
                 `transform` de Framer Motion no compite con el centrado. */}
-            <div
-              key="modal"
-              className="pointer-events-none fixed inset-0 z-[61] flex items-center justify-center p-3 md:p-10"
+          <div
+            key="modal"
+            className="pointer-events-none fixed inset-0 z-[61] flex items-center justify-center p-3 md:p-10"
+          >
+            <motion.aside
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="inquiry-modal-title"
+              initial={{ opacity: 0, y: 12, scale: 0.982 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 12, scale: 0.982 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-glass mt-glass-light pointer-events-auto relative flex max-h-full w-full flex-col overflow-hidden rounded-lg text-[#1a1918] md:max-h-[min(820px,calc(100svh-80px))] md:w-[min(1040px,100%)] md:rounded-[10px]"
             >
-              <motion.aside
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="inquiry-modal-title"
-                initial={{ opacity: 0, y: 12, scale: 0.982 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 12, scale: 0.982 }}
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-glass mt-glass-light no-scrollbar pointer-events-auto relative max-h-full w-full overflow-y-auto overflow-x-hidden rounded-lg text-[#1a1918] md:max-h-[min(820px,calc(100svh-80px))] md:w-[min(1040px,100%)] md:rounded-[10px]"
-              >
+              {/* El scroll vive aqui dentro, no en la caja de cristal: un
+                    pseudo-elemento posicionado se desplaza junto al contenido de
+                    su contenedor con scroll, y el borde del cristal acababa
+                    cruzando el formulario como una linea blanca. */}
+              <div className="no-scrollbar min-h-0 flex-1 overflow-y-auto overflow-x-hidden">
                 <div className="relative px-6 pb-9 pt-16 md:px-[clamp(34px,6vw,84px)] md:pb-[clamp(56px,5.5vw,76px)] md:pt-[clamp(50px,5.5vw,76px)]">
                   <button
                     onClick={onClose}
@@ -133,15 +145,19 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                         Your enquiry is ready
                       </h2>
                       <p className="mx-auto max-w-md text-sm leading-relaxed text-[#5a5854]">
-                        Thank you, <span className="font-medium text-[#1a1918]">{form.name}</span>.
-                        We have opened your email client with the enquiry for{' '}
+                        Thank you,{" "}
                         <span className="font-medium text-[#1a1918]">
-                          {form.propertyName || 'your property'}
-                        </span>{' '}
-                        already written — all that is left is to send it.
+                          {form.name}
+                        </span>
+                        . We have opened your email client with the enquiry for{" "}
+                        <span className="font-medium text-[#1a1918]">
+                          {form.propertyName || "your property"}
+                        </span>{" "}
+                        already written, so all that is left is to send it.
                       </p>
                       <p className="mx-auto max-w-md text-sm leading-relaxed text-[#5a5854]">
-                        Did your email client not open? Copy the message and write to us at{' '}
+                        Did your email client not open? Copy the message and
+                        write to us at{" "}
                         <a
                           href={`mailto:${contact.emailAddress}`}
                           className="font-medium text-[#1a1918] underline underline-offset-4"
@@ -188,7 +204,9 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                             required
                             autoComplete="name"
                             value={form.name}
-                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                            onChange={(e) =>
+                              setForm({ ...form, name: e.target.value })
+                            }
                             className={fieldClass}
                           />
                         </Field>
@@ -199,7 +217,9 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                             type="email"
                             autoComplete="email"
                             value={form.email}
-                            onChange={(e) => setForm({ ...form, email: e.target.value })}
+                            onChange={(e) =>
+                              setForm({ ...form, email: e.target.value })
+                            }
                             className={fieldClass}
                           />
                         </Field>
@@ -208,7 +228,9 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                           <input
                             required
                             value={form.propertyName}
-                            onChange={(e) => setForm({ ...form, propertyName: e.target.value })}
+                            onChange={(e) =>
+                              setForm({ ...form, propertyName: e.target.value })
+                            }
                             className={fieldClass}
                           />
                         </Field>
@@ -217,7 +239,9 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                           <select
                             required
                             value={form.scope}
-                            onChange={(e) => setForm({ ...form, scope: e.target.value })}
+                            onChange={(e) =>
+                              setForm({ ...form, scope: e.target.value })
+                            }
                             className={fieldClass}
                           >
                             <option value="">Select</option>
@@ -233,7 +257,9 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                           <textarea
                             required
                             value={form.message}
-                            onChange={(e) => setForm({ ...form, message: e.target.value })}
+                            onChange={(e) =>
+                              setForm({ ...form, message: e.target.value })
+                            }
                             placeholder="Your goal, approximate dates and any context you think is useful."
                             className={`${fieldClass} h-48 min-h-[190px] resize-y`}
                           />
@@ -251,9 +277,10 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
                     </>
                   )}
                 </div>
-              </motion.aside>
-            </div>
-          </>
+              </div>
+            </motion.aside>
+          </div>
+        </>
       )}
     </AnimatePresence>
   );
