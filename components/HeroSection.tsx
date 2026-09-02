@@ -41,7 +41,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ introDone }) => {
     <section className="relative h-[100svh] min-h-[680px] w-full select-none overflow-hidden bg-[#1a1918] font-sans text-white">
       <img
         src={HERO_PHOTO}
-        alt="Mayu Travel — visual production for luxury hotels"
+        alt="Mayu Travel, visual production for luxury hotels"
         // En movil la foto se dibuja un 5% mas alta y anclada arriba: a 390x844
         // el `cover` ya encaja de altura exacta, asi que `object-position` en el
         // eje Y no hace nada y esta es la unica forma de bajar a la persona
@@ -87,7 +87,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ introDone }) => {
         <motion.h1
           {...rise(0.18)}
           animate={animate}
-          className="m-0 max-w-[7.7ch] font-serif text-[clamp(52px,14.85vw,74px)] font-normal leading-[.84] tracking-[-0.045em] md:max-w-[8.7ch] md:text-[clamp(64px,7.3vw,116px)]"
+          className="m-0 max-w-[7.7ch] font-serif text-[clamp(52px,14.85vw,74px)] font-normal leading-[1] tracking-[-0.045em] md:max-w-[8.7ch] md:text-[clamp(64px,7.3vw,116px)]"
         >
           {hero.titleLead} <i>{hero.titleEmphasis}</i>
         </motion.h1>

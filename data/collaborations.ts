@@ -24,7 +24,7 @@ export const COLLABORATIONS: CollaborationCase[] = [
     id: 'gpro-valparaiso',
     brandName: 'GPRO Valparaiso Palace & Spa',
     category: 'Boutique y Destino',
-    summary: 'Visual production for a five-star boutique resort.',
+    summary: 'Visual production for a luxury boutique resort.',
     hasMedia: false,
   },
   {
@@ -53,7 +53,7 @@ export const COLLABORATIONS: CollaborationCase[] = [
     id: 'delta-park',
     brandName: 'Delta Park',
     category: 'Experiencial y Sostenible',
-    summary: 'Experiential, sustainability-minded content production.',
+    summary: 'Experiential content production with a sustainable outlook.',
     hasMedia: false,
   },
   {
@@ -67,7 +67,7 @@ export const COLLABORATIONS: CollaborationCase[] = [
     id: 'district-hive',
     brandName: 'District Hive',
     category: 'Experiencial y Sostenible',
-    summary: 'Experiential, sustainability-minded visual production.',
+    summary: 'Experiential visual production with a sustainable outlook.',
     hasMedia: false,
   },
 ];
@@ -140,13 +140,13 @@ export const TESTIMONIALS: Testimonial[] = [
       'We are very happy with how the content turned out. Very pleased with the quality and with the results of their creativity.',
     author: 'Zara',
     role: 'Marketing Team',
-    brandName: 'Holiday Inn Express — Amsterdam',
+    brandName: 'Holiday Inn Express Amsterdam',
     photo: publicImage('testi-holiday-inn-v.jpg'),
   },
   {
     id: 't-coeo',
     quote:
-      'The photos are beautiful, and as content for all our channels they work extremely well — you will be seeing them everywhere.',
+      'The photos are beautiful, and as content for all our channels they work extremely well. You will be seeing them everywhere.',
     author: 'María Andrea',
     role: 'Marketing Team',
     brandName: 'COEO Stay & Share',

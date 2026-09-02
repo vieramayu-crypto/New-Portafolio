@@ -85,10 +85,14 @@ export default function App() {
       {/* Detras del cristal, la pagina se desenfoca y se apaga — sin eso, una
           foto a pantalla completa atraviesa el modal como una mancha. Envuelve
           <main> y el pie, nunca el Navbar: un `filter` distinto de `none` crea
-          bloque contenedor y le quitaria el `position: fixed`. */}
+          bloque contenedor y le quitaria el `position: fixed`.
+          El desenfoque es generoso a proposito: el velo bajo a .78 para que se
+          vea el cristal, y con menos desenfoque una foto a pantalla completa
+          atraviesa el panel como una mancha reconocible en vez de como
+          escarcha. */}
       <div
         className={`transition-[filter,transform,opacity] duration-[620ms] ease-[cubic-bezier(.22,1,.36,1)] ${
-          isInquiryOpen ? 'scale-[.994] opacity-60 blur-[10px]' : ''
+          isInquiryOpen ? 'scale-[.994] opacity-60 blur-[20px]' : ''
         }`}
       >
       <main>

@@ -257,7 +257,7 @@ export const HomeMain: React.FC<HomeMainProps> = ({
                       exit={{ opacity: 0, y: 15, scale: 0.95 }}
                       className="mt-glass mt-glass-light mt-glass-panel no-scrollbar absolute bottom-16 z-50 max-h-80 w-80 space-y-1 overflow-y-auto rounded-lg p-3 text-left md:w-96 md:rounded-[10px]"
                     >
-                      <div className="relative z-[2] mb-1 border-b border-[#1a1918]/15 px-3 py-1.5 font-sans text-[10px] uppercase tracking-[0.2em] text-[#5a5854]">
+                      <div className="mb-1 border-b border-[#1a1918]/15 px-3 py-1.5 font-sans text-[10px] uppercase tracking-[0.2em] text-[#5a5854]">
                         Jump to hotel / client ({hotelStories.length})
                       </div>
                       {hotelStories.map((hotel, idx) => (

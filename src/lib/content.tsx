@@ -126,11 +126,11 @@ export const DEFAULT_CONTENT: SiteContent = {
       'We don’t do this to fill a feed. We do it because every hotel has a soul that deserves to be seen the way it feels to be there.',
     mayurlin: {
       name: 'Mayurlin Viera',
-      bio: 'Creating content was Mayu’s dream long before she had the means to do it. Working with the finest hotels in the world was, from the very beginning, her number one goal. That idea never left her — it simply waited for the right moment and the right hands to make it real. Six years and more than thirty-five properties later, she still looks at every new hotel the way she looked at the first.',
+      bio: 'Creating content was Mayu’s dream long before she had the means to do it. Working with the finest hotels in the world was, from the very beginning, her number one goal. That idea never left her. It simply waited for the right moment and the right hands to make it real. Six years and more than 35 properties later, she still looks at every new hotel the way she looked at the first.',
     },
     yerfran: {
       name: 'Yerfran',
-      bio: 'Yerfran came to photography from a different direction: capturing what a person feels in a place, not only how it looks. Years of paying close attention turned into a style of his own — photographs with soul, made with care. Today he co-directs Mayu Travel’s visual production in hotels across Spain, Portugal, Greece, Switzerland and the Netherlands.',
+      bio: 'Yerfran came to photography from a different direction: capturing what a person feels in a place, not only how it looks. Years of paying close attention turned into a style of his own: photographs with soul, made with care. Today he directs Mayu Travel’s visual production alongside Mayurlin, in hotels across Spain, Portugal, Greece, Switzerland and the Netherlands.',
     },
     closingStatement:
       'We are especially drawn to properties with a strong sense of place: architecture, landscape, gastronomy, wellness, service, and projects where sustainability is a real part of the experience.',
@@ -155,7 +155,7 @@ export const DEFAULT_CONTENT: SiteContent = {
       { value: '4', label: 'returning clients' },
     ],
     footnote:
-      'Returning clients — GPRO Valparaíso (3 shoots) · Numa Group (3 properties) · Hotel Espléndido (2 shoots) · Portixol (2 shoots)',
+      'Returning clients: GPRO Valparaíso (3 shoots) · Numa Group (3 properties) · Hotel Espléndido (2 shoots) · Portixol (2 shoots)',
   },
   howWeWork: {
     eyebrow: 'How we work',
@@ -177,11 +177,11 @@ export const DEFAULT_CONTENT: SiteContent = {
         number: '03',
         title: 'Shooting on site',
         description:
-          'Two to five days at the hotel — the scope depends on the season and the activities on offer. We cover the property live while we shoot.',
+          'Two to five days at the hotel, with the scope set by the season and the activities on offer. We cover the property live while we shoot.',
       },
       {
         number: '04',
-        title: 'Post-production and delivery',
+        title: 'Editing and delivery',
         description:
           'Colour grading, editing and delivery in approximately three weeks, organised for immediate use on your website, social channels and advertising.',
       },
@@ -220,14 +220,14 @@ export const DEFAULT_CONTENT: SiteContent = {
       coupleName: 'Moorish architecture',
       description:
         'A Moorish estate of terracotta walls above the cliffs of Guía de Isora, with subtropical gardens descending to the Atlantic and La Gomera on the horizon.',
-      quote: 'Terracotta, ocean and garden — three tones that meet at every corner of Abama.',
+      quote: 'Terracotta, ocean and garden: three tones that meet at every corner of Abama.',
     },
     {
       seccion: 2,
       hotelName: 'INTERCONTINENTAL LISBOA',
       coupleName: 'Urban heights',
       description:
-        'Contemporary architecture on one of Lisbon\'s seven hills, facing Parque Eduardo VII, with the skyline and the Tagus beyond.',
+        'Contemporary architecture on one of Lisbon’s seven hills, facing Parque Eduardo VII, with the skyline and the Tagus beyond.',
       quote: 'The whole of Lisbon unfolds from the top of this hill.',
     },
     {
@@ -235,8 +235,8 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'VESTIGE COLLECTION, BINIDUFÀ',
       coupleName: 'Menorcan heritage',
       description:
-        'An 18th-century possessió restored within an 800-hectare private estate in northern Menorca — stone, clay and agricultural silence.',
-      quote: 'Stone, earth and silence — northern Menorca as it has always been.',
+        'A possessió from the 18th century, restored within a private estate of 800 hectares in northern Menorca: stone, clay and agricultural silence.',
+      quote: 'Stone, earth and silence. Northern Menorca as it has always been.',
     },
     {
       seccion: 4,
@@ -251,8 +251,8 @@ export const DEFAULT_CONTENT: SiteContent = {
       hotelName: 'HONEYMOON PETRA VILLAS',
       coupleName: 'Aegean cliffside',
       description:
-        'Carved into volcanic rock above the Santorini caldera, with one of the most sought-after pools in the Aegean suspended over the sea.',
-      quote: 'Volcanic rock and an endless horizon — this is sunrise over the caldera.',
+        'Carved into volcanic rock above the Santorini caldera, with one of the most coveted pools in the Aegean suspended over the sea.',
+      quote: 'Volcanic rock and an endless horizon. This is sunrise over the caldera.',
     },
     {
       seccion: 6,
@@ -273,9 +273,9 @@ export const DEFAULT_CONTENT: SiteContent = {
     {
       seccion: 8,
       hotelName: 'DISTRICT HIVE',
-      coupleName: 'Off-grid in the desert',
+      coupleName: 'Off the grid, in the desert',
       description:
-        'A capsule of glass and steel suspended above the Gorafe badlands — off-grid architecture with water drawn from the air and solar power.',
+        'A capsule of glass and steel suspended above the Gorafe badlands, with architecture that runs off the grid: water drawn from the air and power from the sun.',
       quote: 'The whole sky for a roof, the whole badlands for a horizon.',
     },
     {
