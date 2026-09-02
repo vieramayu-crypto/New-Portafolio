@@ -1,0 +1,41 @@
+# Genera el sitio ya compilado para el hosting propio de Mayurlin y lo deja
+# como un ZIP descargable desde la propia pantalla de GitHub Actions.
+#
+# No toca GitHub Pages: aquel sigue compilandose con `deploy.yml` y su propia
+# ruta. Aqui solo cambia `VITE_BASE`, que es donde va a vivir el sitio.
+name: Preparar web para mi dominio
+
+on:
+  workflow_dispatch:
+    inputs:
+      ruta:
+        description: 'Donde va a vivir la web. Deja / si va en la raiz del dominio (mayurlintravel.eu). Si va en una subcarpeta, escribela entre barras, por ejemplo /portfolio/'
+        required: true
+        default: '/'
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  paquete:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Compilar para la ruta indicada
+        run: npm run build
+        env:
+          VITE_BASE: ${{ inputs.ruta }}
+      - name: Comprobar que las rutas quedaron bien
+        run: |
+          echo "Ruta usada: ${{ inputs.ruta }}"
+          grep -o 'src="[^"]*"' dist/index.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: web-para-mi-dominio
+          path: dist
+          retention-days: 30
