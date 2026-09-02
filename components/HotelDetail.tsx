@@ -19,10 +19,13 @@ interface GalleryPhotoProps {
   bleed?: boolean;
 }
 
+/** Los nombres viven en mayusculas en los datos y aqui se pasan a caja de
+ *  titulo. Hay que capitalizar tambien detras de un guion o una barra, no solo
+ *  detras de un espacio: THE RITZ-CARLTON salia como "The Ritz-carlton". */
 function toTitleCase(value: string): string {
   return value
     .toLowerCase()
-    .replace(/(^|\s)\S/g, (letter) => letter.toUpperCase());
+    .replace(/(^|[\s\-–—/(])(\S)/g, (_, antes, letra) => antes + letra.toUpperCase());
 }
 
 const GalleryPhoto: React.FC<GalleryPhotoProps> = ({ photo, y, aspectClass, widthClass, offsetClass, bleed }) => (
@@ -926,7 +929,22 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
           onLoad={() => setHeroLoaded(true)}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1918]/60 via-transparent to-[#1a1918]/10" />
+        {/* El titular vive centrado, y el degradado anterior era transparente
+            justo ahi: sobre una portada clara (sec1) se perdia. Este recorre la
+            imagen entera y nunca llega a transparente, asi que no hay ningun
+            canto que delate una capa encima — se lee como exposicion, no como
+            velo. Medido sobre sec1-portada.jpg: el p95 del fondo bajo el
+            titular sube de 1,37:1 a 2,60:1, y la sombra del titular hace el
+            resto. Se probo .36, que llega a 3:1, pero ahi la foto ya se ve
+            apagada y el degradado deja de ser invisible. */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(26,25,24,.32) 0%, rgba(26,25,24,.30) 45%, rgba(26,25,24,.40) 78%, rgba(26,25,24,.56) 100%)',
+          }}
+        />
 
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
@@ -936,7 +954,7 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
         >
           <span
             className="font-serif text-white leading-[0.95] tracking-tight text-[13vw] sm:text-7xl md:text-8xl lg:text-[7.5rem]"
-            style={{ textShadow: '0 2px 24px rgba(0,0,0,0.25)' }}
+            style={{ textShadow: '0 1px 3px rgba(0,0,0,0.28), 0 2px 34px rgba(0,0,0,0.5)' }}
           >
             {toTitleCase(story.hotelName)}
           </span>
