@@ -1039,8 +1039,8 @@ export const HotelDetail: React.FC<HotelDetailProps> = ({
               className="overflow-hidden"
             >
               <div className="pt-6 space-y-1.5 text-xs sm:text-sm text-[#5a5854] font-sans">
-                <div>Photography &amp; Creative Direction &mdash; Mayurlin Viera</div>
-                <div>Film &amp; Production &mdash; Yerfran</div>
+                <div>Photography &amp; Creative Direction · Mayurlin Viera</div>
+                <div>Film &amp; Production · Yerfran</div>
               </div>
             </motion.div>
           )}

@@ -15,11 +15,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     caseStudy: {
       season: 'July · Summer',
       duration: '4 days',
-      usage: 'Social media · High-season campaign',
+      usage: 'Social media · Peak season campaign',
     },
     coverImage: publicImage('sec1-portada.jpg'),
     description: 'A Moorish estate of terracotta walls above the cliffs of Guía de Isora, The Ritz-Carlton Tenerife, Abama spreads its subtropical gardens down to the Atlantic, with La Gomera on the horizon. Inside, the arcades, courtyards and stepped fountains carry the same language: warm stone, water and shade. Every corner of the property tells a different story, and together they form one of the most complete stages we have filmed.',
-    quote: 'Terracotta, ocean and garden — three tones that meet at every corner of Abama.',
+    quote: 'Terracotta, ocean and garden: three tones that meet at every corner of Abama.',
     photos: [
       {
         id: 'gt-1',
@@ -130,7 +130,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     },
     coverImage: publicImage('sec7-portada.jpg'),
     description:
-      "Built on one of Lisbon’s seven hills, facing Parque Eduardo VII, InterContinental Lisboa combines contemporary architecture with views reaching all the way to the Tagus — a modern reading of the Lisbon skyline.",
+      "Built on one of Lisbon’s seven hills, facing Parque Eduardo VII, InterContinental Lisboa combines contemporary architecture with views reaching all the way to the Tagus, a modern reading of the Lisbon skyline.",
     quote: 'The whole of Lisbon unfolds from the top of this hill.',
     photos: [
       {
@@ -171,7 +171,7 @@ export const HOTEL_STORIES: HotelStory[] = [
         id: 'av-gal-2',
         url: publicImage('sec7-gal03-recepcion-h.jpg'),
         alt: 'Hotel reception with a golden desk and an illuminated blue marble panel',
-        caption: 'Check-in, between blue marble and brass',
+        caption: 'Checking in, between blue marble and brass',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       },
@@ -270,12 +270,12 @@ export const HOTEL_STORIES: HotelStory[] = [
     caseStudy: {
       season: 'June · Summer',
       duration: '3 days',
-      usage: 'Social media · High-season campaign',
+      usage: 'Social media · Peak season campaign',
     },
     coverImage: publicImage('sec2-portada.jpg'),
     description:
-      'In a valley in northern Menorca, within an 800-hectare private estate, Vestige Binidufà restores an 18th-century agricultural possessió — stone, clay and natural materials that take their tone directly from the landscape around them, with the Moorish heritage still present in its name.',
-    quote: 'Stone, earth and silence — northern Menorca as it has always been.',
+      'In a valley in northern Menorca, within a private estate of 800 hectares, Vestige Binidufà restores an agricultural possessió from the 18th century: stone, clay and natural materials that take their tone directly from the landscape around them, with the Moorish heritage still present in its name.',
+    quote: 'Stone, earth and silence. Northern Menorca as it has always been.',
     photos: [
       {
         id: 'vc-1',
@@ -402,7 +402,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     },
     coverImage: publicImage('sec3-portada.jpg'),
     description:
-      'On the shore of Lake Thun, between two nature reserves of the Kander delta, Deltapark Vitalresort combines contemporary Alpine architecture with a 2,000 m² spa — water, mountain and wellness on a single horizon.',
+      'On the shore of Lake Thun, between two nature reserves of the Kander delta, Deltapark Vitalresort combines contemporary Alpine architecture with a 2,000 m² spa: water, mountain and wellness on a single horizon.',
     quote: 'The silence of the Alps, reflected whole in Lake Thun.',
     photos: [
       {
@@ -546,8 +546,8 @@ export const HOTEL_STORIES: HotelStory[] = [
     },
     coverImage: publicImage('sec4-portada.jpg'),
     description:
-      'Suspended above the cliffs of Imerovigli, carved into volcanic rock over the Santorini caldera, Honeymoon Petra Villas offers one of the most sought-after pools in the Aegean — a stone balcony above the bluest sea in Greece.',
-    quote: 'Volcanic rock and an endless horizon — this is sunrise over the caldera.',
+      'Suspended above the cliffs of Imerovigli, carved into volcanic rock over the Santorini caldera, Honeymoon Petra Villas offers one of the most coveted pools in the Aegean, a stone balcony above the bluest sea in Greece.',
+    quote: 'Volcanic rock and an endless horizon. This is sunrise over the caldera.',
     photos: [
       {
         id: 'be-1',
@@ -569,7 +569,7 @@ export const HOTEL_STORIES: HotelStory[] = [
         id: 'be-3',
         url: publicImage('sec4-foto3-h.jpg'),
         alt: 'Infinity pool above the cliffs of Imerovigli',
-        caption: 'One of the most sought-after pools in the Aegean',
+        caption: 'One of the most coveted pools in the Aegean',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       }
@@ -659,7 +659,7 @@ export const HOTEL_STORIES: HotelStory[] = [
         id: 'be-gal-11',
         url: publicImage('sec4-foto3-h.jpg'),
         alt: 'Infinity pool above the cliffs of Imerovigli',
-        caption: 'One of the most sought-after pools in the Aegean',
+        caption: 'One of the most coveted pools in the Aegean',
         aspectRatio: 'landscape',
         isBlackAndWhite: false
       },
@@ -686,11 +686,11 @@ export const HOTEL_STORIES: HotelStory[] = [
     caseStudy: {
       season: 'Summer · 2023, 2024 and 2026',
       duration: '5 days',
-      usage: 'Social media · High-season campaign',
+      usage: 'Social media · Peak season campaign',
     },
     coverImage: publicImage('sec5-portada.jpg'),
     description:
-      'High in the Bonanova district, surrounded by private gardens overlooking the Bay of Palma, GPRO Valparaíso Palace & Spa houses the largest spa in Mallorca — a serene retreat of water, stone and Mediterranean planting.',
+      'High in the Bonanova district, surrounded by private gardens overlooking the Bay of Palma, GPRO Valparaíso Palace & Spa houses the largest spa in Mallorca, a serene retreat of water, stone and Mediterranean planting.',
     quote: 'Gardens, water and the Bay of Palma stretching out beyond every terrace.',
     photos: [
       {
@@ -994,7 +994,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     },
     coverImage: publicImage('sec9-foto1-v.jpg'),
     description:
-      'In the heart of the Gorafe desert, District Hive is a capsule of glass and steel suspended above the Granada badlands — off-grid architecture designed to disappear into the landscape: water from the air, energy from the sun, and the absolute silence of inland Andalusia.',
+      'In the heart of the Gorafe desert, District Hive is a capsule of glass and steel suspended above the Granada badlands, with architecture that runs off the grid and is designed to disappear into it: water from the air, energy from the sun, and the absolute silence of inland Andalusia.',
     quote: 'The whole sky for a roof, the whole badlands for a horizon.',
     photos: [
       {
@@ -1114,7 +1114,7 @@ export const HOTEL_STORIES: HotelStory[] = [
     },
     coverImage: publicImage('sec8-portada.jpg'),
     description:
-      'Among the pine woods of Caravaca de la Cruz, the vaulted villas of Welmoon Paisaje are designed for sleeping under a blanket of stars — intimate architecture, made for switching off from the noise and looking at the sky unfiltered.',
+      'Among the pine woods of Caravaca de la Cruz, the vaulted villas of Welmoon Paisaje are designed for sleeping under a blanket of stars: intimate architecture, made for switching off from the noise and looking at the sky unfiltered.',
     quote: 'A roof of stars and the silence of the Murcian sierra.',
     photos: [
       {
@@ -1178,7 +1178,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       {
         id: 'sdp-gal-5',
         url: publicImage('sec8-gal05-amenities-v.jpg'),
-        alt: 'Welmoon amenities detail: branded jars, an embroidered towel and a heart-shaped welcome box',
+        alt: 'Welmoon amenities detail: branded jars, an embroidered towel and a welcome box with a heart',
         caption: 'The Welmoon detail',
         aspectRatio: 'portrait',
         isBlackAndWhite: false
@@ -1226,7 +1226,7 @@ export const HOTEL_STORIES: HotelStory[] = [
       {
         id: 'sdp-gal-11',
         url: publicImage('sec8-gal08-jacuzzi-noche-v.jpg'),
-        alt: 'Wooden hot tub with a wood-burning stove and lit candles on the terrace, night sky through the pines',
+        alt: 'Wooden hot tub with a log stove and lit candles on the terrace, night sky through the pines',
         caption: 'The jacuzzi by candlelight',
         aspectRatio: 'portrait',
         isBlackAndWhite: false

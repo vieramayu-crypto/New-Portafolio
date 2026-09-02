@@ -95,7 +95,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ open, onClose }) => 
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
               onClick={onClose}
-              className="fixed inset-0 z-[60] bg-[#f5f3ed]/90 backdrop-blur-[9px]"
+              className="fixed inset-0 z-[60] bg-[#f5f3ed]/78 backdrop-blur-[9px]"
               aria-hidden
             />
 
